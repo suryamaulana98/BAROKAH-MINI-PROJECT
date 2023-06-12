@@ -15,4 +15,7 @@ class AdminController extends Controller
     function izinsiswa() {
         return view('admin.laporan_izin');
     }
+    function laporanketua() {
+        return view('admin.laporan_ketua');
+    }
 }
