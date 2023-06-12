@@ -139,7 +139,7 @@
                     <li class="dropdown"><a href="#jadwalpiket"><span>Jadwal piket</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Tambah jadwal piket</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljadwal">Tambah jadwal piket</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
@@ -262,7 +262,15 @@
                               <script>
                                 $(document).ready(function() {
                                   $('#summerNoteInput').summernote({
-                                    height: 300 // Set the height of the SummerNote input
+                                    height: 200, // Set the height of the SummerNote input
+                                    toolbar: [
+          // [groupName, [list of button]]
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['height', ['height']]
+        ]
                                   });
                                 });
                               </script>
@@ -274,8 +282,8 @@
 
 
 
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                              <button type="button" class="btn btn-secondary">Batal</button>
+                              <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                              <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                             </div>
                         </div>
                     </div>
