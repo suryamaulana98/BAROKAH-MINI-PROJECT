@@ -32,11 +32,8 @@ class LoginController extends Controller
         }
         return "Gagal login";
     }
-    public function logout(Request $request) {
+    public function logout() {
         Auth::guard('web')->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
         return redirect('/login');
     }
