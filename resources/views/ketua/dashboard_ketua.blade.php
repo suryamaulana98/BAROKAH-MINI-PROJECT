@@ -207,20 +207,20 @@
                         <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="150px" alt=""
                             style="border-radius: 10%;">
                         <div class="ms-4">
-                            <h5 class="fw-bold" style="font-family: Arial, Helvetica, sans-serif">Surya Maulana Akhmad
+                            <h5 class="fw-bold">Surya Maulana Akhmad
                             </h5>
                             <div class="d-flex flex-column">
                                 <div class="d-flex">
-                                    <p class="me-3 lh-2" style="font-size: 12px">SMKN 1 LUMAJANG</p>
-                                    <p class="me-5" style="font-size: 12px">18489179065</p>
+                                    <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
+                                    <p class="me-5" style="font-size: 1px">18489179065</p>
                                 </div>
                                 <div class=""
-                                    style="width: 110%; height: 95px; margin-top: -5%; background-color: #F1F5FB; border-radius: 5%;">
+                                    style="width: 100%; height: 95px; margin-top: -5%; background-color: #F1F5FB; border-radius: 5%;">
                                     <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
                                         Izin
                                     </p>
                                     <p class="sakit ms-2" style="margin-top: -10px;">SAKIT</p>
-
+                                    <p class="sakit">Acara Keluarga</p>
                                 </div>
                             </div>
                         </div>
