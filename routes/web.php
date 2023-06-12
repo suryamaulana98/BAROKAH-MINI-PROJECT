@@ -16,7 +16,7 @@ Route::get('/login', [LoginController::class, 'index'])->name('login.index');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
 Route::middleware('checkLogin')->group(function () {
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     //admin
     Route::middleware('role:admin')->group(function () {
@@ -42,6 +42,7 @@ Route::middleware('checkLogin')->group(function () {
     Route::middleware('role:siswa')->group(function () {
         Route::get('/dashboard_siswa', [SiswaController::class, 'index'])->name('siswa.dashboard');
     });
+
 });
 
 
