@@ -9,4 +9,7 @@ class AdminController extends Controller
     function index() {
         return view('admin.dashboard_admin');
     }
+    function listsiswa() {
+        return view('admin.list_siswa');
+    }
 }
