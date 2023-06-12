@@ -355,17 +355,33 @@
         </div>
       </div>
 
-      @include('template-admin.footer')
-    </div>
-  </main>
-  <div class="fixed-plugin">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3 ">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Hummarules</h5>
+                <footer class="footer pt-3  ">
+                    <div class="container-fluid">
+                        <div class="row align-items-center justify-content-lg-between">
+                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                <div class="copyright text-center text-sm text-muted text-lg-start">
+                                    ©
+                                    <script>
+                                        document.write(new Date().getFullYear())
+                                    </script>,
+                                    made with <i class="fa fa-heart"></i> by
+                                    <a href="#" class="font-weight-bold" target="_blank">Tim Barokah</a>
+                                    for a better web.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+    </main>
+    <div class="fixed-plugin">
+        <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+            <i class="fa fa-cog py-2"> </i>
+        </a>
+        <div class="card shadow-lg">
+            <div class="card-header pb-0 pt-3 ">
+                <div class="float-start">
+                    <h5 class="mt-3 mb-0">Hummarules</h5>
 
         </div>
         <div class="float-end mt-4">
