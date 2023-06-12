@@ -204,18 +204,19 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="d-flex align-items-start">
-                        <img src="assets/img/testimonials/testimonials-5.jpg" width="150px" alt=""
+                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="150px" alt=""
                             style="border-radius: 10%;">
                         <div class="ms-4">
-                            <h5 class="fw-bold">Surya Maulana Akhmad</h5>
+                            <h5 class="fw-bold" style="font-family: Arial, Helvetica, sans-serif">Surya Maulana Akhmad
+                            </h5>
                             <div class="d-flex flex-column">
                                 <div class="d-flex">
-                                    <p class="me-3">SMKN 1 LUMAJANG</p>
-                                    <p class="ms-auto">18489179065</p>
+                                    <p class="me-3 lh-2" style="font-size: 12px">SMKN 1 LUMAJANG</p>
+                                    <p class="me-5" style="font-size: 12px">18489179065</p>
                                 </div>
                                 <div class=""
                                     style="width: 110%; height: 95px; margin-top: -5%; background-color: #F1F5FB; border-radius: 5%;">
-                                    <p style="font-size: 14px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
+                                    <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
                                         Izin
                                     </p>
                                     <p class="sakit ms-2" style="margin-top: -10px;">SAKIT</p>
@@ -236,7 +237,8 @@
             <div class="row">
                 <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">Selamat Datang di Hummarules</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">We aree team of talented designers making websites with
+                    <h2 data-aos="fade-up" data-aos-delay="400">We aree team of talented designers making websites
+                        with
                         Bootstrap
                     </h2>
                     <!-- <div data-aos="fade-up" data-aos-delay="800">
