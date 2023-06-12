@@ -22,6 +22,7 @@ Route::middleware('checkLogin')->group(function () {
     Route::middleware('role:admin')->group(function () {
         Route::get('/dashboard_admin', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/admin/listsiswa', [AdminController::class, 'listsiswa'])->name('admin.listsiswa');
+        Route::get('/admin/izinsiswa', [AdminController::class, 'izinsiswa'])->name('admin.izinsiswa');
     });
 
     //pembimbing

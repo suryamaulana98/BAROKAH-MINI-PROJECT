@@ -12,4 +12,7 @@ class AdminController extends Controller
     function listsiswa() {
         return view('admin.list_siswa');
     }
+    function izinsiswa() {
+        return view('admin.laporan_izin');
+    }
 }
