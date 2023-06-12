@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="/admin/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="/admin/assets/img/favicon.png">
   <title>
-    Argon Dashboard 2 by Creative Tim
+    Hummarules
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -253,10 +253,7 @@
               </ul>
             </li>
             <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                <form action="{{ route('logout') }}" method="post">
-                    @csrf
-                    <button type="submit" title="Logout" class="nav-link text-white p-0" style="background-color: rgba(0, 0, 0, .0); border: none;"><i class="fa-solid fa-right-from-bracket" style="color: #fff;"></i></button>
-                </form>
+               <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
             </li>
           </ul>
         </div>

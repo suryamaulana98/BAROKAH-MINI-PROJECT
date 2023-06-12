@@ -155,7 +155,7 @@
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="#" style="color: red;">Logout</a></li>
+                            <li><a href="{{ route('logout') }}">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
