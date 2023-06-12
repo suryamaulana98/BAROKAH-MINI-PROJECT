@@ -261,20 +261,19 @@
                               <script>
                                 $(document).ready(function() {
                                   $('#summerNoteInput').summernote({
-                                    height: 300 // Set the height of the SummerNote input
+                                    height: 200, // Set the height of the SummerNote input
+                                    toolbar: [
+                                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                                        ['fontsize', ['fontsize']],
+                                        ['color', ['color']],
+                                        ['para', ['ul', 'ol', 'paragraph']],
+                                        ['height', ['height']]
+                                    ]
                                   });
                                 });
                               </script>
-
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              <button type="submit" class="btn btn-primary">Submit</button>
-                              <button type="button" class="btn btn-secondary">Batal</button>
+                              <button type="submit" class="btn btn-primary " style="width: 100px;margin-right: 15px">Submit</button>
+                              <button type="button" class="btn btn-danger " style="width:  100px">Batal</button>
                             </div>
                         </div>
                     </div>
