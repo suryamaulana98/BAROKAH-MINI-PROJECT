@@ -234,7 +234,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+        aria-hidden="true" id="modalTambahJadwal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -270,9 +270,14 @@
                             });
                         });
                     </script>
+                    <script>
+                        function tutup() {
+                            document.getElementById('modalTambahJadwal').style.display = 'none';
+                        }
+                    </script>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary">Batal</button>
+                    <button type="button" class="btn btn-secondary" onclick="tutup()">Batal</button>
                 </div>
             </div>
         </div>

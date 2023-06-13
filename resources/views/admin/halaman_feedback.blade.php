@@ -72,7 +72,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="{{ route('admin.riwayatizin') }}">
+                <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -82,7 +82,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.feedback') }}">
+                <a class="nav-link active" href="{{route('admin.feedback')}}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -131,9 +131,9 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-white active" aria-current="page">Riwayat izin siswa</li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">Halaman feedback</li>
             </ol>
-            <h6 class="font-weight-bolder text-white mb-0">Riwayat izin siswa</h6>
+            <h6 class="font-weight-bolder text-white mb-0">Halaman feedback</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -239,7 +239,7 @@
           <div class="col-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
-                <p style="font-size: 24px; font-weight: bold;">Riwayat izin siswa<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
+                <p style="font-size: 24px; font-weight: bold;">Feedback<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
                 <div class="row g-2">
                     <div class="col-auto">
                         <button type="button" class="btn dropdown-toggle" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -262,69 +262,72 @@
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
-                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">ASAL SEKOLAH</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL IZIN</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">ALASAN</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">DETAIL</th>
+                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">EMAIL</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL DIKIRIM</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">AKSI</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
                             <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
+                                <p class="text-xs font-weight-bold mb-0">1</p>
                             </div>
                         </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
+                        </td>
+                        <td class="">
+                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
+                            <i class="fa-solid fa-trash text-danger"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>
                             <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
+                                <p class="text-xs font-weight-bold mb-0">2</p>
                             </div>
                         </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
+                        </td>
+                        <td class="">
+                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
+                            <i class="fa-solid fa-trash text-danger"></i>
                         </td>
                       </tr>
                       <tr>
                         <td>
                             <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
+                                <p class="text-xs font-weight-bold mb-0">3</p>
                             </div>
                         </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
+                        </td>
+                        <td class="">
+                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
+                            <i class="fa-solid fa-trash text-danger"></i>
                         </td>
                       </tr>
                     </tbody>
