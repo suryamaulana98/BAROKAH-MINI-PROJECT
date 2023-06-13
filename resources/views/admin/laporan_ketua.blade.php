@@ -82,7 +82,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.feedback') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -92,7 +92,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.pegumuman') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -102,7 +102,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.kontak') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -112,7 +112,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.absen') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >

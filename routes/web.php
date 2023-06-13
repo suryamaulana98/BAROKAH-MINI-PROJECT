@@ -26,6 +26,10 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/admin/laporan/ketua', [AdminController::class, 'laporanketua'])->name('admin.laporanketua');
         Route::get('/admin/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
         Route::get('/admin/riwayatizin', [AdminController::class, 'riwayatizin'])->name('admin.riwayatizin');
+        Route::get('/admin/feedback', [AdminController::class, 'feedback'])->name('admin.feedback');
+        Route::get('/admin/pegumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
+        Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
+        Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
     });
 
     //pembimbing

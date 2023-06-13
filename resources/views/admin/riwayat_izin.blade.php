@@ -82,7 +82,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.feedback') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -92,7 +92,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.pegumuman') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -102,7 +102,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.kontak') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -112,7 +112,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../pages/rtl.html">
+                <a class="nav-link" href="{{ route('admin.absen') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -267,21 +267,13 @@
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL IZIN</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">ALASAN</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">DETAIL</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">STATUS</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
+                            <div class="px-3">
+                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
                             </div>
                         </td>
                         <td class="">
@@ -291,33 +283,16 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-sm bg-gradient-danger">ditolak</span>
-                        </td>
-                        <td>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">
-                            <i class="fa-sharp fa-solid fa-circle-check text-success"></i>
-                          </a>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user">
-                            <i class="fa-solid fa-circle-xmark text-danger"></i>
-                          </a>
                         </td>
                       </tr>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
+                            <div class="px-3">
+                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
                             </div>
                         </td>
                         <td class="">
@@ -327,28 +302,16 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-warning">Darurat</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-sm bg-gradient-success">disetujui</span>
-                        </td>
-                        <td>
-                            <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
                         </td>
                       </tr>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
+                            <div class="px-3">
+                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
                             </div>
                         </td>
                         <td class="">
@@ -358,21 +321,10 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-primary">keluarga</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-sm bg-gradient-warning">menunggu</span>
-                        </td>
-                        <td>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">
-                            <i class="fa-sharp fa-solid fa-circle-check text-success"></i>
-                          </a>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user">
-                            <i class="fa-solid fa-circle-xmark text-danger"></i>
-                          </a>
                         </td>
                       </tr>
                     </tbody>

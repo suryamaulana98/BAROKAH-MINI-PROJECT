@@ -24,4 +24,16 @@ class AdminController extends Controller
     function riwayatizin() {
         return view('admin.riwayat_izin');
     }
+    function feedback() {
+        return view('admin.halaman_feedback');
+    }
+    function pengumuman() {
+        return view('admin.halaman_pengumuman');
+    }
+    function kontak() {
+        return view('admin.kontak');
+    }
+    function absen() {
+        return view('admin.absen');
+    }
 }
