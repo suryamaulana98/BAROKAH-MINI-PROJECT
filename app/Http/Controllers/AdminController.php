@@ -30,4 +30,10 @@ class AdminController extends Controller
     function pengumuman() {
         return view('admin.halaman_pengumuman');
     }
+    function kontak() {
+        return view('admin.kontak');
+    }
+    function absen() {
+        return view('admin.absen');
+    }
 }
