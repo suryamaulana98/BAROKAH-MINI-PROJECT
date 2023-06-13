@@ -42,7 +42,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="{{ route('admin.izinsiswa') }}">
+                <a class="nav-link" href="{{ route('admin.izinsiswa') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -72,7 +72,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
+                <a class="nav-link active" href="{{ route('admin.riwayatizin') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
@@ -131,9 +131,9 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-white active" aria-current="page">Laporan izin siswa</li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">Riwayat izin siswa</li>
             </ol>
-            <h6 class="font-weight-bolder text-white mb-0">Laporan izin siswa</h6>
+            <h6 class="font-weight-bolder text-white mb-0">Riwayat izin siswa</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -239,14 +239,22 @@
           <div class="col-12">
             <div class="card mb-4">
               <div class="card-header pb-0">
-                <p style="font-size: 24px; font-weight: bold;">Laporan izin siswa<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
-                <button type="button" class="btn dropdown-toggle" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pilih sekolah
-                </button>
-                <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                    <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                    <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                    <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                <p style="font-size: 24px; font-weight: bold;">Riwayat izin siswa<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
+                <div class="row g-2">
+                    <div class="col-auto">
+                        <button type="button" class="btn dropdown-toggle" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pilih sekolah
+                        </button>
+                        <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+                            <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
+                            <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
+                            <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                      <label for="inputPassword2" class="visually-hidden">Tanggal</label>
+                      <input type="date" class="form-control" id="inputPassword2" placeholder="Password">
+                    </div>
                 </div>
               </div>
               <div class="card-body px-0 pt-0 pb-2">
