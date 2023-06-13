@@ -10,6 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
     <style>
+        /* css */
         .preloader {
             top: 0;
             left: 0;
