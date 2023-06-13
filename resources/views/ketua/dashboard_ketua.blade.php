@@ -146,7 +146,7 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Laporan harian siswa</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
                             <li><a href="#">Laporan ketua magang</a></li>
                             <li><a href="#">Laporan ke pembimbing</a></li>
                             <li><a href="#">Laporan jurnal</a></li>
@@ -341,6 +341,44 @@
         </div>
     </div>
     {{-- end modal --}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalhariansiswa" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <h3>Laporan harian siswa</h3>
+                <hr>
+                <div class="mb-3 justify-content-between">
+                    <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
+                    <select class="form-select" id="silahkanpilih" aria-label="Default select example">
+                        <option selected disabled>---- Pilih Salah Satu ----</option>
+                        <option value="1">Individu</option>
+                        <option value="2">Kelompok</option>
+                    </select>
+                </div>
+                <div class="mb-3 justify-content-between">
+                    <label for="namaSiswa" class="form-label">Nama Siswa/Tim Project</label>
+                    <input class="form-control" type="text" id="namaSiswa">
+                </div>                
+                <div class="mb-3 justify-content-between">
+                    <label for="tanggal" class="form-label">Tanggal</label>
+                    <input class="form-control" type="date" id="tanggal">
+                </div>
+                <div class="mb-3 justify-content-between">
+                    <label for="linkdokumen" class="form-label">Link dokumen</label>
+                    <input class="form-control" type="text" id="linkdokumen">
+                </div>    
+                
+                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- end modal --}}
     </div>
     </div>
     </div>
