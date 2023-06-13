@@ -149,7 +149,7 @@
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalketuamagang">Laporan ketua magang</a></li>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#">Laporan jurnal</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -440,6 +440,35 @@ aria-hidden="true">
         </div>
     </div>
 </div>
+</div>
+{{-- end modal --}}
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModaljurnal" tabindex="-1" aria-labelledby="exampleModalLabel"
+ aria-hidden="true">
+ <div class="modal-dialog">
+     <div class="modal-content">
+         <div class="modal-body">
+
+             <h3>jurnal siswa</h3>
+             <hr>
+             <div class="mb-3 justify-content-between">
+                 <label for="namaSiswa" class="form-label">Nama Siswa</label>
+                 <input class="form-control" type="text" id="namaSiswa">
+             </div>
+             <div class="mb-3 justify-content-between">
+                 <label for="tanggal" class="form-label">Tanggal</label>
+                 <input class="form-control" type="date" id="tanggal">
+             </div>
+             <div class="mb-3 justify-content-between">
+             <label for="kegiatan" class="form-label">Kegiatan</label>
+             <div class="form-floating">
+             <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
+             </div>
+             <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+             <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+         </div>
+     </div>
+ </div>
 </div>
 {{-- end modal --}}
 
