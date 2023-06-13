@@ -307,7 +307,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">8:12:02</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-danger">alpha</span>
+                                                <span class="badge badge-sm bg-danger" style="width: 80px;">alpha</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -321,7 +321,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">8:12:02</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-warning">telat</span>
+                                                <span class="badge badge-sm bg-warning" style="width: 80px;">telat</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -335,7 +335,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">8:12:02</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-success">Masuk</span>
+                                                <span class="badge badge-sm bg-success" style="width: 80px;">Masuk</span>
                                             </td>
                                         </tr>
                                         <tr>
@@ -349,7 +349,7 @@
                                                 <p class="text-xs font-weight-bold mb-0">8:12:02</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-primary">izin</span>
+                                                <span class="badge badge-sm bg-primary" style="width: 80px;">izin</span>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -283,13 +283,13 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 88px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-danger">ditolak</span>
+                            <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">ditolak</span>
                         </td>
                         <td>
                           <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">
@@ -319,13 +319,13 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-warning">Darurat</span>
+                            <span class="badge badge-sm bg-warning"  style="width: 88px;">Darurat</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-success">disetujui</span>
+                            <span class="badge badge-sm bg-gradient-success" style="width: 100px;">disetujui</span>
                         </td>
                         <td>
                             <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
@@ -350,13 +350,13 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-primary">keluarga</span>
+                            <span class="badge badge-sm bg-primary" style="width: 88px;">keluarga</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-warning">menunggu</span>
+                            <span class="badge badge-sm bg-gradient-warning" style="width: 100px;">menunggu</span>
                         </td>
                         <td>
                           <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">

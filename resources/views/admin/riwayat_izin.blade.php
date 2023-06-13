@@ -283,7 +283,7 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
@@ -302,7 +302,7 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
@@ -321,7 +321,7 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
