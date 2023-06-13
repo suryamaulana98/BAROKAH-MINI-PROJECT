@@ -235,53 +235,62 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
 
-                    <h3>Tambah jadwal piket</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
-                        <textarea class="form-control" id="summerNoteInput"></textarea>
-                    </div>
-
-                    <!-- Include SummerNote JS and CSS -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
-
-                    <!-- Initialize SummerNote -->
-                    <script>
-                        $(document).ready(function() {
-                            $('#summerNoteInput').summernote({
-                                height: 300 // Set the height of the SummerNote input
-                            });
-                        });
-                    </script>
-                    <script>
-                        function tutup() {
-                            document.getElementById('modalTambahJadwal').style.display = 'none';
-                        }
-                    </script>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary" onclick="tutup()">Batal</button>
+                <h3>Tambah jadwal piket</h3>
+                <hr>
+                <div class="mb-3 justify-content-between">
+                    <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
+                    <input class="form-control" type="file" id="formFile">
                 </div>
+
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                </div>
+
+                <div class="mb-3">
+                    <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
+                    <textarea class="form-control" id="summerNoteInput"></textarea>
+                </div>
+
+                <!-- Include SummerNote JS and CSS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <link rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+
+                <!-- Initialize SummerNote -->
+                <script>
+                    $(document).ready(function() {
+                        $('#summerNoteInput').summernote({
+                            height: 200, // Set the height of the SummerNote input
+                            toolbar: [
+                                // [groupName, [list of button]]
+                                ['style', ['bold', 'italic', 'underline', 'clear']],
+                                ['fontsize', ['fontsize']],
+                                ['color', ['color']],
+                                ['para', ['ul', 'ol', 'paragraph']],
+                                ['height', ['height']]
+                            ]
+                        });
+                    });
+                </script>
+                <script>
+                    function tutup() {
+                        document.getElementById('modalTambahJadwal').style.display = 'none';
+                    }
+                </script>
+
+                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                <button type="button" class="btn btn-danger btn-sm" style="width: 100px" onclick="tutup()">Batal</button>
             </div>
         </div>
     </div>
+</div>
+
     {{-- end modal --}}
 
         <!-- Modal -->
