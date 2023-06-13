@@ -147,8 +147,8 @@
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
-                            <li><a href="#">Laporan ketua magang</a></li>
-                            <li><a href="#">Laporan ke pembimbing</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalketuamagang">Laporan ketua magang</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
                             <li><a href="#">Laporan jurnal</a></li>
                         </ul>
                     </li>
@@ -319,7 +319,7 @@
                         <label for="" class="form-label">Alasan Izin</label>
                         <select class="form-select" aria-label="Default select example" >
                             <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="1">iyo</option>
+                            <option value="1">Sakit></option>
                             <option value="2">Acara Keluarga</option>
                             <option value="3">Darurat</option>
                           </select>
@@ -362,16 +362,16 @@
                 <div class="mb-3 justify-content-between">
                     <label for="namaSiswa" class="form-label">Nama Siswa/Tim Project</label>
                     <input class="form-control" type="text" id="namaSiswa">
-                </div>                
+                </div>
                 <div class="mb-3 justify-content-between">
                     <label for="tanggal" class="form-label">Tanggal</label>
                     <input class="form-control" type="date" id="tanggal">
                 </div>
                 <div class="mb-3 justify-content-between">
                     <label for="linkdokumen" class="form-label">Link dokumen</label>
-                    <input class="form-control" type="text" id="linkdokumen">
-                </div>    
-                
+                    <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
+                </div>
+
                 <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                 <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
             </div>
@@ -379,6 +379,70 @@
     </div>
 </div>
 {{-- end modal --}}
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalketuamagang" tabindex="-1" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-body">
+
+              <h3>Laporan ketua magang</h3>
+              <hr>
+              <div class="mb-3 justify-content-between">
+                  <label for="" class="form-label">Nama Ketua Magang</label>
+                  <input class="form-control" type="" id="">
+              </div>
+              <div class="mb-3 justify-content-between">
+                  <label for="" class="form-label">Masukkan tanggal pengerjaan  </label>
+                  <input class="form-control" type="date" id="">
+              </div>
+              <div class="mb-3 justify-content-between">
+                <label for="" class="form-label">Masukkan link pekerjaan</label>
+                <input class="form-control" type="" id="" placeholder="http://....">
+            </div>
+              <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+              <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+          </div>
+      </div>
+  </div>
+</div>
+{{-- end modal --}}
+<!-- Modal -->
+<div class="modal fade" id="exampleModalpembimbing" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-body">
+
+            <h3>Laporan ke pembimbing</h3>
+            <hr>
+            <div class="mb-3 justify-content-between">
+                <label for="" class="form-label">Nama Siswa Magang</label>
+                <input class="form-control" type="" id="">
+            </div>
+
+            <div class="mb-3 justify-content-between">
+                <label for="" class="form-label">Email Siswa Magang</label>
+                <input class="form-control" type="" id="">
+            </div>
+            <div class="mb-3 justify-content-between">
+                <label for="" class="form-label">Masukkan Tanggal Report</label>
+                <input class="form-control" type="date" id="">
+            </div>
+            <div class="mb-3 justify-content-between">
+                <label for="" class="form-label">Isi Pesan</label>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                  </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+            <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+        </div>
+    </div>
+</div>
+</div>
+{{-- end modal --}}
+
     </div>
     </div>
     </div>
