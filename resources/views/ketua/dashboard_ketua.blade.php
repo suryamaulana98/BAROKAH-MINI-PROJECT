@@ -10,6 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
     <style>
+        /* css */
         .preloader {
             top: 0;
             left: 0;
@@ -265,20 +266,13 @@
                     <script>
                         $(document).ready(function() {
                             $('#summerNoteInput').summernote({
-                                height: 200, // Set the height of the SummerNote input
-                                toolbar: [
-                                    // [groupName, [list of button]]
-                                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                                    ['fontsize', ['fontsize']],
-                                    ['color', ['color']],
-                                    ['para', ['ul', 'ol', 'paragraph']],
-                                    ['height', ['height']]
-                                ]
+                                height: 300 // Set the height of the SummerNote input
                             });
                         });
                     </script>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary">Batal</button>
                 </div>
             </div>
         </div>
