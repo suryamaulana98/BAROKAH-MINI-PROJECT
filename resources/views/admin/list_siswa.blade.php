@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/billing.html">
+                    <a class="nav-link" href="{{ route('admin.izinsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/email 1.png" alt="" />
@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/virtual-reality.html">
+                    <a class="nav-link" href="{{ route('admin.laporanketua') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../pages/rtl.html">
+                    <a class="nav-link" href="{{ route('admin.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
