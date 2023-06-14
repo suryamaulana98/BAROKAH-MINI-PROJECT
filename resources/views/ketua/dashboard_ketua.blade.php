@@ -180,29 +180,25 @@
             color: white;
             margin-top: 10px;
             background-color: #FF3500;
-            padding: 1px 24px;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
-
-            width: 84px;
-            left: 246px;
-            top: 134px;
-
-            background: #FF3500;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
+            background: #FF3500;
         }
 
         .acara {
-            position: absolute;
-            width: 115px;
-            height: 24px;
-            left: 343px;
-            top: 135px;
-            background: #516BE0;
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+            background-color: #516BE0;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
-            color: #ffffff;
+            background: #516BE0;
         }
     </style>
     <!-- Modal -->
@@ -219,15 +215,17 @@
                             <div class="d-flex flex-column">
                                 <div class="d-flex">
                                     <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
-                                    <p class="me-5" style="font-size: 1px">18489179065</p>
+                                    <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
                                 </div>
                                 <div class=""
-                                    style="width: 100%; height: 95px; margin-top: -5%; background-color: #F1F5FB; border-radius: 5%;">
+                                    style="width: 100%; height: 95px; background-color: #F1F5FB; border-radius: 5%;">
                                     <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
                                         Izin
                                     </p>
-                                    <p class="sakit ms-2" style="margin-top: -10px;">SAKIT</p>
-                                    <p class="sakit">Acara Keluarga</p>
+                                    <div class="d-flex" style="margin-top: -20px">
+                                        <p class="sakit ms-2 me-3 lh-2">Sakit</p>
+                                        <p class="acara">Acara Keluarga</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
