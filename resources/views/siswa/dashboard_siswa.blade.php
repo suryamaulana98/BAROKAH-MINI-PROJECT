@@ -283,22 +283,22 @@ aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-body">
-            <h3>Izin Siswa/Ketua Magang</h3>
+            <h3><strong>Izin Siswa/Ketua Magang</strong></h3>
             <hr>
             <div class="mb-3 justify-content-between">
-                <label for="namaSiswaMagang" class="form-label">Nama siswa/ketua magang</label>
+                <label for="namaSiswaMagang" class="form-label"><strong>Nama siswa/ketua magang</strong></label>
                 <input class="form-control" type="text" id="namaSiswaMagang">
             </div>
             <div class="mb-3 justify-content-between">
-                <label for="asalSekolahSiswaMagang" class="form-label">Asal sekolah siswa/ketua magang</label>
+                <label for="asalSekolahSiswaMagang" class="form-label"><strong> sekolah siswa/ketua magang</strong></label>
                 <input class="form-control" type="text" id="asalSekolahSiswaMagang">
             </div>
             <div class="mb-3 justify-content-between">
-                <label for="tanggalIzin" class="form-label">Tanggal izin</label>
+                <label for="tanggalIzin" class="form-label"><strong>Tanggal izin</label>
                 <input class="form-control" type="date" id="tanggalIzin">
             </div>
             <div class="mb-3 justify-content-between">
-                <label for="alasanIzin" class="form-label">Alasan izin</label>
+                <label for="alasanIzin" class="form-label"><strong> izin</strong></label>
                 <select class="form-select" aria-label="Default select example" id="alasanIzin">
                     <option selected disabled>---- Pilih Alasan ----</option>
                     <option value="1">Sakit</option>
@@ -307,13 +307,13 @@ aria-hidden="true">
                 </select>
             </div>
             <div class="mb-3 justify-content-between">
-                <label for="pesan" class="form-label">Masukkan pesan</label>
+                <label for="pesan" class="form-label"><strong> pesan</strong></label>
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="pesan" style="height: 100px"></textarea>
                 </div>
             </div>
             <div class="mb-3 justify-content-between">
-                <label for="suratKeterangan" class="form-label">Masukkan surat keterangan</label>
+                <label for="suratKeterangan" class="form-label"><strong> surat keterangan</strong></label>
                 <input class="form-control" type="file" id="suratKeterangan">
             </div>
             <hr>
