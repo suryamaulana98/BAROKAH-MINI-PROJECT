@@ -9,4 +9,5 @@ class KetuaController extends Controller
     function index() {
         return view('ketua.dashboard_ketua');
     }
+   
 }

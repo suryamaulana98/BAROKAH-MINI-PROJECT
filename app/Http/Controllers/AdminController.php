@@ -36,4 +36,7 @@ class AdminController extends Controller
     function absen() {
         return view('admin.absen');
     }
+    function jurnal() {
+        return view('admin.jurnal');
+    }
 }

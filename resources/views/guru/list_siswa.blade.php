@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <a class="nav-link" href="{{ route('guru.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -38,7 +38,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.listsiswa') }}">
+                    <a class="nav-link active" href="{{ route('guru.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -47,25 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.izinsiswa') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/email 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan izin siswa</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanketua') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan ketua magang</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanhariansiswa') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -74,16 +56,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.jurnal') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanjurnalsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
+                    <a class="nav-link" href="{{ route('guru.riwayatizin') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/riwayat.png" alt="" />
@@ -91,35 +73,7 @@
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.feedback')}}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Feedback</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.pegumuman') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/🦆 icon _announcement_.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Pengumuman</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.kontak') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/kontak.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Kontak</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.absen') }}">
+                    <a class="nav-link" href="{{ route('guru.absen') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/jam.png" alt="" />
@@ -138,10 +92,10 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
-                                href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Absen siswa</li>
+                            href="javascript:;">Pages</a></li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">List siswa</li>
                     </ol>
-                    <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">Absen siswa</h6>
+                    <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">List siswa</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -260,24 +214,15 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Absen siswa  <input type="search"
+                            <p style="font-size: 24px; font-weight: bold;">List siswa<input type="search"
                                     placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i class="fa-solid fa-plus"></i> Tambah data</button>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 Pilih sekolah
-                            </button>
-                            <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
-                            </div>
-                            <button type="button" class="btn dropdown-toggle"
-                                style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Status
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
                                 <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
@@ -295,70 +240,176 @@
                                                 NAMA</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                Tanggal</th>
+                                                NISN</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                jam absen</th>
+                                                ASAL SEKOLAH</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                status</th>
+                                                ROLE</th>
+                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                                MAKA PKL</th>
+                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                                AKSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-danger" style="width: 80px;">alpha</span>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-warning" style="width: 80px;">telat</span>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-success" style="width: 80px;">Masuk</span>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-primary" style="width: 80px;">izin</span>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -370,6 +421,25 @@
             </div>
             @include('template-admin.footer')
             @include('template-admin.script')
-</body>
+        </body>
 
 </html>
+
+        {{-- Modal --}}
+<div class="modal modal-transparent fade" id="tambahSiswa" tabindex="-1" role="dialog" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    </div>
+    <div class="modal-body">
+      ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div>
+{{-- End Modal --}}

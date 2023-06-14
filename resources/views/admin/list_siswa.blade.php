@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/admin/assets/img/icons/logo.png">
     <title>
-        Hummarules
+        Hummarulesa
     </title>
     @include('template-admin.head')
 </head>
@@ -71,6 +71,15 @@
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan harian siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.jurnal') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                        </div>
+                        <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
                     </a>
                 </li>
                 <li class="nav-item">

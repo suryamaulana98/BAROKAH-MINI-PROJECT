@@ -17,7 +17,7 @@ class LoginController extends Controller
         $remember = $request->has('remember');
         $validatedData = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:5',
+            'password' => 'required|min:3',
         ]);
         if (Auth::attempt($validatedData, $remember)) {
             if (Auth::user()->role == 'admin') {
@@ -28,6 +28,8 @@ class LoginController extends Controller
                 return redirect()->route('ketua.dashboard');
             } else if (Auth::user()->role == 'siswa') {
                 return redirect()->route('siswa.dashboard');
+            } else if (Auth::user()->role == 'guru') {
+                return redirect()->route('guru.dashboard');
             }
         }
         return "Gagal login";
