@@ -217,7 +217,7 @@
     </div>
 
     <!-- Modal -->
-    {{-- <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -273,7 +273,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 
     {{-- end modal --}}
 
