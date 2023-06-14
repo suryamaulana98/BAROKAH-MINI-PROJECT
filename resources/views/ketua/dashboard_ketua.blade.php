@@ -235,19 +235,63 @@
         </div>
     </div>
 
+    <!-- Modal untuk laporan izin siswa -->
+    <div class="modal fade" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {{-- okeee --}}
+                    <h3>Izin Siswa/Ketua Magang</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Nama Siswa/Ketua Magang</label>
+                        <input class="form-control" type="" id="">
+                    </div>
+
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
+                        <input class="form-control" type="" id="">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
+                        <input class="form-control" type="date" id="">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Alasan Izin</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>---- Pilih Alasan ----</option>
+                            <option value="1">Sakit></option>
+                            <option value="2">Acara Keluarga</option>
+                            <option value="3">Darurat</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Masukkan Pesan</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-<<<<<<< HEAD
-{{-- ok --}}
-                    <h3>Izin Siswa/Ketua Magang</h3>
-=======
 
                     <h3>Tambah jadwal piket</h3>
->>>>>>> 2ad3047a851f4eeceed7b8cba37ffe934c2d6b05
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
