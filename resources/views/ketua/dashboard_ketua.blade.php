@@ -464,6 +464,7 @@ aria-hidden="true">
              <div class="form-floating">
              <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
              </div>
+             </div>
              <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
              <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
          </div>
@@ -1576,11 +1577,11 @@ aria-hidden="true">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="Femas akbar faturrohim" readonly>
+                                    placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="femasakbar79@gmail.com" readonly>
+                                    placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
