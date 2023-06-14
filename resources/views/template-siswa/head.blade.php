@@ -23,14 +23,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-..." crossorigin="anonymous" />
 <link href="/siswa/assets/css/style.css" rel="stylesheet">
-
-
-<!-- Template Main CSS File -->
-<!-- <link href="assets/css/peraturan.css" rel="stylesheet"> -->
-<!-- =======================================================
-* Template Name: Vesperr
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-======================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

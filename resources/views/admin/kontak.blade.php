@@ -268,13 +268,13 @@
                     <div class="row">
                         <div class="col-md-6">
                           <div class="mb-3">
-                            <label for="firstName" class="form-label">Alamat email</label>
+                            <label for="firstName" class="form-label">Twitter</label>
                             <input type="text" class="form-control" id="firstName" name="firstName" required>
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="mb-3">
-                            <label for="lastName" class="form-label">Twitter</label>
+                            <label for="lastName" class="form-label">Facebook</label>
                             <input type="text" class="form-control" id="lastName" name="lastName" required>
                           </div>
                         </div>
@@ -282,7 +282,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="mb-3">
-                            <label for="firstName" class="form-label">Facebook</label>
+                            <label for="firstName" class="form-label">Instagram</label>
                             <input type="text" class="form-control" id="firstName" name="firstName" required>
                           </div>
                         </div>
