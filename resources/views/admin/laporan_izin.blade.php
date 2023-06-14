@@ -72,6 +72,15 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.jurnal') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                    </div>
+                    <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
@@ -234,6 +243,46 @@
         </div>
       </nav>
       <!-- End Navbar -->
+    <script>
+        function konfirmTerima(event, id) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'TERIMA ?',
+                text: 'Anda yakin ingin menerima izin?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Terima!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                // Kode untuk melakukan penghapusan data di sini
+                document.getElementById("terima-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                }
+            });
+        }
+        function konfirmTolak(event, id) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'TOLAK ?',
+                text: 'Anda yakin ingin menolak izin?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Tolak!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                // Kode untuk melakukan penghapusan data di sini
+                document.getElementById("tolak-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                }
+            });
+        }
+    </script>
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
@@ -260,7 +309,7 @@
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">ALASAN</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">DETAIL</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">STATUS</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">AKSI</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -292,12 +341,14 @@
                             <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">ditolak</span>
                         </td>
                         <td>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">
-                            <i class="fa-sharp fa-solid fa-circle-check text-success"></i>
-                          </a>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user">
-                            <i class="fa-solid fa-circle-xmark text-danger"></i>
-                          </a>
+                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
+                                @csrf
+                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"></i></button>
+                            </form>
+                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')">
+                                    @csrf
+                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"></i></button>
+                            </form>
                         </td>
                       </tr>
                       <tr>

@@ -72,6 +72,15 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.jurnal') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                    </div>
+                    <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
+                </a>
+            </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
