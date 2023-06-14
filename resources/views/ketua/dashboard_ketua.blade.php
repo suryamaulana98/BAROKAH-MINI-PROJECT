@@ -180,29 +180,25 @@
             color: white;
             margin-top: 10px;
             background-color: #FF3500;
-            padding: 1px 24px;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
-
-            width: 84px;
-            left: 246px;
-            top: 134px;
-
-            background: #FF3500;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
+            background: #FF3500;
         }
 
         .acara {
-            position: absolute;
-            width: 115px;
-            height: 24px;
-            left: 343px;
-            top: 135px;
-            background: #516BE0;
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+            background-color: #516BE0;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
-            color: #ffffff;
+            background: #516BE0;
         }
 
         .darurat {
@@ -257,6 +253,54 @@
         </div>
     </div>
 
+    <!-- Modal untuk laporan izin siswa -->
+    <div class="modal fade" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {{-- okeee --}}
+                    <h3>Izin Siswa/Ketua Magang</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Nama Siswa/Ketua Magang</label>
+                        <input class="form-control" type="" id="">
+                    </div>
+
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
+                        <input class="form-control" type="" id="">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
+                        <input class="form-control" type="date" id="">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Alasan Izin</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>---- Pilih Alasan ----</option>
+                            <option value="1">Sakit></option>
+                            <option value="2">Acara Keluarga</option>
+                            <option value="3">Darurat</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="" class="form-label">Masukkan Pesan</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -304,63 +348,6 @@
                             });
                         });
                     </script>
-                    <script>
-                        function tutup() {
-                            document.getElementById('modalTambahJadwal').style.display = 'none';
-                        }
-                    </script>
-
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                        onclick="tutup()">Batal</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- end modal --}}
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-
-                    <h3>Izin Siswa/Ketua Magang</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Nama Siswa/Ketua Magang</label>
-                        <input class="form-control" type="" id="">
-                    </div>
-
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
-                        <input class="form-control" type="" id="">
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
-                        <input class="form-control" type="date" id="">
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Alasan Izin</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="1">Sakit></option>
-                            <option value="2">Acara Keluarga</option>
-                            <option value="3">Darurat</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukkan Pesan</label>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                        </div>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                     <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                 </div>
@@ -491,14 +478,14 @@
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
-    </div>
-    {{-- end modal --}}
+        {{-- end modal --}}
 
     </div>
     </div>
@@ -1604,11 +1591,11 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                                    placeholder="Your Name" value="Femas akbar faturrohim" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                                    placeholder="Your Email" value="femasakbar79@gmail.com" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
