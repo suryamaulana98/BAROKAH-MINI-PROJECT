@@ -200,31 +200,49 @@
             border-radius: 30px;
             background: #516BE0;
         }
+
+        .darurat {
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+            background-color: #28B62E;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #28B62E;
+        }
     </style>
     <!-- Modal untuk profil siswa-->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 108%">
                 <div class="modal-body">
                     <div class="d-flex align-items-start">
-                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="150px" alt=""
+                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
                             style="border-radius: 10%;">
                         <div class="ms-4">
-                            <h5 class="fw-bold">Surya Maulana Akhmad
-                            </h5>
+                            <div class="d-flex">
+                                <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
+                                </h5>
+                                <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
+                                    aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
+                            </div>
                             <div class="d-flex flex-column">
-                                <div class="d-flex">
+                                <div class="d-flex" style="margin-left: -12px">
                                     <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
                                     <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
                                 </div>
                                 <div class=""
-                                    style="width: 100%; height: 95px; background-color: #F1F5FB; border-radius: 5%;">
+                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
                                     <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
                                         Izin
                                     </p>
                                     <div class="d-flex" style="margin-top: -20px">
                                         <p class="sakit ms-2 me-3 lh-2">Sakit</p>
-                                        <p class="acara">Acara Keluarga</p>
+                                        <p class="acara me-3">Acara Keluarga</p>
+                                        <p class="darurat">Hal Darurat</p>
                                     </div>
                                 </div>
                             </div>
