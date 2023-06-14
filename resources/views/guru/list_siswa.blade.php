@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/admin/assets/img/icons/logo.png">
     <title>
-        Hummarulesa
+        Hummarules
     </title>
     @include('template-admin.head')
 </head>
@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <a class="nav-link" href="{{ route('guru.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -38,7 +38,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.listsiswa') }}">
+                    <a class="nav-link active" href="{{ route('guru.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -47,25 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.izinsiswa') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/email 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan izin siswa</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanketua') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan ketua magang</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanhariansiswa') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -74,7 +56,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanjurnalsiswa') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
+                        </div>
+                        <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('guru.riwayatizin') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/riwayat.png" alt="" />
@@ -82,35 +73,7 @@
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.feedback')}}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Feedback</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.pegumuman') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/🦆 icon _announcement_.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Pengumuman</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.kontak') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/kontak.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Kontak</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.absen') }}">
+                    <a class="nav-link" href="{{ route('guru.absen') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/jam.png" alt="" />
