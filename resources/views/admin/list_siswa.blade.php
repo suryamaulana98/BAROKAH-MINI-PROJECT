@@ -288,10 +288,31 @@
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 MAKA PKL</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">
                                                 AKSI</th>
                                         </tr>
                                     </thead>
+                                    <script>
+                                        function konfirmHapus(event, id) {
+                                            event.preventDefault();
+
+                                            Swal.fire({
+                                                title: 'HAPUS ?',
+                                                text: 'Anda yakin ingin menghapus siswa ini?',
+                                                icon: 'warning',
+                                                showCancelButton: true,
+                                                confirmButtonColor: '#3085d6',
+                                                cancelButtonColor: '#d33',
+                                                confirmButtonText: 'Ya, hapus!',
+                                                cancelButtonText: 'Batal'
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                // Kode untuk melakukan penghapusan data di sini
+                                                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                                                }
+                                            });
+                                        }
+                                    </script>
                                     <tbody>
                                         <tr>
                                             <td>
@@ -320,133 +341,21 @@
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
                                             </td>
-                                            <td>
+                                            <td style="width: 8px;">
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
+                                                    style="margin-right: 4px">
                                                     <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
                                                 </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
+                                                <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" style="background: none; border: none;">
+                                                        <i class="fa-solid fa-trash" style="font-size: 0.75rem; color: #dc3545;"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>
