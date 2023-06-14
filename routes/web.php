@@ -35,6 +35,8 @@ Route::middleware('checkLogin')->group(function () {
     //pembimbing
     Route::middleware('role:pembimbing')->group(function () {
         Route::get('/dashboard_pembimbing', [PembimbingController::class, 'index'])->name('pembimbing.dashboard');
+        Route::get('/pembimbing/listsiswa',[PembimbingController::class, 'listsiswa'])->name('pembimbing.listsiswa');
+        Route::get('/pembimbing/izinsiswa',[PembimbingController::class, 'izinsiswa'])->name('pembimbing.izinsiswa');
     });
 
     //guru

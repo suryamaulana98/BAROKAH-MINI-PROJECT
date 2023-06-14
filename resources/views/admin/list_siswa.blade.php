@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.feedback')}}">
+                    <a class="nav-link" href="{{ route('admin.feedback') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
@@ -129,7 +129,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
-                            href="javascript:;">Pages</a></li>
+                                href="javascript:;">Pages</a></li>
                         <li class="breadcrumb-item text-sm text-white active" aria-current="page">List siswa</li>
                     </ol>
                     <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">List siswa</h6>
@@ -255,7 +255,8 @@
                                     placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i class="fa-solid fa-plus"></i> Tambah data</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i
+                                    class="fa-solid fa-plus"></i> Tambah data</button>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -288,7 +289,8 @@
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 MAKA PKL</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
+                                                colspan="2">
                                                 AKSI</th>
                                         </tr>
                                     </thead>
@@ -307,8 +309,8 @@
                                                 cancelButtonText: 'Batal'
                                             }).then((result) => {
                                                 if (result.isConfirmed) {
-                                                // Kode untuk melakukan penghapusan data di sini
-                                                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                                                    // Kode untuk melakukan penghapusan data di sini
+                                                    document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
                                                 }
                                             });
                                         }
@@ -349,11 +351,13 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                                                <form action="#" method="post" id="myForm-id"
+                                                    onsubmit="konfirmHapus(event, '1')">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" style="background: none; border: none;">
-                                                        <i class="fa-solid fa-trash" style="font-size: 0.75rem; color: #dc3545;"></i>
+                                                        <i class="fa-solid fa-trash"
+                                                            style="font-size: 0.75rem; color: #dc3545;"></i>
                                                     </button>
                                                 </form>
                                             </td>
@@ -367,25 +371,25 @@
             </div>
             @include('template-admin.footer')
             @include('template-admin.script')
-        </body>
+</body>
 
 </html>
 
-        {{-- Modal --}}
-<div class="modal modal-transparent fade" id="tambahSiswa" tabindex="-1" role="dialog" >
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+{{-- Modal --}}
+<div class="modal modal-transparent fade" id="tambahSiswa" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-      ...
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-  </div>
-</div>
 </div>
 {{-- End Modal --}}
