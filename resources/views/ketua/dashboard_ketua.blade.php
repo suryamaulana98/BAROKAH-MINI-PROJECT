@@ -299,7 +299,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-
+{{-- ok --}}
                     <h3>Izin Siswa/Ketua Magang</h3>
                     <hr>
                     <div class="mb-3 justify-content-between">
