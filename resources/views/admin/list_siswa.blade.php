@@ -255,7 +255,7 @@
                                     placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
-                            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Tambah data</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i class="fa-solid fa-plus"></i> Tambah data</button>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -458,6 +458,25 @@
             </div>
             @include('template-admin.footer')
             @include('template-admin.script')
-</body>
+        </body>
 
 </html>
+
+        {{-- Modal --}}
+<div class="modal modal-transparent fade" id="tambahSiswa" tabindex="-1" role="dialog" >
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    </div>
+    <div class="modal-body">
+      ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
+</div>
+</div>
+{{-- End Modal --}}
