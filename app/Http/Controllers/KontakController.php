@@ -21,10 +21,12 @@ class KontakController extends Controller
         $kontak = Kontak::count();
         if ($kontak == 0) {
             Kontak::create($validatedData);
+            session()->flash('berhasil', 'Berhasil disimpan');
             return redirect()->route('admin.kontak');
         } else {
             Kontak::truncate();
             Kontak::create($validatedData);
+            session()->flash('berhasil', 'Berhasil disimpan');
             return redirect()->route('admin.kontak');
         }
     }
