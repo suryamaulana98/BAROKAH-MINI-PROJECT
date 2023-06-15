@@ -354,7 +354,7 @@
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user"
                                                     style="margin-right: 4px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd; font-size: 16px;"></i>
                                                 </a>
                                             </td>
                                             <td>
@@ -362,7 +362,7 @@
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" style="background: none; border: none;">
-                                                        <i class="fa-solid fa-trash" style="font-size: 0.75rem; color: #dc3545;"></i>
+                                                        <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
                                                     </button>
                                                 </form>
                                             </td>
