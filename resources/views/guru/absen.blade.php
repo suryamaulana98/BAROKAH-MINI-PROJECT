@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('guru.laporanhariansiswa') }}">
+                    <a class="nav-link " href="{{ route('guru.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -65,8 +65,9 @@
                         </div>
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
-                </li>
-                    <a class="nav-link" href="{{ route('guru.absen') }}">
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('guru.absen') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/jam.png" alt="" />
@@ -189,78 +190,89 @@
       <!-- End Navbar -->
       <div class="container-fluid py-4">
         <div class="row">
-          <div class="col-12">
-            <div class="card mb-4">
-              <div class="card-header pb-0">
-                <p style="font-size: 24px; font-weight: bold;">Laporan harian siswa<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
-              </div>
-              <div class="card-body px-0 pt-0 pb-2">
-                <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header pb-0">
+                        <p style="font-size: 24px; font-weight: bold;">Absen siswa  <input type="search"
+                                placeholder="Cari disini..." aria-label="Search"
+                                style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+
+                    </div>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            NAMA</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            Tanggal</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            jam absen</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-danger" style="width: 80px;">alpha</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-warning" style="width: 80px;">telat</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-success" style="width: 80px;">Masuk</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-primary" style="width: 80px;">izin</span>
+                                        </td>
                       </tr>
 
                     </tbody>

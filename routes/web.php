@@ -44,7 +44,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/guru/dashboard', [GuruController::class, 'index'])->name('guru.dashboard');
         Route::get('/guru/listsiswa', [GuruController::class, 'listsiswa'])->name('guru.listsiswa');
         Route::get('/guru/laporan/harian-siswa', [GuruController::class, 'laporanhariansiswa'])->name('guru.laporanhariansiswa');
-        Route::get('/guru/laporan/jurnal-siswa', [GuruController::class, 'laporanjurnalsiswa'])->name('guru.laporanjurnalsiswa');
+        Route::get('/guru/laporan/jurnal', [GuruController::class, 'jurnal'])->name('guru.jurnal');
         Route::get('/guru/riwayatizin', [GuruController::class, 'riwayatizin'])->name('guru.riwayatizin');
         Route::get('/guru/absen', [GuruController::class, 'absen'])->name('guru.absen');
     });

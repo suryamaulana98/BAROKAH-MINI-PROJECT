@@ -40,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('guru.laporanhariansiswa') }}">
+                    <a class="nav-link " href="{{ route('guru.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -49,7 +49,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('guru.jurnal') }}">
+                    <a class="nav-link active" href="{{ route('guru.jurnal') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
@@ -198,69 +198,32 @@
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0">
                     <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
+                        <tr>
+                            <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">kegiatan</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">aksi</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                            </td>
+
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0">Mengerjakan crud laravel</p>
+                            </td>
+                            <td style="width: 8px;">
+                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                    data-toggle="tooltip" data-original-title="Edit user"
+                                    style="margin-right: 7px">
+                                    <i class="fa-solid fa-eye" style="color: #0d6efd; font-size:18px;"></i>
+                                </a>
+                            </td>
                       </tr>
 
                     </tbody>
