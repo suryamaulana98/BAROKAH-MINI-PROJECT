@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KetuaController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\SiswaController;
@@ -32,6 +33,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
         Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
         Route::get('/admin/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
+
+        Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
     });
 
     //pembimbing
@@ -54,7 +57,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/guru/dashboard', [GuruController::class, 'index'])->name('guru.dashboard');
         Route::get('/guru/listsiswa', [GuruController::class, 'listsiswa'])->name('guru.listsiswa');
         Route::get('/guru/laporan/harian-siswa', [GuruController::class, 'laporanhariansiswa'])->name('guru.laporanhariansiswa');
-        Route::get('/guru/laporan/jurnal-siswa', [GuruController::class, 'laporanjurnalsiswa'])->name('guru.laporanjurnalsiswa');
+        Route::get('/guru/laporan/jurnal', [GuruController::class, 'jurnal'])->name('guru.jurnal');
         Route::get('/guru/riwayatizin', [GuruController::class, 'riwayatizin'])->name('guru.riwayatizin');
         Route::get('/guru/absen', [GuruController::class, 'absen'])->name('guru.absen');
     });

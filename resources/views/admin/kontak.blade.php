@@ -11,6 +11,15 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    @if (session('berhasil'))
+        <script>
+            Swal.fire(
+            'Berhasil!',
+            'Berhasil disimpan',
+            'success'
+            )
+        </script>
+    @endif
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -251,18 +260,19 @@
                 <p style="font-size: 24px; font-weight: bold;">Kontak</p>
               </div>
               <div class="container">
-                <form>
+                <form method="POST" action="{{ route('admin.kontak.store') }}">
+                    @csrf
                     <div class="row">
                       <div class="col-md-6">
                         <div class="mb-3">
                           <label for="firstName" class="form-label">Alamat email</label>
-                          <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <input type="text" class="form-control" id="firstName" name="email" value="{{ (isset($kontak->email)) ? $kontak->email : "" }}" required>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="mb-3">
                           <label for="lastName" class="form-label">Nomor telepon</label>
-                          <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <input type="number" class="form-control" id="lastName" name="nomor_telepon" value="{{ (isset($kontak->nomor_telepon)) ? $kontak->nomor_telepon : "" }}" required>
                         </div>
                       </div>
                     </div>
@@ -270,7 +280,7 @@
                       <div class="col-md-12">
                         <div class="mb-3">
                           <label for="message" class="form-label">Alamat kantor</label>
-                          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                          <textarea class="form-control" id="message" name="alamat_kantor" rows="4" required>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "" }}</textarea>
                         </div>
                       </div>
                     </div>
@@ -278,13 +288,13 @@
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="firstName" class="form-label">Twitter</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <input type="text" class="form-control" id="firstName" name="twitter" value="{{ (isset($kontak->twitter)) ? $kontak->twitter : "" }}">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="lastName" class="form-label">Facebook</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <input type="text" class="form-control" id="lastName" name="facebook" value="{{ (isset($kontak->facebook)) ? $kontak->facebook : "" }}">
                           </div>
                         </div>
                       </div>
@@ -292,13 +302,13 @@
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="firstName" class="form-label">Instagram</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            <input type="text" class="form-control" id="firstName" name="instagram" value="{{ (isset($kontak->instagram)) ? $kontak->instagram : "" }}">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="mb-3">
                             <label for="lastName" class="form-label">LinkedIn</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            <input type="text" class="form-control" id="lastName" name="linkedin" value="{{ (isset($kontak->linkedin)) ? $kontak->linkedin    : "" }}">
                           </div>
                         </div>
                       </div>

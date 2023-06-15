@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -31,7 +32,8 @@ class AdminController extends Controller
         return view('admin.halaman_pengumuman');
     }
     function kontak() {
-        return view('admin.kontak');
+        $kontak = Kontak::first();
+        return view('admin.kontak', compact('kontak'));
     }
     function absen() {
         return view('admin.absen');

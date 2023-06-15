@@ -11,6 +11,37 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    <div class="modal modal-lg fade" id="balasFeedback" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><b>Feedback</b></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Nama</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="a" class="form-label" style="font-size:14px;">Pesan</label>
+                        <textarea class="form-control" id="a" rows="4"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="a" class="form-label" style="font-size:14px;">Balas feedback</label>
+                        <textarea class="form-control" id="a" rows="4"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <button type="button" class="btn btn-primary">Balas</button>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -243,6 +274,27 @@
         </div>
       </nav>
       <!-- End Navbar -->
+      <script>
+        function konfirmHapus(event, id) {
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'HAPUS ?',
+                text: 'Anda yakin ingin menghapus ini?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                // Kode untuk melakukan penghapusan data di sini
+                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                }
+            });
+        }
+    </script>
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
@@ -295,50 +347,22 @@
                             <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
                         </td>
                         <td class="">
-                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
-                            <i class="fa-solid fa-trash text-danger"></i>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#balasFeedback">
+
+                                <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" style="background: none; border: none; margin-left: -50px;">
+                                    <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
+                                </button>
+                            </form>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">2</p>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                        </td>
-                        <td class="">
-                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
-                            <i class="fa-solid fa-trash text-danger"></i>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">3</p>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                        </td>
-                        <td class="">
-                            <i class="fa-solid fa-eye text-primary" style="margin-right: 4px;"></i>
-                            <i class="fa-solid fa-trash text-danger"></i>
-                        </td>
-                      </tr>
+
                     </tbody>
                   </table>
                 </div>

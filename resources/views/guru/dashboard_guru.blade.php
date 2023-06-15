@@ -56,10 +56,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('guru.laporanjurnalsiswa') }}">
+                    <a class="nav-link " href="{{ route('guru.jurnal') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
                     </a>
@@ -96,7 +96,7 @@
                                 href="javascript:;">Pages</a></li>
                         <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
                     </ol>
-                    <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+                    <h6 class="font-weight-bolder text-white mb-0">Dashboard guru</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -111,6 +111,7 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
                                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>

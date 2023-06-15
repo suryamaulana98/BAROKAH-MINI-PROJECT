@@ -56,10 +56,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('guru.laporanjurnalsiswa') }}">
+                    <a class="nav-link " href="{{ route('guru.jurnal') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
                     </a>
@@ -109,6 +109,8 @@
                                     <i class="sidenav-toggler-line bg-white"></i>
                                 </div>
                             </a>
+                        </li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
                         </li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
@@ -218,17 +220,6 @@
                                     placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i class="fa-solid fa-plus"></i> Tambah data</button>
-                            <button type="button" class="btn dropdown-toggle"
-                                style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Pilih sekolah
-                            </button>
-                            <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
-                            </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -241,18 +232,10 @@
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 NISN</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                ASAL SEKOLAH</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                ROLE</th>
+                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">STATUS</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 MAKA PKL</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                AKSI</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -273,26 +256,12 @@
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                                <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">keluar</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -312,26 +281,12 @@
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                                <span class="badge badge-sm bg-gradient-primary"  style="width: 100px;">lulus</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -351,26 +306,12 @@
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                                <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">keluar</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -390,31 +331,35 @@
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">18489179065</p>
                                             </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                                <span class="badge badge-sm bg-gradient-success"  style="width: 100px;">Aktif</span>
                                             </td>
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous" onclick="previousPage()">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#" onclick="goToPage(1)">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#" onclick="goToPage(2)">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#" onclick="goToPage(3)">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
                         </div>
                     </div>
                 </div>
