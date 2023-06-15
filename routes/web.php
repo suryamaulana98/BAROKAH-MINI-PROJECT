@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KetuaController;
+use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\SiswaController;
@@ -32,6 +33,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
         Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
         Route::get('/admin/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
+
+        Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
     });
 
     //pembimbing
