@@ -10,3 +10,4 @@
 <!-- CSS Files -->
 <link id="pagestyle" href="/admin/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/admin/assets/js/logout.js"></script>
