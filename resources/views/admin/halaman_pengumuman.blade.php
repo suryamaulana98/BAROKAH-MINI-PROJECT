@@ -11,6 +11,7 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+
     {{-- Tambah modal --}}
     <div class="modal modal-lg fade" id="buatPengumuman" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -32,7 +33,18 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="date" class="form-control" id="tanggal" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal berdasarkan ID
+                            var inputTanggal = document.getElementById("tanggal");
+
+                            // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+                            var tanggalHariIni = new Date().toISOString().slice(0, 10);
+                            console.log(tanggalHariIni);
+
+                            // Mengatur nilai input tanggal dengan tanggal hari ini
+                            inputTanggal.value = tanggalHariIni;
+                        </script>
                     </div>
                 </form>
             </div>
@@ -122,7 +134,7 @@
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
-                    <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
+                  <img src="/admin/assets/img/icons/sidebar/ketua.png" alt="" />
                   </div>
                   <span class="nav-link-text ms-1">Laporan ketua magang</span>
                 </a>

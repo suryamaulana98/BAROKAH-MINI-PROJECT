@@ -53,10 +53,8 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin.laporanketua') }}">
-                  <div
-                    class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
-                  >
-                    <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
+                  <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                    <img src="/admin/assets/img/icons/sidebar/ketua.png" alt="" />
                   </div>
                   <span class="nav-link-text ms-1">Laporan ketua magang</span>
                 </a>
@@ -345,7 +343,9 @@
                                 @csrf
                                 <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"></i></button>
                             </form>
-                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')">
+                        </td>
+                        <td>
+                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
                                     @csrf
                                     <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"></i></button>
                             </form>

@@ -59,7 +59,7 @@
                     <a class="nav-link" href="{{ route('admin.laporanketua') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/ketua.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan ketua magang</span>
                     </a>
@@ -455,7 +455,7 @@
                 <button type="button" class="btn btn-primary">Tambah</button>
             </div>
         </div>
-    </div>  
+    </div>
 </div>
 {{-- End Modal --}}
 
