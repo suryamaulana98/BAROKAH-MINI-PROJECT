@@ -24,4 +24,7 @@ class GuruController extends Controller
     function absen() {
         return view('guru.absen');
     }
+    function jurnal() {
+        return view('guru.jurnal');
+    }
 }
