@@ -111,6 +111,7 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
                                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>

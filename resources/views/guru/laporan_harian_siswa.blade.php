@@ -101,6 +101,7 @@
                   </div>
                 </a>
               </li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
               <li class="nav-item px-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-white p-0">
                   <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
@@ -208,12 +209,9 @@
                       <tr>
                         <td>
                             <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
+
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                <h6 class="mb-0 text-sm">Ahmad Fauzi</h6>
                               </div>
                             </div>
                         </td>
@@ -227,12 +225,8 @@
                       <tr>
                         <td>
                             <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                <h6 class="mb-0 text-sm">Femas Akbar</h6>
                               </div>
                             </div>
                         </td>
@@ -246,12 +240,8 @@
                       <tr>
                         <td>
                             <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
+                                <h6 class="mb-0 text-sm">Reno Gunawan </h6>
                               </div>
                             </div>
                         </td>
