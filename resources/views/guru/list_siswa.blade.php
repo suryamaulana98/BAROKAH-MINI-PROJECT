@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/admin/assets/img/icons/logo.png">
     <title>
-        Hummarulesa
+        Hummarules
     </title>
     @include('template-admin.head')
 </head>
@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+                <a class="nav-link" href="{{ route('guru.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -38,7 +38,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.listsiswa') }}">
+                    <a class="nav-link active" href="{{ route('guru.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -47,25 +47,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.izinsiswa') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/email 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan izin siswa</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanketua') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Laporan ketua magang</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanhariansiswa') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -74,16 +56,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.jurnal') }}">
+                    <a class="nav-link" href="{{ route('guru.laporanjurnalsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
+                    <a class="nav-link" href="{{ route('guru.riwayatizin') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/riwayat.png" alt="" />
@@ -91,35 +73,7 @@
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin.feedback')}}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Feedback</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.pegumuman') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/🦆 icon _announcement_.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Pengumuman</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.kontak') }}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/kontak.png" alt="" />
-                        </div>
-                        <span class="nav-link-text ms-1">Kontak</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.absen') }}">
+                    <a class="nav-link" href="{{ route('guru.absen') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/jam.png" alt="" />
@@ -297,31 +251,10 @@
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 MAKA PKL</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 AKSI</th>
                                         </tr>
                                     </thead>
-                                    <script>
-                                        function konfirmHapus(event, id) {
-                                            event.preventDefault();
-
-                                            Swal.fire({
-                                                title: 'HAPUS ?',
-                                                text: 'Anda yakin ingin menghapus siswa ini?',
-                                                icon: 'warning',
-                                                showCancelButton: true,
-                                                confirmButtonColor: '#3085d6',
-                                                cancelButtonColor: '#d33',
-                                                confirmButtonText: 'Ya, hapus!',
-                                                cancelButtonText: 'Batal'
-                                            }).then((result) => {
-                                                if (result.isConfirmed) {
-                                                // Kode untuk melakukan penghapusan data di sini
-                                                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
-                                                }
-                                            });
-                                        }
-                                    </script>
                                     <tbody>
                                         <tr>
                                             <td>
@@ -350,21 +283,133 @@
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
                                             </td>
-                                            <td style="width: 8px;">
+                                            <td>
                                                 <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 4px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd; font-size: 16px;"></i>
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
                                                 </a>
                                             </td>
+                                        </tr>
+                                        <tr>
                                             <td>
-                                                <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" style="background: none; border: none;">
-                                                        <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
-                                                    </button>
-                                                </form>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
+                                            </td>
+                                            <td class="">
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
+                                            </td>
+                                            <td class="">
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div>
+                                                        <img src="/admin/assets/img/team-3.jpg"
+                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
+                                            </td>
+                                            <td class="">
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                    Apr 2023</span>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                    style="margin-right: 10px">
+                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
+                                                </a>
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="fa-solid fa-trash" style="color: #dc3545;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     </tbody>
