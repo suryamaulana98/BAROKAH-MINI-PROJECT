@@ -159,54 +159,69 @@
             color: white;
             margin-top: 10px;
             background-color: #FF3500;
-            padding: 1px 24px;
-            display: flex;
-            flex-direction: row;
-            align-items: flex-start;
-            gap: 10px;
-
-            width: 84px;
-            left: 246px;
-            top: 134px;
-
-            background: #FF3500;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
+            background: #FF3500;
         }
 
         .acara {
-            position: absolute;
-            width: 115px;
-            height: 24px;
-            left: 343px;
-            top: 135px;
-            background: #516BE0;
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+            background-color: #516BE0;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
             border-radius: 30px;
-            color: #ffffff;
+            background: #516BE0;
+        }
+
+        .darurat {
+            font-size: 14px;
+            color: white;
+            margin-top: 10px;
+            background-color: #28B62E;
+            padding: 5px 12px;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #28B62E;
         }
     </style>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="d-flex align-items-start">
-                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="150px" alt=""
-                            style="border-radius: 10%;">
-                        <div class="ms-4">
-                            <h5 class="fw-bold">Surya Maulana Akhmad
+   <!-- Modal untuk profil siswa-->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 108%">
+            <div class="modal-body">
+                <div class="d-flex align-items-start">
+                    <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
+                        style="border-radius: 10%;">
+                    <div class="ms-4">
+                        <div class="d-flex">
+                            <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
                             </h5>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex">
-                                    <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
-                                    <p class="me-5" style="font-size: 1px">18489179065</p>
-                                </div>
-                                <div class=""
-                                    style="width: 100%; height: 95px; margin-top: -5%; background-color: #F1F5FB; border-radius: 5%;">
-                                    <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
-                                        Izin
-                                    </p>
-                                    <p class="sakit ms-2" style="margin-top: -10px;">SAKIT</p>
-                                    <p class="sakit">Acara Keluarga</p>
+                            <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
+                                aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div class="d-flex" style="margin-left: -12px">
+                                <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
+                                <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
+                            </div>
+                            <div class=""
+                                style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
+                                <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
+                                    Izin
+                                </p>
+                                <div class="d-flex" style="margin-top: -20px">
+                                    <p class="sakit ms-2 me-3 lh-2">Sakit</p>
+                                    <p class="acara me-3">Acara Keluarga</p>
+                                    <p class="darurat">Hal Darurat</p>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +230,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
@@ -278,7 +293,7 @@
     {{-- end modal --}}
 
         <!-- Modal -->
-<div class="modal fade" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div class="modal fade font-family-fixed" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
 aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
@@ -882,95 +897,62 @@ aria-hidden="true">
             </div>
         </section><!-- End Services Section -->
 
-        <!-- ======= Features Section ======= -->
-        <section id="jadwalpiket" class="features">
-            <div class="container">
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Piket</title>
+    <!-- Tambahkan library CSS Lightbox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <section id="jadwalpiket" class="features">
+        <div class="container">
 
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Jadwal piket</h2>
-                    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
-                </div>
-
-                <div class="row" data-aos="fade-up" data-aos-delay="300">
-                    <div class="col-lg-3 col-md-4">
-                        <div class="icon-box">
-                            <i class="ri-store-line" style="color: #ffbb2c;"></i>
-                            <h3><a href="">Lorem Ipsum</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                        <div class="icon-box">
-                            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-                            <h3><a href="">Dolor Sitema</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-                        <div class="icon-box">
-                            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-                            <h3><a href="">Sed perspiciatis</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-                        <div class="icon-box">
-                            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-                            <h3><a href="">Magni Dolores</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-database-2-line" style="color: #47aeff;"></i>
-                            <h3><a href="">Nemo Enim</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-                            <h3><a href="">Eiusmod Tempor</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-                            <h3><a href="">Midela Teren</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-                            <h3><a href="">Pira Neve</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-anchor-line" style="color: #b2904f;"></i>
-                            <h3><a href="">Dirada Pack</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-disc-line" style="color: #b20969;"></i>
-                            <h3><a href="">Moton Ideal</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-base-station-line" style="color: #ff5828;"></i>
-                            <h3><a href="">Verdo Park</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 mt-4">
-                        <div class="icon-box">
-                            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-                            <h3><a href="">Flavor Nivelanda</a></h3>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="section-title" data-aos="fade-up">
+                <h2>Jadwal piket</h2>
             </div>
-        </section><!-- End Features Section -->
+
+            <div class="row" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 1">
+                            <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3 col-md-4">
+                    <div class="icon-box">
+                        <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 2">
+                            <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tambahkan library JavaScript Lightbox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+    </script>
+</body>
+</html>
+
+
+
+
 
         <!-- ======= Testimonials Section ======= -->
-        <section id="testimonials" class="testimonials section-bg">
+        {{-- <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1018,9 +1000,9 @@ aria-hidden="true">
                                     </p>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
@@ -1036,9 +1018,9 @@ aria-hidden="true">
                                     </p>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
@@ -1055,9 +1037,9 @@ aria-hidden="true">
                                     </p>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                        <div class="swiper-slide">
+                        {{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
@@ -1076,17 +1058,17 @@ aria-hidden="true">
                                     </p>
                                 </div>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div><!-- End testimonial item --> --}}
 
-                    </div>
+                    {{-- </div>
                     <div class="swiper-pagination"></div>
                 </div>
 
             </div>
-        </section><!-- End Testimonials Section -->
+        </section><!-- End Testimonials Section --> --}}
 
         <!-- ======= Portfolio Section ======= -->
-        <section id="portfolio" class="portfolio">
+        {{-- <section id="portfolio" class="portfolio">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1263,10 +1245,10 @@ aria-hidden="true">
                 </div>
 
             </div>
-        </section><!-- End Portfolio Section -->
+        </section><!-- End Portfolio Section --> --}}
 
         <!-- ======= Team Section ======= -->
-        <section id="team" class="team section-bg">
+        {{-- <section id="team" class="team section-bg">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1351,10 +1333,10 @@ aria-hidden="true">
                 </div>
 
             </div>
-        </section><!-- End Team Section -->
+        </section><!-- End Team Section --> --}}
 
         <!-- ======= Pricing Section ======= -->
-        <section id="pricing" class="pricing">
+        {{-- <section id="pricing" class="pricing">
             <div class="container">
 
                 <div class="section-title">
@@ -1418,10 +1400,10 @@ aria-hidden="true">
                 </div>
 
             </div>
-        </section><!-- End Pricing Section -->
+        </section><!-- End Pricing Section --> --}}
 
         <!-- ======= F.A.Q Section ======= -->
-        <section id="faq" class="faq">
+        {{-- <section id="faq" class="faq">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1473,9 +1455,9 @@ aria-hidden="true">
                             Lectus urna duis convallis convallis tellus.
                         </p>
                     </div>
-                </div><!-- End F.A.Q Item-->
+                </div><!-- End F.A.Q Item--> --}}
 
-                <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+                {{-- <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                     <div class="col-lg-5">
                         <i class="ri-question-line"></i>
                         <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
@@ -1509,10 +1491,10 @@ aria-hidden="true">
                             blandit turpis cursus in
                         </p>
                     </div>
-                </div><!-- End F.A.Q Item-->
+                </div><!-- End F.A.Q Item--> --}}
 
-            </div>
-        </section><!-- End F.A.Q Section -->
+            {{-- </div>
+        </section><!-- End F.A.Q Section --> --}}
 
         <!-- ======= Contact Section ======= -->
         <section id="kontak" class="contact">
