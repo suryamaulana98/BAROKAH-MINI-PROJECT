@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class PembimbingController extends Controller
 {
     function index() {
+
+
+
         return view('pembimbing.dashboard_pembimbing');
     }
     function listsiswa(){
@@ -19,10 +22,10 @@ class PembimbingController extends Controller
         return view('pembimbing.laporan_ketua');
     }
     function laporanhariansiswa(){
-        return view('pembimbing.laporan_siswa');
+        return view('pembimbing.laporan_harian');
     }
     function laporanjurnalsiswa(){
-        return view('pembimbing.izin_siswa');
+        return view('pembimbing.laporan_jurnal');
     }
     function riwayatsiswa(){
         return view('pembimbing.riwayat_siswa');
@@ -33,7 +36,10 @@ class PembimbingController extends Controller
     function report(){
         return view('pembimbing.report');
     }
-    function cik(){
-        return view('pembimbing.izin_siswa');
+    function pengumpulanjurnal(){
+        return view('pembimbing.pengumpulan_jurnal');
+    }
+    function laporanabsensiswa(){
+        return view('pembimbing.laporan_absen');
     }
 }

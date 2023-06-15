@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -38,7 +38,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('pembimbing.listsiswa') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -56,16 +56,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanketua') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.laporanketua') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/ketua.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Laporan ketua magang</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.laporanhariansiswa') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -74,16 +74,25 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.riwayatizin') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.laporanjurnalsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/riwayat.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
+                        </div>
+                        <span class="nav-link-text ms-1">Laporan jurnal siswa</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pembimbing.riwayatsiswa') }}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                            <img src="/admin/assets/img/icons/sidebar/vector.png" alt="" />
                         </div>
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.feedback') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.feedback') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
@@ -92,25 +101,25 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.pegumuman') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.report') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/🦆 icon _announcement_.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/report.png" alt="" />
                         </div>
-                        <span class="nav-link-text ms-1">Pengumuman</span>
+                        <span class="nav-link-text ms-1">Data Report</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.kontak') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.pengumpulanjurnal') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                            <img src="/admin/assets/img/icons/sidebar/kontak.png" alt="" />
+                            <img src="/admin/assets/img/icons/sidebar/jurnal.png" alt="" />
                         </div>
-                        <span class="nav-link-text ms-1">Kontak</span>
+                        <span class="nav-link-text ms-1">Pengumpulan Jurnal</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.absen') }}">
+                    <a class="nav-link" href="{{ route('pembimbing.laporanabsensiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/jam.png" alt="" />
@@ -287,10 +296,7 @@
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 MAKA PKL</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                                colspan="2">
-                                                AKSI</th>
+
                                         </tr>
                                     </thead>
                                     <script>
@@ -341,24 +347,6 @@
                                             <td>
                                                 <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
                                                     Apr 2023</span>
-                                            </td>
-                                            <td style="width: 8px;">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 4px">
-                                                    <i class="fa-solid fa-pencil" style="color: #0d6efd;"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <form action="#" method="post" id="myForm-id"
-                                                    onsubmit="konfirmHapus(event, '1')">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" style="background: none; border: none;">
-                                                        <i class="fa-solid fa-trash"
-                                                            style="font-size: 0.75rem; color: #dc3545;"></i>
-                                                    </button>
-                                                </form>
                                             </td>
                                         </tr>
                                     </tbody>
