@@ -351,8 +351,8 @@
                                                     Apr 2023</span>
                                             </td>
                                             <td style="width: 8px;">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
+                                                <a href="#" class="text-secondary font-weight-bold text-xs"
+                                                data-toggle="modal" data-target="#editSiswa"
                                                     style="margin-right: 4px">
                                                     <i class="fa-solid fa-pencil" style="color: #0d6efd; font-size: 16px;"></i>
                                                 </a>
@@ -380,7 +380,7 @@
 
 </html>
 
-        {{-- Modal --}}
+        {{-- Modal Tambah --}}
 <div class="modal modal-lg fade" id="tambahSiswa" tabindex="-1" role="dialog" >
 <div class="modal-dialog" role="document">
   <div class="modal-content">
@@ -441,3 +441,68 @@
 </div>
 </div>
 {{-- End Modal --}}
+
+       {{-- Modal Tambah --}}
+       <div class="modal modal-lg fade" id="editSiswa" tabindex="-1" role="dialog" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit siswa</h5>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama siswa</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="nama">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" name="nisn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email siswa</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal sekolah</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" name="asal_sekolah">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role siswa</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option value="1">Siswa magang</option>
+                            <option value="2">Ketua magang</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal PKL</label>
+                                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="" name="awal_pkl">
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Akhir PKL</label>
+                                <input type="date" class="form-control" id="exampleFormControlInput1" placeholder="" name="akhir_pkl">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
+                        <br>
+                        <img src="" alt="" width="80" height="80" style="border-radius: 8px;" srcset="">
+                        <input class="form-control" type="file" id="formFile" name="foto">
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              <button type="button" class="btn btn-primary">Simpan</button>
+            </div>
+          </div>
+        </div>
+        </div>
+        {{-- End Modal --}}
