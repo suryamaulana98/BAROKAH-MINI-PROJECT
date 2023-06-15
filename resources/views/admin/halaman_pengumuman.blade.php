@@ -27,7 +27,7 @@
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="a" class="form-label" style="font-size:14px;">Judul pengumuman</label>
+                        <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
                         <textarea class="form-control" id="a" rows="5"></textarea>
                     </div>
                     <div class="mb-3">
@@ -60,7 +60,7 @@
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="a" class="form-label" style="font-size:14px;">Judul pengumuman</label>
+                        <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
                         <textarea class="form-control" id="a" rows="5"></textarea>
                     </div>
                     <div class="mb-3">
