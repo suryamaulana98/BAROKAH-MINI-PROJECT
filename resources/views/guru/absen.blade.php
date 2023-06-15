@@ -65,7 +65,7 @@
                         </div>
                         <span class="nav-link-text ms-1">Riwayat izin siswa</span>
                     </a>
-                </li>   
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('guru.absen') }}">
                         <div
@@ -277,6 +277,24 @@
 
                     </tbody>
                   </table>
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" onclick="previousPage()">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(1)">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(2)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#" onclick="goToPage(3)">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" onclick="nextPage()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
                 </div>
               </div>
             </div>
