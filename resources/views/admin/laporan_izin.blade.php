@@ -11,6 +11,60 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
+                <i class="fa-sharp fa-solid fa-rectangle-xmark" style="color: red;"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+                <style>
+                    .aaa {
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 16px;
+                        color: #535455;
+                        margin-top: 12px;
+                        margin-bottom: 12px;
+                    }
+                    tr {
+                        height: 30px;
+                    }
+                </style>
+                <table>
+                <tr>
+                    <td class="aaa" style="width: 32%;">Nama</td>
+                    <td class="aaa">Femas akbar faturrohim</td>
+                </tr>
+                <tr>
+                    <td class="aaa">Asal sekolah</td>
+                    <td class="aaa">SMKN 1 LUMAJANG</td>
+                </tr>
+                <tr>
+                    <td class="aaa">Tanggal izin</td>
+                    <td class="aaa">11 Mei 2023</td>
+                </tr>
+                <tr>
+                    <td class="aaa">Alasan</td>
+                    <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT</td>
+                </tr>
+                <tr>
+                    <td class="aaa">Pesan</td>
+                    <td class="aaa">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</td>
+                </tr>
+                <tr>
+                    <td class="aaa">Lihat surat</td>
+                    <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#">p.pdf</a></td>
+                </tr>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -333,7 +387,7 @@
                             <span class="badge badge-sm bg-danger" style="width: 88px;">Sakit</span>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <button class="badge badge-sm bg-gradient-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                         <td>
                             <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">ditolak</span>
