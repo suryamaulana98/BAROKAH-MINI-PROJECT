@@ -317,6 +317,28 @@
                                 <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
                             </div>
                         </div>
+
+                        <!-- Modal -->
+
+                        <!-- Vertically centered scrollable modal -->
+                        <div class="modal fade" id="modaldetail" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Detail Pesan / Keterangan
+                                        </h5>
+                                        <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="">Isi Pesan</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
@@ -371,8 +393,10 @@
                                                     style="width: 88px;">Sakit</span>
                                             </td>
                                             <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
+                                                <a href="#modaldetail" data-bs-toggle="modal">
+                                                    <span class="badge badge-sm bg-gradient-primary"><i
+                                                            class="fa-solid fa-eye"></i> detail</span>
+                                                </a>
                                             </td>
                                             <td>
                                                 <span class="badge badge-sm bg-gradient-danger"

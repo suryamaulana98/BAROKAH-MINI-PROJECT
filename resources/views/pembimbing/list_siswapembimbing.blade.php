@@ -321,33 +321,149 @@
                                         }
                                     </script>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
+
+                                        <style>
+                                            .sakit {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #FF3500;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #FF3500;
+                                            }
+
+                                            .acara {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #516BE0;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #516BE0;
+                                            }
+
+                                            .darurat {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #28B62E;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #28B62E;
+                                            }
+
+                                            #nama {
+                                                font-size: 20px;
+                                            }
+
+                                            /* Media queries untuk tampilan responsif */
+                                            @media screen and (max-width: 576px) {
+
+                                                .sakit,
+                                                .acara,
+                                                .darurat {
+                                                    font-size: 10px;
+                                                    /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                    padding: 1% 3%;
+                                                    /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                }
+
+                                                #nama {
+                                                    font-size: 16px;
+                                                }
+                                            }
+                                        </style>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <div class="d-flex flex-column align-items-start">
+                                                            <div class="d-flex">
+                                                                <img src="/siswa/assets/img/testimonials/testimonials-5.jpg"
+                                                                    width="35%" alt=""
+                                                                    style="border-radius: 10%;" class="me-3">
+                                                                <div>
+                                                                    <h5 class="fw-bold me-5 text-wrap text-break"
+                                                                        id="nama">Reno
+                                                                        Gunawan Assegaf</h5>
+
+                                                                    <div class="d-flex flex-wrap">
+                                                                        <p class="mb-0 me-3" style="font-size: 12px">
+                                                                            SMKN 1 LUMAJANG</p>
+                                                                        <p class="mb-0" style="font-size: 12px">
+                                                                            18489179065</p>
+                                                                    </div>
+                                                                    <div class="mt-3"
+                                                                        style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 3%;">
+                                                                        <p class="ms-1"
+                                                                            style="font-size: 12px; opacity: 0.5; color: #444444;">
+                                                                            Detail Izin</p>
+                                                                        <div class="d-flex" style="margin-top: -20px">
+                                                                            <p class="sakit ms-2 me-3 lh-2 fw-bold">
+                                                                                Sakit</p>
+                                                                            <p class="acara me-3 fw-bold">Acara
+                                                                                Keluarga</p>
+                                                                            <p class="darurat fw-bold">Hal Darurat</p>
+                                                                        </div>
+                                                                        <div class="d-flex" style="margin-top: -4%">
+                                                                            <h6 style="margin-left: 8%">12</h6>
+                                                                            <h6 style="margin-left: 25%">30</h6>
+                                                                            <h6 style="margin-left: 32%">15</h6>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <i class="fas fa-xmark" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></i>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
+                                            </div>
+                                        </div>
+
+
+                                        <td>
+                                            <div class="d-flex px-2 py-1">
+                                                <div>
+                                                    <img src="/admin/assets/img/team-3.jpg"
+                                                        class="avatar avatar-sm me-3" alt="user2">
+                                                </div>
+                                                <a data-bs-toggle="modal" href="#exampleModal">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                        <p class="text-xs text-secondary mb-0">
+                                                            alexa@creative-tim.com
+                                                        </p>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0">18489179065</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                        </td>
+                                        <td>
+                                            <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                        </td>
+                                        <td>
+                                            <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
+                                                Apr 2023</span>
+                                        </td>
                                         </tr>
                                     </tbody>
                                 </table>

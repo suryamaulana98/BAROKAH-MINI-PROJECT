@@ -311,7 +311,9 @@
                                             </td>
                                             <td class="">
                                                 <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
+                                                        class="fa-solid fa-eye"></i><a class="text-white"
+                                                        target="_blank"
+                                                        href="https://docs.google.com">detail</a></span>
                                             </td>
                                         </tr>
                                     </tbody>
