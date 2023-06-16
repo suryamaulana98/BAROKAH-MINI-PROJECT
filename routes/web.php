@@ -6,6 +6,7 @@ use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
+use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,12 +30,13 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/admin/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
         Route::get('/admin/riwayatizin', [AdminController::class, 'riwayatizin'])->name('admin.riwayatizin');
         Route::get('/admin/feedback', [AdminController::class, 'feedback'])->name('admin.feedback');
-        Route::get('/admin/pegumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
+        Route::get('/admin/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
         Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
         Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
         Route::get('/admin/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
 
         Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
+        Route::post('/admin/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
     });
 
     //pembimbing

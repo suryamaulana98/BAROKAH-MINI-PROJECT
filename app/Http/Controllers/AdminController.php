@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kontak;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -29,7 +30,8 @@ class AdminController extends Controller
         return view('admin.halaman_feedback');
     }
     function pengumuman() {
-        return view('admin.halaman_pengumuman');
+        $pengumumans = Pengumuman::all();
+        return view('admin.halaman_pengumuman', compact('pengumumans'));
     }
     function kontak() {
         $kontak = Kontak::first();

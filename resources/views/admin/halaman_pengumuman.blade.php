@@ -21,19 +21,19 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{ route('admin.pengumuman.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul_pengumuman">
                     </div>
                     <div class="mb-3">
                         <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
-                        <textarea class="form-control" id="a" rows="5"></textarea>
+                        <textarea class="form-control" id="a" rows="5" name="isi_pengumuman"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                        <input type="date" class="form-control" id="tanggal" readonly>
+                        <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
                         <script>
                             // Mendapatkan elemen input tanggal berdasarkan ID
                             var inputTanggal = document.getElementById("tanggal");
@@ -46,11 +46,11 @@
                             inputTanggal.value = tanggalHariIni;
                         </script>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Tambah</button>
             </div>
           </div>
         </div>
@@ -364,33 +364,41 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Pengumuman liburan idul adha</p>
-                            </div>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0">Pengumuman libur hari ini</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                        </td>
-                        <td class="">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman">
-                                <i class="fa-solid fa-pencil text-primary" style="margin-right: 8px;"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" style="background: none; border: none; margin-left: -40px;">
-                                    <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
-                                </button>
-                            </form>
-                        </td>
-                      </tr>
+                    @if (count($pengumumans) > 0)
+                      @foreach ($pengumumans as $pengumuman)
+                        <tr>
+                            <td>
+                                <div class="px-3">
+                                    <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ $pengumuman->judul_pengumuman }}">{{ (strlen($pengumuman->judul_pengumuman) < 30) ? $pengumuman->judul_pengumuman : Str::limit($pengumuman->judul_pengumuman, 30) . '...' }}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0" title="{{ $pengumuman->isi_pengumuman }}">{{ (strlen($pengumuman->isi_pengumuman) < 36) ? $pengumuman->isi_pengumuman : Str::limit($pengumuman->isi_pengumuman, 36) . '...' }}</p>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ \Carbon\Carbon::parse($pengumuman->tanggal_pengumuman)->formatLocalized('%d %B %Y') }}</p>
+                            </td>
+                            <td>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman">
+                                    <i class="fa-solid fa-pencil text-primary" style="margin-right: 8px;"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" style="background: none; border: none; margin-left: -30px;">
+                                        <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                      @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4"><center><p class="text-xs font-weight-bold text-uppercase">tidak ada data</p></center></td>
+                        </tr>
+                    @endif
                     </tbody>
                   </table>
                 </div>
