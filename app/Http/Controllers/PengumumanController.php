@@ -17,4 +17,11 @@ class PengumumanController extends Controller
         Pengumuman::create($validatedData);
         return back()->with('berhasilTambah', 'Berhasil menambah pengumuman');
     }
+    function hapusPengumuman(Pengumuman $pengumuman) {
+        if ($pengumuman->delete()) {
+            return back()->with('berhasilMenghapus', 'Berhasil menghapus pengumuman');
+        } else {
+            return back()->withErrors(['errorHapus' => 'Gagal menghapus pengumuman']);
+        }
+    }
 }

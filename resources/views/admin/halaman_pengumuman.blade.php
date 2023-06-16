@@ -321,27 +321,7 @@
         </div>
       </nav>
       <!-- End Navbar -->
-    <script>
-        function konfirmHapus(event, id) {
-            event.preventDefault();
 
-            Swal.fire({
-                title: 'HAPUS ?',
-                text: 'Anda yakin ingin menghapus pengumuman ini?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                // Kode untuk melakukan penghapusan data di sini
-                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
-                }
-            });
-        }
-    </script>
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
@@ -365,7 +345,13 @@
                     </thead>
                     <tbody>
                     @if (count($pengumumans) > 0)
+                    @php
+                        $i = 1;
+                    @endphp
                       @foreach ($pengumumans as $pengumuman)
+                      @php
+                          $i++;
+                      @endphp
                         <tr>
                             <td>
                                 <div class="px-3">
@@ -384,7 +370,7 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                                <form action="{{ route('admin.pengumuman.hapus', ['pengumuman' => $pengumuman->id]) }}" method="post" id="myForm-{{ $i }}" onsubmit="konfirmHapus(event, {{ $i }})">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" style="background: none; border: none; margin-left: -30px;">
@@ -399,6 +385,27 @@
                             <td colspan="4"><center><p class="text-xs font-weight-bold text-uppercase">tidak ada data</p></center></td>
                         </tr>
                     @endif
+                    <script>
+                        function konfirmHapus(event, id) {
+                            event.preventDefault();
+
+                            Swal.fire({
+                                title: 'HAPUS ?',
+                                text: 'Anda yakin ingin menghapus pengumuman ini?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Ya, hapus!',
+                                cancelButtonText: 'Batal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                // Kode untuk melakukan penghapusan data di sini
+                                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                                }
+                            });
+                        }
+                    </script>
                     </tbody>
                   </table>
                 </div>
