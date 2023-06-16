@@ -147,14 +147,15 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalketuamagang">Laporan ketua magang</a></li>
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
-                                    jurnal</a></li>
+                            <li class="dropdown"><a href="#"><span>Laporan harian siswa</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                  <li><a href="#">Detail Laporan</a></li>
+                                  <li><a href="#" data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat Laporan</a></li>
+                                </ul>
+                              </li>
+                            <li><a href="#" data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua magang</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -357,7 +358,7 @@
     {{-- end modal --}}
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalhariansiswa" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModalbuatlaporan" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -478,9 +479,9 @@
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm me-2"
-                            style="width: 100px">Submit</button>
-                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                     </div>
                 </div>
             </div>

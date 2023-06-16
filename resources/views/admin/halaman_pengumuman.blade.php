@@ -11,6 +11,7 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+
     {{-- Tambah modal --}}
     <div class="modal modal-lg fade" id="buatPengumuman" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -20,25 +21,36 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form action="{{ route('admin.pengumuman.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul_pengumuman">
                     </div>
                     <div class="mb-3">
                         <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
-                        <textarea class="form-control" id="a" rows="5"></textarea>
+                        <textarea class="form-control" id="a" rows="5" name="isi_pengumuman"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal berdasarkan ID
+                            var inputTanggal = document.getElementById("tanggal");
+
+                            // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+                            var tanggalHariIni = new Date().toISOString().slice(0, 10);
+                            console.log(tanggalHariIni);
+
+                            // Mengatur nilai input tanggal dengan tanggal hari ini
+                            inputTanggal.value = tanggalHariIni;
+                        </script>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Tambah</button>
             </div>
           </div>
         </div>
@@ -81,7 +93,7 @@
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-          <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
+          <a class="navbar-brand m-0" href="#" target="_blank">
             <img src="/admin/assets/img/hummarules-removebg-icikiwr.png" class="navbar-brand-img h-100" alt="main_logo">
           </a>
         </div>
@@ -122,7 +134,7 @@
                   <div
                     class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"
                   >
-                    <img src="/admin/assets/img/icons/sidebar/Vector.png" alt="" />
+                  <img src="/admin/assets/img/icons/sidebar/ketua.png" alt="" />
                   </div>
                   <span class="nav-link-text ms-1">Laporan ketua magang</span>
                 </a>
@@ -302,34 +314,14 @@
                 </ul>
               </li>
               <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                 <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+                 <a class="nav-link text-white p-0" href="javascript:logout()"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-    <script>
-        function konfirmHapus(event, id) {
-            event.preventDefault();
 
-            Swal.fire({
-                title: 'HAPUS ?',
-                text: 'Anda yakin ingin menghapus pengumuman ini?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                // Kode untuk melakukan penghapusan data di sini
-                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
-                }
-            });
-        }
-    </script>
       <div class="container-fluid py-4">
         <div class="row">
           <div class="col-12">
@@ -352,33 +344,68 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Pengumuman liburan idul adha</p>
-                            </div>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0">Pengumuman libur hari ini</p>
-                        </td>
-                        <td class="">
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                        </td>
-                        <td class="">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman">
-                                <i class="fa-solid fa-pencil text-primary" style="margin-right: 8px;"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" style="background: none; border: none; margin-left: -40px;">
-                                    <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
-                                </button>
-                            </form>
-                        </td>
-                      </tr>
+                    @if (count($pengumumans) > 0)
+                    @php
+                        $i = 1;
+                    @endphp
+                      @foreach ($pengumumans as $pengumuman)
+                      @php
+                          $i++;
+                      @endphp
+                        <tr>
+                            <td>
+                                <div class="px-3">
+                                    <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ $pengumuman->judul_pengumuman }}">{{ (strlen($pengumuman->judul_pengumuman) < 30) ? $pengumuman->judul_pengumuman : Str::limit($pengumuman->judul_pengumuman, 30) . '...' }}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0" title="{{ $pengumuman->isi_pengumuman }}">{{ (strlen($pengumuman->isi_pengumuman) < 36) ? $pengumuman->isi_pengumuman : Str::limit($pengumuman->isi_pengumuman, 36) . '...' }}</p>
+                            </td>
+                            <td>
+                                <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ \Carbon\Carbon::parse($pengumuman->tanggal_pengumuman)->formatLocalized('%d %B %Y') }}</p>
+                            </td>
+                            <td>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman">
+                                    <i class="fa-solid fa-pencil text-primary" style="margin-right: 8px;"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{{ route('admin.pengumuman.hapus', ['pengumuman' => $pengumuman->id]) }}" method="post" id="myForm-{{ $i }}" onsubmit="konfirmHapus(event, {{ $i }})">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" style="background: none; border: none; margin-left: -30px;">
+                                        <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                      @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4"><center><p class="text-xs font-weight-bold text-uppercase">tidak ada data</p></center></td>
+                        </tr>
+                    @endif
+                    <script>
+                        function konfirmHapus(event, id) {
+                            event.preventDefault();
+
+                            Swal.fire({
+                                title: 'HAPUS ?',
+                                text: 'Anda yakin ingin menghapus pengumuman ini?',
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Ya, hapus!',
+                                cancelButtonText: 'Batal'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                // Kode untuk melakukan penghapusan data di sini
+                                document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                                }
+                            });
+                        }
+                    </script>
                     </tbody>
                   </table>
                 </div>

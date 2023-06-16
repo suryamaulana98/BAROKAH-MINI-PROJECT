@@ -16,10 +16,10 @@
             </div>
             <div class="col-lg-6">
                 <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                    <a href="#intro" class="scrollto">Home</a>
-                    <a href="#about" class="scrollto">About</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
+                    <a href="#hero" class="scrollto">Home</a>
+                    <a href="#peraturanMagang" class="scrollto">Peraturan Magang</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Izin Siswa</a>
+                    <a href="#jadwalpiket" class="scrollto">Jadwal Piket</a>
                 </nav>
             </div>
         </div>

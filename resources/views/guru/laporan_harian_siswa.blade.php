@@ -200,6 +200,7 @@
                   <table class="table align-items-center mb-0">
                     <thead>
                       <tr>
+                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#</th>
                         <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
@@ -207,6 +208,11 @@
                     </thead>
                     <tbody>
                       <tr>
+                        <td>
+                            <div class="px-3">
+                                <p class="text-xs text-secondary mb-0">1
+                            </div>
+                        </td>
                         <td>
                             <div class="d-flex px-2 py-1">
 
@@ -224,6 +230,11 @@
                       </tr>
                       <tr>
                         <td>
+                            <div class="px-3">
+                                <p class="text-xs text-secondary mb-0">2
+                            </div>
+                        </td>
+                        <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">
                                 <h6 class="mb-0 text-sm">Femas Akbar</h6>
@@ -238,6 +249,11 @@
                         </td>
                       </tr>
                       <tr>
+                        <td>
+                            <div class="px-3">
+                                <p class="text-xs text-secondary mb-0">3
+                            </div>
+                        </td>
                         <td>
                             <div class="d-flex px-2 py-1">
                               <div class="d-flex flex-column justify-content-center">

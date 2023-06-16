@@ -227,7 +227,7 @@
                                             <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
                                         </td>
                                         <td class="">
-                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                            <p class="text-xs font-weight-bold mb-0">08:12:02</p>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-danger" style="width: 80px;">alpha</span>
@@ -241,7 +241,7 @@
                                             <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
                                         </td>
                                         <td class="">
-                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                            <p class="text-xs font-weight-bold mb-0">08:12:02</p>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-warning" style="width: 80px;">telat</span>
@@ -255,7 +255,7 @@
                                             <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
                                         </td>
                                         <td class="">
-                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                            <p class="text-xs font-weight-bold mb-0">08:12:02</p>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-success" style="width: 80px;">Masuk</span>
@@ -269,7 +269,7 @@
                                             <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
                                         </td>
                                         <td class="">
-                                            <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                            <p class="text-xs font-weight-bold mb-0">08:12:02</p>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-primary" style="width: 80px;">izin</span>
