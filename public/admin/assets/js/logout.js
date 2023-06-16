@@ -8,6 +8,9 @@ function logout() {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Ya!'
     }).then((result) => {
-        window.location = '/logout'
+        console.log(result.isConfirmed);
+        if (result.isConfirmed) {
+            window.location = '/logout'
+        }
     })
 }

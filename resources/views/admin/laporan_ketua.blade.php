@@ -236,7 +236,7 @@
                 </ul>
               </li>
               <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                 <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+                 <a class="nav-link text-white p-0" href="javascript:logout()"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
               </li>
             </ul>
           </div>
