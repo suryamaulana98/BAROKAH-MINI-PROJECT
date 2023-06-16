@@ -626,35 +626,16 @@ aria-hidden="true">
                                                     aria-labelledby="heading1" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <div class="program-des">
-                                                            <p>Pakaian adalah barang yang digunakan untuk menutupi tubuh
-                                                                dan
-                                                                melindungi dari elemen
-                                                                lingkungan. Pakaian dapat terdiri dari berbagai jenis
-                                                                dan
-                                                                gaya, termasuk pakaian
-                                                                sehari-hari, pakaian formal, pakaian olahraga, pakaian
-                                                                tidur, dan banyak lagi. Pakaian
-                                                                adalah barang yang digunakan untuk menutupi tubuh dan
-                                                                melindungi dari elemen lingkungan.
-                                                                Pakaian dapat terdiri dari berbagai jenis dan gaya,
-                                                                termasuk
-                                                                pakaian sehari-hari, pakaian
-                                                                formal, pakaian olahraga, pakaian tidur, dan banyak
-                                                                lagi.Pakaian adalah barang yang
-                                                                digunakan untuk menutupi tubuh dan melindungi dari
-                                                                elemen
-                                                                lingkungan. Pakaian dapat
-                                                                terdiri dari berbagai jenis dan gaya, termasuk pakaian
-                                                                sehari-hari, pakaian formal,
-                                                                pakaian olahraga, pakaian tidur, dan banyak lagi.
-                                                                Pakaian
-                                                                adalah barang yang digunakan
-                                                                untuk menutupi tubuh dan melindungi dari elemen
-                                                                lingkungan.
-                                                                Pakaian dapat terdiri dari
-                                                                berbagai jenis dan gaya, termasuk pakaian sehari-hari,
-                                                                pakaian formal, pakaian olahraga,
-                                                                pakaian tidur, dan banyak lagi.</p>
+                                                            <p>Peraturan berpakaian di kantor sangat penting untuk menciptakan suasana yang profesional dan representatif. Kami memiliki beberapa aturan mengenai berpakaian yang diharapkan setiap karyawan patuhi:
+
+                                                                1. Pakaian formal atau semi-formal sangat dianjurkan. Setelan jas, blazer, atau dress dengan tampilan yang rapi dan sopan akan mencerminkan keseriusan dan profesionalisme Anda.
+
+                                                                2. Hindari mengenakan pakaian santai seperti kaos oblong, celana pendek, sandal jepit, dan sejenisnya kecuali dalam keadaan tertentu yang diizinkan oleh manajemen.
+
+                                                                3. Pastikan pakaian yang dikenakan selalu rapi dan bersih. Hindari pakaian yang kusut, lusuh, atau tidak terawat karena dapat memberikan kesan yang kurang profesional.
+
+                                                                Peraturan berpakaian ini bertujuan untuk menciptakan lingkungan kerja yang serius, formal, dan memberikan kesan yang baik kepada klien, rekan kerja, dan pengunjung kantor. Dengan mematuhi peraturan ini, kita dapat mencapai citra profesional yang konsisten di tempat kerja.
+                                                                </p>
 
                                                         </div>
                                                     </div>
@@ -670,7 +651,7 @@ aria-hidden="true">
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse2" aria-expanded="true"
                                                         aria-controls="collapse2">
-                                                        <h6 style="font-weight: bold;">B. PRA PPDB</h4>
+                                                        <h6 style="font-weight: bold;">peraturan piket</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse2" class="accordion-collapse collapse"
@@ -716,9 +697,7 @@ aria-hidden="true">
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse4" aria-expanded="true"
                                                         aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;">D. TAHAP II : JALUR PRESTASI
-                                                            NILAI
-                                                            AKADEMIK SMA</h4>
+                                                        <h6 style="font-weight: bold;">peraturan di dalam kantor</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse4" class="accordion-collapse collapse"
@@ -752,7 +731,7 @@ aria-hidden="true">
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse5" aria-expanded="true"
                                                         aria-controls="collapse5">
-                                                        <h6 style="font-weight: bold;">E. TAHAP III : JALUR ZONASI SMK
+                                                        <h6 style="font-weight: bold;">peraturan kerapian rambut
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -897,14 +876,9 @@ aria-hidden="true">
             </div>
         </section><!-- End Services Section -->
 
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Piket</title>
-    <!-- Tambahkan library CSS Lightbox -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
 </head>
 <body>
     <section id="jadwalpiket" class="features">
@@ -914,21 +888,21 @@ aria-hidden="true">
                 <h2>Jadwal piket</h2>
             </div>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="300">
+            <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up" data-aos-delay="300">
                 <div class="col-lg-3 col-md-4">
                     <div class="icon-box">
-                        <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 1">
-                            <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                        <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="">
+                            <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="" style="width: 350px; height: 450px;">
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="300">
+            <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up" data-aos-delay="300">
                 <div class="col-lg-3 col-md-4">
                     <div class="icon-box">
-                        <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 2">
-                            <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                        <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="">
+                            <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="" style="width: 350px; height: 450px;">
                         </a>
                     </div>
                 </div>
@@ -936,7 +910,7 @@ aria-hidden="true">
         </div>
     </section>
 
-    <!-- Tambahkan library JavaScript Lightbox -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script>
         lightbox.option({
