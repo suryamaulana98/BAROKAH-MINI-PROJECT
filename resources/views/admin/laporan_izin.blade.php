@@ -11,27 +11,7 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
-    {{-- Modal profil --}}
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    {{-- End modal profil --}}
+
     <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -58,16 +38,16 @@
                 </style>
                 <table>
                 <tr>
-                    <td class="aaa" style="width: 32%;">Nama</td>
-                    <td class="aaa">Femas akbar faturrohim</td>
+                    <td class="aaa" style="width: 28%;">Nama</td>
+                    <td class="aaa"><span style="margin-right: 12px;">:</span> Femas akbar faturrohim</td>
                 </tr>
                 <tr>
                     <td class="aaa">Asal sekolah</td>
-                    <td class="aaa">SMKN 1 LUMAJANG</td>
+                    <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1 LUMAJANG</td>
                 </tr>
                 <tr>
                     <td class="aaa">Tanggal izin</td>
-                    <td class="aaa">11 Mei 2023</td>
+                    <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei 2023</td>
                 </tr>
                 <tr>
                     <td class="aaa">Alasan</td>
@@ -75,11 +55,11 @@
                 </tr>
                 <tr>
                     <td class="aaa">Pesan</td>
-                    <td class="aaa">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</td>
+                    <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</span></td>
                 </tr>
                 <tr>
                     <td class="aaa">Lihat surat</td>
-                    <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#">p.pdf</a></td>
+                    <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#"><span style="margin-right: 12px;">:</span> p.pdf</a></td>
                 </tr>
                 </table>
             </div>
@@ -387,8 +367,72 @@
                     </thead>
                     <tbody>
                       <tr>
+                         {{-- Modal profil --}}
+    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          {{-- <div class="modal-content">
+            <div class="modal-body"> --}}
+                <div class="card card-profile">
+                    <img src="/admin/assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+                    <div class="row justify-content-center">
+                      <div class="col-4 col-lg-4 order-lg-2">
+                        <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                          <a href="javascript:;">
+                            <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                      <div class="d-flex justify-content-between">
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div class="row">
+                        <div class="col">
+                          <div class="d-flex justify-content-center">
+                            <div class="d-grid text-center">
+                              <span class="text-lg font-weight-bolder">22</span>
+                              <span class="text-sm opacity-8">Sakit</span>
+                            </div>
+                            <div class="d-grid text-center mx-4">
+                              <span class="text-lg font-weight-bolder">10</span>
+                              <span class="text-sm opacity-8">Acara keluarga</span>
+                            </div>
+                            <div class="d-grid text-center">
+                              <span class="text-lg font-weight-bolder">89</span>
+                              <span class="text-sm opacity-8">Hal darurat</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5>
+                          Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                        </h5>
+                        <div class="h6 font-weight-300">
+                          <i class="ni location_pin mr-2"></i>1847313113
+                        </div>
+                        <div class="h6 mt-4">
+                          <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                        </div>
+                        <div>
+                          <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            {{-- </div>
+          </div> --}}
+        </div>
+    </div>
+    {{-- End modal profil --}}
                         <td>
-                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                            <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                            </a>
                         </td>
                         <td class="">
                           <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
