@@ -335,6 +335,8 @@
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                                         </div>
+                                        <label for="">Surat Keterangan</label><br>
+                                        <img src="/admin/assets/img/sakit.jpeg" width="20%" alt="">
                                     </div>
                                 </div>
                             </div>
