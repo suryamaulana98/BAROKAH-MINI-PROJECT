@@ -947,7 +947,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>  
             </section>
             <!-- Tambahkan library JavaScript Lightbox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
@@ -956,7 +956,7 @@
             'resizeDuration': 200,
             'wrapAround': true
         });
-        
+
     </script>
 </body>
 </html>
