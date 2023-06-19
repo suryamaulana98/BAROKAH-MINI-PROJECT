@@ -241,11 +241,11 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div>
+                                                                <img src="/admin/assets/img/team-3.jpg"
+                                                                    class="avatar avatar-sm me-3" alt="user2">
+                                                            </div>
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Alexa Liras</h6>
                                                         <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
