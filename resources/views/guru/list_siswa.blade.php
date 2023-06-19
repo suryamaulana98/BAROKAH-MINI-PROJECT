@@ -215,12 +215,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
-                        <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">List siswa<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
-                            </p>
-                        </div>
+                        <div class="card-header pb-0" style="display: flex; align-items: center;">
+  <p style="font-size: 24px; font-weight: bold; flex-grow: 1;">List siswa</p>
+  <div style="position: relative;">
+    <i class="fas fa-search" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);"></i>
+    <input type="search" placeholder="Cari disini..." aria-label="Search" style="border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding: 16px; padding-left: 40px;">
+  </div>
+</div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
@@ -235,7 +236,7 @@
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">STATUS</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                MAKA PKL</th>
+                                                MASA PKL</th>
                                         </tr>
                                     </thead>
                                     <tbody>
