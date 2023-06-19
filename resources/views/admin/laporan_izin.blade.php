@@ -11,6 +11,27 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    {{-- Modal profil --}}
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    {{-- End modal profil --}}
     <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -367,15 +388,7 @@
                     <tbody>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
+                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
                           <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
@@ -407,15 +420,7 @@
                       </tr>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
+                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
                           <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
@@ -447,15 +452,7 @@
                       </tr>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
+                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
                         </td>
                         <td class="">
                           <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>

@@ -13,6 +13,68 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    {{-- Modal profil --}}
+    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          {{-- <div class="modal-content">
+            <div class="modal-body"> --}}
+                <div class="card card-profile">
+                    <img src="/admin/assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
+                    <div class="row justify-content-center">
+                      <div class="col-4 col-lg-4 order-lg-2">
+                        <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                          <a href="javascript:;">
+                            <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                      <div class="d-flex justify-content-between">
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                      </div>
+                    </div>
+                    <div class="card-body pt-0">
+                      <div class="row">
+                        <div class="col">
+                          <div class="d-flex justify-content-center">
+                            <div class="d-grid text-center">
+                              <span class="text-lg font-weight-bolder">22</span>
+                              <span class="text-sm opacity-8">Sakit</span>
+                            </div>
+                            <div class="d-grid text-center mx-4">
+                              <span class="text-lg font-weight-bolder">10</span>
+                              <span class="text-sm opacity-8">Acara keluarga</span>
+                            </div>
+                            <div class="d-grid text-center">
+                              <span class="text-lg font-weight-bolder">89</span>
+                              <span class="text-sm opacity-8">Hal darurat</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="text-center mt-4">
+                        <h5>
+                          Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                        </h5>
+                        <div class="h6 font-weight-300">
+                          <i class="ni location_pin mr-2"></i>1847313113
+                        </div>
+                        <div class="h6 mt-4">
+                          <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                        </div>
+                        <div>
+                          <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            {{-- </div>
+          </div> --}}
+        </div>
+    </div>
+    {{-- End modal profil --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -327,17 +389,19 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
+                                                <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal" data-toggle="modal">
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div>
+                                                            <img src="/admin/assets/img/team-3.jpg"
+                                                                class="avatar avatar-sm me-3" alt="user2">
+                                                        </div>
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
+                                                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
+                                                </a>
                                             </td>
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">18489179065</p>

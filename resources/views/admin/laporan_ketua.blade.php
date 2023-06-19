@@ -264,15 +264,7 @@
                     <tbody>
                       <tr>
                         <td>
-                            <div class="d-flex px-2 py-1">
-                              <div>
-                                <img src="/admin/assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                              </div>
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                              </div>
-                            </div>
+                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
                         </td>
                         <td>
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
