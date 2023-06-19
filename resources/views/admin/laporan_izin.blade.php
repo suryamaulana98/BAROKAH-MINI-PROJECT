@@ -424,16 +424,25 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-warning"  style="width: 88px;">Darurat</span>
+                            <span class="badge badge-sm bg-primary" style="width: 88px;">keluarga</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-success" style="width: 100px;">disetujui</span>
+                            <span class="badge badge-sm bg-warning" style="width: 100px;">menunggu</span>
                         </td>
                         <td>
-                            <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
+                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
+                                @csrf
+                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
+                                    @csrf
+                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
+                            </form>
                         </td>
                       </tr>
                       <tr>
@@ -455,25 +464,16 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-primary" style="width: 88px;">keluarga</span>
+                            <span class="badge badge-sm bg-warning"  style="width: 88px;">Darurat</span>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-warning" style="width: 100px;">menunggu</span>
+                            <span class="badge badge-sm bg-success" style="width: 100px;">disetujui</span>
                         </td>
                         <td>
-                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
-                                @csrf
-                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
-                                    @csrf
-                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
-                            </form>
+                            <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
                         </td>
                       </tr>
                     </tbody>
