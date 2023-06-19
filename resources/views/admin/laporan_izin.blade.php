@@ -387,21 +387,21 @@
                             <span class="badge badge-sm bg-danger" style="width: 88px;">Sakit</span>
                         </td>
                         <td class="">
-                            <button class="badge badge-sm bg-gradient-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
+                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">ditolak</span>
+                            <span class="badge badge-sm bg-danger"  style="width: 100px;">ditolak</span>
                         </td>
                         <td>
                             <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
                                 @csrf
-                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"></i></button>
+                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
                             </form>
                         </td>
                         <td>
                             <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
                                     @csrf
-                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"></i></button>
+                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
                             </form>
                         </td>
                       </tr>
@@ -427,10 +427,10 @@
                             <span class="badge badge-sm bg-warning"  style="width: 88px;">Darurat</span>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <span class="badge badge-sm bg-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-success" style="width: 100px;">disetujui</span>
+                            <span class="badge badge-sm bg-success" style="width: 100px;">disetujui</span>
                         </td>
                         <td>
                             <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
@@ -458,18 +458,22 @@
                             <span class="badge badge-sm bg-primary" style="width: 88px;">keluarga</span>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <span class="badge badge-sm bg-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-gradient-warning" style="width: 100px;">menunggu</span>
+                            <span class="badge badge-sm bg-warning" style="width: 100px;">menunggu</span>
                         </td>
                         <td>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user" style="margin-right: 10px">
-                            <i class="fa-sharp fa-solid fa-circle-check text-success"></i>
-                          </a>
-                          <a href="javascript:;" class="text-secondary font-weight-bold" data-toggle="tooltip" data-original-title="Edit user">
-                            <i class="fa-solid fa-circle-xmark text-danger"></i>
-                          </a>
+                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
+                                @csrf
+                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
+                                    @csrf
+                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
+                            </form>
                         </td>
                       </tr>
                     </tbody>
