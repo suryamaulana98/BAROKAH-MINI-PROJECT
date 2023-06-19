@@ -416,7 +416,7 @@
                             </a>
                         </td>
                         <td>
-                            <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                            <form action="#" method="post" id="myForm-1" onsubmit="konfirmHapus(event, '1')">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" style="background: none; border: none; margin-left: -50px;">
