@@ -326,7 +326,7 @@
                         <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
-
+                        
                     <!-- Include SummerNote JS and CSS -->
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                     <link rel="stylesheet"
@@ -947,7 +947,7 @@
                             </div>
                         </div>
                     </div>
-                </div>  
+                </div>
             </section>
             <!-- Tambahkan library JavaScript Lightbox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
