@@ -258,6 +258,27 @@
                     <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
                 </div>
               </div>
+              <script>
+                function konfirmHapus(event, id) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: 'HAPUS ?',
+                        text: 'Anda yakin ingin menghapus ini?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                        // Kode untuk melakukan penghapusan data di sini
+                        document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                        }
+                    });
+                }
+            </script>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
                   <table class="table align-items-center mb-0">
@@ -270,6 +291,9 @@
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">aksi</th>
                       </tr>
                     </thead>
+                    @php
+                        $i = 1;
+                    @endphp
                     <tbody>
                       <tr>
                         <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -355,11 +379,11 @@
                             </a>
                         </td>
                         <td>
-                            <form action="#" method="post" id="myForm-id" onsubmit="konfirmHapus(event, '1')">
+                            <form action="#" method="post" id="myForm-{{ $i }}" onsubmit="konfirmHapus(event, {{ $i }})">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" style="background: none; border: none;">
-                                    <i class="fa-solid fa-trash" style="font-size: 0.75rem; color: #dc3545;font-size:16px;"></i>
+                                    <i class="fa-solid fa-trash" style="font-size: 16px; color: #dc3545;"></i>
                                 </button>
                             </form>
                         </td>
@@ -371,6 +395,53 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="fixed-plugin">
+            <div class="card shadow-lg">
+                <div class="card-header pb-0 pt-3 ">
+                    <div class="float-start">
+                        <h5 class="mt-3 mb-0">Hummarules</h5>
+
+                    </div>
+                    <div class="float-end mt-4">
+                        <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+                            <i class="fa fa-close"></i>
+                        </button>
+                    </div>
+                    <!-- End Toggle Button -->
+                </div>
+                <hr class="horizontal dark my-1">
+                <div class="card-body pt-sm-3 pt-0 overflow-auto">
+                    <!-- Sidenav Type -->
+                    <div class="mt-3">
+                        <h6 class="mb-0">Sidebar</h6>
+                        <p class="text-sm">Pilih tema sidebar.</p>
+                    </div>
+                    <div class="d-flex">
+                        <button class="btn bg-gradient-primary w-100 px-3 mb-2 active me-2" data-class="bg-white"
+                            onclick="sidebarType(this)">White</button>
+                        <button class="btn bg-gradient-primary w-100 px-3 mb-2" data-class="bg-default"
+                            onclick="sidebarType(this)">Dark</button>
+                    </div>
+                    <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+                    <!-- Navbar Fixed -->
+                    <div class="d-flex my-3">
+                        <h6 class="mb-0">Navbar Fixed</h6>
+                        <div class="form-check form-switch ps-0 ms-auto my-auto">
+                            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                                onclick="navbarFixed(this)">
+                        </div>
+                    </div>
+                    <hr class="horizontal dark my-sm-4">
+                    <div class="mt-2 mb-5 d-flex">
+                        <h6 class="mb-0">Terang / Gelap</h6>
+                        <div class="form-check form-switch ps-0 ms-auto my-auto">
+                            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
+                                onclick="darkMode(this)">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     @include('template-admin.footer')
   @include('template-admin.script')

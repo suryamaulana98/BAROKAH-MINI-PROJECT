@@ -147,15 +147,22 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li class="dropdown"><a href="#"><span>Laporan harian siswa</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#"><span>Laporan harian siswa</span> <i
+                                        class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                  <li><a href="#">Detail Laporan</a></li>
-                                  <li><a href="#" data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat Laporan</a></li>
+                                    <li><a href="#">Detail Laporan</a></li>
+                                    <li><a href="#"
+                                            data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat
+                                            Laporan</a></li>
                                 </ul>
-                              </li>
-                            <li><a href="#" data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua magang</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan jurnal</a></li>
+                            </li>
+                            <li><a href="#"
+                                    data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua
+                                    magang</a></li>
+                            <li><a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                                    jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -177,11 +184,11 @@
 
     <style>
         .sakit {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #FF3500;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
@@ -190,11 +197,11 @@
         }
 
         .acara {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #516BE0;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
@@ -203,50 +210,78 @@
         }
 
         .darurat {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #28B62E;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
             border-radius: 30px;
             background: #28B62E;
         }
+
+        #nama {
+            font-size: 20px;
+        }
+
+        /* Media queries untuk tampilan responsif */
+        @media screen and (max-width: 576px) {
+
+            .sakit,
+            .acara,
+            .darurat {
+                font-size: 10px;
+                /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                padding: 1% 3%;
+                /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+            }
+
+            #nama {
+                font-size: 16px;
+            }
+        }
     </style>
-    <!-- Modal untuk profil siswa-->
+
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 108%">
-                <div class="modal-body">
-                    <div class="d-flex align-items-start">
-                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
-                            style="border-radius: 10%;">
-                        <div class="ms-4">
-                            <div class="d-flex">
-                                <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
-                                </h5>
-                                <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
-                                    aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex" style="margin-left: -12px">
-                                    <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
-                                    <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex flex-column align-items-start">
+                        <div class="d-flex">
+                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%" alt=""
+                                style="border-radius: 10%;" class="me-3">
+                            <div>
+                                <h5 class="fw-bold me-5 text-wrap text-break" id="nama">Reno
+                                    Gunawan Assegaf</h5>
+
+                                <div class="d-flex flex-wrap">
+                                    <p class="mb-0 me-3" style="font-size: 12px">
+                                        SMKN 1 LUMAJANG</p>
+                                    <p class="mb-0" style="font-size: 12px">
+                                        18489179065</p>
                                 </div>
-                                <div class=""
-                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
-                                    <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
-                                        Izin
-                                    </p>
+                                <div class="mt-3"
+                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 3%;">
+                                    <p class="ms-1" style="font-size: 12px; opacity: 0.5; color: #444444;">
+                                        Detail Izin</p>
                                     <div class="d-flex" style="margin-top: -20px">
-                                        <p class="sakit ms-2 me-3 lh-2">Sakit</p>
-                                        <p class="acara me-3">Acara Keluarga</p>
-                                        <p class="darurat">Hal Darurat</p>
+                                        <p class="sakit ms-2 me-3 lh-2 fw-bold">
+                                            Sakit</p>
+                                        <p class="acara me-3 fw-bold">Acara
+                                            Keluarga</p>
+                                        <p class="darurat fw-bold">Hal Darurat</p>
+                                    </div>
+                                    <div class="d-flex" style="margin-top: -4%">
+                                        <h6 style="margin-left: 8%">12</h6>
+                                        <h6 style="margin-left: 25%">30</h6>
+                                        <h6 style="margin-left: 32%">15</h6>
                                     </div>
                                 </div>
                             </div>
+                            <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
                         </div>
                     </div>
                 </div>
@@ -482,11 +517,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                     <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
-                    </div>
                 </div>
             </div>
         </div>
-        {{-- end modal --}}
+    </div>
+    {{-- end modal --}}
 
     </div>
     </div>
@@ -913,13 +948,16 @@
         <!-- ======= Features Section ======= -->
         <!DOCTYPE html>
         <html lang="en">
+
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Jadwal Piket</title>
             <!-- Tambahkan library CSS Lightbox -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
         </head>
+
         <body>
             <section id="jadwalpiket" class="features">
                 <div class="container">
@@ -931,8 +969,10 @@
                     <div class="row" data-aos="fade-up" data-aos-delay="300">
                         <div class="col-lg-3 col-md-4">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 1">
-                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
+                                    data-title="Deskripsi Gambar 1">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description"
+                                        style="width: 350px; height: 350px;">
                                 </a>
                             </div>
                         </div>
@@ -941,8 +981,10 @@
                     <div class="row" data-aos="fade-up" data-aos-delay="300">
                         <div class="col-lg-3 col-md-4">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 2">
-                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
+                                    data-title="Deskripsi Gambar 2">
+                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description"
+                                        style="width: 350px; height: 350px;">
                                 </a>
                             </div>
                         </div>
@@ -950,16 +992,16 @@
                 </div>
             </section>
             <!-- Tambahkan library JavaScript Lightbox -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true
-        });
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+            <script>
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true
+                });
+            </script>
+        </body>
 
-    </script>
-</body>
-</html>
+        </html>
 
         <!-- ======= Contact Section ======= -->
         <section id="kontak" class="contact">

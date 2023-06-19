@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -38,7 +38,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pembimbing.listsiswa') }}">
+                    <a class="nav-link active" href="{{ route('pembimbing.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -255,13 +255,30 @@
             </div>
         </nav>
         <!-- End Navbar -->
+        <style>
+            @media screen and (max-width: 576px) {
+
+                .sakit,
+                .acara,
+                .darurat {
+                    font-size: 10px;
+                    /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                    padding: 1% 3%;
+                    /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                }
+
+                #nama {
+                    font-size: 16px;
+                }
+            }
+        </style>
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">List siswa<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
+                            <p style="font-size: 24px; font-weight: bold;">List siswa<input class="cari"
+                                    type="search" placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
 
@@ -384,64 +401,84 @@
                                             }
                                         </style>
 
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <div class="d-flex flex-column align-items-start">
-                                                            <div class="d-flex">
-                                                                <img src="/siswa/assets/img/testimonials/testimonials-5.jpg"
-                                                                    width="35%" alt=""
-                                                                    style="border-radius: 10%;" class="me-3">
-                                                                <div>
-                                                                    <h5 class="fw-bold me-5 text-wrap text-break"
-                                                                        id="nama">Reno
-                                                                        Gunawan Assegaf</h5>
-
-                                                                    <div class="d-flex flex-wrap">
-                                                                        <p class="mb-0 me-3" style="font-size: 12px">
-                                                                            SMKN 1 LUMAJANG</p>
-                                                                        <p class="mb-0" style="font-size: 12px">
-                                                                            18489179065</p>
+                                        {{-- Modal profil --}}
+                                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                {{-- <div class="modal-content">
+            <div class="modal-body"> --}}
+                                                <div class="card card-profile">
+                                                    <img src="/admin/assets/img/bg-profile.jpg"
+                                                        alt="Image placeholder" class="card-img-top">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-4 col-lg-4 order-lg-2">
+                                                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                                                <a href="javascript:;">
+                                                                    <img src="/admin/assets/img/team-3.jpg"
+                                                                        class="rounded-circle img-fluid border border-2 border-white">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                                        <div class="d-flex justify-content-between">
+                                                            <a href="javascript:;"></a>
+                                                            <a href="javascript:;"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body pt-0">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="d-grid text-center">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">22</span>
+                                                                        <span class="text-sm opacity-8">Sakit</span>
                                                                     </div>
-                                                                    <div class="mt-3"
-                                                                        style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 3%;">
-                                                                        <p class="ms-1"
-                                                                            style="font-size: 12px; opacity: 0.5; color: #444444;">
-                                                                            Detail Izin</p>
-                                                                        <div class="d-flex" style="margin-top: -20px">
-                                                                            <p class="sakit ms-2 me-3 lh-2 fw-bold">
-                                                                                Sakit</p>
-                                                                            <p class="acara me-3 fw-bold">Acara
-                                                                                Keluarga</p>
-                                                                            <p class="darurat fw-bold">Hal Darurat</p>
-                                                                        </div>
-                                                                        <div class="d-flex" style="margin-top: -4%">
-                                                                            <h6 style="margin-left: 8%">12</h6>
-                                                                            <h6 style="margin-left: 25%">30</h6>
-                                                                            <h6 style="margin-left: 32%">15</h6>
-                                                                        </div>
+                                                                    <div class="d-grid text-center mx-4">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">10</span>
+                                                                        <span class="text-sm opacity-8">Acara
+                                                                            keluarga</span>
+                                                                    </div>
+                                                                    <div class="d-grid text-center">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">89</span>
+                                                                        <span class="text-sm opacity-8">Hal
+                                                                            darurat</span>
                                                                     </div>
                                                                 </div>
-                                                                <i class="fas fa-xmark" data-bs-dismiss="modal"
-                                                                    aria-label="Close"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center mt-4">
+                                                            <h5>
+                                                                Femas akbar faturrohim<span class="font-weight-light">,
+                                                                    (siswa)</span>
+                                                            </h5>
+                                                            <div class="h6 font-weight-300">
+                                                                <i class="ni location_pin mr-2"></i>1847313113
+                                                            </div>
+                                                            <div class="h6 mt-4">
+                                                                <i class="ni business_briefcase-24 mr-2"></i>10 Mei
+                                                                2023 - 02 Apr 2023
+                                                            </div>
+                                                            <div>
+                                                                <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-
+                                        {{-- End modal profil --}}
                                         <td>
                                             <div class="d-flex px-2 py-1">
                                                 <div>
                                                     <img src="/admin/assets/img/team-3.jpg"
                                                         class="avatar avatar-sm me-3" alt="user2">
                                                 </div>
-                                                <a data-bs-toggle="modal" href="#exampleModal">
+                                                <a data-bs-toggle="modal" href="#profilModal">
                                                     <div class="d-flex flex-column justify-content-center">
                                                         <h6 class="mb-0 text-sm">Alexa Liras</h6>
                                                         <p class="text-xs text-secondary mb-0">

@@ -125,15 +125,19 @@
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i></i></a>
                     </li>
-                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin"><span>Izin siswa</span></a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin"><span>Izin
+                                siswa</span></a></li>
                     </li>
                     <li><a href="#jadwalpiket"><span>Jadwal piket</span></a></li>
                     </li>
                     <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan jurnal</a></li>
+                            <li><a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
+                            <li><a href="#" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                                    jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -193,35 +197,36 @@
             background: #28B62E;
         }
     </style>
-   <!-- Modal untuk profil siswa-->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="width: 108%">
-            <div class="modal-body">
-                <div class="d-flex align-items-start">
-                    <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
-                        style="border-radius: 10%;">
-                    <div class="ms-4">
-                        <div class="d-flex">
-                            <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
-                            </h5>
-                            <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
-                                aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <div class="d-flex" style="margin-left: -12px">
-                                <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
-                                <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
+    <!-- Modal untuk profil siswa-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width: 108%">
+                <div class="modal-body">
+                    <div class="d-flex align-items-start">
+                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
+                            style="border-radius: 10%;">
+                        <div class="ms-4">
+                            <div class="d-flex">
+                                <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
+                                </h5>
+                                <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
+                                    aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
                             </div>
-                            <div class=""
-                                style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
-                                <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
-                                    Izin
-                                </p>
-                                <div class="d-flex" style="margin-top: -20px">
-                                    <p class="sakit ms-2 me-3 lh-2">Sakit</p>
-                                    <p class="acara me-3">Acara Keluarga</p>
-                                    <p class="darurat">Hal Darurat</p>
+                            <div class="d-flex flex-column">
+                                <div class="d-flex" style="margin-left: -12px">
+                                    <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
+                                    <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
+                                </div>
+                                <div class=""
+                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
+                                    <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
+                                        Izin
+                                    </p>
+                                    <div class="d-flex" style="margin-top: -20px">
+                                        <p class="sakit ms-2 me-3 lh-2">Sakit</p>
+                                        <p class="acara me-3">Acara Keluarga</p>
+                                        <p class="darurat">Hal Darurat</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -230,157 +235,157 @@
             </div>
         </div>
     </div>
-</div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
 
-                <h3>Tambah jadwal piket</h3>
-                <hr>
-                <div class="mb-3 justify-content-between">
-                    <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
+                    <h3>Tambah jadwal piket</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
 
-                <div class="mb-3">
-                    <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
-                    <input class="form-control" type="file" id="formFileMultiple" multiple>
-                </div>
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
+                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
-                    <textarea class="form-control" id="summerNoteInput"></textarea>
-                </div>
+                    <div class="mb-3">
+                        <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
+                        <textarea class="form-control" id="summerNoteInput"></textarea>
+                    </div>
 
-                <!-- Include SummerNote JS and CSS -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <link rel="stylesheet"
-                    href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+                    <!-- Include SummerNote JS and CSS -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                    <link rel="stylesheet"
+                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
-                <!-- Initialize SummerNote -->
-                <script>
-                    $(document).ready(function() {
-                        $('#summerNoteInput').summernote({
-                            height: 200, // Set the height of the SummerNote input
-                            toolbar: [
-                                // [groupName, [list of button]]
-                                ['style', ['bold', 'italic', 'underline', 'clear']],
-                                ['fontsize', ['fontsize']],
-                                ['color', ['color']],
-                                ['para', ['ul', 'ol', 'paragraph']],
-                                ['height', ['height']]
-                            ]
+                    <!-- Initialize SummerNote -->
+                    <script>
+                        $(document).ready(function() {
+                            $('#summerNoteInput').summernote({
+                                height: 200, // Set the height of the SummerNote input
+                                toolbar: [
+                                    // [groupName, [list of button]]
+                                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                                    ['fontsize', ['fontsize']],
+                                    ['color', ['color']],
+                                    ['para', ['ul', 'ol', 'paragraph']],
+                                    ['height', ['height']]
+                                ]
+                            });
                         });
-                    });
-                </script>
-                <script>
-                    function tutup() {
-                        document.getElementById('modalTambahJadwal').style.display = 'none';
-                    }
-                </script>
+                    </script>
+                    <script>
+                        function tutup() {
+                            document.getElementById('modalTambahJadwal').style.display = 'none';
+                        }
+                    </script>
 
-                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                <button type="button" class="btn btn-danger btn-sm" style="width: 100px" onclick="tutup()">Batal</button>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                        onclick="tutup()">Batal</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     {{-- end modal --}}
 
-        <!-- Modal -->
-<div class="modal fade font-family-fixed" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-body">
-            <h3>Izin Siswa/Ketua Magang</h3>
-            <hr>
-            <div class="mb-3 justify-content-between">
-                <label for="namaSiswaMagang" class="form-label">Nama siswa/ketua magang</label>
-                <input class="form-control" type="text" id="namaSiswaMagang">
-            </div>
-            <div class="mb-3 justify-content-between">
-                <label for="asalSekolahSiswaMagang" class="form-label">Asal sekolah siswa/ketua magang</label>
-                <input class="form-control" type="text" id="asalSekolahSiswaMagang">
-            </div>
-            <div class="mb-3 justify-content-between">
-                <label for="tanggalIzin" class="form-label">Tanggal izin</label>
-                <input class="form-control" type="date" id="tanggalIzin">
-            </div>
-            <div class="mb-3 justify-content-between">
-                <label for="alasanIzin" class="form-label">Alasan izin</label>
-                <select class="form-select" aria-label="Default select example" id="alasanIzin">
-                    <option selected disabled>---- Pilih Alasan ----</option>
-                    <option value="1">Sakit</option>
-                    <option value="2">Acara Keluarga</option>
-                    <option value="3">Darurat</option>
-                </select>
-            </div>
-            <div class="mb-3 justify-content-between">
-                <label for="pesan" class="form-label">Masukkan pesan</label>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="pesan" style="height: 100px"></textarea>
+    <!-- Modal -->
+    <div class="modal fade font-family-fixed" id="exampleModalizin" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>Izin Siswa/Ketua Magang</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="namaSiswaMagang" class="form-label">Nama siswa/ketua magang</label>
+                        <input class="form-control" type="text" id="namaSiswaMagang">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="asalSekolahSiswaMagang" class="form-label">Asal sekolah siswa/ketua magang</label>
+                        <input class="form-control" type="text" id="asalSekolahSiswaMagang">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="tanggalIzin" class="form-label">Tanggal izin</label>
+                        <input class="form-control" type="date" id="tanggalIzin">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="alasanIzin" class="form-label">Alasan izin</label>
+                        <select class="form-select" aria-label="Default select example" id="alasanIzin">
+                            <option selected disabled>---- Pilih Alasan ----</option>
+                            <option value="1">Sakit</option>
+                            <option value="2">Acara Keluarga</option>
+                            <option value="3">Darurat</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="pesan" class="form-label">Masukkan pesan</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="pesan" style="height: 100px"></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="suratKeterangan" class="form-label">Masukkan surat keterangan</label>
+                        <input class="form-control" type="file" id="suratKeterangan">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                 </div>
             </div>
-            <div class="mb-3 justify-content-between">
-                <label for="suratKeterangan" class="form-label">Masukkan surat keterangan</label>
-                <input class="form-control" type="file" id="suratKeterangan">
-            </div>
-            <hr>
-            <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-            <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
         </div>
     </div>
-</div>
-</div>
-<!-- end modal -->
+    <!-- end modal -->
 
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalhariansiswa" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
 
-                <h3>Laporan harian siswa</h3>
-                <hr>
-                <div class="mb-3 justify-content-between">
-                    <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
-                    <select class="form-select" id="silahkanpilih" aria-label="Default select example">
-                        <option selected disabled>---- Pilih Salah Satu ----</option>
-                        <option value="1">Individu</option>
-                        <option value="2">Kelompok</option>
-                    </select>
+                    <h3>Laporan harian siswa</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
+                        <select class="form-select" id="silahkanpilih" aria-label="Default select example">
+                            <option selected disabled>---- Pilih Salah Satu ----</option>
+                            <option value="1">Individu</option>
+                            <option value="2">Kelompok</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="namaSiswa" class="form-label">Nama Siswa/tim Project</label>
+                        <input class="form-control" type="text" id="namaSiswa">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="tanggal" class="form-label">Tanggal</label>
+                        <input class="form-control" type="date" id="tanggal">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="linkdokumen" class="form-label">Link dokumen</label>
+                        <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                 </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="namaSiswa" class="form-label">Nama Siswa/tim Project</label>
-                    <input class="form-control" type="text" id="namaSiswa">
-                </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="tanggal" class="form-label">Tanggal</label>
-                    <input class="form-control" type="date" id="tanggal">
-                </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="linkdokumen" class="form-label">Link dokumen</label>
-                    <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
-                </div>
-                <hr>
-                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
             </div>
         </div>
     </div>
-</div>
-{{-- end modal --}}
+    {{-- end modal --}}
 
-  <!-- Modal -->
-  {{-- <div class="modal fade" id="exampleModalketuamagang" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <!-- Modal -->
+    {{-- <div class="modal fade" id="exampleModalketuamagang" tabindex="-1" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
       <div class="modal-content">
@@ -406,74 +411,74 @@ aria-hidden="true">
       </div>
   </div>
 </div> --}}
-{{-- end modal --}}
+    {{-- end modal --}}
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalpembimbing" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h3>Laporan ke pembimbing</h3>
-                <hr>
-                <div class="mb-3 justify-content-between">
-                    <label for="namaSiswaMagang" class="form-label">Nama siswa magang</label>
-                    <input class="form-control" type="text" id="namaSiswaMagang">
-                </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="emailSiswaMagang" class="form-label">Email siswa magang</label>
-                    <input class="form-control" type="email" id="emailSiswaMagang">
-                </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="tanggalReport" class="form-label">Masukkan tanggal report</label>
-                    <input class="form-control" type="date" id="tanggalReport">
-                </div>
-                <div class="mb-3 justify-content-between">
-                    <label for="isiPesan" class="form-label">Isi pesan</label>
-                    <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="isiPesan" style="height: 100px"></textarea>
-                    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalpembimbing" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3>Laporan ke pembimbing</h3>
                     <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="namaSiswaMagang" class="form-label">Nama siswa magang</label>
+                        <input class="form-control" type="text" id="namaSiswaMagang">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="emailSiswaMagang" class="form-label">Email siswa magang</label>
+                        <input class="form-control" type="email" id="emailSiswaMagang">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="tanggalReport" class="form-label">Masukkan tanggal report</label>
+                        <input class="form-control" type="date" id="tanggalReport">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="isiPesan" class="form-label">Isi pesan</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="isiPesan" style="height: 100px"></textarea>
+                        </div>
+                        <hr>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
             </div>
         </div>
     </div>
-</div>
-<!-- end modal -->
+    <!-- end modal -->
 
- <!-- Modal -->
- <div class="modal fade" id="exampleModaljurnal" tabindex="-1" aria-labelledby="exampleModalLabel"
- aria-hidden="true">
- <div class="modal-dialog">
-     <div class="modal-content">
-         <div class="modal-body">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModaljurnal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
 
-             <h3>jurnal siswa</h3>
-             <hr>
-             <div class="mb-3 justify-content-between">
-                 <label for="namaSiswa" class="form-label">Nama siswa</label>
-                 <input class="form-control" type="text" id="namaSiswa">
-             </div>
-             <div class="mb-3 justify-content-between">
-                 <label for="tanggal" class="form-label">Tanggal</label>
-                 <input class="form-control" type="date" id="tanggal">
-             </div>
-             <div class="mb-3 justify-content-between">
-             <label for="kegiatan" class="form-label">Kegiatan</label>
-             <div class="form-floating">
-             <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
-             </div>
-             </div>
-             <hr>
-             <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-             <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
-         </div>
-     </div>
- </div>
-</div>
-{{-- end modal --}}
+                    <h3>jurnal siswa</h3>
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="namaSiswa" class="form-label">Nama siswa</label>
+                        <input class="form-control" type="text" id="namaSiswa">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="tanggal" class="form-label">Tanggal</label>
+                        <input class="form-control" type="date" id="tanggal">
+                    </div>
+                    <div class="mb-3 justify-content-between">
+                        <label for="kegiatan" class="form-label">Kegiatan</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
 
     </div>
     </div>
@@ -626,16 +631,33 @@ aria-hidden="true">
                                                     aria-labelledby="heading1" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <div class="program-des">
-                                                            <p>Peraturan berpakaian di kantor sangat penting untuk menciptakan suasana yang profesional dan representatif. Kami memiliki beberapa aturan mengenai berpakaian yang diharapkan setiap karyawan patuhi:
+                                                            <p>Peraturan berpakaian di kantor sangat penting untuk
+                                                                menciptakan suasana yang profesional dan representatif.
+                                                                Kami memiliki beberapa aturan mengenai berpakaian yang
+                                                                diharapkan setiap karyawan patuhi:
 
-                                                                1. Pakaian formal atau semi-formal sangat dianjurkan. Setelan jas, blazer, atau dress dengan tampilan yang rapi dan sopan akan mencerminkan keseriusan dan profesionalisme Anda.
+                                                                1. Pakaian formal atau semi-formal sangat dianjurkan.
+                                                                Setelan jas, blazer, atau dress dengan tampilan yang
+                                                                rapi dan sopan akan mencerminkan keseriusan dan
+                                                                profesionalisme Anda.
 
-                                                                2. Hindari mengenakan pakaian santai seperti kaos oblong, celana pendek, sandal jepit, dan sejenisnya kecuali dalam keadaan tertentu yang diizinkan oleh manajemen.
+                                                                2. Hindari mengenakan pakaian santai seperti kaos
+                                                                oblong, celana pendek, sandal jepit, dan sejenisnya
+                                                                kecuali dalam keadaan tertentu yang diizinkan oleh
+                                                                manajemen.
 
-                                                                3. Pastikan pakaian yang dikenakan selalu rapi dan bersih. Hindari pakaian yang kusut, lusuh, atau tidak terawat karena dapat memberikan kesan yang kurang profesional.
+                                                                3. Pastikan pakaian yang dikenakan selalu rapi dan
+                                                                bersih. Hindari pakaian yang kusut, lusuh, atau tidak
+                                                                terawat karena dapat memberikan kesan yang kurang
+                                                                profesional.
 
-                                                                Peraturan berpakaian ini bertujuan untuk menciptakan lingkungan kerja yang serius, formal, dan memberikan kesan yang baik kepada klien, rekan kerja, dan pengunjung kantor. Dengan mematuhi peraturan ini, kita dapat mencapai citra profesional yang konsisten di tempat kerja.
-                                                                </p>
+                                                                Peraturan berpakaian ini bertujuan untuk menciptakan
+                                                                lingkungan kerja yang serius, formal, dan memberikan
+                                                                kesan yang baik kepada klien, rekan kerja, dan
+                                                                pengunjung kantor. Dengan mematuhi peraturan ini, kita
+                                                                dapat mencapai citra profesional yang konsisten di
+                                                                tempat kerja.
+                                                            </p>
 
                                                         </div>
                                                     </div>
@@ -878,55 +900,63 @@ aria-hidden="true">
 
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
-</head>
-<body>
-    <section id="jadwalpiket" class="features">
-        <div class="container">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+        </head>
 
-            <div class="section-title" data-aos="fade-up">
-                <h2>Jadwal piket</h2>
-            </div>
+        <body>
+            <section id="jadwalpiket" class="features">
+                <div class="container">
 
-            <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up" data-aos-delay="300">
-                <div class="col-lg-3 col-md-4">
-                    <div class="icon-box">
-                        <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="">
-                            <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="" style="width: 350px; height: 450px;">
-                        </a>
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Jadwal piket</h2>
+                    </div>
+
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up" data-aos-delay="300">
-                <div class="col-lg-3 col-md-4">
-                    <div class="icon-box">
-                        <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="">
-                            <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="" style="width: 350px; height: 450px;">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-    <script>
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true
-        });
-    </script>
-</body>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+            <script>
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true
+                });
+            </script>
+        </body>
+
 </html>
 
 
 
 
 
-        <!-- ======= Testimonials Section ======= -->
-        {{-- <section id="testimonials" class="testimonials section-bg">
+<!-- ======= Testimonials Section ======= -->
+{{-- <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -976,7 +1006,7 @@ aria-hidden="true">
                             </div>
                         </div><!-- End testimonial item --> --}}
 
-                        {{-- <div class="swiper-slide">
+{{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
@@ -994,7 +1024,7 @@ aria-hidden="true">
                             </div>
                         </div><!-- End testimonial item --> --}}
 
-                        {{-- <div class="swiper-slide">
+{{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
@@ -1013,7 +1043,7 @@ aria-hidden="true">
                             </div>
                         </div><!-- End testimonial item --> --}}
 
-                        {{-- <div class="swiper-slide">
+{{-- <div class="swiper-slide">
                             <div class="testimonial-wrap">
                                 <div class="testimonial-item">
                                     <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
@@ -1034,15 +1064,15 @@ aria-hidden="true">
                             </div>
                         </div><!-- End testimonial item --> --}}
 
-                    {{-- </div>
+{{-- </div>
                     <div class="swiper-pagination"></div>
                 </div>
 
             </div>
         </section><!-- End Testimonials Section --> --}}
 
-        <!-- ======= Portfolio Section ======= -->
-        {{-- <section id="portfolio" class="portfolio">
+<!-- ======= Portfolio Section ======= -->
+{{-- <section id="portfolio" class="portfolio">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1221,8 +1251,8 @@ aria-hidden="true">
             </div>
         </section><!-- End Portfolio Section --> --}}
 
-        <!-- ======= Team Section ======= -->
-        {{-- <section id="team" class="team section-bg">
+<!-- ======= Team Section ======= -->
+{{-- <section id="team" class="team section-bg">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1309,8 +1339,8 @@ aria-hidden="true">
             </div>
         </section><!-- End Team Section --> --}}
 
-        <!-- ======= Pricing Section ======= -->
-        {{-- <section id="pricing" class="pricing">
+<!-- ======= Pricing Section ======= -->
+{{-- <section id="pricing" class="pricing">
             <div class="container">
 
                 <div class="section-title">
@@ -1376,8 +1406,8 @@ aria-hidden="true">
             </div>
         </section><!-- End Pricing Section --> --}}
 
-        <!-- ======= F.A.Q Section ======= -->
-        {{-- <section id="faq" class="faq">
+<!-- ======= F.A.Q Section ======= -->
+{{-- <section id="faq" class="faq">
             <div class="container">
 
                 <div class="section-title" data-aos="fade-up">
@@ -1431,7 +1461,7 @@ aria-hidden="true">
                     </div>
                 </div><!-- End F.A.Q Item--> --}}
 
-                {{-- <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+{{-- <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
                     <div class="col-lg-5">
                         <i class="ri-question-line"></i>
                         <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
@@ -1467,89 +1497,89 @@ aria-hidden="true">
                     </div>
                 </div><!-- End F.A.Q Item--> --}}
 
-            {{-- </div>
+{{-- </div>
         </section><!-- End F.A.Q Section --> --}}
 
-        <!-- ======= Contact Section ======= -->
-        <section id="kontak" class="contact">
-            <div class="container">
+<!-- ======= Contact Section ======= -->
+<section id="kontak" class="contact">
+    <div class="container">
 
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Kontak</h2>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Kontak</h2>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-about">
+                    <h3>Hummarules</h3>
+                    <p>Disini adalah halaman kontak dari website hummarules. Disini terdapat alamat kantor,
+                        alamat
+                        email, nomor
+                        telepon, twitter, facebook, instagram, linkedin</p>
+                    <div class="social-links">
+                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
                 </div>
-
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="contact-about">
-                            <h3>Hummarules</h3>
-                            <p>Disini adalah halaman kontak dari website hummarules. Disini terdapat alamat kantor,
-                                alamat
-                                email, nomor
-                                telepon, twitter, facebook, instagram, linkedin</p>
-                            <div class="social-links">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="info">
-                            <div>
-                                <i class="ri-map-pin-line"></i>
-                                <p>Perum Permata Regency 1 blok 10 no 28 Ngijo Karangploso Malang</p>
-                            </div>
-
-                            <div>
-                                <i class="ri-mail-send-line"></i>
-                                <p>hummasoft.tech@gmail.com</p>
-                            </div>
-
-                            <div>
-                                <i class="ri-phone-line"></i>
-                                <p>+1 5589 55488 55s</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Kirim pesan</button></div>
-                        </form>
-                    </div>
-
-                </div>
-
             </div>
-        </section><!-- End Contact Section -->
 
-    </main><!-- End #main -->
-    @include('template-siswa.footer')
-    @include('template-siswa.script')
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+                <div class="info">
+                    <div>
+                        <i class="ri-map-pin-line"></i>
+                        <p>Perum Permata Regency 1 blok 10 no 28 Ngijo Karangploso Malang</p>
+                    </div>
+
+                    <div>
+                        <i class="ri-mail-send-line"></i>
+                        <p>hummasoft.tech@gmail.com</p>
+                    </div>
+
+                    <div>
+                        <i class="ri-phone-line"></i>
+                        <p>+1 5589 55488 55s</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" id="name"
+                            placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" id="email"
+                            placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="subject" id="subject"
+                            placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Kirim pesan</button></div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+@include('template-siswa.footer')
+@include('template-siswa.script')
 </body>
 
 </html>

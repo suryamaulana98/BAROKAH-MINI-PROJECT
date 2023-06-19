@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pembimbing.laporanhariansiswa') }}">
+                    <a class="nav-link active" href="{{ route('pembimbing.laporanhariansiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/calendar 1.png" alt="" />
@@ -317,8 +317,10 @@
                                                 <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                                             </td>
                                             <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
+                                                <a href="https://docs.google.com" target="_blank">
+                                                    <span class="badge badge-sm bg-gradient-primary"><i
+                                                            class="fa-solid fa-eye"></i> detail</span>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>

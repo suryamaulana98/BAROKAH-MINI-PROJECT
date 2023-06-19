@@ -29,7 +29,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -83,7 +83,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pembimbing.riwayatsiswa') }}">
+                    <a class="nav-link active" href="{{ route('pembimbing.riwayatsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/vector.png" alt="" />
@@ -256,6 +256,77 @@
             </div>
         </nav>
         <!-- End Navbar -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
+                        <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
+                    </div>
+                    <div class="modal-body">
+                        <style>
+                            .aaa {
+                                font-style: normal;
+                                font-weight: 600;
+                                font-size: 14px;
+                                line-height: 16px;
+                                color: #535455;
+                                margin-top: 12px;
+                                margin-bottom: 12px;
+                            }
+
+                            tr {
+                                height: 30px;
+                            }
+                        </style>
+                        <table>
+                            <tr>
+                                <td class="aaa" style="width: 28%;">Nama</td>
+                                <td class="aaa"><span style="margin-right: 12px;">:</span> Femas
+                                    akbar faturrohim</td>
+                            </tr>
+                            <tr>
+                                <td class="aaa">Asal sekolah</td>
+                                <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1
+                                    LUMAJANG</td>
+                            </tr>
+                            <tr>
+                                <td class="aaa">Tanggal izin</td>
+                                <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei
+                                    2023</td>
+                            </tr>
+                            <tr>
+                                <td class="aaa">Alasan</td>
+                                <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="aaa">Pesan</td>
+                                <td class="aaa"><span style="margin-right: 12px;">:</span>Assalamualaikum saya
+                                    mohon
+                                    izin
+                                    untuk tidak masuk magang dikarenakan sakit</td>
+                            </tr>
+                            <tr>
+                                <td class="aaa">Lihat surat</td>
+                                <td
+                                    style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)">
+                                    <a href="#"><span style="margin-right: 12px;">:</span>
+                                        p.pdf</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- end modal --}}
+
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
@@ -329,8 +400,10 @@
                                                     style="width: 80px;">Sakit</span>
                                             </td>
                                             <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
+                                                <a href="#detail" data-bs-toggle="modal">
+                                                    <span class="badge badge-sm bg-gradient-primary"><i
+                                                            class="fa-solid fa-eye"></i> detail</span>
+                                                </a>
                                             </td>
                                         </tr>
                                         <tr>

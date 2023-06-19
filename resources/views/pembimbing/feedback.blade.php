@@ -13,6 +13,41 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    {{-- modal --}}
+    <div class="modal modal-lg fade" id="balasFeedback" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><b>Feedback</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Nama</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="a" class="form-label" style="font-size:14px;">Pesan</label>
+                            <textarea class="form-control" id="a" rows="4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="a" class="form-label" style="font-size:14px;">Balas feedback</label>
+                            <textarea class="form-control" id="a" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary">Balas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -29,7 +64,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -92,7 +127,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pembimbing.feedback') }}">
+                    <a class="nav-link active" href="{{ route('pembimbing.feedback') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/icons8-feedback-48 1.png" alt="" />
@@ -307,8 +342,10 @@
                                                 <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
                                             </td>
                                             <td class="">
-                                                <i class="fa-solid fa-eye text-primary"
-                                                    style="margin-right: 4px;"></i>
+                                                <a href="#balasFeedback" data-bs-toggle="modal">
+                                                    <i class="fa-solid fa-eye text-primary"
+                                                        style="margin-right: 4px;"></i>
+                                                </a>
                                                 <i class="fa-solid fa-trash text-danger"></i>
                                             </td>
                                         </tr>
