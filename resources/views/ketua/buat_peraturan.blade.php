@@ -438,7 +438,7 @@
                         <p style="font-size: 14px;">Peraturan baju</p>
                     </td>
                     <td>
-                        <p style="font-size: 14px;">fawewaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+                        <p style="font-size: 14px;"></p>
                     </td>
                     <td>
                         <button style="border: none; background: none;"><i class="fa-solid fa-pen-to-square text-primary"></i></button>
