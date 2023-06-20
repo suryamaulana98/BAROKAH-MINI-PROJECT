@@ -182,14 +182,15 @@
                 </ul>
               </li>
               <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                 <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
-              </li>
+                <a class="nav-link text-white p-0" href="javascript:logout()"><i
+                        class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+            </li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="container-fluid py-4">    
+      <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">

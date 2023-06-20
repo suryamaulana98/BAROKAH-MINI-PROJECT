@@ -37,8 +37,8 @@
                 </style>
                 <table>
                 <tr>
-                    <td class="aaa">Kegiatan</td>
-                    <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">Terus menerus belajar selama di sekolah memang bisa menjadi hal yang sangat membosankan. Namun sebenarnya cukup banyak kegiatan di sekolah yang menyenangkan dan bisa dilakukan untuk mengusir rasa bosan tersebut. Rasa bosan yang melanda memang sebaiknya segera diusir dan diatasi karena dapat membuat kamu menjadi kurang fokus dan sulit untuk berkonsentrasi.
+
+                    <td class="aaa"><span style="margin-right: 12px;"></span><span style="text-align: justify;">Terus menerus belajar selama di sekolah memang bisa menjadi hal yang sangat membosankan. Namun sebenarnya cukup banyak kegiatan di sekolah yang menyenangkan dan bisa dilakukan untuk mengusir rasa bosan tersebut. Rasa bosan yang melanda memang sebaiknya segera diusir dan diatasi karena dapat membuat kamu menjadi kurang fokus dan sulit untuk berkonsentrasi.
 
                         Namun bukan berarti juga kamu boleh melakukan sesuatu yang kurang baik di sekolah hanya untuk mengusir rasa bosan. Pilih saja aktivitas bermanfaat selain belajar yang bisa kamu lakukan di sekolah supaya pikiran menjadi segar dan kembali bersemangat. Kamu bisa melakukan kegiatan tersebut dengan mengajak serta teman yang lain atau sendirian saja.</span></td>
                 </tr>
@@ -217,8 +217,9 @@
                 </ul>
               </li>
               <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                 <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
-              </li>
+                <a class="nav-link text-white p-0" href="javascript:logout()"><i
+                        class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+            </li>
             </ul>
           </div>
         </div>
@@ -268,6 +269,13 @@
 
                       </tr>
                       <br>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class=""></p>
+                            </td>
+                        </tr>
                     </tbody>
                   </table>
                   <nav aria-label="Page navigation example">

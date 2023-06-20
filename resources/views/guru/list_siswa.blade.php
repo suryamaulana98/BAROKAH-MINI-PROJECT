@@ -203,7 +203,7 @@
                             </ul>
                         </li>
                         <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                            <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i
+                            <a class="nav-link text-white p-0" href="javascript:logout()"><i
                                     class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
                         </li>
                     </ul>
@@ -240,6 +240,139 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        <style>
+                                            .sakit {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #FF3500;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #FF3500;
+                                            }
+
+                                            .acara {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #516BE0;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #516BE0;
+                                            }
+
+                                            .darurat {
+                                                font-size: 12px;
+                                                color: white;
+                                                margin-top: 10px;
+                                                background-color: #28B62E;
+                                                padding: 1% 3%;
+                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                display: inline-block;
+                                                /* Mengubah display menjadi inline-block */
+                                                border-radius: 30px;
+                                                background: #28B62E;
+                                            }
+
+                                            #nama {
+                                                font-size: 20px;
+                                            }
+
+                                            /* Media queries untuk tampilan responsif */
+                                            @media screen and (max-width: 576px) {
+
+                                                .sakit,
+                                                .acara,
+                                                .darurat {
+                                                    font-size: 10px;
+                                                    /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                    padding: 1% 3%;
+                                                    /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                }
+
+                                                #nama {
+                                                    font-size: 16px;
+                                                }
+                                            }
+                                        </style>
+
+                                        {{-- Modal profil --}}
+                                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                {{-- <div class="modal-content">
+            <div class="modal-body"> --}}
+                                                <div class="card card-profile">
+                                                    <img src="/admin/assets/img/bg-profile.jpg"
+                                                        alt="Image placeholder" class="card-img-top">
+                                                    <div class="row justify-content-center">
+                                                        <div class="col-4 col-lg-4 order-lg-2">
+                                                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                                                <a href="javascript:;">
+                                                                    <img src="/admin/assets/img/team-3.jpg"
+                                                                        class="rounded-circle img-fluid border border-2 border-white">
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                                        <div class="d-flex justify-content-between">
+                                                            <a href="javascript:;"></a>
+                                                            <a href="javascript:;"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body pt-0">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="d-flex justify-content-center">
+                                                                    <div class="d-grid text-center">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">22</span>
+                                                                        <span class="text-sm opacity-8">Sakit</span>
+                                                                    </div>
+                                                                    <div class="d-grid text-center mx-4">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">10</span>
+                                                                        <span class="text-sm opacity-8">Acara
+                                                                            keluarga</span>
+                                                                    </div>
+                                                                    <div class="d-grid text-center">
+                                                                        <span
+                                                                            class="text-lg font-weight-bolder">89</span>
+                                                                        <span class="text-sm opacity-8">Hal
+                                                                            darurat</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-center mt-4">
+                                                            <h5>
+                                                                Femas akbar faturrohim<span class="font-weight-light">,
+                                                                    (siswa)</span>
+                                                            </h5>
+                                                            <div class="h6 font-weight-300">
+                                                                <i class="ni location_pin mr-2"></i>1847313113
+                                                            </div>
+                                                            <div class="h6 mt-4">
+                                                                <i class="ni business_briefcase-24 mr-2"></i>10 Mei
+                                                                2023 - 02 Apr 2023
+                                                            </div>
+                                                            <div>
+                                                                <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <tr>
                                             <td>
                                                         <div class="d-flex px-2 py-1">
@@ -247,11 +380,15 @@
                                                                 <img src="/admin/assets/img/team-3.jpg"
                                                                     class="avatar avatar-sm me-3" alt="user2">
                                                             </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
+                                                            <a data-bs-toggle="modal" href="#profilModal">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <h6 class="mb-0 text-sm">Femas Akbar faturrohim</h6>
+                                                                    <p class="text-xs text-secondary mb-0">
+                                                                        femasakbar@gmail.com
+                                                                    </p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                 </div>
                                             </td>
                                             <td>
@@ -272,11 +409,14 @@
                                                         <img src="/admin/assets/img/team-3.jpg"
                                                             class="avatar avatar-sm me-3" alt="user2">
                                                     </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
+                                                    <a data-bs-toggle="modal" href="#profilModal">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Ahmad Fauzi</h6>
+                                                            <p class="text-xs text-secondary mb-0">
+                                                               ahmadfauzi@gmail.com
+                                                            </p>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>
@@ -297,11 +437,14 @@
                                                         <img src="/admin/assets/img/team-3.jpg"
                                                             class="avatar avatar-sm me-3" alt="user2">
                                                     </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
+                                                    <a data-bs-toggle="modal" href="#profilModal">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Surya maulana</h6>
+                                                            <p class="text-xs text-secondary mb-0">
+                                                                suryamaulana@gmail.com
+                                                            </p>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>
@@ -322,11 +465,14 @@
                                                         <img src="/admin/assets/img/team-3.jpg"
                                                             class="avatar avatar-sm me-3" alt="user2">
                                                     </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
+                                                    <a data-bs-toggle="modal" href="#profilModal">
+                                                        <div class="d-flex flex-column justify-content-center">
+                                                            <h6 class="mb-0 text-sm">Reno gunawan</h6>
+                                                            <p class="text-xs text-secondary mb-0">
+                                                                renogunawan@gmail.com
+                                                            </p>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </td>
                                             <td>
