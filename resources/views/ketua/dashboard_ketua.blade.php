@@ -1010,16 +1010,16 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>{{ $kontak->alamat_kantor }}</p>
+                                <p>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "Jl." }}</p>
                             </div>
 
                             <div>
                                 <i class="ri-mail-send-line"></i>
-                                <p>{{ $kontak->email }}</p>
+                                <p>{{ (isset($kontak->email)) ? $kontak->email : "@" }}</p>
                             </div>
                             <div>
                                 <i class="ri-phone-line"></i>
-                                <p>{{ $kontak->nomor_telepon }}</p>
+                                <p>{{ (isset($kontak->nomor_telepon)) ? $kontak->nomor_telepon : "0" }}</p>
                             </div>
 
                         </div>
