@@ -13,6 +13,39 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="detailjurnal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detail
+                        Laporan</h5>
+                    <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
+                </div>
+                <div class="modal-body">
+                    <h6>Kegiatan</h6>
+                    <span>
+                        Membuat tampilan untuk admin <br>
+                        Melakukan presentasi untuk kebersamaan <br>
+                        Membuat halaman login untuk siswa
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- end modals --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -29,7 +62,7 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link active" href="{{ route('pembimbing.dashboard') }}">
+                <a class="nav-link" href="{{ route('pembimbing.dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
@@ -74,7 +107,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pembimbing.laporanjurnalsiswa') }}">
+                    <a class="nav-link active" href="{{ route('pembimbing.laporanjurnalsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/book 1.png" alt="" />
@@ -309,20 +342,26 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas
+                                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                                    Femas
                                                     akbar faturrohim</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                                <p class="text-xs font-weight-bold mb-0">SMKN 1
+                                                    LUMAJANG</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">02 Apr
+                                                    2023</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">Ngocok dindin (ngoding)</p>
+                                                <p class="text-xs font-weight-bold mb-0">Ngocok
+                                                    dindin (ngoding)</p>
                                             </td>
                                             <td style="width: 8px;">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                                <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#detailjurnal"
+                                                    class="text-secondary font-weight-bold text-xs"
                                                     data-toggle="tooltip" data-original-title="Edit user"
                                                     style="margin-right: 4px">
                                                     <i class="fa-solid fa-eye"
