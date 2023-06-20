@@ -11,6 +11,42 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Detail Kegiatan</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
+                <i class="fa-sharp fa-solid fa-rectangle-xmark" style="color: red;"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+                <style>
+                    .aaa {
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 16px;
+                        color: #535455;
+                        margin-top: 12px;
+                        margin-bottom: 12px;
+                    }
+                    tr {
+                        height: 30px;
+                    }
+                </style>
+                <table>
+                <tr>
+
+                    <td class="aaa"><span style="margin-right: 12px;"></span><span style="text-align: justify;">Terus menerus belajar selama di sekolah memang bisa menjadi hal yang sangat membosankan. Namun sebenarnya cukup banyak kegiatan di sekolah yang menyenangkan dan bisa dilakukan untuk mengusir rasa bosan tersebut. Rasa bosan yang melanda memang sebaiknya segera diusir dan diatasi karena dapat membuat kamu menjadi kurang fokus dan sulit untuk berkonsentrasi.
+
+                        Namun bukan berarti juga kamu boleh melakukan sesuatu yang kurang baik di sekolah hanya untuk mengusir rasa bosan. Pilih saja aktivitas bermanfaat selain belajar yang bisa kamu lakukan di sekolah supaya pikiran menjadi segar dan kembali bersemangat. Kamu bisa melakukan kegiatan tersebut dengan mengajak serta teman yang lain atau sendirian saja.</span></td>
+                </tr>
+                </table>
+            </div>
+          </div>
+        </div>
+      </div>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -181,8 +217,9 @@
                 </ul>
               </li>
               <li class="nav-item px-2 pe-2 d-flex align-items-center">
-                 <a class="nav-link text-white p-0" href="{{ route('logout') }}"><i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
-              </li>
+                <a class="nav-link text-white p-0" href="javascript:logout()"><i
+                        class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
+            </li>
             </ul>
           </div>
         </div>
@@ -222,15 +259,23 @@
                             <td>
                                 <p class="text-xs font-weight-bold mb-0">Mengerjakan crud laravel</p>
                             </td>
-                            <td style="width: 8px;">
-                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                    data-toggle="tooltip" data-original-title="Edit user"
-                                    style="margin-right: 7px">
-                                    <i class="fa-solid fa-eye" style="color: #0d6efd; font-size:18px;"></i>
+                            <td class="">
+                                <a href="#" data-toggle="modal" data-target="#detail" style="border: none; background: none;">
+                                    <i class="fa-solid fa-eye" style="color: blue;"></i>
                                 </a>
                             </td>
+
+
+
                       </tr>
                       <br>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class=""></p>
+                            </td>
+                        </tr>
                     </tbody>
                   </table>
                   <nav aria-label="Page navigation example">
