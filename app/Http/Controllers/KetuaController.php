@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kontak;
 use Illuminate\Http\Request;
 
 class KetuaController extends Controller
 {
     function index() {
-        return view('ketua.dashboard_ketua');
+        $kontak = Kontak::first();
+        return view('ketua.dashboard_ketua', compact('kontak'));
     }
-   
+
 }
