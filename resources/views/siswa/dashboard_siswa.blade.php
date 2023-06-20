@@ -1567,8 +1567,22 @@
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
-                    <div class="text-center"><button type="submit">Kirim pesan</button></div>
+                        <div class="text-center">
+                            <button id="btnKirim" type="submit">Kirim pesan</button>
+                          </div>
+                          <script>
+                            // Fungsi untuk menampilkan SweetAlert
+                            function tampilkanSweetAlert() {
+                              swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
+                            }
+
+                            // Menambahkan event listener pada tombol "Kirim pesan"
+                            document.getElementById("btnKirim").addEventListener("click", function(event) {
+                              event.preventDefault(); // Mencegah form submit
+                              tampilkanSweetAlert();
+                            });
+                          </script>
+                          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 </form>
             </div>
 

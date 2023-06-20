@@ -362,8 +362,6 @@
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
 
-
-
                     <!-- Include SummerNote JS and CSS -->
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                     <link rel="stylesheet"
@@ -746,7 +744,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse4" aria-expanded="true"
                                                         aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG</h4>
+                                                        <h6 style="font-weight: bold;">PERATURAN DI DALAM KANTOR</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse4" class="accordion-collapse collapse"
@@ -831,7 +829,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse6" aria-expanded="true"
                                                         aria-controls="collapse6">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG
+                                                        <h6 style="font-weight: bold;">PERATURAN KERAPIAN RAMBUT
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -866,7 +864,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse7" aria-expanded="true"
                                                         aria-controls="collapse7">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG<h4>
+                                                        <h6 style="font-weight: bold;">PERATURAN PARKIR MOTOR<h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse7" class="accordion-collapse collapse"
@@ -924,65 +922,54 @@
         </section><!-- End Services Section -->
 
         <!-- ======= Features Section ======= -->
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwal Piket</title>
-  <!-- Tambahkan library CSS Lightbox -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Jadwal Piket</title>
+            <!-- Tambahkan library CSS Lightbox -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+        </head>
 
-  <!-- Tambahkan CSS untuk memindahkan gambar ke sebelah kanan -->
-  <style>
-    .icon-box img {
-      float: right;
-      margin-left: 10px;
-      margin-bottom: 10px;
-    }
-  </style>
+        <body>
+            <section id="jadwalpiket" class="features">
+                <div class="container">
 
-</head>
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Jadwal piket</h2>
+                    </div>
 
-<body>
-  <section id="jadwalpiket" class="features">
-    <div class="container">
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="section-title" data-aos="fade-up">
-        <h2>Jadwal piket</h2>
-      </div>
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <center>
-        <div class="row" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 1">
-                <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
-              </a>
-            </div>
-          </div>
-        </div>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 2">
-                <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
-              </a>
-            </div>
-          </div>
-        </div>
-      </center>
-    </div>
-  </section>
-
-  <!-- Tambahkan library JavaScript Lightbox -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-</body>
-
-</html>
-            <!-- Tambahkan library JavaScript Lightbox -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
             <script>
                 lightbox.option({
@@ -992,7 +979,7 @@
             </script>
         </body>
 
-        </html>
+</html>
 
         <!-- ======= Contact Section ======= -->
         <section id="kontak" class="contact">
@@ -1044,11 +1031,11 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="" required>
+                                    placeholder="Your Name" value="Fauzi" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="" required>
+                                    placeholder="Your Email" value="Fauzi@gmail.com" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
