@@ -39,6 +39,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
         Route::post('/admin/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
         Route::delete('/admin/pengumuman/{pengumuman}', [PengumumanController::class, 'hapusPengumuman'])->name('admin.pengumuman.hapus');
+        Route::put('/admin/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
     });
 
     //pembimbing

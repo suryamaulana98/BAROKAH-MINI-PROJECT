@@ -72,39 +72,6 @@
         </div>
     </div>
 {{-- End --}}
-    {{-- Edit modal --}}
-    <div class="modal modal-lg fade" id="editPengumuman" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><b>Buat pengumuman magang</b></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
-                        <textarea class="form-control" id="a" rows="5"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                        <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-              <button type="button" class="btn btn-primary">Simpan</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    {{-- End --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -368,6 +335,67 @@
                       @php
                           $i++;
                       @endphp
+                      {{-- Edit modal --}}
+   <div class="modal modal-lg fade" id="editPengumuman{{ $i }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><b>Edit pengumuman magang</b></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+        <div class="modal-body">
+            <form action="{{ route('admin.pengumuman.update', ['pengumuman' => $pengumuman->id]) }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul_pengumuman" value="{{ $pengumuman->judul_pengumuman }}">
+                </div>
+                <div class="mb-3">
+                    <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
+                    <textarea id="summernotea{{ $i }}" name="isi_pengumuman">{!! $pengumuman->isi_pengumuman !!}</textarea>
+                    <script>
+                    $('#summernotea{{ $i }}').summernote({
+                        placeholder: 'Hello stand alone ui',
+                        tabsize: 2,
+                        height: 120,
+                        toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']]
+                        ]
+                    });
+                    </script>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
+                    <script>
+                        // Mendapatkan elemen input tanggal berdasarkan ID
+                        var inputTanggal = document.getElementById("tanggal");
+
+                        // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+                        var tanggalHariIni = new Date().toISOString().slice(0, 10);
+                        console.log(tanggalHariIni);
+
+                        // Mengatur nilai input tanggal dengan tanggal hari ini
+                        inputTanggal.value = tanggalHariIni;
+                    </script>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+{{-- End --}}
                         <tr>
                             <td>
                                 <div class="px-3">
@@ -375,13 +403,13 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-xs font-weight-bold mb-0" title="{{ $pengumuman->isi_pengumuman }}">{{ (strlen($pengumuman->isi_pengumuman) < 36) ? $pengumuman->isi_pengumuman : Str::limit($pengumuman->isi_pengumuman, 36) . '...' }}</p>
+                                <p class="text-xs font-weight-bold mb-0" title="{!! $pengumuman->isi_pengumuman !!}">{!! (strlen($pengumuman->isi_pengumuman) < 36) ? $pengumuman->isi_pengumuman : Str::limit($pengumuman->isi_pengumuman, 36) . '...' !!}</p>
                             </td>
                             <td>
                                 <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ \Carbon\Carbon::parse($pengumuman->tanggal_pengumuman)->formatLocalized('%d %B %Y') }}</p>
                             </td>
                             <td>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#editPengumuman{{ $i }}">
                                     <i class="fa-solid fa-pencil text-primary" style="margin-right: 8px;"></i>
                                 </a>
                             </td>

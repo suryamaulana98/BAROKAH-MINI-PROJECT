@@ -387,14 +387,12 @@
     <section id="" class="d-flex" style="width: 100%; margin-top: 70px;">
 
     <div class="container">
-        <h5 class="card-title" style="font-weight: bold;font-style: normal; font-weight: 700; font-size: 20px; line-height: 40px; text-transform: uppercase; line-height: 29px; color: #57595C; margin-bottom: 24px;">Buat peraturan magang</h5>
-        <p style="font-weight: 400; font-size: 14px; line-height: 25px; color: #888; margin-top: 12px;">Tanggal Posting : 25 Apr 2023</p>
-        <p style="font-weight: 400; font-size: 16px; line-height: 25px; text-align: justify;">Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada peserta Rekrutmen Ekstern.
-            al Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada : Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada p
-<br><br>
-            eserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada : Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus se.
-<br><br>
-            leksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada. Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SLTA, D3 & D4/S1 Bersumber dari Job Fair Universitas Sebelas Maret Tahun 2023 yang namanya tercantum di bawah ini dinyatakan lulus seleksi kesehatan awal, selanjutnya berhak mengikuti seleksi psikologi yang akan dilaksanakan pada :Diberitahukan kepada peserta Rekrutmen Eksternal Tingkat SL</p>
+        <h5 class="card-title" style="font-weight: bold;font-style: normal; font-weight: 700; font-size: 20px; line-height: 40px; text-transform: uppercase; line-height: 29px; color: #57595C; margin-bottom: 24px;">{{ $pengumuman->judul_pengumuman }}</h5>
+        @php
+            use Carbon\Carbon;
+        @endphp
+        <p style="font-weight: 400; font-size: 14px; line-height: 25px; color: #888; margin-top: 12px;">Tanggal Posting : {{ Carbon::parse($pengumuman->tanggal_pengumuman)->format('d M Y') }}</p>
+        <p style="font-weight: 400; font-size: 16px; line-height: 25px; text-align: justify;">{!! $pengumuman->isi_pengumuman !!}</p>
             <a href="{{ route('ketua.dashboard') }}" style="float: right;" class="btn btn-primary">Kembali</a>
     </div>
     </section>
