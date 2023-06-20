@@ -582,13 +582,10 @@
             <div class="container">
                 <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
                     <ul class="horizontal-list" style="margin-top: 18px;">
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Fitri</strong></a></li>
-                    </ul>
+                        @foreach ($pengumumans as $pengumuman)
+                        <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $pengumuman->id]) }}" style="color: #222222;"style="margin-right: 8px;">{{ $pengumuman->tanggal_pengumuman }} <strong>{{ $pengumuman->judul_pengumuman }}</strong></a></li>
+                        </ul>
+                        @endforeach
                 </marquee>
 
             </div>

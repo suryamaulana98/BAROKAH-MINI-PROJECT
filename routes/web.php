@@ -43,7 +43,7 @@ Route::middleware('checkLogin')->group(function () {
 
     //pembimbing
     Route::middleware('role:pembimbing')->group(function () {
-        Route::get('/dashboard_pembimbing', [PembimbingController::class, 'index'])->name('pembimbing.dashboard');
+        Route::get('/pembimbing/dashboard', [PembimbingController::class, 'index'])->name('pembimbing.dashboard');
         Route::get('/pembimbing/listsiswa',[PembimbingController::class, 'listsiswa'])->name('pembimbing.listsiswa');
         Route::get('/pembimbing/izinsiswa',[PembimbingController::class, 'izinsiswa'])->name('pembimbing.izinsiswa');
         Route::get('/pembimbing/laporanketua',[PembimbingController::class, 'laporanketua'])->name('pembimbing.laporanketua');
@@ -68,9 +68,13 @@ Route::middleware('checkLogin')->group(function () {
 
     //ketua
     Route::middleware('role:ketua')->group(function () {
-        Route::get('/dashboard_ketua', [KetuaController::class, 'index'])->name('ketua.dashboard');
+        Route::get('/ketua/dashboard', [KetuaController::class, 'index'])->name('ketua.dashboard');
         Route::get('/peraturan', [PeraturanController::class, 'index'])->name('ketua.peraturan.index');
     });
+
+    // Pengumuman
+
+    Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
 
     //siswa
     Route::middleware('role:siswa')->group(function () {

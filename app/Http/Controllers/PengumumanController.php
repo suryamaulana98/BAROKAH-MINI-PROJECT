@@ -24,4 +24,8 @@ class PengumumanController extends Controller
             return back()->withErrors(['errorHapus' => 'Gagal menghapus pengumuman']);
         }
     }
+    function lihatPengumuman($pengumuman) {
+        $pengumuman = Pengumuman::where('id', $pengumuman)->first();
+        return view('pengumuman.detail_pengumuman', compact('pengumuman'));
+    }
 }
