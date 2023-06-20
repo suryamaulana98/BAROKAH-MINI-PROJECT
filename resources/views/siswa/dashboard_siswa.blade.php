@@ -602,10 +602,34 @@
         <section id="peraturanMagang" class="services">
             <div class="container">
 
-                <div class="connector"></div> <!-- Garis penghubung dengan simbol bulat -->
                 <div class="section-title" data-aos="fade-up" style="margin-bottom: -50px;">
                     <h2>Peraturan</h2>
                 </div>
+                <style>
+                    .resume .resume-item::before {
+                        content: "";
+                        position: absolute;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        left: -9px;
+                        top: 0;
+                        background: #fff;
+                        border: 2px solid #b4caff;
+                        margin-left: 1px;
+                        /* Menyesuaikan jarak ke kanan */
+                    }
+
+                    .resume .resume-item {
+                        padding: 0 0 20px 20px;
+                        margin-top: -2px;
+                        margin-right: -90px;
+                        border-left: 2px solid #0563bb;
+                        position: relative;
+                        left: 15px;
+                        /* Menyesuaikan jarak ke kanan */
+                    }
+                </style>
 
                 <main id="main" style="width: 100%;">
 
@@ -624,7 +648,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse1" aria-expanded="true"
                                                         aria-controls="collapse1">
-                                                        <h6 style="font-weight: bold;">PERATURAN BAJU</h6>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            PERATURAN BAJU</h6>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse1" class="accordion-collapse collapse"
@@ -673,7 +698,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse2" aria-expanded="true"
                                                         aria-controls="collapse2">
-                                                        <h6 style="font-weight: bold;">peraturan piket</h4>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan piket</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse2" class="accordion-collapse collapse"
@@ -719,7 +745,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse4" aria-expanded="true"
                                                         aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;">peraturan di dalam kantor</h4>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan di dalam kantor</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse4" class="accordion-collapse collapse"
@@ -753,7 +780,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse5" aria-expanded="true"
                                                         aria-controls="collapse5">
-                                                        <h6 style="font-weight: bold;">peraturan kerapian rambut
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan kerapian rambut
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -900,38 +928,90 @@
 
 
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
         </head>
 
         <body>
+            <style>
+                #jadwal:hover {
+                    transform: scale(1.1);
+                    transition: .5s;
+                }
+            </style>
             <section id="jadwalpiket" class="features">
                 <div class="container">
-
                     <div class="section-title" data-aos="fade-up">
                         <h2>Jadwal piket</h2>
                     </div>
 
-                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="col-lg-3 col-md-4">
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-lg-9">
+                            <h5>Detail Jadwal Piket</h5><br>
+                            <p>
+                                Selamat datang dalam jadwal piket kami. Untuk menjaga kelancaran tugas dan kedisiplinan,
+                                berikut adalah peraturan penting yang harus diikuti oleh semua anggota yang piket:
+                            </p>
+                            <ol>
+                                <li>Waktu Berangkat:</li>
+                            </ol>
+                            <ul>
+                                <li>Waktu maksimal untuk berangkat piket adalah pukul 7:45.</li>
+                                <li>Mohon pastikan Anda sudah berada di tempat piket sebelum pukul 7:45.</li>
+                                <li>Jika Anda tiba setelah waktu tersebut, akan diberlakukan hukuman sesuai dengan
+                                    ketentuan yang berlaku.</li>
+                            </ul>
+                            <ol start="2">
+                                <li>Hukuman untuk Keterlambatan:</li>
+                            </ol>
+                            <ul>
+                                <li>Sanksi dapat berupa pengurangan poin, penundaan cuti, atau tindakan disipliner
+                                    lainnya, sesuai dengan kebijakan internal kami.</li>
+                                <li>Jika melebihi waktu berangkat maksimal, akan diberlakukan sanksi sesuai dengan
+                                    ketentuan yang berlaku.</li>
+                                <li>Ketentuan mengenai sanksi akan diberikan kepada anggota piket secara tertulis
+                                    sebelum jadwal dimulai.</li>
+                            </ul>
+                            <ol start="3">
+                                <li>Pemberitahuan Keterlambatan:</li>
+                            </ol>
+                            <ul>
+                                <li>Jika Anda menghadapi situasi darurat atau keadaan tak terduga yang menyebabkan
+                                    keterlambatan, mohon segera menghubungi koordinator piket atau atasan langsung Anda.
+                                </li>
+                                <li>Mohon memberikan pemberitahuan secepat mungkin agar dapat diambil tindakan yang
+                                    sesuai.</li>
+                            </ul>
+                            <ol start="4">
+                                <li>Kedisiplinan dan Tanggung Jawab:</li>
+                            </ol>
+                            <ul>
+                                <li>Selama bertugas piket, diharapkan untuk menjalankan tugas dengan penuh dedikasi dan
+                                    profesionalisme.</li>
+                                <li>Anda bertanggung jawab untuk menjaga kebersihan, ketertiban, dan keamanan selama
+                                    piket.</li>
+                                <li>Patuhi aturan dan petunjuk yang telah ditetapkan dan ikuti instruksi dari atasan
+                                    dengan penuh tanggung jawab </li>
+                            </ul>
+                            <p>
+                                Terima kasih atas kerjasama Anda dalam mengikuti peraturan jadwal piket kami. Dengan
+                                menjaga disiplin dan tepat waktu, kita dapat menciptakan lingkungan kerja yang efisien
+                                dan profesional.
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 justify-content-end" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
                                 <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
                                     data-title="">
-                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt=""
-                                        style="width: 350px; height: 450px;">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" id="jadwal" alt=""
+                                        class="img-fluid rounded">
                                 </a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="col-lg-3 col-md-4">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
-                                    data-title="">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" id="jadwal"
+                                    data-lightbox="jadwal" data-title="">
                                     <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
-                                        style="width: 350px; height: 450px;">
+                                        class="img-fluid rounded">
                                 </a>
                             </div>
                         </div>
@@ -1567,8 +1647,22 @@
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
-                    </div>
-                    <div class="text-center"><button type="submit">Kirim pesan</button></div>
+                        <div class="text-center">
+                            <button id="btnKirim" type="submit">Kirim pesan</button>
+                          </div>
+                          <script>
+                            // Fungsi untuk menampilkan SweetAlert
+                            function tampilkanSweetAlert() {
+                              swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
+                            }
+
+                            // Menambahkan event listener pada tombol "Kirim pesan"
+                            document.getElementById("btnKirim").addEventListener("click", function(event) {
+                              event.preventDefault(); // Mencegah form submit
+                              tampilkanSweetAlert();
+                            });
+                          </script>
+                          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 </form>
             </div>
 

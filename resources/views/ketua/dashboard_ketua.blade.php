@@ -361,17 +361,11 @@
                         <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
-
-
-
                     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
                     <!-- Initialize SummerNote -->
                     <script>
@@ -746,7 +740,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse4" aria-expanded="true"
                                                         aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG</h4>
+                                                        <h6 style="font-weight: bold;">PERATURAN DI DALAM KANTOR</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse4" class="accordion-collapse collapse"
@@ -831,7 +825,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse6" aria-expanded="true"
                                                         aria-controls="collapse6">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG
+                                                        <h6 style="font-weight: bold;">PERATURAN KERAPIAN RAMBUT
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -866,7 +860,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse7" aria-expanded="true"
                                                         aria-controls="collapse7">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI TEMPAT MAGANG<h4>
+                                                        <h6 style="font-weight: bold;">PERATURAN PARKIR MOTOR<h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse7" class="accordion-collapse collapse"
@@ -924,65 +918,54 @@
         </section><!-- End Services Section -->
 
         <!-- ======= Features Section ======= -->
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jadwal Piket</title>
-  <!-- Tambahkan library CSS Lightbox -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Jadwal Piket</title>
+            <!-- Tambahkan library CSS Lightbox -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+        </head>
 
-  <!-- Tambahkan CSS untuk memindahkan gambar ke sebelah kanan -->
-  <style>
-    .icon-box img {
-      float: right;
-      margin-left: 10px;
-      margin-bottom: 10px;
-    }
-  </style>
+        <body>
+            <section id="jadwalpiket" class="features">
+                <div class="container">
 
-</head>
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Jadwal piket</h2>
+                    </div>
 
-<body>
-  <section id="jadwalpiket" class="features">
-    <div class="container">
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="section-title" data-aos="fade-up">
-        <h2>Jadwal piket</h2>
-      </div>
+                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="col-lg-3 col-md-4">
+                            <div class="icon-box">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
+                                    data-title="">
+                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
+                                        style="width: 350px; height: 450px;">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <center>
-        <div class="row" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 1">
-                <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
-              </a>
-            </div>
-          </div>
-        </div>
 
-        <div class="row" data-aos="fade-up" data-aos-delay="300">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal" data-title="Deskripsi Gambar 2">
-                <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt="Image Description" style="width: 350px; height: 350px;">
-              </a>
-            </div>
-          </div>
-        </div>
-      </center>
-    </div>
-  </section>
-
-  <!-- Tambahkan library JavaScript Lightbox -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-</body>
-
-</html>
-            <!-- Tambahkan library JavaScript Lightbox -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
             <script>
                 lightbox.option({
@@ -992,7 +975,7 @@
             </script>
         </body>
 
-        </html>
+</html>
 
         <!-- ======= Contact Section ======= -->
         <section id="kontak" class="contact">
@@ -1024,16 +1007,16 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>{{ $kontak->alamat_kantor }}</p>
+                                <p>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "Jl." }}</p>
                             </div>
 
                             <div>
                                 <i class="ri-mail-send-line"></i>
-                                <p>{{ $kontak->email }}</p>
+                                <p>{{ (isset($kontak->email)) ? $kontak->email : "@" }}</p>
                             </div>
                             <div>
                                 <i class="ri-phone-line"></i>
-                                <p>{{ $kontak->nomor_telepon }}</p>
+                                <p>{{ (isset($kontak->nomor_telepon)) ? $kontak->nomor_telepon : "0" }}</p>
                             </div>
 
                         </div>
@@ -1042,10 +1025,12 @@
                     <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                                <input type="text" name="name" class="form-control" id="name"
+                                    placeholder="Your Name" value="" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                                <input type="text" class="form-control" name="email" id="email"
+                                    placeholder="Your Email" value="" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>

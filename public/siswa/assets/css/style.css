@@ -833,7 +833,6 @@ section {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: #f6f6f6;
   transition: ease-in-out 0.3s;
 }
 
@@ -856,13 +855,6 @@ section {
   transition: ease-in-out 0.3s;
 }
 
-.features .icon-box h3 a:hover {
-  color: #3498db;
-}
-
-.features .icon-box:hover {
-  background: #eef7fc;
-}
 
 /*--------------------------------------------------------------
 # Testimonials
