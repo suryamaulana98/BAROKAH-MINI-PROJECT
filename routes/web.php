@@ -7,6 +7,7 @@ use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,7 @@ Route::middleware('checkLogin')->group(function () {
     //ketua
     Route::middleware('role:ketua')->group(function () {
         Route::get('/dashboard_ketua', [KetuaController::class, 'index'])->name('ketua.dashboard');
+        Route::get('/peraturan', [PeraturanController::class, 'index'])->name('ketua.peraturan.index');
     });
 
     //siswa

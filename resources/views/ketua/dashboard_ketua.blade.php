@@ -127,7 +127,7 @@
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
 
-                            <li><a href="#">Buat peraturan</a></li>
+                            <li><a href="{{ route('ketua.peraturan.index') }}">Buat peraturan</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>Izin siswa</span> <i
@@ -315,7 +315,7 @@
                         <label for="" class="form-label">Alasan Izin</label>
                         <select class="form-select" aria-label="Default select example">
                             <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="1">Sakit></option>
+                            <option value="1">Sakit</option>
                             <option value="2">Acara Keluarga</option>
                             <option value="3">Darurat</option>
                         </select>
@@ -364,11 +364,14 @@
 
 
 
-                    <!-- Include SummerNote JS and CSS -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
                     <!-- Initialize SummerNote -->
                     <script>
@@ -1024,17 +1027,16 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>Perum Permata Regency 1 blok 10 no 28 Ngijo Karangploso Malang</p>
+                                <p>{{ $kontak->alamat_kantor }}</p>
                             </div>
 
                             <div>
                                 <i class="ri-mail-send-line"></i>
-                                <p>hummasoft.tech@gmail.com</p>
+                                <p>{{ $kontak->email }}</p>
                             </div>
-
                             <div>
                                 <i class="ri-phone-line"></i>
-                                <p>+1 5589 55488 55s</p>
+                                <p>{{ $kontak->nomor_telepon }}</p>
                             </div>
 
                         </div>
@@ -1043,16 +1045,13 @@
                     <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="" required>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="" required>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
