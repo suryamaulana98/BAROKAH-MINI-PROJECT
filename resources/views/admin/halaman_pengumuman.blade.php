@@ -373,18 +373,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                                                <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
-                                                <script>
-                                                    // Mendapatkan elemen input tanggal berdasarkan ID
-                                                    var inputTanggal = document.getElementById("tanggal");
-
-                                                    // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
-                                                    var tanggalHariIni = new Date().toISOString().slice(0, 10);
-                                                    console.log(tanggalHariIni);
-
-                                                    // Mengatur nilai input tanggal dengan tanggal hari ini
-                                                    inputTanggal.value = tanggalHariIni;
-                                                </script>
+                                                <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" value="{{ $pengumuman->tanggal_pengumuman }}" readonly>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
