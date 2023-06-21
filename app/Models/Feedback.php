@@ -14,11 +14,4 @@ class Feedback extends Model
     public $incrementing = false;
     protected $guarded = ['id'];
     protected $keyType = 'string';
-
-    protected static function boot() {
-        parent::boot();
-        static::creating(function ($model) {
-            $model->id = (string) Str::uuid();
-        });
-    }
 }
