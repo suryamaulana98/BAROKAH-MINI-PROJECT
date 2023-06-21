@@ -576,9 +576,12 @@
             <div class="container">
                 <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
                     <ul class="horizontal-list" style="margin-top: 18px;">
-                        @foreach ($pengumumans as $pengumuman)
-                        <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $pengumuman->id]) }}" style="color: #222222;"style="margin-right: 8px;">{{ $pengumuman->tanggal_pengumuman }} <strong>{{ $pengumuman->judul_pengumuman }}</strong></a></li>
-                        @endforeach
+                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
+                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
+                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
+                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
+                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
+                                2022 <strong>Pengumuman Fitri</strong></a></li>
                     </ul>
                 </marquee>
 
@@ -641,10 +644,34 @@
         <section id="peraturanMagang" class="services">
             <div class="container">
 
-                <div class="connector"></div> <!-- Garis penghubung dengan simbol bulat -->
                 <div class="section-title" data-aos="fade-up" style="margin-bottom: -50px;">
                     <h2>Peraturan</h2>
                 </div>
+                <style>
+                    .resume .resume-item::before {
+                        content: "";
+                        position: absolute;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        left: -9px;
+                        top: 0;
+                        background: #fff;
+                        border: 2px solid #b4caff;
+                        margin-left: 1px;
+                        /* Menyesuaikan jarak ke kanan */
+                    }
+
+                    .resume .resume-item {
+                        padding: 0 0 20px 20px;
+                        margin-top: -2px;
+                        margin-right: -90px;
+                        border-left: 2px solid #0563bb;
+                        position: relative;
+                        left: 15px;
+                        /* Menyesuaikan jarak ke kanan */
+                    }
+                </style>
 
                 <main id="main" style="width: 100%;">
 
@@ -663,42 +690,41 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse1" aria-expanded="true"
                                                         aria-controls="collapse1">
-                                                        <h6 style="font-weight: bold;">PERATURAN BAJU</h6>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            PERATURAN BAJU</h6>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse1" class="accordion-collapse collapse"
                                                     aria-labelledby="heading1" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <div class="program-des">
-                                                            <p>Pakaian adalah barang yang digunakan untuk menutupi tubuh
-                                                                dan
-                                                                melindungi dari elemen
-                                                                lingkungan. Pakaian dapat terdiri dari berbagai jenis
-                                                                dan
-                                                                gaya, termasuk pakaian
-                                                                sehari-hari, pakaian formal, pakaian olahraga, pakaian
-                                                                tidur, dan banyak lagi. Pakaian
-                                                                adalah barang yang digunakan untuk menutupi tubuh dan
-                                                                melindungi dari elemen lingkungan.
-                                                                Pakaian dapat terdiri dari berbagai jenis dan gaya,
-                                                                termasuk
-                                                                pakaian sehari-hari, pakaian
-                                                                formal, pakaian olahraga, pakaian tidur, dan banyak
-                                                                lagi.Pakaian adalah barang yang
-                                                                digunakan untuk menutupi tubuh dan melindungi dari
-                                                                elemen
-                                                                lingkungan. Pakaian dapat
-                                                                terdiri dari berbagai jenis dan gaya, termasuk pakaian
-                                                                sehari-hari, pakaian formal,
-                                                                pakaian olahraga, pakaian tidur, dan banyak lagi.
-                                                                Pakaian
-                                                                adalah barang yang digunakan
-                                                                untuk menutupi tubuh dan melindungi dari elemen
-                                                                lingkungan.
-                                                                Pakaian dapat terdiri dari
-                                                                berbagai jenis dan gaya, termasuk pakaian sehari-hari,
-                                                                pakaian formal, pakaian olahraga,
-                                                                pakaian tidur, dan banyak lagi.</p>
+                                                            <p>Peraturan berpakaian di kantor sangat penting untuk
+                                                                menciptakan suasana yang profesional dan representatif.
+                                                                Kami memiliki beberapa aturan mengenai berpakaian yang
+                                                                diharapkan setiap karyawan patuhi:
+
+                                                                1. Pakaian formal atau semi-formal sangat dianjurkan.
+                                                                Setelan jas, blazer, atau dress dengan tampilan yang
+                                                                rapi dan sopan akan mencerminkan keseriusan dan
+                                                                profesionalisme Anda.
+
+                                                                2. Hindari mengenakan pakaian santai seperti kaos
+                                                                oblong, celana pendek, sandal jepit, dan sejenisnya
+                                                                kecuali dalam keadaan tertentu yang diizinkan oleh
+                                                                manajemen.
+
+                                                                3. Pastikan pakaian yang dikenakan selalu rapi dan
+                                                                bersih. Hindari pakaian yang kusut, lusuh, atau tidak
+                                                                terawat karena dapat memberikan kesan yang kurang
+                                                                profesional.
+
+                                                                Peraturan berpakaian ini bertujuan untuk menciptakan
+                                                                lingkungan kerja yang serius, formal, dan memberikan
+                                                                kesan yang baik kepada klien, rekan kerja, dan
+                                                                pengunjung kantor. Dengan mematuhi peraturan ini, kita
+                                                                dapat mencapai citra profesional yang konsisten di
+                                                                tempat kerja.
+                                                            </p>
 
                                                         </div>
                                                     </div>
@@ -714,16 +740,37 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse2" aria-expanded="true"
                                                         aria-controls="collapse2">
-                                                        <h6 style="font-weight: bold;">PERATURAN JADWAL PIKET</h4>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan piket</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse2" class="accordion-collapse collapse"
                                                     aria-labelledby="heading2" data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <div class="program-des">
+                                                            <p>Pada PRA PPDB meliputi:</p>
                                                             <ul>
-                                                                <li>Piket Pagi<br>Yang piket datang 15 menit sebelum magang di mulai (07:45)</li>
-                                                                <li>Piket Sore<br>Piket sore pulang lebih telat untuk memastikan inspektur sudah mengecek semuanya dan di pastikan bersih</li>
+                                                                <li>Pengambilan PIN <br> calon siswa harus mendaftar
+                                                                    untuk
+                                                                    mendapatkan PIN. PIN akan
+                                                                    digunakan untuk Pendaftaran. PIN hanya ada satu tiap
+                                                                    calon siswa</li>
+                                                                <div class="bg-warning text-white"
+                                                                    style="padding: 5px 0px; text-align: center;">
+                                                                    <p>
+                                                                        Data yang disiapkan untuk ambil PIN <br>
+                                                                        1. Scan KK (terbaca dan jelas) <br>
+                                                                        2. Scan SKL (terbaca dan jelas)<br>
+                                                                        3. NISN & Tanggal lahir
+                                                                    </p>
+                                                                </div> <br>
+                                                                <li>Latihan Pendaftaran <br> calon siswa yang telah
+                                                                    memiliki
+                                                                    PIN bisa mengikuti latihan
+                                                                    pendaftaran. Tujuannya agar mengetahui menu/alur
+                                                                    untuk
+                                                                    mendaftar <strong>hanya latihan /
+                                                                        belum resmi mendaftar</strong></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -740,7 +787,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse4" aria-expanded="true"
                                                         aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;">PERATURAN DI DALAM KANTOR</h4>
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan di dalam kantor</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse4" class="accordion-collapse collapse"
@@ -774,7 +822,8 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse5" aria-expanded="true"
                                                         aria-controls="collapse5">
-                                                        <h6 style="font-weight: bold;">PERATURAN TELAT DI TEMPAT MAGANG
+                                                        <h6 style="font-weight: bold;" class="text-uppercase">
+                                                            peraturan kerapian rambut
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -825,7 +874,7 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse6" aria-expanded="true"
                                                         aria-controls="collapse6">
-                                                        <h6 style="font-weight: bold;">PERATURAN KERAPIAN RAMBUT
+                                                        <h6 style="font-weight: bold;">F. TAHAP IV : JALUR ZONASI SMA
                                                             </h4>
                                                     </button>
                                                 </h2>
@@ -860,7 +909,9 @@
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse7" aria-expanded="true"
                                                         aria-controls="collapse7">
-                                                        <h6 style="font-weight: bold;">PERATURAN PARKIR MOTOR<h4>
+                                                        <h6 style="font-weight: bold;">G. TAHAP V : JALUR PRESTASI
+                                                            NILAI
+                                                            AKADEMIK SMK</h4>
                                                     </button>
                                                 </h2>
                                                 <div id="collapse7" class="accordion-collapse collapse"
@@ -917,47 +968,92 @@
             </div>
         </section><!-- End Services Section -->
 
-        <!-- ======= Features Section ======= -->
 
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Jadwal Piket</title>
-            <!-- Tambahkan library CSS Lightbox -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
         </head>
 
-        <body>
+      <body>
+            <style>
+                #jadwal:hover {
+                    transform: scale(1.1);
+                    transition: .5s;
+                }
+            </style>
             <section id="jadwalpiket" class="features">
                 <div class="container">
-
                     <div class="section-title" data-aos="fade-up">
                         <h2>Jadwal piket</h2>
                     </div>
 
-                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="col-lg-3 col-md-4">
+                    <div class="row" data-aos="fade-up">
+                        <div class="col-lg-9">
+                            <h5>Detail Jadwal Piket</h5><br>
+                            <p>
+                                Selamat datang dalam jadwal piket kami. Untuk menjaga kelancaran tugas dan kedisiplinan,
+                                berikut adalah peraturan penting yang harus diikuti oleh semua anggota yang piket:
+                            </p>
+                            <ol>
+                                <li>Waktu Berangkat:</li>
+                            </ol>
+                            <ul>
+                                <li>Waktu maksimal untuk berangkat piket adalah pukul 7:45.</li>
+                                <li>Mohon pastikan Anda sudah berada di tempat piket sebelum pukul 7:45.</li>
+                                <li>Jika Anda tiba setelah waktu tersebut, akan diberlakukan hukuman sesuai dengan
+                                    ketentuan yang berlaku.</li>
+                            </ul>
+                            <ol start="2">
+                                <li>Hukuman untuk Keterlambatan:</li>
+                            </ol>
+                            <ul>
+                                <li>Sanksi dapat berupa pengurangan poin, penundaan cuti, atau tindakan disipliner
+                                    lainnya, sesuai dengan kebijakan internal kami.</li>
+                                <li>Jika melebihi waktu berangkat maksimal, akan diberlakukan sanksi sesuai dengan
+                                    ketentuan yang berlaku.</li>
+                                <li>Ketentuan mengenai sanksi akan diberikan kepada anggota piket secara tertulis
+                                    sebelum jadwal dimulai.</li>
+                            </ul>
+                            <ol start="3">
+                                <li>Pemberitahuan Keterlambatan:</li>
+                            </ol>
+                            <ul>
+                                <li>Jika Anda menghadapi situasi darurat atau keadaan tak terduga yang menyebabkan
+                                    keterlambatan, mohon segera menghubungi koordinator piket atau atasan langsung Anda.
+                                </li>
+                                <li>Mohon memberikan pemberitahuan secepat mungkin agar dapat diambil tindakan yang
+                                    sesuai.</li>
+                            </ul>
+                            <ol start="4">
+                                <li>Kedisiplinan dan Tanggung Jawab:</li>
+                            </ol>
+                            <ul>
+                                <li>Selama bertugas piket, diharapkan untuk menjalankan tugas dengan penuh dedikasi dan
+                                    profesionalisme.</li>
+                                <li>Anda bertanggung jawab untuk menjaga kebersihan, ketertiban, dan keamanan selama
+                                    piket.</li>
+                                <li>Patuhi aturan dan petunjuk yang telah ditetapkan dan ikuti instruksi dari atasan
+                                    dengan penuh tanggung jawab </li>
+                            </ul>
+                            <p>
+                                Terima kasih atas kerjasama Anda dalam mengikuti peraturan jadwal piket kami. Dengan
+                                menjaga disiplin dan tepat waktu, kita dapat menciptakan lingkungan kerja yang efisien
+                                dan profesional.
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-4 justify-content-end" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
                                 <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
                                     data-title="">
-                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" alt=""
-                                        style="width: 350px; height: 450px;">
+                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" id="jadwal" alt=""
+                                        class="img-fluid rounded">
                                 </a>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-end" style="margin-right: 100px;" data-aos="fade-up"
-                        data-aos-delay="300">
-                        <div class="col-lg-3 col-md-4">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" data-lightbox="jadwal"
-                                    data-title="">
+                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" id="jadwal"
+                                    data-lightbox="jadwal" data-title="">
                                     <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
-                                        style="width: 350px; height: 450px;">
+                                        class="img-fluid rounded">
                                 </a>
                             </div>
                         </div>
@@ -1007,7 +1103,7 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "Jl." }}</p>
+                                <p>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "" }}</p>
                             </div>
 
                             <div>
