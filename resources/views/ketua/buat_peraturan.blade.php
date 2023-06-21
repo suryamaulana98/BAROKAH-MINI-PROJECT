@@ -220,15 +220,23 @@
                         <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
-<!-- include libraries(jQuery, bootstrap) -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                    <!-- include libraries(jQuery, bootstrap) -->
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                    </script>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                    <link rel="stylesheet"
+                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                        crossorigin="anonymous">
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                    </script>
 
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+                        rel="stylesheet">
+                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
                     <script>
                         $(document).ready(function() {
@@ -386,70 +394,85 @@
     <!-- ======= Hero Section ======= -->
     <section id="" class="d-flex" style="background-color: #3498DB; width: 100%; margin-top: 70px;">
 
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title" style="font-weight: bold;font-style: normal; font-weight: 800;
-                line-height: 29px; color: #57595C; margin-bottom: 24px;">Buat peraturan magang</h5>
-                <form action="">
-                    <div class="form-group">
-                        <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
-                        <input type="text" name="judul_peraturan" id="judulPeraturan" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi peraturan</label>
-                        <textarea class="form-control" id="deskripsi"></textarea>
-                        <script>
-                            $(document).ready(function() {
-                                $('#deskripsi').summernote({
-                                    height: 130, // Set the height of the SummerNote input
-                                    toolbar: [
-                                        // [groupName, [list of button]]
-                                        ['style', ['bold', 'italic', 'underline', 'clear']],
-                                        ['fontsize', ['fontsize']],
-                                        ['color', ['color']],
-                                        ['para', ['ul', 'ol', 'paragraph']],
-                                        ['height', ['height']]
-                                    ]
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"
+                        style="font-weight: bold;font-style: normal; font-weight: 800;
+                line-height: 29px; color: #57595C; margin-bottom: 24px;">
+                        Buat peraturan magang</h5>
+                    <form action="">
+                        <div class="form-group">
+                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
+                            <input type="text" name="judul_peraturan" id="judulPeraturan" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi
+                                peraturan</label>
+                            <textarea class="form-control" id="deskripsi"></textarea>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#deskripsi').summernote({
+                                        height: 130, // Set the height of the SummerNote input
+                                        toolbar: [
+                                            // [groupName, [list of button]]
+                                            ['style', ['bold', 'italic', 'underline', 'clear']],
+                                            ['fontsize', ['fontsize']],
+                                            ['color', ['color']],
+                                            ['para', ['ul', 'ol', 'paragraph']],
+                                            ['height', ['height']]
+                                        ]
+                                    });
                                 });
-                            });
-                        </script>
-                    </div>
-                    <button class="btn btn-primary" style="margin-top: 24px;">submit</button>
-                    <a href="{{ route('ketua.dashboard') }}" class="btn btn-danger" style="margin-top: 24px;">batal</a>
-                    <hr>
-                </form>
+                            </script>
+                        </div>
+                        <button class="btn btn-primary" style="margin-top: 24px;">submit</button>
+                        <a href="{{ route('ketua.dashboard') }}" class="btn btn-danger"
+                            style="margin-top: 24px;">batal</a>
+                        <hr>
+                    </form>
+                </div>
+                <table class="table align-items-center mb-0">
+                    <thead>
+                        <tr>
+                            <th class="text-uppercase text-secondary"
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#
+                            </th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul
+                                pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                Deskripsi pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
+                                colspan="2">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">1</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Peraturan baju</p>
+                            </td>
+                            <td>
+                                <p style="font-size: 14px;">
+                                    fawewaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+                            </td>
+                            <td>
+                                <button style="border: none; background: none;"><i
+                                        class="fa-solid fa-pen-to-square text-primary"></i></button>
+                            </td>
+                            <td>
+                                <button style="border: none; background: none;"><i
+                                        class="fa-solid fa-trash text-danger"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table class="table align-items-center mb-0">
-                <thead>
-                  <tr>
-                    <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#</th>
-                    <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul pengumuman</th>
-                    <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Deskripsi pengumuman</th>
-                    <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;" colspan="2">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                        <p style="font-size: 14px;">1</p>
-                    </td>
-                    <td class="">
-                        <p style="font-size: 14px;">Peraturan baju</p>
-                    </td>
-                    <td>
-                        <p style="font-size: 14px;"></p>
-                    </td>
-                    <td>
-                        <button style="border: none; background: none;"><i class="fa-solid fa-pen-to-square text-primary"></i></button>
-                    </td>
-                    <td>
-                        <button style="border: none; background: none;"><i class="fa-solid fa-trash text-danger"></i></button>
-                    </td>
-                  </tr>
-                </tbody>
-            </table>
-        </div>
         </div>
     </section>
 

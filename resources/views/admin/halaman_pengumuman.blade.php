@@ -336,70 +336,88 @@
                           $i++;
                       @endphp
                       {{-- Edit modal --}}
-   <div class="modal modal-lg fade" id="editPengumuman{{ $i }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><b>Edit pengumuman magang</b></h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-        <div class="modal-body">
-            <form action="{{ route('admin.pengumuman.update', ['pengumuman' => $pengumuman->id]) }}" method="POST">
-                @csrf
-                @method('PUT')
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul_pengumuman" value="{{ $pengumuman->judul_pengumuman }}">
-                </div>
-                <div class="mb-3">
-                    <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
-                    <textarea id="summernotea{{ $i }}" name="isi_pengumuman">{!! $pengumuman->isi_pengumuman !!}</textarea>
-                    <script>
-                    $('#summernotea{{ $i }}').summernote({
-                        placeholder: 'Hello stand alone ui',
-                        tabsize: 2,
-                        height: 120,
-                        toolbar: [
-                        ['style', ['style']],
-                        ['font', ['bold', 'underline', 'clear']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']]
-                        ]
-                    });
-                    </script>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
-                    <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
-                    <script>
-                        // Mendapatkan elemen input tanggal berdasarkan ID
-                        var inputTanggal = document.getElementById("tanggal");
+                        <div class="modal modal-lg fade" id="editPengumuman{{ $i }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"><b>Edit pengumuman magang</b></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+                                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+                                    <div class="modal-body">
+                                        <form action="{{ route('admin.pengumuman.update', ['pengumuman' => $pengumuman->id]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Judul pengumuman</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="judul_pengumuman" value="{{ $pengumuman->judul_pengumuman }}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="a" class="form-label" style="font-size:14px;">Isi pengumuman</label>
+                                                <textarea id="summernotea{{ $i }}" name="isi_pengumuman">{!! $pengumuman->isi_pengumuman !!}</textarea>
+                                                <script>
+                                                $('#summernotea{{ $i }}').summernote({
+                                                    placeholder: 'Hello stand alone ui',
+                                                    tabsize: 2,
+                                                    height: 120,
+                                                    toolbar: [
+                                                    ['style', ['style']],
+                                                    ['font', ['bold', 'underline', 'clear']],
+                                                    ['color', ['color']],
+                                                    ['para', ['ul', 'ol', 'paragraph']]
+                                                    ]
+                                                });
+                                                </script>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Tanggal</label>
+                                                <input type="date" class="form-control" id="tanggal" name="tanggal_pengumuman" readonly>
+                                                <script>
+                                                    // Mendapatkan elemen input tanggal berdasarkan ID
+                                                    var inputTanggal = document.getElementById("tanggal");
 
-                        // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
-                        var tanggalHariIni = new Date().toISOString().slice(0, 10);
-                        console.log(tanggalHariIni);
+                                                    // Mendapatkan tanggal hari ini dalam format YYYY-MM-DD
+                                                    var tanggalHariIni = new Date().toISOString().slice(0, 10);
+                                                    console.log(tanggalHariIni);
 
-                        // Mengatur nilai input tanggal dengan tanggal hari ini
-                        inputTanggal.value = tanggalHariIni;
-                    </script>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
-      </div>
-    </div>
-</div>
-{{-- End --}}
+                                                    // Mengatur nilai input tanggal dengan tanggal hari ini
+                                                    inputTanggal.value = tanggalHariIni;
+                                                </script>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- End --}}
+                        <div class="modal fade modal-lg" id="modal{{ $pengumuman->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel" style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">{{ $pengumuman->judul_pengumuman }}</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">{!! $pengumuman->isi_pengumuman !!}</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                         <tr>
                             <td>
                                 <div class="px-3">
-                                    <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ $pengumuman->judul_pengumuman }}">{{ (strlen($pengumuman->judul_pengumuman) < 30) ? $pengumuman->judul_pengumuman : Str::limit($pengumuman->judul_pengumuman, 30) . '...' }}</p>
+                                    <a href="#modal" data-bs-toggle="modal" data-bs-target="#modal{{ $pengumuman->id }}">
+                                        <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ $pengumuman->judul_pengumuman }}">{{ (strlen($pengumuman->judul_pengumuman) < 30) ? $pengumuman->judul_pengumuman : Str::limit($pengumuman->judul_pengumuman, 30) . '...' }}</p>
+                                    </a>
                                 </div>
                             </td>
                             <td>
