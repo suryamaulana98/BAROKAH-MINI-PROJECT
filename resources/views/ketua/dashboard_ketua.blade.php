@@ -751,17 +751,16 @@
                         top: 0;
                         background: #fff;
                         border: 2px solid #b4caff;
-                        margin-left: 1px;
+                        margin-left: 2px;
                         /* Menyesuaikan jarak ke kanan */
                     }
 
                     .resume .resume-item {
                         padding: 0 0 20px 20px;
                         margin-top: -2px;
-                        margin-right: -90px;
                         border-left: 2px solid #0563bb;
                         position: relative;
-                        left: 15px;
+                        left: 5px;
                         /* Menyesuaikan jarak ke kanan */
                     }
                 </style>
@@ -773,16 +772,16 @@
                             <div class="row" style="margin-bottom: 50px;">
                                 <h2></h2>
 
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 justify-content-center">
                                     <h3 class="resume-title"></h3>
                                     <div class="resume-item">
                                         <div class="accordion" id="accordionExample">
                                             <div class="accordion-item mb-2">
                                                 <h2 class="accordion-header" id="heading1">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse1" aria-expanded="true"
-                                                        aria-controls="collapse1">
+                                                    <button style="margin: 0;padding: 5px; wid"
+                                                        class="accordion-button" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse1"
+                                                        aria-expanded="true" aria-controls="collapse1">
                                                         <h6 style="font-weight: bold;" class="text-uppercase">
                                                             PERATURAN BAJU</h6>
                                                     </button>
@@ -864,7 +863,6 @@
                                                                     untuk
                                                                     mendaftar <strong>hanya latihan /
                                                                         belum resmi mendaftar</strong></li>
-
                                                             </ul>
                                                         </div>
                                                     </div>

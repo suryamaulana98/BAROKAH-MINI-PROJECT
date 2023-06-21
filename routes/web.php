@@ -79,7 +79,7 @@ Route::middleware('checkLogin')->group(function () {
 
     //siswa
     Route::middleware('role:siswa')->group(function () {
-        Route::get('/dashboard_siswa', [SiswaController::class, 'index'])->name('siswa.dashboard');
+        Route::get('/siswa/dashboard', [SiswaController::class, 'index'])->name('siswa.dashboard');
     });
 
 });
