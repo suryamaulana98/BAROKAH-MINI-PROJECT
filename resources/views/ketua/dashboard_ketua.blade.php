@@ -170,7 +170,7 @@
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="{{ route('logout') }}">Logout</a></li>
+                            <li><a href="javascript:logout()">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -1181,10 +1181,10 @@
                                 email, nomor
                                 telepon, twitter, facebook, instagram, linkedin</p>
                             <div class="social-links">
-                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                                <a href="https://twitter.com/hummasoft" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/hummasoft/?locale=id_ID" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/hummasoft/?hl=id/" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="https://id.linkedin.com/in/hummasoft-technology-2476a8241" class="linkedin"><i class="bi bi-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1217,10 +1217,6 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" name="email" id="email"
                                     placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject"
-                                    placeholder="Subject" required>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
