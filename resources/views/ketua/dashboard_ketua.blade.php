@@ -277,7 +277,7 @@
                                     <div class="d-flex" style="margin-top: -4%">
                                         <h6 style="margin-left: 8%">12</h6>
                                         <h6 style="margin-left: 25%">30</h6>
-                                        <h6 style="margin-left: 32%">15</h6>
+                                        <h6 style="margin-left: 35%">15</h6>
                                     </div>
                                 </div>
                             </div>
@@ -362,16 +362,19 @@
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
                     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                    </script>
 
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                    </script>
 
                     <!-- Initialize SummerNote -->
                     <script>
                         $(document).ready(function() {
                             $('#summerNoteInput').summernote({
-                                height: 200, // Set the height of the SummerNote input
+                                height: 130, // Set the height of the SummerNote input
                                 toolbar: [
                                     // [groupName, [list of button]]
                                     ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -725,8 +728,11 @@
                                                     <div class="accordion-body">
                                                         <div class="program-des">
                                                             <ul>
-                                                                <li>Piket Pagi<br>Yang piket datang 15 menit sebelum magang di mulai (07:45)</li>
-                                                                <li>Piket Sore<br>Piket sore pulang lebih telat untuk memastikan inspektur sudah mengecek semuanya dan di pastikan bersih</li>
+                                                                <li>Piket Pagi<br>Yang piket datang 15 menit sebelum
+                                                                    magang di mulai (07:45)</li>
+                                                                <li>Piket Sore<br>Piket sore pulang lebih telat untuk
+                                                                    memastikan inspektur sudah mengecek semuanya dan di
+                                                                    pastikan bersih</li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -924,12 +930,14 @@
 
         <!DOCTYPE html>
         <html lang="en">
+
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Jadwal Piket</title>
             <!-- Tambahkan library CSS Lightbox -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">g
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
         </head>
 
         <body>
@@ -978,7 +986,7 @@
             </script>
         </body>
 
-</html>
+        </html>
 
         <!-- ======= Contact Section ======= -->
         <section id="kontak" class="contact">
@@ -1010,16 +1018,16 @@
                         <div class="info">
                             <div>
                                 <i class="ri-map-pin-line"></i>
-                                <p>{{ (isset($kontak->alamat_kantor)) ? $kontak->alamat_kantor : "Jl." }}</p>
+                                <p>{{ isset($kontak->alamat_kantor) ? $kontak->alamat_kantor : 'Jl.' }}</p>
                             </div>
 
                             <div>
                                 <i class="ri-mail-send-line"></i>
-                                <p>{{ (isset($kontak->email)) ? $kontak->email : "@" }}</p>
+                                <p>{{ isset($kontak->email) ? $kontak->email : '@' }}</p>
                             </div>
                             <div>
                                 <i class="ri-phone-line"></i>
-                                <p>{{ (isset($kontak->nomor_telepon)) ? $kontak->nomor_telepon : "0" }}</p>
+                                <p>{{ isset($kontak->nomor_telepon) ? $kontak->nomor_telepon : '0' }}</p>
                             </div>
 
                         </div>
@@ -1036,7 +1044,8 @@
                                     placeholder="Your Email" value="" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                <input type="text" class="form-control" name="subject" id="subject"
+                                    placeholder="Subject" required>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
@@ -1048,20 +1057,20 @@
                             </div>
                             <div class="text-center">
                                 <button id="btnKirim" type="submit">Kirim pesan</button>
-                              </div>
-                              <script>
+                            </div>
+                            <script>
                                 // Fungsi untuk menampilkan SweetAlert
                                 function tampilkanSweetAlert() {
-                                  swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
+                                    swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
                                 }
 
                                 // Menambahkan event listener pada tombol "Kirim pesan"
                                 document.getElementById("btnKirim").addEventListener("click", function(event) {
-                                  event.preventDefault(); // Mencegah form submit
-                                  tampilkanSweetAlert();
+                                    event.preventDefault(); // Mencegah form submit
+                                    tampilkanSweetAlert();
                                 });
-                              </script>
-                              <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                            </script>
+                            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                         </form>
                     </div>
 

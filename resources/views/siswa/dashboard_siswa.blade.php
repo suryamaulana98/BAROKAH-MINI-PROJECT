@@ -159,11 +159,11 @@
 
     <style>
         .sakit {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #FF3500;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
@@ -172,11 +172,11 @@
         }
 
         .acara {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #516BE0;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
@@ -185,56 +185,85 @@
         }
 
         .darurat {
-            font-size: 14px;
+            font-size: 12px;
             color: white;
             margin-top: 10px;
             background-color: #28B62E;
-            padding: 5px 12px;
+            padding: 1% 3%;
             /* Sesuaikan padding dengan ukuran yang diinginkan */
             display: inline-block;
             /* Mengubah display menjadi inline-block */
             border-radius: 30px;
             background: #28B62E;
         }
+
+        #nama {
+            font-size: 20px;
+        }
+
+        /* Media queries untuk tampilan responsif */
+        @media screen and (max-width: 576px) {
+
+            .sakit,
+            .acara,
+            .darurat {
+                font-size: 10px;
+                /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                padding: 1% 3%;
+                /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+            }
+
+            #nama {
+                font-size: 16px;
+            }
+        }
     </style>
-    <!-- Modal untuk profil siswa-->
+
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content" style="width: 108%">
-                <div class="modal-body">
-                    <div class="d-flex align-items-start">
-                        <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="165px" alt=""
-                            style="border-radius: 10%;">
-                        <div class="ms-4">
-                            <div class="d-flex">
-                                <h5 class="fw-bold" style="margin-left: -12px">Surya Maulana Akhmad
-                                </h5>
-                                <i class="fa-solid fa-xmark btn btn-danger p-1" data-bs-dismiss="modal"
-                                    aria-label="Close" style="background-color: #FF0000; margin-left: 80px "></i>
-                            </div>
-                            <div class="d-flex flex-column">
-                                <div class="d-flex" style="margin-left: -12px">
-                                    <p class="me-3 lh-2" style="font-size: 14px">SMKN 1 LUMAJANG</p>
-                                    <p class="me-3 lh-2" style="font-size: 14px">18489179065</p>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="d-flex flex-column align-items-start">
+                        <div class="d-flex">
+                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%" alt=""
+                                style="border-radius: 10%;" class="me-3">
+                            <div>
+                                <h5 class="fw-bold me-5 text-wrap text-break" id="nama">Reno
+                                    Gunawan Assegaf</h5>
+
+                                <div class="d-flex flex-wrap">
+                                    <p class="mb-0 me-3" style="font-size: 12px">
+                                        SMKN 1 LUMAJANG</p>
+                                    <p class="mb-0" style="font-size: 12px">
+                                        18489179065</p>
                                 </div>
-                                <div class=""
-                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 5%; margin-left: -12px">
-                                    <p style="font-size: 12px; opacity: 0.5; color: #444444;" class="mt-1 ms-1">Detail
-                                        Izin
-                                    </p>
+                                <div class="mt-3"
+                                    style="width: 105%; height: 95px; background-color: #F1F5FB; border-radius: 3%;">
+                                    <p class="ms-1" style="font-size: 12px; opacity: 0.5; color: #444444;">
+                                        Detail Izin</p>
                                     <div class="d-flex" style="margin-top: -20px">
-                                        <p class="sakit ms-2 me-3 lh-2">Sakit</p>
-                                        <p class="acara me-3">Acara Keluarga</p>
-                                        <p class="darurat">Hal Darurat</p>
+                                        <p class="sakit ms-2 me-3 lh-2 fw-bold">
+                                            Sakit</p>
+                                        <p class="acara me-3 fw-bold">Acara
+                                            Keluarga</p>
+                                        <p class="darurat fw-bold">Hal Darurat</p>
+                                    </div>
+                                    <div class="d-flex" style="margin-top: -4%; font-family: ">
+                                        <h6 style="margin-left: 8%">12</h6>
+                                        <h6 style="margin-left: 25%">30</h6>
+                                        <h6 style="margin-left: 35%">15</h6>
                                     </div>
                                 </div>
                             </div>
+                            <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModaljadwal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
@@ -338,7 +367,8 @@
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -377,7 +407,8 @@
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -441,7 +472,8 @@
                         <hr>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -473,7 +505,8 @@
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -616,17 +649,16 @@
                         top: 0;
                         background: #fff;
                         border: 2px solid #b4caff;
-                        margin-left: 1px;
+                        margin-left: 2px;
                         /* Menyesuaikan jarak ke kanan */
                     }
 
                     .resume .resume-item {
                         padding: 0 0 20px 20px;
                         margin-top: -2px;
-                        margin-right: -90px;
                         border-left: 2px solid #0563bb;
                         position: relative;
-                        left: 15px;
+                        left: 5px;
                         /* Menyesuaikan jarak ke kanan */
                     }
                 </style>
@@ -638,16 +670,16 @@
                             <div class="row" style="margin-bottom: 50px;">
                                 <h2></h2>
 
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 justify-content-center">
                                     <h3 class="resume-title"></h3>
                                     <div class="resume-item">
                                         <div class="accordion" id="accordionExample">
                                             <div class="accordion-item mb-2">
                                                 <h2 class="accordion-header" id="heading1">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse1" aria-expanded="true"
-                                                        aria-controls="collapse1">
+                                                    <button style="margin: 0;padding: 5px; wid"
+                                                        class="accordion-button" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse1"
+                                                        aria-expanded="true" aria-controls="collapse1">
                                                         <h6 style="font-weight: bold;" class="text-uppercase">
                                                             PERATURAN BAJU</h6>
                                                     </button>
@@ -1620,7 +1652,7 @@
 
                     <div>
                         <i class="ri-phone-line"></i>
-                        <p>+1 5589 55488 55s</p>
+                        <p>+1 5589 55488 55</p>
                     </div>
 
                 </div>
@@ -1649,20 +1681,20 @@
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                         <div class="text-center">
                             <button id="btnKirim" type="submit">Kirim pesan</button>
-                          </div>
-                          <script>
+                        </div>
+                        <script>
                             // Fungsi untuk menampilkan SweetAlert
                             function tampilkanSweetAlert() {
-                              swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
+                                swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
                             }
 
                             // Menambahkan event listener pada tombol "Kirim pesan"
                             document.getElementById("btnKirim").addEventListener("click", function(event) {
-                              event.preventDefault(); // Mencegah form submit
-                              tampilkanSweetAlert();
+                                event.preventDefault(); // Mencegah form submit
+                                tampilkanSweetAlert();
                             });
-                          </script>
-                          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                        </script>
+                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 </form>
             </div>
 
