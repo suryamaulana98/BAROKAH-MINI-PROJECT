@@ -24,3 +24,4 @@
     integrity="sha512-..." crossorigin="anonymous" />
 <link href="/siswa/assets/css/style.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/admin/assets/js/logout.js"></script>
