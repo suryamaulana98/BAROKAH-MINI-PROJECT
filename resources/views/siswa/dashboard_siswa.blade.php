@@ -123,29 +123,34 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i></i></a>
+                    <li class="dropdown"><a href="#peraturanMagang" class="nav-link scrollto"><span>Peraturan</span>
+                            <i></i></a>
                     </li>
-                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin"><span>Izin
+                    <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                            data-bs-target="#exampleModalizin"><span>Izin
                                 siswa</span></a></li>
                     </li>
-                    <li><a href="#jadwalpiket"><span>Jadwal piket</span></a></li>
+                    <li><a href="#jadwalpiket" class="nav-link scrollto"><span>Jadwal piket</span></a></li>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Laporan</span> <i
+                                class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalhariansiswa">Laporan harian siswa</a></li>
-                            <li><a href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalhariansiswa"
+                                    class="nav-link scrollto">Laporan harian siswa</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalpembimbing"
+                                    class="nav-link scrollto">Laporan ke pembimbing</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal"
+                                    class="nav-link scrollto">Laporan
                                     jurnal</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="#kontak">Kontak</a></li>
+                    <li><a class="nav-link" href="#kontak" class="nav-link scrollto">Kontak</a></li>
                     <li class="dropdown"><img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="40"
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="javascript:logout()">Logout</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    class="nav-link scrollto">Profil</a></li>
+                            <li><a href="javascript:logout()" class="nav-link scrollto">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -613,18 +618,16 @@
         <!-- ======= Clients Section ======= -->
         <section id="clients" class="clients clients">
             <div id="clock"></div>
-            <div class="container">
-                <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
-                    <ul class="horizontal-list" style="margin-top: 18px;">
-                        @foreach ($pengumumans as $p)
-                            <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $p->id]) }}"
-                                    style="color: #222222;"style="margin-right: 8px;">{{ $p->tanggal_pengumuman }}
-                                    <strong>{{ $p->judul_pengumuman }}</strong></a></li>
-                        @endforeach
-                    </ul>
-                </marquee>
+            <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
+                <ul class="horizontal-list" style="margin-top: 18px;">
+                    @foreach ($pengumumans as $p)
+                        <li><a href="{{ route('pengumuman.detailsiswa', ['pengumuman' => $p->id]) }}"
+                                style="color: #222222; margin-right: 10px;">{{ $p->tanggal_pengumuman }}
+                                <strong>{{ $p->judul_pengumuman }}</strong></a></li>
+                    @endforeach
+                </ul>
+            </marquee>
 
-            </div>
             <script>
                 var myMarquee = document.getElementById('myMarquee');
 

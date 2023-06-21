@@ -6,6 +6,7 @@ use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
+use App\Http\Controllers\pengumpulanController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\SiswaController;
@@ -76,10 +77,14 @@ Route::middleware('checkLogin')->group(function () {
     // Pengumuman
 
     Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
+    Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumumansiswa'])->name('pengumuman.detailsiswa');
 
+    // Pengumpulan jurnal
+    Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');
+    
     //siswa
     Route::middleware('role:siswa')->group(function () {
-        Route::get('/siswa/dashboard', [SiswaController::class, 'index'])->name('siswa.dashboard');
+        Route::get('/dashboard_siswa', [SiswaController::class, 'index'])->name('siswa.dashboard');
     });
 
 });
