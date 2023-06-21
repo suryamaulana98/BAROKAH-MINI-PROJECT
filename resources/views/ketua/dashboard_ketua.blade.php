@@ -1237,38 +1237,21 @@
             </div>
 
             <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form action="{{ route('feedback.kirim') }}" class="php-email-form" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" id="name"
-                            placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="email" id="email"
-                            placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                        <input type="text" class="form-control" id="email" placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
                     </div>
-                    <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="pesan" rows="5" placeholder="Message" required></textarea>
                     </div>
-                    <div class="text-center">
-                        <button id="btnKirim" type="submit">Kirim pesan</button>
-                    </div>
-                    <script>
-                        // Fungsi untuk menampilkan SweetAlert
-                        function tampilkanSweetAlert() {
-                            swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
-                        }
-
-                        // Menambahkan event listener pada tombol "Kirim pesan"
-                        document.getElementById("btnKirim").addEventListener("click", function(event) {
-                            event.preventDefault(); // Mencegah form submit
-                            tampilkanSweetAlert();
-                        });
-                    </script>
+                    <center>
+                        <button type="submit">Kirim pesan</button>
+                    </center>
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 </form>
             </div>

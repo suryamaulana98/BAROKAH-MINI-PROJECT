@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
@@ -76,12 +77,14 @@ Route::middleware('checkLogin')->group(function () {
 
     // Pengumuman
 
-    Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
+    Route::get('/pengumuman/ketua/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
     Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumumansiswa'])->name('pengumuman.detailsiswa');
+
+    Route::post('/feedback/kirim', [FeedbackController::class, 'kirim'])->name('feedback.kirim');
 
     // Pengumpulan jurnal
     Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');
-    
+
     //siswa
     Route::middleware('role:siswa')->group(function () {
         Route::get('/dashboard_siswa', [SiswaController::class, 'index'])->name('siswa.dashboard');
