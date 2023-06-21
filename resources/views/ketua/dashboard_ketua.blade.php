@@ -296,20 +296,34 @@
             <div class="modal-content">
                 <div class="modal-body">
                     {{-- okeee --}}
-                    <h3>Izin Siswa/Ketua Magang</h3>
+                    <h3>Izin Siswa</h3>
                     <hr>
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Nama Siswa/Ketua Magang</label>
-                        <input class="form-control" type="" id="">
+                        <label for="" class="form-label">Nama Siswa</label>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
+                        <label for="" class="form-label">Asal Sekolah</label>
                         <input class="form-control" type="" id="">
                     </div>
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Asal Sekolah Siswa/Ketua Magang</label>
-                        <input class="form-control" type="date" id="">
+                        <label for="" class="form-label">Tanggal izin</label>
+                        <input class="form-control" type="date" id="tanggalIzinSiswa" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal
+                            var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
+
+                            // Mendapatkan tanggal sekarang
+                            var currentDate = new Date();
+
+                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                            var year = currentDate.getFullYear();
+                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                            var day = ('0' + currentDate.getDate()).slice(-2);
+                            var formattedDate = year + '-' + month + '-' + day;
+                            inputDateIzinSiswa.value = formattedDate;
+                        </script>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Alasan Izin</label>
@@ -321,7 +335,7 @@
                         </select>
                     </div>
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukkan Pesan</label>
+                        <label for="" class="form-label">Masukan Pesan</label>
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         </div>
@@ -362,13 +376,14 @@
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
                     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                    </script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-                    </script>
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 
                     <!-- Initialize SummerNote -->
                     <script>
@@ -417,7 +432,21 @@
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggal" class="form-label">Tanggal</label>
-                        <input class="form-control" type="date" id="tanggal">
+                        <input class="form-control" type="date" id="tanggalLaporanHarianSiswa" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal
+                            var inputDateLaporanHarianSiswa = document.getElementById('tanggalLaporanHarianSiswa');
+
+                            // Mendapatkan tanggal sekarang
+                            var currentDate = new Date();
+
+                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                            var year = currentDate.getFullYear();
+                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                            var day = ('0' + currentDate.getDate()).slice(-2);
+                            var formattedDate = year + '-' + month + '-' + day;
+                            inputDateLaporanHarianSiswa.value = formattedDate;
+                        </script>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="linkdokumen" class="form-label">Link dokumen</label>
@@ -442,11 +471,25 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Ketua Magang</label>
-                        <input class="form-control" type="" id="">
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukkan tanggal pengerjaan </label>
-                        <input class="form-control" type="date" id="">
+                        <label for="" class="form-label">Tanggal pengerjaan </label>
+                        <input class="form-control" type="date" id="tanggalLaporanKetuaMagang" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal
+                            var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanKetuaMagang');
+
+                            // Mendapatkan tanggal sekarang
+                            var currentDate = new Date();
+
+                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                            var year = currentDate.getFullYear();
+                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                            var day = ('0' + currentDate.getDate()).slice(-2);
+                            var formattedDate = year + '-' + month + '-' + day;
+                            tanggalLaporanKetuaMagang.value = formattedDate;
+                        </script>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Masukkan link pekerjaan</label>
@@ -470,16 +513,30 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Siswa Magang</label>
-                        <input class="form-control" type="" id="">
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Email Siswa Magang</label>
-                        <input class="form-control" type="" id="">
+                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukkan Tanggal Report</label>
-                        <input class="form-control" type="date" id="">
+                        <label for="" class="form-label">Tanggal Report</label>
+                        <input type="date" class="form-control" id="tanggalLaporanPembimbing" name="tanggal_dikirim" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal
+                            var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanPembimbing');
+
+                            // Mendapatkan tanggal sekarang
+                            var currentDate = new Date();
+
+                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                            var year = currentDate.getFullYear();
+                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                            var day = ('0' + currentDate.getDate()).slice(-2);
+                            var formattedDate = year + '-' + month + '-' + day;
+                            tanggalLaporanPembimbing.value = formattedDate;
+                        </script>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Isi Pesan</label>
@@ -505,17 +562,53 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswa" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="namaSiswa">
+                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggal" class="form-label">Tanggal</label>
-                        <input class="form-control" type="date" id="tanggal">
+                        <input class="form-control" type="date" id="tanggalJurnalSiswa" readonly>
+                        <script>
+                            // Mendapatkan elemen input tanggal
+                            var tanggalJurnalSiswa = document.getElementById('tanggalJurnalSiswa');
+
+                            // Mendapatkan tanggal sekarang
+                            var currentDate = new Date();
+
+                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                            var year = currentDate.getFullYear();
+                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                            var day = ('0' + currentDate.getDate()).slice(-2);
+                            var formattedDate = year + '-' + month + '-' + day;
+                            tanggalJurnalSiswa.value = formattedDate;
+                        </script>
                     </div>
                     <div class="mb-3 justify-content-between">
+                        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
                         <label for="kegiatan" class="form-label">Kegiatan</label>
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="kegiatan" style="height: 100px"></textarea>
                         </div>
+                        <script>
+                            $(document).ready(function() {
+                                $('#kegiatan').summernote({
+                                    height: 130, // Set the height of the SummerNote input
+                                    toolbar: [
+                                        // [groupName, [list of button]]
+                                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                                        ['fontsize', ['fontsize']],
+                                        ['color', ['color']],
+                                        ['para', ['ul', 'ol', 'paragraph']],
+                                        ['height', ['height']]
+                                    ]
+                                });
+                            });
+                        </script>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                     <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
@@ -579,12 +672,9 @@
             <div class="container">
                 <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
                     <ul class="horizontal-list" style="margin-top: 18px;">
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Fitri</strong></a></li>
+                        @foreach ($pengumumans as $p)
+                            <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $p->id]) }}" style="color: #222222;"style="margin-right: 8px;">{{ $p->tanggal_pengumuman }} <strong>{{ $p->judul_pengumuman }}</strong></a></li>
+                        @endforeach
                     </ul>
                 </marquee>
 
@@ -1124,11 +1214,11 @@
                         <form action="forms/contact.php" method="post" role="form" class="php-email-form">
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="" required>
+                                    placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="" required>
+                                    placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
