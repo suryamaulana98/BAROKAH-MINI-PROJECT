@@ -305,7 +305,7 @@
                         <label for="" class="form-label">Alasan Izin</label>
                         <select class="form-select" aria-label="Default select example" >
                             <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="1">iyo</option>
+                            <option value="1">sakit</option>
                             <option value="2">Acara Keluarga</option>
                             <option value="3">Darurat</option>
                           </select>
