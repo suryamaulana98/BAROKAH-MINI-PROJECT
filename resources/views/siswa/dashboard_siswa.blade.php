@@ -145,7 +145,7 @@
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="{{ route('logout') }}">Logout</a></li>
+                            <li><a href="javascript:logout()">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -511,6 +511,7 @@
             </div>
         </div>
     </div>
+
     {{-- end modal --}}
 
     </div>
@@ -569,10 +570,6 @@
                     <ul class="horizontal-list" style="margin-top: 18px;">
                         <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
                                 2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Idul Fitri</strong></a></li>
-                        <li><a href="" style="color: #222222;"style="margin-right: 8px;">02 / 11 /
-                                2022 <strong>Pengumuman Fitri</strong></a></li>
                     </ul>
                 </marquee>
 
