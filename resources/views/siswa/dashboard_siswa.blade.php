@@ -257,7 +257,7 @@
                                     <div class="d-flex" style="margin-top: -4%; font-family: ">
                                         <h6 style="margin-left: 8%">12</h6>
                                         <h6 style="margin-left: 25%">30</h6>
-                                        <h6 style="margin-left: 35%">15</h6>
+                                        <h6 style="margin-left: 30%">15</h6>
                                     </div>
                                 </div>
                             </div>
@@ -1681,10 +1681,13 @@
                         email, nomor
                         telepon, twitter, facebook, instagram, linkedin</p>
                     <div class="social-links">
-                        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://twitter.com/hummasoft" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com/hummasoft/?locale=id_ID" class="facebook"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/hummasoft/?hl=id/" class="instagram"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://id.linkedin.com/in/hummasoft-technology-2476a8241" class="linkedin"><i
+                                class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
             </div>
@@ -1693,59 +1696,79 @@
                 <div class="info">
                     <div>
                         <i class="ri-map-pin-line"></i>
-                        <p>Perum Permata Regency 1 blok 10 no 28 Ngijo Karangploso Malang</p>
+                        <p>{{ isset($kontak->alamat_kantor) ? $kontak->alamat_kantor : 'Jl.' }}</p>
                     </div>
 
                     <div>
                         <i class="ri-mail-send-line"></i>
-                        <p>hummasoft.tech@gmail.com</p>
+                        <p>{{ isset($kontak->email) ? $kontak->email : '@' }}</p>
                     </div>
-
                     <div>
                         <i class="ri-phone-line"></i>
-                        <p>+1 5589 55488 55</p>
+                        <p>{{ isset($kontak->nomor_telepon) ? $kontak->nomor_telepon : '0' }}</p>
                     </div>
 
                 </div>
             </div>
 
             <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form class="php-email-form" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_idFeedback">
                     <div class="form-group">
-                        <input type="text" name="name" class="form-control" id="name"
-                            placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                        <input type="text" class="form-control" id="nameFeedback" placeholder="Your Name"
+                            value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" id="email"
-                            placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                        <input type="text" class="form-control" id="emailFeedback" placeholder="Your Email"
+                            value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="subject" id="subject"
-                            placeholder="Subject" required>
+                        <textarea class="form-control" name="pesan" rows="5" placeholder="Message" id="pesanFeedback" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                    </div>
-                    <div class="my-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                        <div class="text-center">
-                            <button id="btnKirim" type="submit">Kirim pesan</button>
-                        </div>
-                        <script>
-                            // Fungsi untuk menampilkan SweetAlert
-                            function tampilkanSweetAlert() {
-                                swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
+                    <center>
+                        <button type="button" onclick="kirim()">Kirim pesan</button>
+                    </center>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             }
+                        });
 
-                            // Menambahkan event listener pada tombol "Kirim pesan"
-                            document.getElementById("btnKirim").addEventListener("click", function(event) {
-                                event.preventDefault(); // Mencegah form submit
-                                tampilkanSweetAlert();
-                            });
-                        </script>
-                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                        function kirim() {
+                            console.log($('#user_idFeedback').val())
+                            console.log($('#pesanFeedback').val())
+                            $.ajax({
+                                type: 'POST',
+                                url: '/feedback/kirim',
+                                data: {
+                                    user_id: $('#user_idFeedback').val(),
+                                    pesan: $('#pesanFeedback').val(),
+                                },
+                                success: function(response) {
+                                    // console.log(response)
+                                    if (response === 'success') {
+                                        Swal.fire(
+                                            'Berhasil!',
+                                            'Berhasil mengirim!',
+                                            'success'
+                                        )
+                                        $('#pesanFeedback').val('');
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Gagal mengirim!',
+                                        })
+                                        $('#pesanFeedback').val('');
+
+                                    }
+                                }
+                            })
+                        }
+                    </script>
                 </form>
             </div>
 
