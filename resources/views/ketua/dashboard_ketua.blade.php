@@ -123,48 +123,47 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i
+                    <li class="dropdown"><a class="nav-link scrollto" href="#peraturanMagang"><span>Peraturan</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-
-                            <li><a href="{{ route('ketua.peraturan.index') }}">Buat peraturan</a></li>
+                            <li><a class="nav-link scrollto"  href="{{ route('ketua.peraturan.index') }}">Buat peraturan</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Izin siswa</span> <i
+                    <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Izin siswa</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDetail">Detail
+                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDetail">Detail
                                     izin</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Buat
+                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Buat
                                     izin</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#jadwalpiket"><span>Jadwal piket</span> <i
+                    <li class="dropdown"><a class="nav-link scrollto"  href="#jadwalpiket"><span>Jadwal piket</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljadwal">Tambah
+                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljadwal">Tambah
                                     jadwal piket</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li class="dropdown"><a href="#"><span>Laporan harian siswa</span> <i
+                            <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Laporan harian siswa</span> <i
                                         class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    <li><a href="#">Detail Laporan</a></li>
-                                    <li><a href="#"
+                                    <li><a class="nav-link scrollto"  href="#">Detail Laporan</a></li>
+                                    <li><a class="nav-link scrollto"  href="#"
                                             data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat
                                             Laporan</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"
+                            <li><a class="nav-link scrollto"  href="#"
                                     data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua
                                     magang</a></li>
-                            <li><a href="#" data-bs-toggle="modal"
+                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
                                     jurnal</a></li>
-                            <li><a href="{{ route('ketua.pengumpulan') }}">Pengumpulan Jurnal</a></li>
+                            <li><a class="nav-link scrollto" href="{{ route('ketua.pengumpulan') }}">Pengumpulan Jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
