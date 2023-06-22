@@ -381,8 +381,9 @@
                     </div>
                 </div>
             </div>
-            @include('template-admin.footer')
-            @include('template-admin.script')
+        </div>
+        @include('template-admin.footer')
+        @include('template-admin.script')
 </body>
 
 </html>

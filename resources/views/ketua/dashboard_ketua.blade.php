@@ -133,7 +133,8 @@
                     <li class="dropdown"><a href="#"><span>Izin siswa</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Detail izin</a></li>
+                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDetail">Detail
+                                    izin</a></li>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Buat
                                     izin</a></li>
                         </ul>
@@ -413,6 +414,159 @@
                     </script>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                     <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end modal --}}
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalDetail" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" id="modalTambahJadwal">
+        <div class="modal-dialog  modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 class="fw-bold mb-3 text-secondary">Laporan Izin Siswa</h3>
+                    <div class="card-body px-0 pt-0 pb-2">
+                        <div class="table-responsive p-0">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th class="text-uppercase text-secondary"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            #</th>
+                                        <th class="text-uppercase text-secondary"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            NAMA</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            ASAL SEKOLAH</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            TANGGAL IZIN</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            ALASAN</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            DETAIL</th>
+                                        <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                            style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                            STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <p style="font-size: 12px;">1</p>
+                                        </td>
+                                        <td>
+                                            <a href="#profilModal"
+                                                style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;"
+                                                data-target="#profilModal" data-toggle="modal">
+                                                <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                    style="font-size: 12px;">Femas
+                                                    akbar
+                                                    faturrohim</p>
+                                            </a>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">SMKN 1
+                                                LUMAJANG</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">02 Apr 2023
+                                            </p>
+                                        </td>
+                                        <td class="">
+                                            <span class="badge badge-sm bg-danger"
+                                                style="width: 80px; padding: 5px;">Sakit</span>
+                                        </td>
+                                        <td class="">
+                                            <button class="badge badge-sm bg-primary" data-toggle="modal"
+                                                data-target="#detail1"
+                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                    class="fa-solid fa-eye"></i> detail</button>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-danger"
+                                                style="width: 80px; padding: 5px;">ditolak</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="font-size: 12px;">2</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">Femas akbar
+                                                faturrohim</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">SMKN 1
+                                                LUMAJANG</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">02 Apr 2023
+                                            </p>
+                                        </td>
+                                        <td class="">
+                                            <span class="badge badge-sm bg-primary"
+                                                style="width: 80px; padding: 5px;">keluarga</span>
+                                        </td>
+                                        <td class="">
+                                            <button class="badge badge-sm bg-primary" data-toggle="modal"
+                                                data-target="#detail2"
+                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                    class="fa-solid fa-eye"></i> detail</button>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-warning"
+                                                style="width: 80px; padding: 5px;">menunggu</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <p style="font-size: 12px;">3</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">Femas akbar
+                                                faturrohim</p>
+                                        </td>
+                                        <td class="">
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">SMKN 1
+                                                LUMAJANG</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-uppercase text-secondary font-weight-bold mb-0"
+                                                style="font-size: 12px;">02 Apr 2023
+                                            </p>
+                                        </td>
+                                        <td class="">
+                                            <span class="badge badge-sm bg-warning"
+                                                style="width: 80px; padding: 5px;">Darurat</span>
+                                        </td>
+                                        <td class="">
+                                            <span class="badge badge-sm bg-primary"
+                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                    class="fa-solid fa-eye"></i>
+                                                detail</span>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-sm bg-success"
+                                                style="width: 80px; padding: 5px;">disetujui</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1241,10 +1395,12 @@
                     @csrf
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                            value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                        <input type="text" class="form-control" id="email" placeholder="Your Email"
+                            value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="form-group">
                         <textarea class="form-control" name="pesan" rows="5" placeholder="Message" required></textarea>

@@ -25,12 +25,12 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="{{ route('ketua.dashboard') }}">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
 
-                            <li><a href="#">Buat peraturan</a></li>
+                            <li><a href="{{ route('ketua.peraturan.index') }}">Buat peraturan</a></li>
                         </ul>
                     </li>
                     <li class="dropdown"><a href="#"><span>Izin siswa</span> <i
@@ -66,14 +66,15 @@
                                     data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
                                     jurnal</a></li>
+                            <li><a href="{{ route('ketua.pengumpulan') }}">Pengumpulan Jurnal</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="{{ route('ketua.dashboard') }}#kontak">Kontak</a></li>
+                    <li><a class="nav-link" href="#kontak">Kontak</a></li>
                     <li class="dropdown"><img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="40"
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="{{ route('logout') }}">Logout</a></li>
+                            <li><a href="javascript:logout()">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -86,6 +87,50 @@
     </header><!-- End Header -->
 
     <style>
+        .sakit {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #FF3500;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #FF3500;
+        }
+
+        .acara {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #516BE0;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #516BE0;
+        }
+
+        .darurat {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #28B62E;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #28B62E;
+        }
+
+        #nama {
+            font-size: 20px;
+        }
+
+        /* Media queries untuk tampilan responsif */
         @media screen and (max-width: 576px) {
 
             .sakit,
@@ -147,6 +192,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Modal untuk laporan izin siswa -->
     <div class="modal fade" id="exampleModalizin" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -498,7 +544,8 @@
     </div>
     {{-- end modal --}}
     <!-- ======= Hero Section ======= -->
-    <section id="" class="d-flex" style="background-color: #3498DB; width: 100%; margin-top: 70px;">
+    <section id="" class="d-flex"
+        style="background: linear-gradient(to bottom, #3498DB 50%, #FFFFFF 50%); width: 100%; margin-top: 70px;">
 
         <div class="container-fluid">
             <div class="card">
@@ -506,37 +553,7 @@
                     <h5 class="card-title"
                         style="font-weight: bold;font-style: normal; font-weight: 800;
                 line-height: 29px; color: #57595C; margin-bottom: 24px;">
-                        Buat peraturan magang</h5>
-                    <form action="">
-                        <div class="form-group">
-                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
-                            <input type="text" name="judul_peraturan" id="judulPeraturan" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi
-                                peraturan</label>
-                            <textarea class="form-control" id="deskripsi"></textarea>
-                            <script>
-                                $(document).ready(function() {
-                                    $('#deskripsi').summernote({
-                                        height: 130, // Set the height of the SummerNote input
-                                        toolbar: [
-                                            // [groupName, [list of button]]
-                                            ['style', ['bold', 'italic', 'underline', 'clear']],
-                                            ['fontsize', ['fontsize']],
-                                            ['color', ['color']],
-                                            ['para', ['ul', 'ol', 'paragraph']],
-                                            ['height', ['height']]
-                                        ]
-                                    });
-                                });
-                            </script>
-                        </div>
-                        <button class="btn btn-primary" style="margin-top: 24px;">submit</button>
-                        <a href="{{ route('ketua.dashboard') }}" class="btn btn-danger"
-                            style="margin-top: 24px;">batal</a>
-                        <hr>
-                    </form>
+                        Checklist Siswa</h5>
                 </div>
                 <table class="table align-items-center mb-0">
                     <thead>
@@ -545,14 +562,14 @@
                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#
                             </th>
                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul
-                                pengumuman</th>
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA
+                            </th>
                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                Deskripsi pengumuman</th>
+                                ASAL SEKOLAH</th>
                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                colspan="2">Aksi</th>
+                                colspan="2">AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -561,19 +578,107 @@
                                 <p style="font-size: 14px;">1</p>
                             </td>
                             <td class="">
-                                <p style="font-size: 14px;">Peraturan baju</p>
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
                             </td>
                             <td>
                                 <p style="font-size: 14px;">
-                                    fawewaeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
+                                    SMKN 1 LUMAJANG</p>
                             </td>
                             <td>
-                                <button style="border: none; background: none;"><i
-                                        class="fa-solid fa-pen-to-square text-primary"></i></button>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">2</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
                             </td>
                             <td>
-                                <button style="border: none; background: none;"><i
-                                        class="fa-solid fa-trash text-danger"></i></button>
+                                <p style="font-size: 14px;">
+                                    SMKN 1 LUMAJANG</p>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">3</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
+                            </td>
+                            <td>
+                                <p style="font-size: 14px;">
+                                    SMKN 1 LUMAJANG</p>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">4</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
+                            </td>
+                            <td>
+                                <p style="font-size: 14px;">
+                                    SMKN 1 LUMAJANG</p>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">5</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
+                            </td>
+                            <td>
+                                <p style="font-size: 14px;">
+                                    SMKN 1 LUMAJANG</p>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="font-size: 14px;">6</p>
+                            </td>
+                            <td class="">
+                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
+                            </td>
+                            <td>
+                                <p style="font-size: 14px;">
+                                    SMKN 1 LUMAJANG</p>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
+                                </div>
                             </td>
                         </tr>
                     </tbody>

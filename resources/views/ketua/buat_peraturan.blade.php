@@ -86,6 +86,50 @@
     </header><!-- End Header -->
 
     <style>
+        .sakit {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #FF3500;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #FF3500;
+        }
+
+        .acara {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #516BE0;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #516BE0;
+        }
+
+        .darurat {
+            font-size: 12px;
+            color: white;
+            margin-top: 10px;
+            background-color: #28B62E;
+            padding: 1% 3%;
+            /* Sesuaikan padding dengan ukuran yang diinginkan */
+            display: inline-block;
+            /* Mengubah display menjadi inline-block */
+            border-radius: 30px;
+            background: #28B62E;
+        }
+
+        #nama {
+            font-size: 20px;
+        }
+
+        /* Media queries untuk tampilan responsif */
         @media screen and (max-width: 576px) {
 
             .sakit,
@@ -102,7 +146,6 @@
             }
         }
     </style>
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -159,7 +202,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
@@ -337,7 +381,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Ketua Magang</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Tanggal pengerjaan </label>
@@ -379,16 +424,19 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Siswa Magang</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Email Siswa Magang</label>
-                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}" readonly>
+                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Tanggal Report</label>
-                        <input type="date" class="form-control" id="tanggalLaporanPembimbing" name="tanggal_dikirim" readonly>
+                        <input type="date" class="form-control" id="tanggalLaporanPembimbing"
+                            name="tanggal_dikirim" readonly>
                         <script>
                             // Mendapatkan elemen input tanggal
                             var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanPembimbing');
@@ -428,7 +476,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswa" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggal" class="form-label">Tanggal</label>
@@ -450,10 +499,18 @@
                     </div>
                     <div class="mb-3 justify-content-between">
                         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                        </script>
+                        <link rel="stylesheet"
+                            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                            crossorigin="anonymous">
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                        </script>
+                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+                            rel="stylesheet">
                         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
                         <label for="kegiatan" class="form-label">Kegiatan</label>
@@ -484,7 +541,9 @@
     </div>
     {{-- end modal --}}
     <!-- ======= Hero Section ======= -->
-    <section id="" class="d-flex" style="background-color: #3498DB; width: 100%; margin-top: 70px;">
+
+    <section id="oke" class="d-flex"
+        style="background: linear-gradient(to bottom, #3498DB 50%, #FFFFFF 50%); width: 100%; margin-top: 70px;">
 
         <div class="container-fluid">
             <div class="card">
