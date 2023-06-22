@@ -257,7 +257,7 @@
                                     <div class="d-flex" style="margin-top: -4%; font-family: ">
                                         <h6 style="margin-left: 8%">12</h6>
                                         <h6 style="margin-left: 25%">30</h6>
-                                        <h6 style="margin-left: 35%">15</h6>
+                                        <h6 style="margin-left: 30%">15</h6>
                                     </div>
                                 </div>
                             </div>
