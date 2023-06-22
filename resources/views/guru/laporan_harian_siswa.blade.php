@@ -230,16 +230,8 @@
                           <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-primary" onclick="redirectToGoogleDocs()"><i class="fas fa-eye"></i> detail</span>
-                          </td>
-
-                          <script src="https://kit.fontawesome.com/your-fontawesome-kit.js"></script>
-                          <script>
-                            function redirectToGoogleDocs() {
-                              window.location.href = "https://docs.google.com/";
-                            }
-                          </script>
-
+                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                        </td>
                       </tr>
                       <tr>
                         <td>

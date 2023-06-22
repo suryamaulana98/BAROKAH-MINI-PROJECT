@@ -23,8 +23,20 @@
                 Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani telfon masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan mengarsipkan surat masuk.</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+
+              <script>
+                document.getElementById("closeButton").addEventListener("click", function() {
+                  var modal = document.querySelector(".modal"); // Ganti ".modal" dengan selektor modal sesuai dengan kebutuhan Anda
+                  var modalBackdrop = document.querySelector(".modal-backdrop"); // Ganti ".modal-backdrop" dengan selektor backdrop modal sesuai dengan kebutuhan Anda
+
+                  // Tutup modal dan hapus backdrop modal
+                  modal.style.display = "none";
+                  modalBackdrop.parentNode.removeChild(modalBackdrop);
+                });
+              </script>
+
           </div>
         </div>
     </div>
@@ -245,18 +257,8 @@
                                     <i class="fa-solid fa-eye" style="color: blue;"></i>
                                 </a>
                             </td>
-
-
-
                       </tr>
                       <br>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p class=""></p>
-                            </td>
-                        </tr>
                     </tbody>
                   </table>
 
