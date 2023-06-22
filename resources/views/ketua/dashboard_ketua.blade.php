@@ -163,6 +163,7 @@
                                     data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
                             <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
                                     jurnal</a></li>
+                            <li><a href="{{ route('ketua.pengumpulan') }}">Pengumpulan Jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
@@ -300,7 +301,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
@@ -376,12 +378,20 @@
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
                     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                    </script>
 
-                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+                    <link rel="stylesheet"
+                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                        crossorigin="anonymous">
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                    </script>
 
-                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+                        rel="stylesheet">
                     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
 
@@ -471,7 +481,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Ketua Magang</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Tanggal pengerjaan </label>
@@ -513,16 +524,19 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Nama Siswa Magang</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
 
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Email Siswa Magang</label>
-                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}" readonly>
+                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="" class="form-label">Tanggal Report</label>
-                        <input type="date" class="form-control" id="tanggalLaporanPembimbing" name="tanggal_dikirim" readonly>
+                        <input type="date" class="form-control" id="tanggalLaporanPembimbing"
+                            name="tanggal_dikirim" readonly>
                         <script>
                             // Mendapatkan elemen input tanggal
                             var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanPembimbing');
@@ -562,7 +576,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswa" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}" readonly>
+                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}"
+                            readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggal" class="form-label">Tanggal</label>
@@ -584,10 +599,18 @@
                     </div>
                     <div class="mb-3 justify-content-between">
                         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-                        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                        </script>
+                        <link rel="stylesheet"
+                            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                            crossorigin="anonymous">
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                        </script>
+                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+                            rel="stylesheet">
                         <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
                         <label for="kegiatan" class="form-label">Kegiatan</label>
@@ -673,7 +696,9 @@
                 <marquee id="myMarquee" behavior="scroll" direction="left" class="pengumuman">
                     <ul class="horizontal-list" style="margin-top: 18px;">
                         @foreach ($pengumumans as $p)
-                            <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $p->id]) }}" style="color: #222222;"style="margin-right: 8px;">{{ $p->tanggal_pengumuman }} <strong>{{ $p->judul_pengumuman }}</strong></a></li>
+                            <li><a href="{{ route('pengumuman.detail', ['pengumuman' => $p->id]) }}"
+                                    style="color: #222222;"style="margin-right: 8px;">{{ $p->tanggal_pengumuman }}
+                                    <strong>{{ $p->judul_pengumuman }}</strong></a></li>
                         @endforeach
                     </ul>
                 </marquee>
@@ -1059,11 +1084,11 @@
                 </main>
             </div>
         </section><!-- End Services Section -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 
         </head>
 
-      <body>
+        <body>
             <style>
                 #jadwal:hover {
                     transform: scale(1.1);
@@ -1161,98 +1186,84 @@
             </script>
         </body>
 
-        </html>
+</html>
 
-        <!-- ======= Contact Section ======= -->
-        <section id="kontak" class="contact">
-            <div class="container">
+<!-- ======= Contact Section ======= -->
+<section id="kontak" class="contact">
+    <div class="container">
 
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Kontak</h2>
-                </div>
+        <div class="section-title" data-aos="fade-up">
+            <h2>Kontak</h2>
+        </div>
 
-                <div class="row">
+        <div class="row">
 
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="contact-about">
-                            <h3>Hummarules</h3>
-                            <p>Disini adalah halaman kontak dari website hummarules. Disini terdapat alamat kantor,
-                                alamat
-                                email, nomor
-                                telepon, twitter, facebook, instagram, linkedin</p>
-                            <div class="social-links">
-                                <a href="https://twitter.com/hummasoft" class="twitter"><i class="bi bi-twitter"></i></a>
-                                <a href="https://www.facebook.com/hummasoft/?locale=id_ID" class="facebook"><i class="bi bi-facebook"></i></a>
-                                <a href="https://www.instagram.com/hummasoft/?hl=id/" class="instagram"><i class="bi bi-instagram"></i></a>
-                                <a href="https://id.linkedin.com/in/hummasoft-technology-2476a8241" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                            </div>
-                        </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-about">
+                    <h3>Hummarules</h3>
+                    <p>Disini adalah halaman kontak dari website hummarules. Disini terdapat alamat kantor,
+                        alamat
+                        email, nomor
+                        telepon, twitter, facebook, instagram, linkedin</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/hummasoft" class="twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="https://www.facebook.com/hummasoft/?locale=id_ID" class="facebook"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/hummasoft/?hl=id/" class="instagram"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://id.linkedin.com/in/hummasoft-technology-2476a8241" class="linkedin"><i
+                                class="bi bi-linkedin"></i></a>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-                        <div class="info">
-                            <div>
-                                <i class="ri-map-pin-line"></i>
-                                <p>{{ isset($kontak->alamat_kantor) ? $kontak->alamat_kantor : 'Jl.' }}</p>
-                            </div>
-
-                            <div>
-                                <i class="ri-mail-send-line"></i>
-                                <p>{{ isset($kontak->email) ? $kontak->email : '@' }}</p>
-                            </div>
-                            <div>
-                                <i class="ri-phone-line"></i>
-                                <p>{{ isset($kontak->nomor_telepon) ? $kontak->nomor_telepon : '0' }}</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                            <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name"
-                                    placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="email" id="email"
-                                    placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center">
-                                <button id="btnKirim" type="submit">Kirim pesan</button>
-                            </div>
-                            <script>
-                                // Fungsi untuk menampilkan SweetAlert
-                                function tampilkanSweetAlert() {
-                                    swal("Pesan berhasil dikirim!", "Terima kasih telah mengirim pesan.", "success");
-                                }
-
-                                // Menambahkan event listener pada tombol "Kirim pesan"
-                                document.getElementById("btnKirim").addEventListener("click", function(event) {
-                                    event.preventDefault(); // Mencegah form submit
-                                    tampilkanSweetAlert();
-                                });
-                            </script>
-                            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                        </form>
-                    </div>  
-
                 </div>
-
             </div>
-        </section><!-- End Contact Section -->
 
-    </main><!-- End #main -->
-    @include('template-siswa.footer')
-    @include('template-siswa.script')
+            <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+                <div class="info">
+                    <div>
+                        <i class="ri-map-pin-line"></i>
+                        <p>{{ isset($kontak->alamat_kantor) ? $kontak->alamat_kantor : 'Jl.' }}</p>
+                    </div>
+
+                    <div>
+                        <i class="ri-mail-send-line"></i>
+                        <p>{{ isset($kontak->email) ? $kontak->email : '@' }}</p>
+                    </div>
+                    <div>
+                        <i class="ri-phone-line"></i>
+                        <p>{{ isset($kontak->nomor_telepon) ? $kontak->nomor_telepon : '0' }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+                <form action="{{ route('feedback.kirim') }}" class="php-email-form" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="name" placeholder="Your Name" value="{{ Auth::user()->name }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="email" placeholder="Your Email" value="{{ Auth::user()->email }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="pesan" rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <center>
+                        <button type="submit">Kirim pesan</button>
+                    </center>
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+@include('template-siswa.footer')
+@include('template-siswa.script')
 </body>
 
 </html>

@@ -28,6 +28,10 @@ class PengumumanController extends Controller
         $pengumuman = Pengumuman::where('id', $pengumuman)->first();
         return view('pengumuman.detail_pengumuman', compact('pengumuman'));
     }
+    function lihatPengumumanSiswa($pengumuman) {
+        $pengumuman = Pengumuman::where('id', $pengumuman)->first();
+        return view('pengumuman.detail_pengumumanSiswa', compact('pengumuman'));
+    }
     function update(Pengumuman $pengumuman, Request $request) {
         $validatedData = $request->validate([
             'judul_pengumuman' => 'required',

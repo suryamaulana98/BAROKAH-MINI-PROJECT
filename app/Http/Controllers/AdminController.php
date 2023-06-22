@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feedback;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class AdminController extends Controller
         return view('admin.riwayat_izin');
     }
     function feedback() {
-        return view('admin.halaman_feedback');
+        $feedbacks = Feedback::all();
+        return view('admin.halaman_feedback', compact('feedbacks'));
     }
     function pengumuman() {
         $pengumumans = Pengumuman::all();
