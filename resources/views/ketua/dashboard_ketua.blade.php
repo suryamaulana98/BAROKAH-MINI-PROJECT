@@ -1391,24 +1391,64 @@
             </div>
 
             <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
-                <form action="{{ route('feedback.kirim') }}" class="php-email-form" method="POST">
+                <form class="php-email-form" method="POST">
                     @csrf
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_idFeedback">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                        <input type="text" class="form-control" id="nameFeedback" placeholder="Your Name"
                             value="{{ Auth::user()->name }}" readonly>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" placeholder="Your Email"
+                        <input type="text" class="form-control" id="emailFeedback" placeholder="Your Email"
                             value="{{ Auth::user()->email }}" readonly>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control" name="pesan" rows="5" placeholder="Message" required></textarea>
+                        <textarea class="form-control" name="pesan" rows="5" placeholder="Message" id="pesanFeedback" required></textarea>
                     </div>
                     <center>
-                        <button type="submit">Kirim pesan</button>
+                        <button type="button" onclick="kirim()">Kirim pesan</button>
                     </center>
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+                        function kirim() {
+                            console.log($('#user_idFeedback').val())
+                            console.log($('#pesanFeedback').val())
+                            $.ajax({
+                                type: 'POST',
+                                url: '/feedback/kirim',
+                                data: {
+                                    user_id: $('#user_idFeedback').val(),
+                                    pesan: $('#pesanFeedback').val(),
+                                },
+                                success: function (response) {
+                                    // console.log(response)
+                                    if (response === 'success') {
+                                        Swal.fire(
+                                            'Berhasil!',
+                                            'Berhasil mengirim!',
+                                            'success'
+                                        )
+                                        $('#pesanFeedback').val('');
+                                    }
+                                    else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Gagal mengirim!',
+                                        })
+                                        $('#pesanFeedback').val('');
+
+                                    }
+                                }
+                            })
+                        }
+
+                    </script>
                 </form>
             </div>
 
