@@ -31,12 +31,13 @@ class LoginController extends Controller
             } else if (Auth::user()->role == 'guru') {
                 return redirect()->route('guru.dashboard');
             }
+            return back()->with('error', 'Role tidak ditemukan');
         }
-        return "Gagal login";
+        return back()->with('error', 'Email / password salah');
     }
     public function logout() {
         Auth::guard('web')->logout();
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Berhasil logout!');
     }
 }

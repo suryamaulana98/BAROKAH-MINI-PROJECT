@@ -11,42 +11,23 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
-    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade modal-lg" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Detail Kegiatan</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
-                <i class="fa-sharp fa-solid fa-rectangle-xmark" style="color: red;"></i>
-              </button>
+              <h5 class="modal-title" id="exampleModalLabel" style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <style>
-                    .aaa {
-                        font-style: normal;
-                        font-weight: 600;
-                        font-size: 14px;
-                        line-height: 16px;
-                        color: #535455;
-                        margin-top: 12px;
-                        margin-bottom: 12px;
-                    }
-                    tr {
-                        height: 30px;
-                    }
-                </style>
-                <table>
-                <tr>
-
-                    <td class="aaa"><span style="margin-right: 12px;"></span><span style="text-align: justify;">Terus menerus belajar selama di sekolah memang bisa menjadi hal yang sangat membosankan. Namun sebenarnya cukup banyak kegiatan di sekolah yang menyenangkan dan bisa dilakukan untuk mengusir rasa bosan tersebut. Rasa bosan yang melanda memang sebaiknya segera diusir dan diatasi karena dapat membuat kamu menjadi kurang fokus dan sulit untuk berkonsentrasi.
-
-                        Namun bukan berarti juga kamu boleh melakukan sesuatu yang kurang baik di sekolah hanya untuk mengusir rasa bosan. Pilih saja aktivitas bermanfaat selain belajar yang bisa kamu lakukan di sekolah supaya pikiran menjadi segar dan kembali bersemangat. Kamu bisa melakukan kegiatan tersebut dengan mengajak serta teman yang lain atau sendirian saja.</span></td>
-                </tr>
-                </table>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Kegiatan :
+                Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani telfon masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan mengarsipkan surat masuk.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-      </div>
+    </div>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -260,7 +241,7 @@
                                 <p class="text-xs font-weight-bold mb-0">Mengerjakan crud laravel</p>
                             </td>
                             <td class="">
-                                <a href="#" data-toggle="modal" data-target="#detail" style="border: none; background: none;">
+                                <a href="#" data-toggle="modal" data-target="#modal" style="border: none; background: none;">
                                     <i class="fa-solid fa-eye" style="color: blue;"></i>
                                 </a>
                             </td>

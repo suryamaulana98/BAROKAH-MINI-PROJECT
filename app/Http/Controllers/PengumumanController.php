@@ -15,13 +15,13 @@ class PengumumanController extends Controller
             'tanggal_pengumuman' => 'required',
         ]);
         Pengumuman::create($validatedData);
-        return back()->with('berhasilTambah', 'Berhasil menambah pengumuman');
+        return back()->with('success', 'Berhasil menambah pengumuman');
     }
     function hapusPengumuman(Pengumuman $pengumuman) {
         if ($pengumuman->delete()) {
-            return back()->with('berhasilMenghapus', 'Berhasil menghapus pengumuman');
+            return back()->with('success', 'Berhasil menghapus pengumuman');
         } else {
-            return back()->withErrors(['errorHapus' => 'Gagal menghapus pengumuman']);
+            return back()->with('error', 'Gagal menghapus pengumuman');
         }
     }
     function lihatPengumuman($pengumuman) {
