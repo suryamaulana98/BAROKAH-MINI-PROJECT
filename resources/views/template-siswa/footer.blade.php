@@ -11,15 +11,16 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
-                    Designed by <a href="#">Tim Barokah</a>
+                    Designed by <a href="#" style="text-decoration: none;">Tim Barokah</a>
                 </div>
             </div>
             <div class="col-lg-6">
                 <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                    <a href="#hero" class="scrollto">Home</a>
-                    <a href="#peraturanMagang" class="scrollto">Peraturan Magang</a>
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Izin Siswa</a>
-                    <a href="#jadwalpiket" class="scrollto">Jadwal Piket</a>
+                    <a href="#hero" class="scrollto" style="text-decoration: none;">Home</a>
+                    <a href="#peraturanMagang" class="scrollto" style="text-decoration: none;">Peraturan Magang</a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin"
+                        style="text-decoration: none;">Izin Siswa</a>
+                    <a href="#jadwalpiket" class="scrollto" style="text-decoration: none;">Jadwal Piket</a>
                 </nav>
             </div>
         </div>
