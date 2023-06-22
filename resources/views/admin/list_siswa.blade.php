@@ -104,83 +104,6 @@
     </div>
     {{-- End Modal --}}
 
-    {{-- Modal Tambah --}}
-    <div class="modal modal-lg fade" id="editSiswa" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit siswa</h5>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
-                                siswa</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="nama">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="nisn">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
-                                siswa</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
-                                sekolah</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="asal_sekolah">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role
-                                siswa</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="1">Siswa magang</option>
-                                <option value="2">Ketua magang</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal
-                                        PKL</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="awal_pkl">
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label"
-                                        style="font-size:14px;">Akhir PKL</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="akhir_pkl">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
-                            <br>
-                            <img src="" alt="" width="80" height="80"
-                                style="border-radius: 8px;" srcset="">
-                            <input class="form-control" type="file" id="formFile" name="foto">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- End Modal --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -493,9 +416,93 @@
                                         }
                                     </script>
                                     <tbody>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($users as $user)
+                                        @php
+                                            $i++;
+                                        @endphp
                                         <tr>
                                             {{-- Modal profil --}}
-                                            <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                {{-- Modal Edit --}}
+                                            <div class="modal modal-lg fade" id="editSiswa{{ $user->id }}" tabindex="-1" role="dialog">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Edit siswa</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form action="" method="post" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
+                                                                        siswa</label>
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                        name="name" value="{{ $user->name }}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
+                                                                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                        name="nisn" value="{{ $user->nisn }}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
+                                                                        siswa</label>
+                                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                        name="email" value="{{ $user->email }}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
+                                                                        sekolah</label>
+                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                        name="asal_sekolah" value="{{ $user->asal_sekolah }}">
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role
+                                                                        siswa</label>
+                                                                    <select class="form-select" aria-label="Default select example" name="role">
+                                                                        <option value="siswa" {{ $user->role == 'siswa' ? "selected" : "" }}>Siswa magang</option>
+                                                                        <option value="ketua" {{ $user->role == 'ketua' ? "selected" : "" }}>Ketua magang</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal
+                                                                                PKL</label>
+                                                                            <input type="date" class="form-control" id="exampleFormControlInput1"
+                                                                                placeholder="" name="awal_pkl" value="{{ $user->awal_pkl }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md">
+                                                                        <div class="mb-3">
+                                                                            <label for="exampleFormControlInput1" class="form-label"
+                                                                                style="font-size:14px;">Akhir PKL</label>
+                                                                            <input type="date" class="form-control" id="exampleFormControlInput1"
+                                                                                placeholder="" name="akhir_pkl" value="{{ $user->akhir_pkl }}">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
+                                                                    <br>
+                                                                    <img src="/img/{{ $user->foto_siswa }}" alt="" width="80" height="80"
+                                                                        style="border-radius: 8px;" srcset="">
+                                                                    <input class="form-control" type="file" id="formFile" name="foto">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                    <button type="button" class="btn btn-primary">Simpan</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- End Modal --}}
+                                            <div class="modal fade" id="profilModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                 {{-- <div class="modal-content">
                                                     <div class="modal-body"> --}}
@@ -505,7 +512,7 @@
                                                             <div class="col-4 col-lg-4 order-lg-2">
                                                                 <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                                                 <a href="javascript:;">
-                                                                    <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                                                                    <img src="/img/{{ $user->foto_siswa }}" style="width: 147px; height: 147px;" class="rounded-circle img-fluid border border-2 border-white">
                                                                 </a>
                                                                 </div>
                                                             </div>
@@ -537,16 +544,16 @@
                                                             </div>
                                                             <div class="text-center mt-4">
                                                                 <h5>
-                                                                Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                                                                {{ $user->name }}<span class="font-weight-light">, ({{ $user->role }})</span>
                                                                 </h5>
                                                                 <div class="h6 font-weight-300">
-                                                                <i class="ni location_pin mr-2"></i>1847313113
+                                                                <i class="ni location_pin mr-2"></i>{{ $user->nisn }}
                                                                 </div>
                                                                 <div class="h6 mt-4">
-                                                                <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                                                                <i class="ni business_briefcase-24 mr-2"></i>{{ $user->awal_pkl }} - {{ $user->akhir_pkl }}
                                                                 </div>
                                                                 <div>
-                                                                <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                                                                <i class="ni education_hat mr-2"></i>{{ $user->asal_sekolah }}
                                                                 </div>
                                                             </div>
                                                             </div>
@@ -557,44 +564,43 @@
                                             </div>
                                             {{-- End modal profil --}}
                                             <td>
-                                                <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal" data-toggle="modal">
+                                                <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal-{{ $user->id }}" data-toggle="modal">
                                                     <div class="d-flex px-2 py-1">
                                                         <div>
-                                                            <img src="/admin/assets/img/team-3.jpg"
+                                                            <img src="/img/{{ $user->foto_siswa }}"
                                                                 class="avatar avatar-sm me-3" alt="user2">
                                                         </div>
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                            <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                                            <p class="text-xs text-secondary mb-0">{{ $user->email }}
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </a>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $user->nisn }}</p>
                                             </td>
                                             <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $user->asal_sekolah }}</p>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">SISWA</span>
+                                                <span class="text-secondary text-xs font-weight-bold text-uppercase">{{ $user->role }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $user->awal_pkl }} - {{ $user->akhir_pkl }}</span>
                                             </td>
                                             <td style="width: 8px;">
                                                 <a href="#" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="modal" data-target="#editSiswa"
+                                                    data-toggle="modal" data-target="#editSiswa{{ $user->id }}"
                                                     style="margin-right: 4px">
                                                     <i class="fa-solid fa-pencil"
                                                         style="color: #0d6efd; font-size: 16px;"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="#" method="post" id="myForm-id"
-                                                    onsubmit="konfirmHapus(event, '1')">
+                                                <form action="{{ route('admin.siswa.delete', ['user' => $user->id]) }}" method="post" id="myForm-{{ $i }}"
+                                                    onsubmit="konfirmHapus(event, {{ $i }})">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" style="background: none; border: none;">
@@ -604,6 +610,7 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,8 @@ class AdminController extends Controller
         return view('admin.dashboard_admin');
     }
     function listsiswa() {
-        return view('admin.list_siswa');
+        $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
+        return view('admin.list_siswa', compact('users'));
     }
     function izinsiswa() {
         return view('admin.laporan_izin');

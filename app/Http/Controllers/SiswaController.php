@@ -50,4 +50,12 @@ class SiswaController extends Controller
         }
         return back()->with('error', 'Gagal membuat siswa baru');
     }
+    function delete(User $user) {
+        if ($user->delete()) {
+            return back()->with('success', 'Berhasil menghapus siswa');
+        }
+        else {
+            return back()->with('error', 'Gagal menghapus siswa');
+        }
+    }
 }
