@@ -12,6 +12,24 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show bg-gray-100">
+    @if (session()->has('success'))
+        <script>
+            Swal.fire(
+                'Berhasil!',
+                "{{ session('success') }}",
+                'success'
+            )
+        </script>
+    @endif
+    @if (session()->has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error') }}",
+            })
+        </script>
+    @endif
     {{-- Modal Tambah --}}
     <div class="modal modal-lg fade" id="tambahSiswa" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -20,37 +38,37 @@
                     <h5 class="modal-title" id="exampleModalLabel">Tambah siswa</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.siswa.create') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
                                 siswa</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="nama">
+                                name="name" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
                             <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="nisn">
+                                name="nisn" value="{{ old('nisn') }}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
                                 siswa</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="email">
+                                name="email" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
                                 sekolah</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="asal_sekolah">
+                                name="asal_sekolah" value="{{ old('asal_sekolah') }}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role
                                 siswa</label>
-                            <select class="form-select" aria-label="Default select example">
-                                <option value="1">Siswa magang</option>
-                                <option value="2">Ketua magang</option>
+                            <select class="form-select" aria-label="Default select example" name="role">
+                                <option value="siswa" {{ old('role') == 'siswa' ? "selected" : "" }}>Siswa magang</option>
+                                <option value="ketua" {{ old('role') == 'ketua' ? "selected" : "" }}>Ketua magang</option>
                             </select>
                         </div>
                         <div class="row">
@@ -59,7 +77,7 @@
                                     <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal
                                         PKL</label>
                                     <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="awal_pkl">
+                                        placeholder="" name="awal_pkl" value="{{ old('awal_pkl') }}">
                                 </div>
                             </div>
                             <div class="col-md">
@@ -67,19 +85,19 @@
                                     <label for="exampleFormControlInput1" class="form-label"
                                         style="font-size:14px;">Akhir PKL</label>
                                     <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="akhir_pkl">
+                                        placeholder="" name="akhir_pkl" value="{{ old('akhir_pkl') }}">
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
-                            <input class="form-control" type="file" id="formFile" name="foto">
+                            <input class="form-control" type="file" id="formFile" name="foto_siswa">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Tambah</button>
                 </div>
             </div>
         </div>

@@ -338,13 +338,13 @@
                                             {{ $f->user->name }}<span class="font-weight-light">, ({{ $f->user->role }})</span>
                                             </h5>
                                             <div class="h6 font-weight-300">
-                                            <i class="ni location_pin mr-2"></i>1847313113
+                                                <i class="ni location_pin mr-2"></i>{{ $f->user->nisn }}
                                             </div>
                                             <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                                            <i class="ni business_briefcase-24 mr-2"></i>{{ $f->user->awal_pkl }} - {{ $f->user->akhir_pkl }}
                                             </div>
                                             <div>
-                                            <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                                            <i class="ni education_hat mr-2"></i>{{ $f->user->asal_sekolah }}
                                             </div>
                                         </div>
                                         </div>

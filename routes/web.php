@@ -42,6 +42,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::post('/admin/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
         Route::delete('/admin/pengumuman/{pengumuman}', [PengumumanController::class, 'hapusPengumuman'])->name('admin.pengumuman.hapus');
         Route::put('/admin/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
+        Route::post('/admin/listsiswa', [SiswaController::class, 'create'])->name('admin.siswa.create');
     });
 
     //pembimbing

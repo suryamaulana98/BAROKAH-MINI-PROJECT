@@ -568,17 +568,17 @@
                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                 ASAL SEKOLAH</th>
                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                colspan="2">AKSI</th>
+                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         <tr>
                             <td>
                                 <p style="font-size: 14px;">1</p>
                             </td>
                             <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
+                                <p style="font-size: 14px;" id="nama1">Surya Maulana Akhmad</p>
                             </td>
                             <td>
                                 <p style="font-size: 14px;">
@@ -587,10 +587,21 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
+                                        id="checkbox1">
                                 </div>
                             </td>
                         </tr>
+                        <script>
+                            $('#checkbox1').on('change', function () {
+                                console.log('Checked');
+                                console.log($(this).is(':checked'));
+                                if ($(this).is(':checked')) {
+                                    $('#nama1').css('text-decoration', 'line-through');
+                                } else {
+                                    $('#nama1').css('text-decoration', 'none');
+                                }
+                            })
+                        </script>
                         <tr>
                             <td>
                                 <p style="font-size: 14px;">2</p>
@@ -605,7 +616,7 @@
                             <td>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
+                                        id="checkbox">
                                 </div>
                             </td>
                         </tr>

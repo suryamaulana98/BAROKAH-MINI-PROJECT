@@ -38,12 +38,22 @@ class UserSeeder extends Seeder
             'email' => 'ketua@ketua.com',
             'password' => Hash::make('ketua'),
             'role' => 'ketua',
+            'nisn' => '12345678931',
+            'asal_sekolah' => 'SMKN 1 MARS',
+            'awal_pkl' => '2023-02-02',
+            'akhir_pkl' => '2023-02-02',
+            'foto_siswa' => 'test.jpg',
         ]);
         User::create([
             'name' => 'siswa',
             'email' => 'siswa@siswa.com',
             'password' => Hash::make('siswa'),
             'role' => 'siswa',
+            'nisn' => '12235678901',
+            'asal_sekolah' => 'SMKN 1 MARS',
+            'awal_pkl' => '2023-02-02',
+            'akhir_pkl' => '2023-02-02',
+            'foto_siswa' => 'test.jpg',
         ]);
     }
 }
