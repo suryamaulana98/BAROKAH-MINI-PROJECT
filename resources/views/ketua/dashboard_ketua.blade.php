@@ -481,17 +481,17 @@
                                         </td>
                                         <td class="">
                                             <span class="badge badge-sm bg-danger"
-                                                style="width: 80px; padding: 5px;">Sakit</span>
+                                                style="width: 83px; padding: 8px;">Sakit</span>
                                         </td>
                                         <td class="">
                                             <button class="badge badge-sm bg-primary" data-toggle="modal"
                                                 data-target="#detail1"
-                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                style="width: 85px; padding: 8px; border: none;"><i
                                                     class="fa-solid fa-eye"></i> detail</button>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-danger"
-                                                style="width: 80px; padding: 5px;">ditolak</span>
+                                                style="width: 85px; padding: 8px;">ditolak</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -515,17 +515,17 @@
                                         </td>
                                         <td class="">
                                             <span class="badge badge-sm bg-primary"
-                                                style="width: 80px; padding: 5px;">keluarga</span>
+                                                style="width: 85px; padding: 8px;">keluarga</span>
                                         </td>
                                         <td class="">
                                             <button class="badge badge-sm bg-primary" data-toggle="modal"
                                                 data-target="#detail2"
-                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                style="width: 85px; padding: 8px; border: none;"><i
                                                     class="fa-solid fa-eye"></i> detail</button>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-warning"
-                                                style="width: 80px; padding: 5px;">menunggu</span>
+                                                style="width: 85px; padding: 8px;">menunggu</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -549,17 +549,17 @@
                                         </td>
                                         <td class="">
                                             <span class="badge badge-sm bg-warning"
-                                                style="width: 80px; padding: 5px;">Darurat</span>
+                                                style="width: 85px; padding: 8px;">Darurat</span>
                                         </td>
                                         <td class="">
                                             <span class="badge badge-sm bg-primary"
-                                                style="width: 80px; padding: 5px; border: none;"><i
+                                                style="width: 85px; padding: 8px; border: none;"><i
                                                     class="fa-solid fa-eye"></i>
                                                 detail</span>
                                         </td>
                                         <td>
                                             <span class="badge badge-sm bg-success"
-                                                style="width: 80px; padding: 5px;">disetujui</span>
+                                                style="width: 85px; padding: 8px;">disetujui</span>
                                         </td>
                                     </tr>
                                 </tbody>

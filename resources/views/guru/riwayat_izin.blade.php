@@ -11,60 +11,40 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
-    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade modal-lg" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
-                <i class="fa-sharp fa-solid fa-rectangle-xmark" style="color: red;"></i>
-              </button>
+              <h5 class="modal-title" id="exampleModalLabel" style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Detail Keterangan</h5>
+
             </div>
             <div class="modal-body">
-                <style>
-                    .aaa {
-                        font-style: normal;
-                        font-weight: 600;
-                        font-size: 14px;
-                        line-height: 16px;
-                        color: #535455;
-                        margin-top: 12px;
-                        margin-bottom: 12px;
-                    }
-                    tr {
-                        height: 30px;
-                    }
-                </style>
-                <table>
-                <tr>
-                    <td class="aaa" style="width: 28%;">Nama</td>
-                    <td class="aaa"><span style="margin-right: 12px;">:</span> Femas akbar faturrohim</td>
-                </tr>
-                <tr>
-                    <td class="aaa">Asal sekolah</td>
-                    <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1 LUMAJANG</td>
-                </tr>
-                <tr>
-                    <td class="aaa">Tanggal izin</td>
-                    <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei 2023</td>
-                </tr>
-                <tr>
-                    <td class="aaa">Alasan</td>
-                    <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT</td>
-                </tr>
-                <tr>
-                    <td class="aaa">Pesan</td>
-                    <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</span></td>
-                </tr>
-                <tr>
-                    <td class="aaa">Lihat surat</td>
-                    <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#"><span style="margin-right: 12px;">:</span> p.pdf</a></td>
-                </tr>
-                </table>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">nama <span style="margin-right: 50px;"></span> <span class="me-2">:</span> Femas akbar faturrohim</p>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Asal sekolah <span class="me-2">:</span> SMKN 1 LUMAJANG</p>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Tanggal izin <span class="me-2 ms-1">:</span> 11 mei 2023</p>
+              <div class="d-flex">
+                <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;" class="me-3">Alasan <span style="margin-right: 30px;"></span></p><span class="me-2">:</span>
+             <p class="badge badge-sm bg-danger" style="color">Sakit</p>
+              </div>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Pesan<span style="margin-right: 50px;"></span><span class="me-2">:</span><br>Assalamualaikum mohon ijin untuk hari ini saya ijin tidak masuk magang dikarenakan sakit, untuk surat keterangan lebih lanjut sudah saya lampirkan, terimakasih</p>
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Lihat surat<span class="me-2 ms-3">:</span> p.pdf</p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
-      </div>
+    </div>
+    <script>
+        document.getElementById("closeButton").addEventListener("click", function() {
+            var modal = document.getElementById("modal");
+            var modalBackdrop = document.querySelector(".modal-backdrop");
+
+            // Tutup modal dan hapus backdrop modal
+            modal.style.display = "none";
+            modalBackdrop.parentNode.removeChild(modalBackdrop);
+        });
+    </script>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -283,7 +263,7 @@
                             <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
                         </td>
                         <td class="">
-                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
+                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#modal" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                       </tr>
                       <tr>
