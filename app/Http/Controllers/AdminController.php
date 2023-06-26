@@ -47,9 +47,6 @@ class AdminController extends Controller
     function laporanhariansiswa() {
         return view('admin.laporan_harian_siswa');
     }
-    function riwayatizin() {
-        return view('admin.riwayat_izin');
-    }
     function feedback() {
         $feedbacks = Feedback::all();
         return view('admin.halaman_feedback', compact('feedbacks'));

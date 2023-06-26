@@ -11,6 +11,7 @@ use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\pengumpulanController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\RiwayatizinController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +33,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/laporan/ketua', [AdminController::class, 'laporanketua'])->name('admin.laporanketua');
         Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
         Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
-        Route::get('/riwayatizin', [AdminController::class, 'riwayatizin'])->name('admin.riwayatizin');
+        Route::get('/riwayatizin', [RiwayatizinController::class, 'index'])->name('admin.riwayatizin');
         Route::get('/feedback', [AdminController::class, 'feedback'])->name('admin.feedback');
         Route::get('/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
         Route::get('/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
@@ -53,6 +54,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::put('/guru', [GuruController::class, 'update'])->name('admin.guru.update');
         Route::post('/izin/terima/{id}', [IzinController::class, 'terimaizin'])->name('admin.izin.terima');
         Route::post('/izin/tolak/{id}', [IzinController::class, 'tolakizin'])->name('admin.izin.tolak');
+        Route::get('/riwayatizin/{sekolah_id}', [RiwayatizinController::class, 'filtersekolah'])->name('admin.riwayat.filtersekolah');
 
         Route::get('/izinsiswa/{sekolah_id}', [IzinController::class, 'tampilkanberdasarkansekolah'])->name('admin.izin.tampilkanberdasarkansekolah');
     });

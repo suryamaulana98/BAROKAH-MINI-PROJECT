@@ -448,7 +448,7 @@
                     @endphp
                       <tr>
                          {{-- Modal profil --}}
-    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="profilModal{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           {{-- <div class="modal-content">
             <div class="modal-body"> --}}
@@ -458,7 +458,7 @@
                       <div class="col-4 col-lg-4 order-lg-2">
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                           <a href="javascript:;">
-                            <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                            <img src="/img/{{ $iz->user->foto_siswa }}" style="width: 147px; height: 147px;" class="rounded-circle img-fluid border border-2 border-white">
                           </a>
                         </div>
                       </div>
@@ -490,16 +490,16 @@
                       </div>
                       <div class="text-center mt-4">
                         <h5>
-                          Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                          {{ $iz->user->name }}<span class="font-weight-light">, ({{ $iz->user->role }})</span>
                         </h5>
                         <div class="h6 font-weight-300">
-                          <i class="ni location_pin mr-2"></i>1847313113
+                          <i class="ni location_pin mr-2"></i>{{ $iz->user->nisn }}
                         </div>
                         <div class="h6 mt-4">
-                          <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                          <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($iz->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($iz->user->akhir_pkl)->format('d M Y') }}
                         </div>
                         <div>
-                          <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                          <i class="ni education_hat mr-2"></i>{{ $iz->user->sekolah->name }}
                         </div>
                       </div>
                     </div>
@@ -510,7 +510,7 @@
     </div>
     {{-- End modal profil --}}
                         <td>
-                            <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
+                            <a href="#profilModal{{ $i }}" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal{{ $i }}" data-toggle="modal">
                                 <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $iz->user->name }}</p>
                             </a>
                         </td>
@@ -544,7 +544,7 @@
                         </td>
                         @else
                         <td colspan="2">
-                            <p class="text-xs font-weight-bold mb-0 text-uppercase">SELESAI</p>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase"><b>SELESAI</b></p>
                         </td>
                         @endif
 
