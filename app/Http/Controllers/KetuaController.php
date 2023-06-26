@@ -14,4 +14,8 @@ class KetuaController extends Controller
         return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans'));
     }
 
+    function lihatLaporanHarian() {
+        return view('ketua.laporan_harian');
+    }
+
 }

@@ -15,33 +15,34 @@
 <body class="g-sidenav-show   bg-gray-100">
     <div class="modal fade modal-lg" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            </div>
-
-            <div class="modal-body">
-                <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Kegiatan :
-                    Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan
-                    surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani telfon
-                    masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan mengarsipkan surat
-                    masuk.</p>
-            </div>
-            <div class="modal-footer">
-                <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-
-            <script>
-                document.getElementById("closeButton").addEventListener("click", function() {
-                    var modal = document.querySelector(
-                    ".modal"); // Ganti ".modal" dengan selektor modal sesuai dengan kebutuhan Anda
-                    var modalBackdrop = document.querySelector(
-                    ".modal-backdrop"); // Ganti ".modal-backdrop" dengan selektor backdrop modal sesuai dengan kebutuhan Anda
-
-                    // Tutup modal dan hapus backdrop modal
-                    modal.style.display = "none";
-                    modalBackdrop.parentNode.removeChild(modalBackdrop);
-                });
-            </script>
-
         </div>
+
+        <div class="modal-body">
+            <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Kegiatan :
+                Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan
+                surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani telfon
+                masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan mengarsipkan surat
+                masuk.</p>
+        </div>
+        <div class="modal-footer">
+            <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+
+        <script>
+            document.getElementById("closeButton").addEventListener("click", function() {
+                var modal = document.querySelector(
+                    ".modal"); // Ganti ".modal" dengan selektor modal sesuai dengan kebutuhan Anda
+                var modalBackdrop = document.querySelector(
+                    ".modal-backdrop"
+                    ); // Ganti ".modal-backdrop" dengan selektor backdrop modal sesuai dengan kebutuhan Anda
+
+                // Tutup modal dan hapus backdrop modal
+                modal.style.display = "none";
+                modalBackdrop.parentNode.removeChild(modalBackdrop);
+            });
+        </script>
+
+    </div>
     </div>
     </div>
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
