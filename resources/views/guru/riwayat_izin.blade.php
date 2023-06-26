@@ -24,7 +24,7 @@
               <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Tanggal izin <span class="me-2 ms-1">:</span> 11 mei 2023</p>
               <div class="d-flex">
                 <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;" class="me-3">Alasan <span style="margin-right: 30px;"></span></p><span class="me-2">:</span>
-             <p class="badge badge-sm bg-danger" style="color">Sakit</p>
+                <p class="badge badge-sm bg-danger"  class="me-3" style="color">Sakit</p>
               </div>
               <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Pesan<span style="margin-right: 50px;"></span><span class="me-2">:</span><br>Assalamualaikum mohon ijin untuk hari ini saya ijin tidak masuk magang dikarenakan sakit, untuk surat keterangan lebih lanjut sudah saya lampirkan, terimakasih</p>
               <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Lihat surat<span class="me-2 ms-3">:</span> p.pdf</p>
