@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('role');
+            $table->string('nisn')->unique()->nullable(true);
+            $table->foreignUuid('sekolah_id')->nullable()->constrained('sekolah', 'id')->onDelete('restrict');
+            $table->string('awal_pkl')->nullable(true);
+            $table->string('akhir_pkl')->nullable(true);
+            $table->string('foto_siswa')->nullable(true);
             $table->timestamps();
         });
     }

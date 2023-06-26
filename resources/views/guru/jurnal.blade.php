@@ -15,6 +15,20 @@
 <body class="g-sidenav-show   bg-gray-100">
     <div class="modal fade modal-lg" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
+<<<<<<< HEAD
+=======
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Laporan kegiatan</h5>
+            </div>
+            <div class="modal-body">
+              <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Kegiatan : Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan surat keluar, melakukan scanning surat masuk, memberi nomor untuk surat keluar, menangani telepon masuk, melakukan pengetikan dokumen, mencetak nota dinas, menggandakan dokumen, dan mengarsipkan surat masuk.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>        
+>>>>>>> cd6ef21f1be5fca97dda590e1b09354af9396da3
         </div>
 
         <div class="modal-body">
@@ -44,7 +58,18 @@
 
     </div>
     </div>
-    </div>
+
+    <script>
+        document.getElementById("closeButton").addEventListener("click", function() {
+            var modal = document.getElementById("modal");
+            var modalBackdrop = document.querySelector(".modal-backdrop");
+
+            // Tutup modal dan hapus backdrop modal
+            modal.style.display = "none";
+            modalBackdrop.parentNode.removeChild(modalBackdrop);
+        });
+    </script>
+
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -133,7 +158,7 @@
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                     </div>
-                    <<<<<<< HEAD <ul class="navbar-nav  justify-content-end">
+                   <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
                                 <div class="sidenav-toggler-inner">
@@ -239,52 +264,9 @@
                                     class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i></a>
                         </li>
                         </ul>
-                        =======
+
                 </div>
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <table class="table align-items-center mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="text-uppercase text-secondary"
-                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                        NAMA</th>
-                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                        TANGGAL</th>
-                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                        kegiatan</th>
-                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                        colspan="2">aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar
-                                            faturrohim</p>
-                                    </td>
 
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">Mengerjakan crud laravel</p>
-                                    </td>
-                                    <td class="">
-                                        <a href="#" data-toggle="modal" data-target="#modal"
-                                            style="border: none; background: none;">
-                                            <i class="fa-solid fa-eye" style="color: blue;"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <br>
-                            </tbody>
-                        </table>
-
-                        >>>>>>> b6a8f04d6f4fe73ff78acffc1ab18cd664b02742
                     </div>
                 </div>
         </nav>
@@ -346,12 +328,6 @@
                                         </tr>
                                         <br>
                                     </tbody>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <p class=""></p>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
 
