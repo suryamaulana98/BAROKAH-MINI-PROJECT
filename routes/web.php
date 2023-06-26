@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\IzinController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
@@ -49,6 +50,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/siswa/{user}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
         Route::put('/siswa/update', [SiswaController::class, 'update'])->name('admin.siswa.update');
         Route::get('/listsiswa/{sekolah}', [AdminController::class, 'siswatampilkanberdasarkansekolah'])->name('admin.siswa.tampilkanberdasarkansekolah');
+        Route::put('/guru', [GuruController::class, 'update'])->name('admin.guru.update');
     });
 
     //pembimbing
@@ -85,6 +87,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');
         Route::post('ketua/tambahJadwalPiket', [KetuaController::class, 'tambahJadwalPiket'])->name('ketua.tambahJadwalPiket');
     });
+    Route::post('/izin/store', [IzinController::class, 'store'])->name('izin.store');
 
     // Pengumuman
     Route::get('/pengumuman/ketua/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
