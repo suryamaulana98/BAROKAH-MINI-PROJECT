@@ -82,6 +82,7 @@
                         <span class="nav-link-text ms-1">Laporan absen siswa</span>
                     </a>
                 </li>
+               
             </ul>
         </div>
     </aside>
