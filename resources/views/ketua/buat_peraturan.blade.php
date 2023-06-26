@@ -10,6 +10,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -665,6 +666,11 @@
         }
     </script>
     <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $(document).ready(function() {
             $('#myForm').submit(function(e) {
                 e.preventDefault();
@@ -674,9 +680,8 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '{{ route('ketua.peratuan.tambahPeraturan') }}',
+                    url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
                     data: {
-                        _token: '{{ csrf_token() }}',
                         judul_peraturan: judulPeraturan,
                         deskripsi_peraturan: deskripsiPeraturan
                     },

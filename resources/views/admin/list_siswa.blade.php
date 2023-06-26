@@ -380,7 +380,7 @@
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
                                 @foreach ($sekolah as $s)
-                                <a class="dropdown-item" href="#">{{ $s->name }}</a>
+                                <a class="dropdown-item" href="{{ route('admin.siswa.tampilkanberdasarkansekolah', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -403,7 +403,7 @@
                                                 ROLE</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                MAKA PKL</th>
+                                                MASA PKL</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
                                                 colspan="2">
@@ -432,6 +432,7 @@
                                         }
                                     </script>
                                     <tbody>
+                                    @if (count($users) > 0)
                                         @php
                                             $i = 0;
                                         @endphp
@@ -632,6 +633,11 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="6"><center>Tidak ada data</center></td>
+                                        </tr>
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
