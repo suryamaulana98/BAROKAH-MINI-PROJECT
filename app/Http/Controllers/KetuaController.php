@@ -18,4 +18,9 @@ class KetuaController extends Controller
         return view('ketua.laporan_harian');
     }
 
+    function tambahJadwalPiket(){
+        
+        return view('ketua.dashboard');
+    }
+
 }
