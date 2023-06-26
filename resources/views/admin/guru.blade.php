@@ -331,16 +331,6 @@
                             </p>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahGuru"><i
                                     class="fa-solid fa-plus"></i> Tambah guru</button>
-                            <button type="button" class="btn dropdown-toggle"
-                                style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Pilih sekolah
-                            </button>
-                            <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
-                            </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -381,6 +371,7 @@
                                         }
                                     </script>
                                     <tbody>
+                                    @if(count($gurus) > 0)
                                         @php
                                             $i = 0;
                                         @endphp
@@ -463,6 +454,11 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="4"><center>Tidak ada data</center></td>
+                                        </tr>
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
