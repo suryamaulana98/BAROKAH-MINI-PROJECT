@@ -35,8 +35,15 @@
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
+                    <script>
+                        Swal.fire(
+                            'Berhasil masuk!',
+                            "{{ session('success') }}",
+                            'success'
+                        )
+                    </script>
                 </a>
-                </li>
+                </li>   
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('guru.listsiswa') }}">
                         <div
@@ -82,7 +89,7 @@
                         <span class="nav-link-text ms-1">Laporan absen siswa</span>
                     </a>
                 </li>
-               
+
             </ul>
         </div>
     </aside>
