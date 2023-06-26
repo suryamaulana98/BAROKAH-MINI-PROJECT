@@ -19,6 +19,18 @@ class AdminController extends Controller
         $sekolah = Sekolah::all();
         return view('admin.list_siswa', compact('users', 'sekolah'));
     }
+    function siswatampilkanberdasarkansekolah($sekolah) {
+        $users = User::where([
+            ['role', '=', 'siswa'],
+            ['sekolah_id', '=', $sekolah],
+        ])->orWhere([
+            ['role', '=', 'ketua'],
+            ['sekolah_id', '=', $sekolah],
+        ])->get();
+        $sekolah = Sekolah::all();
+        // dd($sekolah);
+        return view('admin.list_siswa', compact('users', 'sekolah'));
+    }
     function izinsiswa() {
         return view('admin.laporan_izin');
     }
