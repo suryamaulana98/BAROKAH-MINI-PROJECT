@@ -13,7 +13,11 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     function index() {
-        return view('admin.dashboard_admin');
+        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
+        $jumlahPermintaanIzin = Izin::where('status', 'menunggu')->count();
+        $jumlahIzinDisetujui = Izin::where('status', 'disetujui')->count();
+        $jumlahIzinDitolak = Izin::where('status', 'ditolak')->count();
+        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak'));
     }
     function listsiswa() {
         $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();

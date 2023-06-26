@@ -67,7 +67,7 @@
             </tr>
             <tr>
             <td class="aaa">Lihat surat</td>
-            <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="/surat/{{ $iz->surat }}"><span style="margin-right: 12px;">:</span> {{ $iz->surat }}</a></td>
+            <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)">:<a href="/surat/{{ $iz->surat }}" class="btn btn-primary" style="margin-right: 12px;">Lihat</a></td>
             </tr>
         </table>
         </div>
