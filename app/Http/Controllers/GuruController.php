@@ -79,4 +79,19 @@ class GuruController extends Controller
             }
         }
     }
+    public function update(Request $request) {
+        // dd($request->all());
+        $request->validate([
+            'user_id' => 'required',
+            'sekolah_id' => 'required',
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|email|min:3|max:50|unique:users,email,' . $request->user_id,
+            'asal_sekolah' => 'required|min:3|max:50',
+        ]);
+        $sekolah = Sekolah::find($request->sekolah_id);
+        $sekolah->update(['name' => $request->asal_sekolah]);
+
+        User::find($request->user_id)->update(['name' => $request->name, 'email' => $request->email]);
+        return back()->with('success', 'Berhasil mengedit guru');
+    }
 }

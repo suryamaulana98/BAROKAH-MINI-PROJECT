@@ -50,6 +50,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/siswa/{user}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
         Route::put('/siswa/update', [SiswaController::class, 'update'])->name('admin.siswa.update');
         Route::get('/listsiswa/{sekolah}', [AdminController::class, 'siswatampilkanberdasarkansekolah'])->name('admin.siswa.tampilkanberdasarkansekolah');
+        Route::put('/guru', [GuruController::class, 'update'])->name('admin.guru.update');
     });
 
     //pembimbing
