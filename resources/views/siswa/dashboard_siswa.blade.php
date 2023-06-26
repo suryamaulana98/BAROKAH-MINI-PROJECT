@@ -387,33 +387,36 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-
+                    <form action="{{ route('jurnal.siswa.store') }}" method="post">
+                    @csrf
                     <h3>Laporan harian siswa</h3>
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
-                        <select class="form-select" id="silahkanpilih" aria-label="Default select example">
+                        <select class="form-select" id="silahkanpilih" aria-label="Default select example" name="kategori">
                             <option selected disabled>---- Pilih Salah Satu ----</option>
-                            <option value="1">Individu</option>
-                            <option value="2">Kelompok</option>
+                            <option value="Individu">Individu</option>
+                            <option value="Kelompok">Kelompok</option>
                         </select>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswa" class="form-label">Nama Siswa/tim Project</label>
-                        <input class="form-control" type="text" id="namaSiswa">
+                        <input class="form-control" type="text" id="namaSiswa" name="nama_siswa">
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggal" class="form-label">Tanggal</label>
-                        <input class="form-control" type="date" id="tanggal">
+                        <input class="form-control" type="date" id="tanggal" name="tanggal">
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="linkdokumen" class="form-label">Link dokumen</label>
-                        <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
+                        <input class="form-control" type="text" id="linkdokumen" placeholder="http://...." name="link_dokumen">
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -720,7 +723,6 @@
                         <div class="" data-aos="fade-up">
                             <div class="row" style="margin-bottom: 50px;">
                                 <h2></h2>
-
                                 <div class="col-lg-12 justify-content-center">
                                     <h3 class="resume-title"></h3>
                                     <div class="resume-item">

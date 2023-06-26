@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IzinController;
+use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
@@ -58,6 +59,9 @@ Route::middleware('checkLogin')->group(function () {
 
         Route::get('/izinsiswa/{sekolah_id}', [IzinController::class, 'tampilkanberdasarkansekolah'])->name('izin.tampilkanberdasarkansekolah');
     });
+
+
+    Route::post('/jurnal/siswa', [JurnalController::class, 'store'])->name('jurnal.siswa.store');
 
     //pembimbing
     Route::middleware('role:pembimbing')->group(function () {

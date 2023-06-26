@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use App\Models\Izin;
 use App\Models\Kontak;
+use App\Models\Laporanketua;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\User;
@@ -42,7 +43,8 @@ class AdminController extends Controller
         return view('admin.laporan_izin', compact('sekolah', 'izins'));
     }
     function laporanketua() {
-        return view('admin.laporan_ketua');
+        $laporanketuas = Laporanketua::all();
+        return view('admin.laporan_ketua', compact('laporanketuas'));
     }
     function laporanhariansiswa() {
         return view('admin.laporan_harian_siswa');
