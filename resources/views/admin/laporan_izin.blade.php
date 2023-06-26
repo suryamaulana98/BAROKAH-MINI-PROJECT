@@ -408,9 +408,9 @@
                     Pilih sekolah
                 </button>
                 <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                    <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                    <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                    <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                    @foreach ($sekolah as $s)
+                    <a class="dropdown-item" href="{{ route('admin.siswa.tampilkanberdasarkansekolah', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
+                    @endforeach
                 </div>
               </div>
               <div class="card-body px-0 pt-0 pb-2">
@@ -428,6 +428,11 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @if (count($izins) > 0)
+                    @php
+                        $i = 0;
+                    @endphp
+                    @foreach ($izins as $iz)
                       <tr>
                          {{-- Modal profil --}}
     <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -493,17 +498,17 @@
     {{-- End modal profil --}}
                         <td>
                             <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
-                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $iz->user->name }}</p>
                             </a>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ (isset($iz->user->sekolah->name)) ? $iz->user->sekolah->name : "" }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $iz->tanggal_izin }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 88px;">Sakit</span>
+                            <span class="badge badge-sm bg-danger" style="width: 88px;">{{ $iz->alasan }}</span>
                         </td>
                         <td class="">
                             <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail1" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
@@ -518,67 +523,19 @@
                             </form>
                         </td>
                         <td>
-                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
+                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="">
                                     @csrf
                                     <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
                             </form>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-primary" style="width: 88px;">keluarga</span>
-                        </td>
-                        <td class="">
-                          <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail2" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
-                        </td>
-                        <td>
-                            <span class="badge badge-sm bg-warning" style="width: 100px;">menunggu</span>
-                        </td>
-                        <td>
-                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
-                                @csrf
-                                <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="margin-left: -64px;">
-                                    @csrf
-                                    <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
-                            </form>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-warning"  style="width: 88px;">Darurat</span>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                        <td>
-                            <span class="badge badge-sm bg-success" style="width: 100px;">disetujui</span>
-                        </td>
-                        <td>
-                            <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
-                        </td>
-                      </tr>
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="8"><center>Tidak ada data</center></td>
+                    </tr>
+                    @endif
+
                     </tbody>
                   </table>
                 </div>

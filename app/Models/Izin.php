@@ -13,4 +13,8 @@ class Izin extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     protected $primaryKey = 'id';
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

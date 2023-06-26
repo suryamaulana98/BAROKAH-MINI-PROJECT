@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('alasan');
             $table->string('pesan', 500);
             $table->string('surat', 300)->nullable(true);
+            $table->string('status')->default('menunggu');
             $table->timestamps();
         });
     }

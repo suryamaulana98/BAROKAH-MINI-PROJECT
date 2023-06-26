@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\Izin;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
@@ -32,7 +33,9 @@ class AdminController extends Controller
         return view('admin.list_siswa', compact('users', 'sekolah'));
     }
     function izinsiswa() {
-        return view('admin.laporan_izin');
+        $sekolah = Sekolah::all();
+        $izins = Izin::all();
+        return view('admin.laporan_izin', compact('sekolah', 'izins'));
     }
     function laporanketua() {
         return view('admin.laporan_ketua');
