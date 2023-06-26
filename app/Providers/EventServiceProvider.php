@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Models\Feedback;
+use App\Models\Izin;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\User;
 use App\Observers\FeedbackObserver;
+use App\Observers\IzinObserver;
 use App\Observers\PengumumanObserver;
 use App\Observers\SekolahObserver;
 use App\Observers\UserObserver;
@@ -37,6 +39,7 @@ class EventServiceProvider extends ServiceProvider
         Feedback::observe(FeedbackObserver::class);
         Pengumuman::observe(PengumumanObserver::class);
         Sekolah::observe(SekolahObserver::class);
+        Izin::observe(IzinObserver::class);
     }
 
     /**

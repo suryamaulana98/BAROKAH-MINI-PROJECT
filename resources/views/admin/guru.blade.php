@@ -331,16 +331,6 @@
                             </p>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahGuru"><i
                                     class="fa-solid fa-plus"></i> Tambah guru</button>
-                            <button type="button" class="btn dropdown-toggle"
-                                style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Pilih sekolah
-                            </button>
-                            <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
-                            </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
@@ -381,6 +371,7 @@
                                         }
                                     </script>
                                     <tbody>
+                                    @if(count($gurus) > 0)
                                         @php
                                             $i = 0;
                                         @endphp
@@ -397,26 +388,28 @@
                                                         <h5 class="modal-title" id="exampleModalLabel">Edit guru</h5>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{ route('admin.siswa.create') }}" method="post" enctype="multipart/form-data">
+                                                        <form action="{{ route('admin.guru.update') }}" method="post">
                                                             @csrf
                                                             @method('PUT')
+                                                            <input type="hidden" name="user_id" value="{{ $guru->id }}">
+                                                            <input type="hidden" name="sekolah_id" value="{{ $guru->sekolah->id }}">
                                                             <div class="mb-3">
                                                                 <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
                                                                     guru</label>
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                    name="name" value="{{ old('name') }}">
+                                                                    name="name" value="{{ $guru->name }}">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
                                                                     guru</label>
                                                                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                    name="email" value="{{ old('email') }}">
+                                                                    name="email" value="{{ $guru->email }}">
                                                             </div>
                                                             <div class="mb-3">
                                                                 <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
                                                                     sekolah</label>
                                                                 <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                    name="asal_sekolah" value="{{ old('asal_sekolah') }}">
+                                                                    name="asal_sekolah" value="{{ $guru->sekolah->name }}">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -463,6 +456,11 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                    @else
+                                        <tr>
+                                            <td colspan="4"><center>Tidak ada data</center></td>
+                                        </tr>
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>
