@@ -31,71 +31,32 @@
         </script>
     @endif
     {{-- Modal Tambah --}}
-    <div class="modal modal-lg fade" id="tambahSiswa" tabindex="-1" role="dialog">
+    <div class="modal modal-lg fade" id="tambahGuru" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah siswa</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah guru</h5>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('admin.siswa.create') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('admin.guru.create') }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
-                                siswa</label>
+                                guru</label>
                             <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
                                 name="name" value="{{ old('name') }}">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                name="nisn" value="{{ old('nisn') }}">
-                        </div>
-                        <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
-                                siswa</label>
+                                guru</label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
                                 name="email" value="{{ old('email') }}">
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
                                 sekolah</label>
-                                <select class="form-select" aria-label="Default select example" name="sekolah_id">
-                                    <option selected disabled>Pilih sekolah</option>
-                                    @foreach ($sekolah as $s)
-                                    <option value="{{ $s->id }}">{{ $s->name }}</option>
-                                    @endforeach
-                                </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role
-                                siswa</label>
-                            <select class="form-select" aria-label="Default select example" name="role">
-                                <option value="siswa" {{ old('role') == 'siswa' ? "selected" : "" }}>Siswa magang</option>
-                                <option value="ketua" {{ old('role') == 'ketua' ? "selected" : "" }}>Ketua magang</option>
-                            </select>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal
-                                        PKL</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="awal_pkl" value="{{ old('awal_pkl') }}">
-                                </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label"
-                                        style="font-size:14px;">Akhir PKL</label>
-                                    <input type="date" class="form-control" id="exampleFormControlInput1"
-                                        placeholder="" name="akhir_pkl" value="{{ old('akhir_pkl') }}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
-                            <input class="form-control" type="file" id="formFile" name="foto_siswa">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                name="asal_sekolah" value="{{ old('asal_sekolah') }}">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -133,7 +94,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.listsiswa') }}">
+                    <a class="nav-link" href="{{ route('admin.listsiswa') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/add-group 1.png" alt="" />
@@ -142,7 +103,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.guru.index') }}">
+                    <a class="nav-link active" href="{{ route('admin.guru.index') }}">
                         <div
                             class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                             <img src="/admin/assets/img/icons/sidebar/icons-guru.png" alt="" />
@@ -243,9 +204,9 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
                                 href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">List siswa</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">List guru</li>
                     </ol>
-                    <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">List siswa</h6>
+                    <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">List guru</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -359,29 +320,26 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        @php
-        use Carbon\Carbon;
-        @endphp
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">List siswa<input type="search"
+                            <p style="font-size: 24px; font-weight: bold;">List guru<input type="search"
                                     placeholder="Cari disini..." aria-label="Search"
                                     style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
                             </p>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i
-                                    class="fa-solid fa-plus"></i> Tambah data</button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tambahGuru"><i
+                                    class="fa-solid fa-plus"></i> Tambah guru</button>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 Pilih sekolah
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                @foreach ($sekolah as $s)
-                                <a class="dropdown-item" href="{{ route('admin.siswa.tampilkanberdasarkansekolah', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
-                                @endforeach
+                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
+                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
+                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
                             </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
@@ -394,16 +352,7 @@
                                                 NAMA</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                NISN</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
                                                 ASAL SEKOLAH</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                ROLE</th>
-                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                MASA PKL</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
                                                 colspan="2">
@@ -416,7 +365,7 @@
 
                                             Swal.fire({
                                                 title: 'HAPUS ?',
-                                                text: 'Anda yakin ingin menghapus siswa ini?',
+                                                text: 'Anda yakin ingin menghapus guru ini?',
                                                 icon: 'warning',
                                                 showCancelButton: true,
                                                 confirmButtonColor: '#3085d6',
@@ -432,199 +381,80 @@
                                         }
                                     </script>
                                     <tbody>
-                                    @if (count($users) > 0)
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($users as $user)
+
+                                        @foreach ($gurus as $guru)
                                         @php
                                             $i++;
                                         @endphp
+                                        {{-- Modal Edit --}}
+                                        <div class="modal modal-lg fade" id="editGuru{{ $i }}" tabindex="-1" role="dialog">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit guru</h5>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ route('admin.siswa.create') }}" method="post" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="mb-3">
+                                                                <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
+                                                                    guru</label>
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                    name="name" value="{{ old('name') }}">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
+                                                                    guru</label>
+                                                                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                    name="email" value="{{ old('email') }}">
+                                                            </div>
+                                                            <div class="mb-3">
+                                                                <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
+                                                                    sekolah</label>
+                                                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
+                                                                    name="asal_sekolah" value="{{ old('asal_sekolah') }}">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- End Modal --}}
                                         <tr>
-                                            {{-- Modal profil --}}
-                                                {{-- Modal Edit --}}
-                                            <div class="modal modal-lg fade" id="editSiswa{{ $user->id }}" tabindex="-1" role="dialog">
-                                                <div class="modal-dialog" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Edit siswa</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="{{ route('admin.siswa.update') }}" method="post" enctype="multipart/form-data">
-                                                                @csrf
-                                                                @method('PUT')
-                                                                <div class="mb-3">
-                                                                    <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Nama
-                                                                        siswa</label>
-                                                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                        name="name" value="{{ $user->name }}">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">NISN</label>
-                                                                    <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                        name="nisn" value="{{ $user->nisn }}">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Email
-                                                                        siswa</label>
-                                                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder=""
-                                                                        name="email" value="{{ $user->email }}">
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Asal
-                                                                        sekolah</label>
-                                                                        <select class="form-select" aria-label="Default select example" name="sekolah_id">
-                                                                            <option disabled {{ ($user->sekolah_id === null) ? "selected" : "" }}>Pilih sekolah</option>
-                                                                            @foreach ($sekolah as $s)
-                                                                            <option value="{{ $s->id }}" {{ ($s->id == $user->sekolah_id) ? "selected" : "" }} >{{ $s->name }}</option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Role
-                                                                        siswa</label>
-                                                                    <select class="form-select" aria-label="Default select example" name="role">
-                                                                        <option value="siswa" {{ $user->role == 'siswa' ? "selected" : "" }}>Siswa magang</option>
-                                                                        <option value="ketua" {{ $user->role == 'ketua' ? "selected" : "" }}>Ketua magang</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="mb-3">
-                                                                            <label for="exampleFormControlInput1" class="form-label" style="font-size:14px;">Awal
-                                                                                PKL</label>
-                                                                            <input type="date" class="form-control" id="exampleFormControlInput1"
-                                                                                placeholder="" name="awal_pkl" value="{{ $user->awal_pkl }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md">
-                                                                        <div class="mb-3">
-                                                                            <label for="exampleFormControlInput1" class="form-label"
-                                                                                style="font-size:14px;">Akhir PKL</label>
-                                                                            <input type="date" class="form-control" id="exampleFormControlInput1"
-                                                                                placeholder="" name="akhir_pkl" value="{{ $user->akhir_pkl }}">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="mb-3">
-                                                                    <label for="formFile" class="form-label" style="font-size:14px;">Foto siswa</label>
-                                                                    <br>
-                                                                    <img src="/img/{{ $user->foto_siswa }}" alt="" width="80" height="80"
-                                                                        style="border-radius: 8px;" srcset="">
-                                                                    <input class="form-control" type="file" id="formFile" name="foto_siswa">
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                            <td>
+                                                <div class="d-flex px-3 py-1">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">{{ $guru->name }}</h6>
+                                                        <p class="text-xs text-secondary mb-0">{{ $guru->email }}</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            {{-- End Modal --}}
-                                            <div class="modal fade" id="profilModal-{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                {{-- <div class="modal-content">
-                                                    <div class="modal-body"> --}}
-                                                        <div class="card card-profile">
-                                                            <img src="/admin/assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
-                                                            <div class="row justify-content-center">
-                                                            <div class="col-4 col-lg-4 order-lg-2">
-                                                                <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                                                <a href="javascript:;">
-                                                                    <img src="/img/{{ $user->foto_siswa }}" style="width: 147px; height: 147px;" class="rounded-circle img-fluid border border-2 border-white">
-                                                                </a>
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                            <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-                                                            <div class="d-flex justify-content-between">
-                                                                <a href="javascript:;"></a>
-                                                                <a href="javascript:;"></a>
-                                                            </div>
-                                                            </div>
-                                                            <div class="card-body pt-0">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="d-grid text-center">
-                                                                    <span class="text-lg font-weight-bolder">22</span>
-                                                                    <span class="text-sm opacity-8">Sakit</span>
-                                                                    </div>
-                                                                    <div class="d-grid text-center mx-4">
-                                                                    <span class="text-lg font-weight-bolder">10</span>
-                                                                    <span class="text-sm opacity-8">Acara keluarga</span>
-                                                                    </div>
-                                                                    <div class="d-grid text-center">
-                                                                    <span class="text-lg font-weight-bolder">89</span>
-                                                                    <span class="text-sm opacity-8">Hal darurat</span>
-                                                                    </div>
-                                                                </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="text-center mt-4">
-                                                                <h5>
-                                                                {{ $user->name }}<span class="font-weight-light">, ({{ $user->role }})</span>
-                                                                </h5>
-                                                                <div class="h6 font-weight-300">
-                                                                <i class="ni location_pin mr-2"></i>{{ $user->nisn }}
-                                                                </div>
-                                                                <div class="h6 mt-4">
-                                                                <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($user->akhir_pkl)->format('d M Y') }}
-                                                                </div>
-                                                                <div>
-                                                                <i class="ni education_hat mr-2"></i>{{ (isset($user->sekolah->name)) ? $user->sekolah->name : "" }}
-                                                                </div>
-                                                            </div>
-                                                            </div>
-                                                        </div>
-                                                    {{-- </div>
-                                                </div> --}}
-                                                </div>
-                                            </div>
-                                            {{-- End modal profil --}}
-                                            <td>
-                                                <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal-{{ $user->id }}" data-toggle="modal">
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div>
-                                                            <img src="/img/{{ $user->foto_siswa }}"
-                                                                class="avatar avatar-sm me-3" alt="user2">
-                                                        </div>
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
-                                                            <p class="text-xs text-secondary mb-0">{{ $user->email }}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </a>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $user->nisn }}</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ (isset($user->sekolah->name)) ? $user->sekolah->name : "" }}</p>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold text-uppercase">{{ $user->role }}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ Carbon::parse($user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($user->akhir_pkl)->format('d M Y') }}</span>
+                                                <p class="text-xs font-weight-bold mb-0">{{ (isset($guru->sekolah->name)) ? $guru->sekolah->name : "" }}</p>
                                             </td>
                                             <td style="width: 8px;">
                                                 <a href="#" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="modal" data-target="#editSiswa{{ $user->id }}"
+                                                    data-toggle="modal" data-target="#editGuru{{ $i }}"
                                                     style="margin-right: 4px">
                                                     <i class="fa-solid fa-pencil"
                                                         style="color: #0d6efd; font-size: 16px;"></i>
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.siswa.delete', ['user' => $user->id]) }}" method="post" id="myForm-{{ $i }}"
+                                                <form action="{{ route('admin.guru.delete') }}" method="post" id="myForm-{{ $i }}"
                                                     onsubmit="konfirmHapus(event, {{ $i }})">
                                                     @csrf
                                                     @method('delete')
+                                                    <input type="hidden" name="user_id" value="{{ $guru->id }}">
+                                                    <input type="hidden" name="sekolah_id" value="{{ $guru->sekolah_id }}">
                                                     <button type="submit" style="background: none; border: none;">
                                                         <i class="fa-solid fa-trash"
                                                             style="font-size: 16px; color: #dc3545;"></i>
@@ -633,11 +463,6 @@
                                             </td>
                                         </tr>
                                         @endforeach
-                                    @else
-                                        <tr>
-                                            <td colspan="6"><center>Tidak ada data</center></td>
-                                        </tr>
-                                    @endif
                                     </tbody>
                                 </table>
                             </div>

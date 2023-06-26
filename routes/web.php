@@ -24,26 +24,31 @@ Route::middleware('checkLogin')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
     //admin
-    Route::middleware('role:admin')->group(function () {
-        Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-        Route::get('/admin/listsiswa', [AdminController::class, 'listsiswa'])->name('admin.listsiswa');
-        Route::get('/admin/izinsiswa', [AdminController::class, 'izinsiswa'])->name('admin.izinsiswa');
-        Route::get('/admin/laporan/ketua', [AdminController::class, 'laporanketua'])->name('admin.laporanketua');
-        Route::get('/admin/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
-        Route::get('/admin/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
-        Route::get('/admin/riwayatizin', [AdminController::class, 'riwayatizin'])->name('admin.riwayatizin');
-        Route::get('/admin/feedback', [AdminController::class, 'feedback'])->name('admin.feedback');
-        Route::get('/admin/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
-        Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
-        Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
-        Route::get('/admin/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
+    Route::middleware('role:admin')->prefix('/admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/listsiswa', [AdminController::class, 'listsiswa'])->name('admin.listsiswa');
+        Route::get('/izinsiswa', [AdminController::class, 'izinsiswa'])->name('admin.izinsiswa');
+        Route::get('/laporan/ketua', [AdminController::class, 'laporanketua'])->name('admin.laporanketua');
+        Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
+        Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('admin.laporanhariansiswa');
+        Route::get('/riwayatizin', [AdminController::class, 'riwayatizin'])->name('admin.riwayatizin');
+        Route::get('/feedback', [AdminController::class, 'feedback'])->name('admin.feedback');
+        Route::get('/pengumuman', [AdminController::class, 'pengumuman'])->name('admin.pegumuman');
+        Route::get('/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
+        Route::get('/absen', [AdminController::class, 'absen'])->name('admin.absen');
+        Route::get('/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
+        Route::get('/guru', [AdminController::class, 'guru'])->name('admin.guru.index');
+        Route::post('/guru', [GuruController::class, 'create'])->name('admin.guru.create');
+        Route::delete('/guru', [GuruController::class, 'delete'])->name('admin.guru.delete');
 
-        Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
-        Route::post('/admin/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
-        Route::delete('/admin/pengumuman/{pengumuman}', [PengumumanController::class, 'hapusPengumuman'])->name('admin.pengumuman.hapus');
-        Route::put('/admin/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
-        Route::post('/admin/listsiswa', [SiswaController::class, 'create'])->name('admin.siswa.create');
-        Route::delete('/admin/siswa/{user}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
+        Route::post('/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
+        Route::post('/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
+        Route::delete('/pengumuman/{pengumuman}', [PengumumanController::class, 'hapusPengumuman'])->name('admin.pengumuman.hapus');
+        Route::put('/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
+        Route::post('/listsiswa', [SiswaController::class, 'create'])->name('admin.siswa.create');
+        Route::delete('/siswa/{user}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
+        Route::put('/siswa/update', [SiswaController::class, 'update'])->name('admin.siswa.update');
+        Route::get('/listsiswa/{sekolah}', [AdminController::class, 'siswatampilkanberdasarkansekolah'])->name('admin.siswa.tampilkanberdasarkansekolah');
     });
 
     //pembimbing
@@ -75,10 +80,12 @@ Route::middleware('checkLogin')->group(function () {
     Route::middleware('role:ketua')->group(function () {
         Route::get('/ketua/dashboard', [KetuaController::class, 'index'])->name('ketua.dashboard');
         Route::get('/peraturan', [PeraturanController::class, 'index'])->name('ketua.peraturan.index');
+        Route::get('ketua/laporanHarian', [KetuaController::class, 'lihatLaporanHarian'])->name('ketua.laporanHarian');
+        Route::post('/peraturan/tambahPeraturan', [PeraturanController::class, 'tambahPeraturan'])->name('ketua.peratuan.tambahPeraturan');
+        Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');
     });
 
     // Pengumuman
-
     Route::get('/pengumuman/ketua/{pengumuman}', [PengumumanController::class,'lihatPengumuman'])->name('pengumuman.detail');
     Route::get('/pengumuman/{pengumuman}', [PengumumanController::class,'lihatPengumumansiswa'])->name('pengumuman.detailsiswa');
 

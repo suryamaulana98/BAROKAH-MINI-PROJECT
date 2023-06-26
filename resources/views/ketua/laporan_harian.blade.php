@@ -5,12 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Halaman Ketua Magang</title>
+    <title>Detail Laporan Harian</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -25,7 +23,7 @@
                 <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
             </div>
 
-            <nav id="navbar" class="navbar">
+            <nav id="navbar" class="navbar" id="navbar-custom" style="border: none">
                 <ul>
                     <li><a class="nav-link scrollto" href="{{ route('ketua.dashboard') }}">Home</a></li>
                     <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i
@@ -280,24 +278,13 @@
                         <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
-                    <!-- include libraries(jQuery, bootstrap) -->
-                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                    </script>
-
+                    <!-- Include SummerNote JS and CSS -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                     <link rel="stylesheet"
-                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-                        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-                        crossorigin="anonymous">
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-                    </script>
+                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
-                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
-                        rel="stylesheet">
-                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
+                    <!-- Initialize SummerNote -->
                     <script>
                         $(document).ready(function() {
                             $('#summerNoteInput').summernote({
@@ -500,11 +487,20 @@
                         </script>
                     </div>
                     <div class="mb-3 justify-content-between">
-                        <!-- Include SummerNote JS and CSS -->
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+                        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+                            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+                        </script>
                         <link rel="stylesheet"
-                            href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+                            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+                            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                            crossorigin="anonymous">
+                        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+                            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+                        </script>
+                        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
+                            rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
 
                         <label for="kegiatan" class="form-label">Kegiatan</label>
                         <div class="form-floating">
@@ -534,187 +530,130 @@
     </div>
     {{-- end modal --}}
     <!-- ======= Hero Section ======= -->
-
+    @include('template-siswa.css')
     <section id="oke" class="d-flex"
         style="background: linear-gradient(to bottom, #3498DB 50%, #FFFFFF 50%); width: 100%; margin-top: 70px;">
 
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"
-                        style="font-weight: bold;font-style: normal; font-weight: 800;
-                line-height: 29px; color: #57595C; margin-bottom: 24px;">
-                        Buat Peraturan Magang</h5>
-                    <form action="{{ route('ketua.peratuan.tambahPeraturan') }}" id="myForm" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
-                            <input type="text" name="judul_peraturan" id="judul_peraturan" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi
-                                peraturan</label>
-                            <textarea class="form-control" id="deskripsi_peraturan" name="deskripsi_peraturan"></textarea>
-                        </div>
-                        <button class="btn btn-primary" style="margin-top: 24px;" type="submit">Submit</button>
-                        <a href="{{ route('ketua.dashboard') }}" class="btn btn-danger"
-                            style="margin-top: 24px;">Batal</a>
-                        <hr>
-                    </form>
+                    <h5
+                        style="font-weight: bold;font-style: normal; font-weight: 800; font-size: 24px;
+                        font-weight: bold;
+                    line-height: 29px; color: #57595C; margin-bottom: 24px;">
+                        Laporan harian siswa<input type="search" placeholder="Cari disini..." aria-label="Search"
+                            style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                    </h5>
+                    <button type="button" class="btn dropdown-toggle"
+                        style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Pilih sekolah
+                    </button>
+                    <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
+                        <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
+                        <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
+                        <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                    </div>
                 </div>
-                <table class="table align-items-center mb-0">
-                    <thead>
-                        <tr>
-                            <th class="text-uppercase text-secondary"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#
-                            </th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul
-                                pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                Deskripsi pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                colspan="2">Aksi</th>
-                        </tr>
-                    </thead>
-                    <?php $i = 1; ?>
-                    @foreach ($peraturan as $index => $item)
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p style="font-size: 14px;">{{ $i }}</p>
-                                </td>
-                                <td class="">
-                                    <p style="font-size: 14px;">{{ $item->judul_peraturan }}</p>
-                                </td>
-                                <td>
-                                    <p style="font-size: 14px;">{!! $item->deskripsi_peraturan !!}</p>
-                                </td>
-                                <td>
-                                    <button style="border: none; background: none;"><i
-                                            class="fa-solid fa-pen-to-square text-primary"></i></button>
-                                </td>
-                                <td>
-                                    <form action="/delete-peratuan/{{ $item->id }}" method="POST"
-                                        class="delete-form" id="delete-form-{{ $item->id }}">
-                                        @csrf
-                                        @method('delete')
-                                        <button style="border: none; background: none; margin-left: -80px;"
-                                            type="submit" onclick="confirmDelete(event, {{ $item->id }})"><i
-                                                class="fa-solid fa-trash text-danger"></i></button>
-                                    </form>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <table class="table align-items-center mb-0">
+                            <thead>
+                                <tr>
+                                    <th class="text-uppercase text-secondary"
+                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                        #</th>
+                                    <th class="text-uppercase text-secondary"
+                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                        NAMA</th>
+                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                        ASAL SEKOLAH</th>
+                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                        TANGGAL</th>
+                                    <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                        style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                        DETAIL</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 13px">
+                                <tr>
+                                    <td>
+                                        <div class="px-3">
+                                            <p class="text-xs font-weight-bold mb-0">1</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                            Femas
+                                            akbar faturrohim</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                    </td>
+                                    <td class="">
+                                        <a href="https://docs.google.com" target="_blank">
+                                            <span class="badge badge-sm bg-gradient-primary p-2"><i
+                                                    class="fa-solid fa-eye"></i> detail</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-3">
+                                            <p class="text-xs font-weight-bold mb-0">2</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                            Femas
+                                            akbar faturrohim</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                    </td>
+                                    <td class="">
+                                        <span class="badge badge-sm bg-gradient-primary p-2"><i
+                                                class="fa-solid fa-eye"></i> detail</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="px-3">
+                                            <p class="text-xs font-weight-bold mb-0">3</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                            Femas
+                                            akbar faturrohim</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                    </td>
+                                    <td class="">
+                                        <span class="badge badge-sm bg-gradient-primary p-2"><i
+                                                class="fa-solid fa-eye"></i> detail</span>
+                                    </td>
+                                </tr>
 
-                                </td>
-                            </tr>
-                        </tbody>
-                        <?php $i++; ?>
-                    @endforeach
-                </table>
-            </div>
-        </div>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
     </section>
 
-
     @include('template-siswa.script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Include jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Include Summernote JS and CSS -->
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
-
-    <!-- Initialize Summernote -->
-    <script>
-        $(document).ready(function() {
-            $('#deskripsi_peraturan').summernote({
-                height: 200, // Set the height of the Summernote input
-                toolbar: [
-                    // [groupName, [list of button]]
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']]
-                ]
-            });
-        });
-    </script>
-    <script>
-        function confirmDelete(event, id) {
-            event.preventDefault(); // Menghentikan submit form
-
-            Swal.fire({
-                title: 'Yakin ingin menghapus data ini?',
-                text: 'Data yang dihapus tidak dapat dikembalikan!',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Kode untuk melakukan penghapusan data di sini
-                    document.getElementById(`delete-form-${id}`)
-                        .submit(); // Melanjutkan submit form setelah konfirmasi
-                }
-            });
-        }
-    </script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $(document).ready(function() {
-            $('#myForm').submit(function(e) {
-                e.preventDefault();
-
-                var judulPeraturan = $('#judul_peraturan').val();
-                var deskripsiPeraturan = $('#deskripsi_peraturan').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
-                    data: {
-                        judul_peraturan: judulPeraturan,
-                        deskripsi_peraturan: deskripsiPeraturan
-                    },
-                    success: function(response) {
-                        console.log(response)
-                        if (response === 'success') {
-                            Swal.fire(
-                                'Berhasil!',
-                                'Berhasil mengirim!',
-                                'success'
-                            ).then(function() {
-                                $('#myForm')[0].reset();
-                            });
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Gagal mengirim!',
-                            });
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Terjadi kesalahan!',
-                        });
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
