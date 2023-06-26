@@ -37,6 +37,9 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/admin/kontak', [AdminController::class, 'kontak'])->name('admin.kontak');
         Route::get('/admin/absen', [AdminController::class, 'absen'])->name('admin.absen');
         Route::get('/admin/laporan/jurnal', [AdminController::class, 'jurnal'])->name('admin.jurnal');
+        Route::get('/admin/guru', [AdminController::class, 'guru'])->name('admin.guru.index');
+        Route::post('/admin/guru', [GuruController::class, 'create'])->name('admin.guru.create');
+        Route::delete('/admin/guru', [GuruController::class, 'delete'])->name('admin.guru.delete');
 
         Route::post('/admin/kontak', [KontakController::class, 'store'])->name('admin.kontak.store');
         Route::post('/admin/pengumuman', [PengumumanController::class, 'pengumumanStore'])->name('admin.pengumuman.store');
@@ -44,6 +47,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::put('/admin/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('admin.pengumuman.update');
         Route::post('/admin/listsiswa', [SiswaController::class, 'create'])->name('admin.siswa.create');
         Route::delete('/admin/siswa/{user}', [SiswaController::class, 'delete'])->name('admin.siswa.delete');
+        Route::put('/admin/siswa/update', [SiswaController::class, 'update'])->name('admin.siswa.update');
     });
 
     //pembimbing

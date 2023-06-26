@@ -4,9 +4,11 @@ namespace App\Providers;
 
 use App\Models\Feedback;
 use App\Models\Pengumuman;
+use App\Models\Sekolah;
 use App\Models\User;
 use App\Observers\FeedbackObserver;
 use App\Observers\PengumumanObserver;
+use App\Observers\SekolahObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -34,6 +36,7 @@ class EventServiceProvider extends ServiceProvider
         User::observe(UserObserver::class);
         Feedback::observe(FeedbackObserver::class);
         Pengumuman::observe(PengumumanObserver::class);
+        Sekolah::observe(SekolahObserver::class);
     }
 
     /**
