@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('jadwal_pagi');
             $table->string('jadwal_sore');
-            $table->string('deskripsi_piket');
+            $table->string('deskripsi_piket', 5000);
             $table->timestamps();
         });
     }

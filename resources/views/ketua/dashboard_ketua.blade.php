@@ -375,6 +375,7 @@
                     <form action="{{ route('ketua.tambahJadwalPiket') }}" method="POST"
                         enctype="multipart/form-data">
                         <h3>Tambah jadwal piket</h3>
+                        @csrf
                         <hr>
                         <div class="mb-3 justify-content-between">
                             <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
@@ -1275,66 +1276,15 @@
 
                     <div class="row" data-aos="fade-up">
                         <div class="col-lg-9">
-                            <h5>Detail Jadwal Piket</h5><br>
-                            <p>
-                                Selamat datang dalam jadwal piket kami. Untuk menjaga kelancaran tugas dan kedisiplinan,
-                                berikut adalah peraturan penting yang harus diikuti oleh semua anggota yang piket:
-                            </p>
-                            <ol>
-                                <li>Waktu Berangkat:</li>
-                            </ol>
-                            <ul>
-                                <li>Waktu maksimal untuk berangkat piket adalah pukul 7:45.</li>
-                                <li>Mohon pastikan Anda sudah berada di tempat piket sebelum pukul 7:45.</li>
-                                <li>Jika Anda tiba setelah waktu tersebut, akan diberlakukan hukuman sesuai dengan
-                                    ketentuan yang berlaku.</li>
-                            </ul>
-                            <ol start="2">
-                                <li>Hukuman untuk Keterlambatan:</li>
-                            </ol>
-                            <ul>
-                                <li>Sanksi dapat berupa pengurangan poin, penundaan cuti, atau tindakan disipliner
-                                    lainnya, sesuai dengan kebijakan internal kami.</li>
-                                <li>Jika melebihi waktu berangkat maksimal, akan diberlakukan sanksi sesuai dengan
-                                    ketentuan yang berlaku.</li>
-                                <li>Ketentuan mengenai sanksi akan diberikan kepada anggota piket secara tertulis
-                                    sebelum jadwal dimulai.</li>
-                            </ul>
-                            <ol start="3">
-                                <li>Pemberitahuan Keterlambatan:</li>
-                            </ol>
-                            <ul>
-                                <li>Jika Anda menghadapi situasi darurat atau keadaan tak terduga yang menyebabkan
-                                    keterlambatan, mohon segera menghubungi koordinator piket atau atasan langsung Anda.
-                                </li>
-                                <li>Mohon memberikan pemberitahuan secepat mungkin agar dapat diambil tindakan yang
-                                    sesuai.</li>
-                            </ul>
-                            <ol start="4">
-                                <li>Kedisiplinan dan Tanggung Jawab:</li>
-                            </ol>
-                            <ul>
-                                <li>Selama bertugas piket, diharapkan untuk menjalankan tugas dengan penuh dedikasi dan
-                                    profesionalisme.</li>
-                                <li>Anda bertanggung jawab untuk menjaga kebersihan, ketertiban, dan keamanan selama
-                                    piket.</li>
-                                <li>Patuhi aturan dan petunjuk yang telah ditetapkan dan ikuti instruksi dari atasan
-                                    dengan penuh tanggung jawab </li>
-                            </ul>
-                            <p>
-                                Terima kasih atas kerjasama Anda dalam mengikuti peraturan jadwal piket kami. Dengan
-                                menjaga disiplin dan tepat waktu, kita dapat menciptakan lingkungan kerja yang efisien
-                                dan profesional.
-                            </p>
+                            @foreach ($jadwal_piket as $index => $item)
+                                <h5>Detail Jadwal Piket</h5><br>
+                                <p>
+                                    {!! $item->deskripsi_piket !!}
+                                </p>
                         </div>
-
                         <div class="col-lg-3 col-md-4 justify-content-end" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
-                                    data-title="">
-                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" id="jadwal" alt=""
-                                        class="img-fluid rounded">
-                                </a>
+                                <img src="/siswa/assets/img/{{ $item->jadwal_pagi }}">
                             </div>
                             <div class="icon-box">
                                 <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" id="jadwal"
@@ -1344,6 +1294,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </section>
