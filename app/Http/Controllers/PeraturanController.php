@@ -18,12 +18,14 @@ class PeraturanController extends Controller
             'deskripsi_peraturan' => 'required|min:5|max:500',
         ]);
 
-        peraturan::create([
+        $modelPeraturan = peraturan::create([
             'judul_peraturan' => $request->judul_peraturan,
             'deskripsi_peraturan' => $request->deskripsi_peraturan,
         ]);
-
-        return redirect()->route('ketua.peraturan.index');
+        if ($modelPeraturan) {
+            return "success";
+        }
+        return "error";
 
     }
 
