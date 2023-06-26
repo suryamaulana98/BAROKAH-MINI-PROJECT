@@ -51,6 +51,10 @@ Route::middleware('checkLogin')->group(function () {
         Route::put('/siswa/update', [SiswaController::class, 'update'])->name('admin.siswa.update');
         Route::get('/listsiswa/{sekolah}', [AdminController::class, 'siswatampilkanberdasarkansekolah'])->name('admin.siswa.tampilkanberdasarkansekolah');
         Route::put('/guru', [GuruController::class, 'update'])->name('admin.guru.update');
+        Route::post('/izin/terima/{id}', [IzinController::class, 'terimaizin'])->name('admin.izin.terima');
+        Route::post('/izin/tolak/{id}', [IzinController::class, 'tolakizin'])->name('admin.izin.tolak');
+
+        Route::get('/izinsiswa/{sekolah_id}', [IzinController::class, 'tampilkanberdasarkansekolah'])->name('admin.izin.tampilkanberdasarkansekolah');
     });
 
     //pembimbing
