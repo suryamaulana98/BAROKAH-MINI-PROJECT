@@ -328,54 +328,57 @@
                     {{-- okeee --}}
                     <form action="{{ route('izin.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                    <h3>Izin Siswa</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <label for="" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
-                            readonly>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Tanggal izin</label>
-                        <input class="form-control" type="date" id="tanggalIzinSiswa" readonly name="tanggal_izin">
-                        <script>
-                            // Mendapatkan elemen input tanggal
-                            var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
-
-                            // Mendapatkan tanggal sekarang
-                            var currentDate = new Date();
-
-                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
-                            var year = currentDate.getFullYear();
-                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
-                            var day = ('0' + currentDate.getDate()).slice(-2);
-                            var formattedDate = year + '-' + month + '-' + day;
-                            inputDateIzinSiswa.value = formattedDate;
-                        </script>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Alasan Izin</label>
-                        <select class="form-select" aria-label="Default select example" name="alasan">
-                            <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="sakit">Sakit</option>
-                            <option value="acara keluarga">Acara Keluarga</option>
-                            <option value="darurat">Darurat</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukan Pesan</label>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="pesan"></textarea>
+                        <h3>Izin Siswa</h3>
+                        <hr>
+                        <div class="mb-3 justify-content-between">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <label for="" class="form-label">Nama Siswa</label>
+                            <input class="form-control" type="text" id=""
+                                value="{{ Auth::user()->name }}" readonly>
                         </div>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
-                        <input class="form-control" type="file" id="formFile" name="surat">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Tanggal izin</label>
+                            <input class="form-control" type="date" id="tanggalIzinSiswa" readonly
+                                name="tanggal_izin">
+                            <script>
+                                // Mendapatkan elemen input tanggal
+                                var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
+
+                                // Mendapatkan tanggal sekarang
+                                var currentDate = new Date();
+
+                                // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                                var year = currentDate.getFullYear();
+                                var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                                var day = ('0' + currentDate.getDate()).slice(-2);
+                                var formattedDate = year + '-' + month + '-' + day;
+                                inputDateIzinSiswa.value = formattedDate;
+                            </script>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Alasan Izin</label>
+                            <select class="form-select" aria-label="Default select example" name="alasan">
+                                <option selected disabled>---- Pilih Alasan ----</option>
+                                <option value="sakit">Sakit</option>
+                                <option value="keluarga">Acara Keluarga</option>
+                                <option value="darurat">Darurat</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Masukan Pesan</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"
+                                    name="pesan"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
+                            <input class="form-control" type="file" id="formFile" name="surat">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                            data-bs-dismiss="modal" aria-label="Close">Batal</button>
                     </form>
                 </div>
             </div>
