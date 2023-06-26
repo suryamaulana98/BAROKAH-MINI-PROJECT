@@ -373,7 +373,6 @@
                             </p>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i
                                     class="fa-solid fa-plus"></i> Tambah data</button>
-                            <form action="{{ route('admin.siswa.tampilkanberdasarkansekolah', ['sekolah' => $s->id]) }}" method="get"></form>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
