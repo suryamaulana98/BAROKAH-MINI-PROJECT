@@ -328,54 +328,57 @@
                     {{-- okeee --}}
                     <form action="{{ route('izin.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                    <h3>Izin Siswa</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <label for="" class="form-label">Nama Siswa</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
-                            readonly>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Tanggal izin</label>
-                        <input class="form-control" type="date" id="tanggalIzinSiswa" readonly name="tanggal_izin">
-                        <script>
-                            // Mendapatkan elemen input tanggal
-                            var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
-
-                            // Mendapatkan tanggal sekarang
-                            var currentDate = new Date();
-
-                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
-                            var year = currentDate.getFullYear();
-                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
-                            var day = ('0' + currentDate.getDate()).slice(-2);
-                            var formattedDate = year + '-' + month + '-' + day;
-                            inputDateIzinSiswa.value = formattedDate;
-                        </script>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Alasan Izin</label>
-                        <select class="form-select" aria-label="Default select example" name="alasan">
-                            <option selected disabled>---- Pilih Alasan ----</option>
-                            <option value="sakit">Sakit</option>
-                            <option value="acara keluarga">Acara Keluarga</option>
-                            <option value="darurat">Darurat</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Masukan Pesan</label>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="pesan"></textarea>
+                        <h3>Izin Siswa</h3>
+                        <hr>
+                        <div class="mb-3 justify-content-between">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <label for="" class="form-label">Nama Siswa</label>
+                            <input class="form-control" type="text" id=""
+                                value="{{ Auth::user()->name }}" readonly>
                         </div>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
-                        <input class="form-control" type="file" id="formFile" name="surat">
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Tanggal izin</label>
+                            <input class="form-control" type="date" id="tanggalIzinSiswa" readonly
+                                name="tanggal_izin">
+                            <script>
+                                // Mendapatkan elemen input tanggal
+                                var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
+
+                                // Mendapatkan tanggal sekarang
+                                var currentDate = new Date();
+
+                                // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                                var year = currentDate.getFullYear();
+                                var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                                var day = ('0' + currentDate.getDate()).slice(-2);
+                                var formattedDate = year + '-' + month + '-' + day;
+                                inputDateIzinSiswa.value = formattedDate;
+                            </script>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Alasan Izin</label>
+                            <select class="form-select" aria-label="Default select example" name="alasan">
+                                <option selected disabled>---- Pilih Alasan ----</option>
+                                <option value="sakit">Sakit</option>
+                                <option value="keluarga">Acara Keluarga</option>
+                                <option value="darurat">Darurat</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Masukan Pesan</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"
+                                    name="pesan"></textarea>
+                            </div>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="formFile" class="form-label">Masukkan Surat Keterangan</label>
+                            <input class="form-control" type="file" id="formFile" name="surat">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                            data-bs-dismiss="modal" aria-label="Close">Batal</button>
                     </form>
                 </div>
             </div>
@@ -389,49 +392,54 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
+                    <form action="{{ route('ketua.tambahJadwalPiket') }}" method="POST"
+                        enctype="multipart/form-data">
+                        <h3>Tambah jadwal piket</h3>
+                        @csrf
+                        <hr>
+                        <div class="mb-3 justify-content-between">
+                            <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
+                            <input class="form-control" type="file" name="jadwal_pagi" id="formFile">
+                        </div>
 
-                    <h3>Tambah jadwal piket</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
-                        <input class="form-control" type="file" id="formFile">
-                    </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
+                            <input class="form-control" type="file" name="jadwal_sore" id="formFileMultiple"
+                                multiple>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
-                        <input class="form-control" type="file" id="formFileMultiple" multiple>
-                    </div>
+                        <div class="mb-3">
+                            <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
+                            <textarea class="form-control" name="deskripsi_piket" id="summerNoteInput"></textarea>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
-                        <textarea class="form-control" id="summerNoteInput"></textarea>
-                    </div>
+                        <!-- Include SummerNote JS and CSS -->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                        <link rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
-                    <!-- Include SummerNote JS and CSS -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                    <link rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
-
-                    <!-- Initialize SummerNote -->
-                    <script>
-                        $(document).ready(function() {
-                            $('#summerNoteInput').summernote({
-                                height: 200, // Set the height of the SummerNote input
-                                toolbar: [
-                                    // [groupName, [list of button]]
-                                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                                    ['fontsize', ['fontsize']],
-                                    ['color', ['color']],
-                                    ['para', ['ul', 'ol', 'paragraph']],
-                                    ['height', ['height']]
-                                ]
+                        <!-- Initialize SummerNote -->
+                        <script>
+                            $(document).ready(function() {
+                                $('#summerNoteInput').summernote({
+                                    height: 200, // Set the height of the SummerNote input
+                                    toolbar: [
+                                        // [groupName, [list of button]]
+                                        ['style', ['bold', 'italic', 'underline', 'clear']],
+                                        ['fontsize', ['fontsize']],
+                                        ['color', ['color']],
+                                        ['para', ['ul', 'ol', 'paragraph']],
+                                        ['height', ['height']]
+                                    ]
+                                });
                             });
-                        });
-                    </script>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                        </script>
+                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                            data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1288,66 +1296,15 @@
 
                     <div class="row" data-aos="fade-up">
                         <div class="col-lg-9">
-                            <h5>Detail Jadwal Piket</h5><br>
-                            <p>
-                                Selamat datang dalam jadwal piket kami. Untuk menjaga kelancaran tugas dan kedisiplinan,
-                                berikut adalah peraturan penting yang harus diikuti oleh semua anggota yang piket:
-                            </p>
-                            <ol>
-                                <li>Waktu Berangkat:</li>
-                            </ol>
-                            <ul>
-                                <li>Waktu maksimal untuk berangkat piket adalah pukul 7:45.</li>
-                                <li>Mohon pastikan Anda sudah berada di tempat piket sebelum pukul 7:45.</li>
-                                <li>Jika Anda tiba setelah waktu tersebut, akan diberlakukan hukuman sesuai dengan
-                                    ketentuan yang berlaku.</li>
-                            </ul>
-                            <ol start="2">
-                                <li>Hukuman untuk Keterlambatan:</li>
-                            </ol>
-                            <ul>
-                                <li>Sanksi dapat berupa pengurangan poin, penundaan cuti, atau tindakan disipliner
-                                    lainnya, sesuai dengan kebijakan internal kami.</li>
-                                <li>Jika melebihi waktu berangkat maksimal, akan diberlakukan sanksi sesuai dengan
-                                    ketentuan yang berlaku.</li>
-                                <li>Ketentuan mengenai sanksi akan diberikan kepada anggota piket secara tertulis
-                                    sebelum jadwal dimulai.</li>
-                            </ul>
-                            <ol start="3">
-                                <li>Pemberitahuan Keterlambatan:</li>
-                            </ol>
-                            <ul>
-                                <li>Jika Anda menghadapi situasi darurat atau keadaan tak terduga yang menyebabkan
-                                    keterlambatan, mohon segera menghubungi koordinator piket atau atasan langsung Anda.
-                                </li>
-                                <li>Mohon memberikan pemberitahuan secepat mungkin agar dapat diambil tindakan yang
-                                    sesuai.</li>
-                            </ul>
-                            <ol start="4">
-                                <li>Kedisiplinan dan Tanggung Jawab:</li>
-                            </ol>
-                            <ul>
-                                <li>Selama bertugas piket, diharapkan untuk menjalankan tugas dengan penuh dedikasi dan
-                                    profesionalisme.</li>
-                                <li>Anda bertanggung jawab untuk menjaga kebersihan, ketertiban, dan keamanan selama
-                                    piket.</li>
-                                <li>Patuhi aturan dan petunjuk yang telah ditetapkan dan ikuti instruksi dari atasan
-                                    dengan penuh tanggung jawab </li>
-                            </ul>
-                            <p>
-                                Terima kasih atas kerjasama Anda dalam mengikuti peraturan jadwal piket kami. Dengan
-                                menjaga disiplin dan tepat waktu, kita dapat menciptakan lingkungan kerja yang efisien
-                                dan profesional.
-                            </p>
+                            @foreach ($jadwal_piket as $index => $item)
+                                <h5>Detail Jadwal Piket</h5><br>
+                                <p>
+                                    {!! $item->deskripsi_piket !!}
+                                </p>
                         </div>
-
                         <div class="col-lg-3 col-md-4 justify-content-end" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal1.jpeg" data-lightbox="jadwal"
-                                    data-title="">
-                                    <img src="/siswa/assets/img/portfolio/jadwal1.jpeg" id="jadwal" alt=""
-                                        class="img-fluid rounded">
-                                </a>
+                                <img src="/siswa/assets/img/{{ $item->jadwal_pagi }}">
                             </div>
                             <div class="icon-box">
                                 <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" id="jadwal"
@@ -1357,6 +1314,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </section>
