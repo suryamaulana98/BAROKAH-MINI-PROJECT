@@ -123,55 +123,65 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li class="dropdown"><a class="nav-link scrollto" href="#peraturanMagang"><span>Peraturan</span> <i
+                    <li class="dropdown"><a href="#peraturanMagang" class="nav-link scrollto"><span>Peraturan</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link scrollto"  href="{{ route('ketua.peraturan.index') }}">Buat peraturan</a></li>
+
+                            <li><a href="{{ route('ketua.peraturan.index') }}" class="nav-link scrollto">Buat
+                                    peraturan</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Izin siswa</span> <i
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Izin siswa</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDetail">Detail
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalDetail">Detail
                                     izin</a></li>
-                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Buat
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalizin" class="nav-link scrollto">Buat
                                     izin</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link scrollto"  href="#jadwalpiket"><span>Jadwal piket</span> <i
-                                class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#jadwalpiket" class="nav-link scrollto"><span>Jadwal
+                                piket</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljadwal">Tambah
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModaljadwal">Tambah
                                     jadwal piket</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Laporan</span> <i
+                                class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li class="dropdown"><a class="nav-link scrollto"  href="#"><span>Laporan harian siswa</span> <i
-                                        class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Laporan harian
+                                        siswa</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    <li><a class="nav-link scrollto"  href="#">Detail Laporan</a></li>
-                                    <li><a class="nav-link scrollto"  href="#"
+                                    <li><a href="{{ route('ketua.laporanHarian') }}" class="nav-link scrollto">Detail
+                                            Laporan</a></li>
+                                    <li><a href="#"
                                             data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat
                                             Laporan</a></li>
                                 </ul>
                             </li>
-                            <li><a class="nav-link scrollto"  href="#"
+                            <li><a href="#" class="nav-link scrollto"
                                     data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua
                                     magang</a></li>
-                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal"
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a class="nav-link scrollto"  href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModaljurnal">Laporan
                                     jurnal</a></li>
-                            <li><a class="nav-link scrollto" href="{{ route('ketua.pengumpulan') }}">Pengumpulan Jurnal</a></li>
+                            <li><a href="{{ route('ketua.pengumpulan') }}" class="nav-link scrollto">Pengumpulan
+                                    Jurnal</a></li>
                         </ul>
                     </li>
                     <li><a class="nav-link" href="#kontak">Kontak</a></li>
                     <li class="dropdown"><img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="40"
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="javascript:logout()">Logout</a></li>
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Profil</a></li>
+                            <li><a href="javascript:logout()" class="nav-link scrollto">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -246,14 +256,15 @@
     </style>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="d-flex flex-column align-items-start">
                         <div class="d-flex">
-                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%" alt=""
-                                style="border-radius: 10%;" class="me-3">
+                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%"
+                                alt="" style="border-radius: 10%;" class="me-3">
                             <div>
                                 <h5 class="fw-bold me-5 text-wrap text-break" id="nama">Reno
                                     Gunawan Assegaf</h5>
@@ -347,7 +358,8 @@
                         <input class="form-control" type="file" id="formFile">
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
                 </div>
             </div>
         </div>
@@ -377,29 +389,18 @@
                         <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
                         <textarea class="form-control" id="summerNoteInput"></textarea>
                     </div>
-                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-                        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-                    </script>
 
+                    <!-- Include SummerNote JS and CSS -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                     <link rel="stylesheet"
-                        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-                        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-                        crossorigin="anonymous">
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-                        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-                    </script>
-
-                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
-                        rel="stylesheet">
-                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-
+                        href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
                     <!-- Initialize SummerNote -->
                     <script>
                         $(document).ready(function() {
                             $('#summerNoteInput').summernote({
-                                height: 130, // Set the height of the SummerNote input
+                                height: 200, // Set the height of the SummerNote input
                                 toolbar: [
                                     // [groupName, [list of button]]
                                     ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -412,7 +413,8 @@
                         });
                     </script>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
                 </div>
             </div>
         </div>
@@ -420,12 +422,14 @@
     {{-- end modal --}}
 
     <!-- Modal -->
+
     <div class="modal fade" id="exampleModalDetail" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true" id="modalTambahJadwal">
+        @include('template-siswa.css')
         <div class="modal-dialog  modal-xl">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h3 class="fw-bold mb-3 text-secondary">Laporan Izin Siswa</h3>
+                    <h3 class="fw-bold mb-5 text-secondary">Laporan Izin Siswa</h3>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
@@ -456,7 +460,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td class="px-3">
                                             <p style="font-size: 12px;">1</p>
                                         </td>
                                         <td>
@@ -495,7 +499,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="px-3">
                                             <p style="font-size: 12px;">2</p>
                                         </td>
                                         <td>
@@ -529,7 +533,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
+                                        <td class="px-3">
                                             <p style="font-size: 12px;">3</p>
                                         </td>
                                         <td>
@@ -617,7 +621,8 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -660,7 +665,8 @@
                         <input class="form-control" type="" id="" placeholder="http://....">
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -712,7 +718,8 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -787,7 +794,8 @@
                         </script>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px">Batal</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                        style="width: 100px">Batal</button>
                 </div>
             </div>
         </div>
@@ -952,6 +960,7 @@
 
                                 <div class="col-lg-12 justify-content-center">
                                     <h3 class="resume-title"></h3>
+
                                     <div class="resume-item">
                                         <div class="accordion" id="accordionExample">
                                             <div class="accordion-item mb-2">
@@ -969,11 +978,14 @@
                                                     <div class="accordion-body">
                                                         <div class="program-des">
                                                             <p>Peraturan berpakaian di kantor sangat penting untuk
-                                                                menciptakan suasana yang profesional dan representatif.
-                                                                Kami memiliki beberapa aturan mengenai berpakaian yang
+                                                                menciptakan suasana yang profesional dan
+                                                                representatif.
+                                                                Kami memiliki beberapa aturan mengenai berpakaian
+                                                                yang
                                                                 diharapkan setiap karyawan patuhi:
 
-                                                                1. Pakaian formal atau semi-formal sangat dianjurkan.
+                                                                1. Pakaian formal atau semi-formal sangat
+                                                                dianjurkan.
                                                                 Setelan jas, blazer, atau dress dengan tampilan yang
                                                                 rapi dan sopan akan mencerminkan keseriusan dan
                                                                 profesionalisme Anda.
@@ -984,14 +996,16 @@
                                                                 manajemen.
 
                                                                 3. Pastikan pakaian yang dikenakan selalu rapi dan
-                                                                bersih. Hindari pakaian yang kusut, lusuh, atau tidak
+                                                                bersih. Hindari pakaian yang kusut, lusuh, atau
+                                                                tidak
                                                                 terawat karena dapat memberikan kesan yang kurang
                                                                 profesional.
 
                                                                 Peraturan berpakaian ini bertujuan untuk menciptakan
                                                                 lingkungan kerja yang serius, formal, dan memberikan
                                                                 kesan yang baik kepada klien, rekan kerja, dan
-                                                                pengunjung kantor. Dengan mematuhi peraturan ini, kita
+                                                                pengunjung kantor. Dengan mematuhi peraturan ini,
+                                                                kita
                                                                 dapat mencapai citra profesional yang konsisten di
                                                                 tempat kerja.
                                                             </p>
@@ -1002,6 +1016,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="resume-item">
                                         <div class="accordion" id="accordionExample">
                                             <div class="accordion-item mb-2">
@@ -1407,13 +1422,16 @@
                     <center>
                         <button type="button" onclick="kirim()">Kirim pesan</button>
                     </center>
+
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                     <script>
                         $.ajaxSetup({
+
                             headers: {
                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                             }
                         });
+
                         function kirim() {
                             console.log($('#user_idFeedback').val())
                             console.log($('#pesanFeedback').val())
@@ -1424,7 +1442,7 @@
                                     user_id: $('#user_idFeedback').val(),
                                     pesan: $('#pesanFeedback').val(),
                                 },
-                                success: function (response) {
+                                success: function(response) {
                                     // console.log(response)
                                     if (response === 'success') {
                                         Swal.fire(
@@ -1433,8 +1451,7 @@
                                             'success'
                                         )
                                         $('#pesanFeedback').val('');
-                                    }
-                                    else {
+                                    } else {
                                         Swal.fire({
                                             icon: 'error',
                                             title: 'Oops...',
@@ -1446,7 +1463,6 @@
                                 }
                             })
                         }
-
                     </script>
                 </form>
             </div>
