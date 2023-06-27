@@ -14,14 +14,14 @@ class BuatUser extends Command
      *
      * @var string
      */
-    protected $signature = 'buat:user {role=siswa}';
+    protected $signature = 'user:buat {role=siswa}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Membuat user baru, contoh penggunaan : php artisan buat:user [ROLE]';
+    protected $description = 'Membuat user baru, contoh penggunaan : php artisan user:buat [ROLE=siswa,ketua]';
 
     /**
      * Execute the console command.
@@ -29,7 +29,21 @@ class BuatUser extends Command
     public function handle()
     {
         $userRole = $this->argument('role');
+        if ($userRole != 'siswa' AND $userRole != 'ketua') {
+            $this->error('Role tidak ditemukan');
+            return;
+        }
+        // if ($userRole != 'ketua' || $userRole != 'siswa' || $userRole != 'guru') {
+        //     $this->error('Role tidak ditemukan');
+        //     return;
+        // }
+        $this->info('MEMBUAT USER DI TERMINAL, by Femas');
+        $this->info('Role : ' . $userRole);
         $name = $this->ask('Masukan nama user : ');
+        if ($name === 'exit' or $name === 'keluar') {
+            $this->error('Keluar');
+            return;
+        }
         if ($name === "" || $name === null) {
             $this->error('Nama idak boleh kosong');
             return;
@@ -54,7 +68,7 @@ class BuatUser extends Command
             $modelUser = User::create($dataUser);
 
             if($modelUser) {
-                $this->info('Berhasil membuat user baru');
+                $this->info('Berhasil membuat user baru : nama : ' . $name);
             }
             else {
                 $this->error('Gagal membuat user');
