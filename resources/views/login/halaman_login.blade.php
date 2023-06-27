@@ -56,7 +56,7 @@
                   <form role="form" method="POST" action="{{ route('login.store') }}">
                     @csrf
                     <div class="mb-3">
-                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" name="email">
+                      <input type="email" class="form-control form-control-lg" placeholder="Email" aria-label="Email" name="email" value="{{ old('email') }}">
                     </div>
                     <div class="mb-3">
                       <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password" name="password">
