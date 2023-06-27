@@ -114,8 +114,8 @@ Route::middleware('checkLogin')->group(function () {
     Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');
 
     //siswa
-    Route::middleware('role:siswa')->group(function () {
-        Route::get('/dashboard_siswa', [SiswaController::class, 'index'])->name('siswa.dashboard');
+    Route::middleware('role:siswa')->prefix('/siswa')->name('siswa.')->group(function () {
+        Route::get('/dashboard', [SiswaController::class, 'index'])->name('dashboard');
     });
 
 });

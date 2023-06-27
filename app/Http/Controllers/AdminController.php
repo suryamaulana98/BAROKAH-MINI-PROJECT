@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\Hariansiswa;
 use App\Models\Izin;
 use App\Models\Kontak;
 use App\Models\Laporanjurnal;
@@ -48,10 +49,11 @@ class AdminController extends Controller
         return view('admin.laporan_ketua', compact('laporanketuas'));
     }
     function laporanhariansiswa() {
-        return view('admin.laporan_harian_siswa');
+        $hariansiswas = Hariansiswa::paginate(1);
+        return view('admin.laporan_harian_siswa', compact('hariansiswas'));
     }
     function feedback() {
-        $feedbacks = Feedback::all();
+        $feedbacks = Feedback::paginate(8);
         return view('admin.halaman_feedback', compact('feedbacks'));
     }
     function pengumuman() {

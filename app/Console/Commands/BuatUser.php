@@ -16,6 +16,8 @@ class BuatUser extends Command
      */
     protected $signature = 'user:buat {role=siswa}';
 
+
+
     /**
      * The console command description.
      *
@@ -29,6 +31,14 @@ class BuatUser extends Command
     public function handle()
     {
         $userRole = $this->argument('role');
+        if ($userRole == 'help') {
+            $this->warn('Penggunaan:');
+            $this->info('   php artisan user:buat <role>');
+            $this->newLine();
+            $this->warn('Argumen:');
+            $this->info("   role: ['siswa', 'ketua] default: 'siswa'");
+            return;
+        }
         if ($userRole != 'siswa' AND $userRole != 'ketua') {
             $this->error('Role tidak ditemukan');
             return;
@@ -68,7 +78,7 @@ class BuatUser extends Command
             $modelUser = User::create($dataUser);
 
             if($modelUser) {
-                $this->info('Berhasil membuat user baru : nama : ' . $name);
+                $this->info('Berhasil membuat user baru, Nama : ' . $name);
             }
             else {
                 $this->error('Gagal membuat user');

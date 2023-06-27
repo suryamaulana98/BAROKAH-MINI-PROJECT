@@ -259,14 +259,7 @@
             <div class="card mb-4">
               <div class="card-header pb-0">
                 <p style="font-size: 24px; font-weight: bold;">Laporan harian siswa<input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;"></p>
-                <button type="button" class="btn dropdown-toggle" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Pilih sekolah
-                </button>
-                <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                    <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                    <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                    <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
-                </div>
+                <br>
               </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -274,92 +267,40 @@
                     <thead>
                       <tr>
                         <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">ASAL SEKOLAH</th>
+                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">KATEGORI</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
                         <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">DETAIL</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach ($hariansiswas as $hariansiswa)
                       <tr>
-                        {{-- Modal profil --}}
-                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                            {{-- <div class="modal-content">
-                                <div class="modal-body"> --}}
-                                    <div class="card card-profile">
-                                        <img src="/admin/assets/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
-                                        <div class="row justify-content-center">
-                                        <div class="col-4 col-lg-4 order-lg-2">
-                                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                            <a href="javascript:;">
-                                                <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
-                                            </a>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-                                        <div class="d-flex justify-content-between">
-                                            <a href="javascript:;"></a>
-                                            <a href="javascript:;"></a>
-                                        </div>
-                                        </div>
-                                        <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="d-grid text-center">
-                                                <span class="text-lg font-weight-bolder">22</span>
-                                                <span class="text-sm opacity-8">Sakit</span>
-                                                </div>
-                                                <div class="d-grid text-center mx-4">
-                                                <span class="text-lg font-weight-bolder">10</span>
-                                                <span class="text-sm opacity-8">Acara keluarga</span>
-                                                </div>
-                                                <div class="d-grid text-center">
-                                                <span class="text-lg font-weight-bolder">89</span>
-                                                <span class="text-sm opacity-8">Hal darurat</span>
-                                                </div>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-center mt-4">
-                                            <h5>
-                                            Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
-                                            </h5>
-                                            <div class="h6 font-weight-300">
-                                            <i class="ni location_pin mr-2"></i>1847313113
-                                            </div>
-                                            <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
-                                            </div>
-                                            <div>
-                                            <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                {{-- </div>
-                            </div> --}}
-                            </div>
-                        </div>
-                        {{-- End modal profil --}}
                         <td>
-                            <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
-                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                            <a href="#" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#" data-toggle="modal">
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $hariansiswa->nama }}</p>
                             </a>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $hariansiswa->kategori }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $hariansiswa->tanggal }}</p>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
+                    @endforeach
+                    @if (count($hariansiswas) == 0)
+                        <tr>
+                            <td colspan="4">
+                                <center><p class="text-xs font-weight-bold mb-0 text-uppercase">Tidak ada data</p></center>
+                            </td>
+                        </tr>
+                    @endif
                     </tbody>
                   </table>
+                  {{ $hariansiswas->links() }}
                 </div>
               </div>
             </div>
