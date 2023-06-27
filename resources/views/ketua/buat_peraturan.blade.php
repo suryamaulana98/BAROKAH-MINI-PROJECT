@@ -580,9 +580,22 @@
                                 type: "POST",
                                 data: formData,
                                 success: function(response) {
-                                    // Tampilkan pesan sukses
-                                    alert(response.success);
-
+                                    console.log(response);
+                                    if (response === 'success') {
+                                        Swal.fire(
+                                            'Berhasil!',
+                                            'Berhasil Menambahkan Data!',
+                                            'success'
+                                        ).then(function() {
+                                            $('#myForm')[0].reset();
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Gagal Mengirim Data!',
+                                        });
+                                    }
                                     // Bersihkan formulir
                                     $('#myForm')[0].reset();
 

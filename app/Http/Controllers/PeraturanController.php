@@ -24,7 +24,7 @@ class PeraturanController extends Controller
         $data->deskripsi_peraturan = $validatedData['deskripsi_peraturan'];
         $data->save();
 
-        return response()->json(['success' => 'Data berhasil disimpan']);
+        return "success";
     }
 
 
