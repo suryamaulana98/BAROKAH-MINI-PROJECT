@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use App\Models\Izin;
 use App\Models\Kontak;
+use App\Models\Laporanjurnal;
+use App\Models\Laporanketua;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\User;
@@ -13,7 +15,11 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     function index() {
-        return view('admin.dashboard_admin');
+        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
+        $jumlahPermintaanIzin = Izin::where('status', 'menunggu')->count();
+        $jumlahIzinDisetujui = Izin::where('status', 'disetujui')->count();
+        $jumlahIzinDitolak = Izin::where('status', 'ditolak')->count();
+        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak'));
     }
     function listsiswa() {
         $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
@@ -38,13 +44,11 @@ class AdminController extends Controller
         return view('admin.laporan_izin', compact('sekolah', 'izins'));
     }
     function laporanketua() {
-        return view('admin.laporan_ketua');
+        $laporanketuas = Laporanketua::all();
+        return view('admin.laporan_ketua', compact('laporanketuas'));
     }
     function laporanhariansiswa() {
         return view('admin.laporan_harian_siswa');
-    }
-    function riwayatizin() {
-        return view('admin.riwayat_izin');
     }
     function feedback() {
         $feedbacks = Feedback::all();
@@ -62,7 +66,9 @@ class AdminController extends Controller
         return view('admin.absen');
     }
     function jurnal() {
-        return view('admin.jurnal');
+        $laporanjurnals = Laporanjurnal::all();
+        $sekolah = Sekolah::all();
+        return view('admin.jurnal', compact('laporanjurnals', 'sekolah'));
     }
     function guru() {
         $gurus = User::where('role', 'guru')->get();

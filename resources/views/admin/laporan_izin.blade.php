@@ -11,17 +11,26 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show  bg-gray-100">
-  <div class="modal fade" id="detail1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@php
+    use Carbon\Carbon;
+    $x = 0;
+@endphp
+
+@foreach ($izins as $iz)
+@php
+    $x++;
+@endphp
+<div class="modal fade" id="detail{{ $x }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
+        <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background: none; border: none;">
             <i class="fa-sharp fa-solid fa-rectangle-xmark" style="color: red;"></i>
-          </button>
+        </button>
         </div>
         <div class="modal-body">
-          <style>
+        <style>
             .aaa {
                 font-style: normal;
                 font-weight: 600;
@@ -34,37 +43,38 @@
             tr {
                 height: 30px;
             }
-          </style>
-          <table>
+        </style>
+        <table>
             <tr>
-              <td class="aaa" style="width: 28%;">Nama</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> Femas akbar faturrohim</td>
+            <td class="aaa" style="width: 28%;">Nama</td>
+            <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $iz->user->name }}</td>
             </tr>
             <tr>
-              <td class="aaa">Asal sekolah</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1 LUMAJANG</td>
+            <td class="aaa">Asal sekolah</td>
+            <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $iz->user->sekolah->name }}</td>
             </tr>
             <tr>
-              <td class="aaa">Tanggal izin</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei 2023</td>
+            <td class="aaa">Tanggal izin</td>
+            <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $iz->tanggal_izin }}</td>
             </tr>
             <tr>
-              <td class="aaa">Alasan</td>
-              <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT</td>
+            <td class="aaa">Alasan</td>
+            <td class="aaa badge badge-sm bg-danger" style="color: white;">{{ $iz->alasan }}</td>
             </tr>
             <tr>
-              <td class="aaa">Pesan</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</span></td>
+            <td class="aaa">Pesan</td>
+            <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">{{ $iz->pesan }}</span></td>
             </tr>
             <tr>
-              <td class="aaa">Lihat surat</td>
-              <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#"><span style="margin-right: 12px;">:</span> p.pdf</a></td>
+            <td class="aaa">Lihat surat</td>
+            <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)">:<a href="/surat/{{ $iz->surat }}" class="btn btn-primary" style="margin-right: 12px;">Lihat</a></td>
             </tr>
-          </table>
+        </table>
         </div>
-      </div>
     </div>
-  </div>
+    </div>
+</div>
+@endforeach
   <div class="modal fade" id="detail2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -409,7 +419,7 @@
                 </button>
                 <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
                     @foreach ($sekolah as $s)
-                    <a class="dropdown-item" href="{{ route('admin.siswa.tampilkanberdasarkansekolah', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
+                    <a class="dropdown-item" href="{{ route('admin.izin.tampilkanberdasarkansekolah', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
                     @endforeach
                 </div>
               </div>
@@ -433,9 +443,12 @@
                         $i = 0;
                     @endphp
                     @foreach ($izins as $iz)
+                    @php
+                        $i++;
+                    @endphp
                       <tr>
                          {{-- Modal profil --}}
-    <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="profilModal{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           {{-- <div class="modal-content">
             <div class="modal-body"> --}}
@@ -445,7 +458,7 @@
                       <div class="col-4 col-lg-4 order-lg-2">
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                           <a href="javascript:;">
-                            <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                            <img src="/img/{{ $iz->user->foto_siswa }}" style="width: 147px; height: 147px;" class="rounded-circle img-fluid border border-2 border-white">
                           </a>
                         </div>
                       </div>
@@ -477,16 +490,16 @@
                       </div>
                       <div class="text-center mt-4">
                         <h5>
-                          Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                          {{ $iz->user->name }}<span class="font-weight-light">, ({{ $iz->user->role }})</span>
                         </h5>
                         <div class="h6 font-weight-300">
-                          <i class="ni location_pin mr-2"></i>1847313113
+                          <i class="ni location_pin mr-2"></i>{{ $iz->user->nisn }}
                         </div>
                         <div class="h6 mt-4">
-                          <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                          <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($iz->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($iz->user->akhir_pkl)->format('d M Y') }}
                         </div>
                         <div>
-                          <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                          <i class="ni education_hat mr-2"></i>{{ $iz->user->sekolah->name }}
                         </div>
                       </div>
                     </div>
@@ -497,7 +510,7 @@
     </div>
     {{-- End modal profil --}}
                         <td>
-                            <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
+                            <a href="#profilModal{{ $i }}" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal{{ $i }}" data-toggle="modal">
                                 <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $iz->user->name }}</p>
                             </a>
                         </td>
@@ -505,29 +518,36 @@
                           <p class="text-xs font-weight-bold mb-0">{{ (isset($iz->user->sekolah->name)) ? $iz->user->sekolah->name : "" }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{ $iz->tanggal_izin }}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($iz->tanggal_izin)->format('d M Y') }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 88px;">{{ $iz->alasan }}</span>
+                            <span class="badge badge-sm {{ ($iz->alasan == 'darurat') ? "bg-warning " : ""}} {{ ($iz->alasan == 'sakit') ? "bg-danger " : ""}} {{ ($iz->alasan == 'keluarga') ? "bg-primary " : ""}}" style="width: 88px;">{{ $iz->alasan }}</span>
                         </td>
                         <td class="">
-                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail1" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
+                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail{{ $i }}" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                         <td>
-                            <span class="badge badge-sm bg-danger"  style="width: 100px;">ditolak</span>
+                            <span class="badge badge-sm {{ ($iz->status == 'menunggu') ? "bg-warning " : ""}} {{ ($iz->status == 'ditolak') ? "bg-danger " : ""}} {{ ($iz->status == 'disetujui') ? "bg-success " : ""}}"  style="width: 100px;">{{ $iz->status }}</span>
                         </td>
+                        @if ($iz->status == 'menunggu')
                         <td>
-                            <form action="" id="terima-id" method="post" onsubmit="konfirmTerima(event, '1')"  style="width: 8px;">
+                            <form action="{{ route('admin.izin.terima', ['id' => $iz->id]) }}" id="terima-{{ $i }}" method="post" onsubmit="konfirmTerima(event, {{ $i }})"  style="width: 8px;">
                                 @csrf
                                 <button type="submit" style="border:none;background:none;"><i class="fa-sharp fa-solid fa-circle-check text-success"  style="font-size: 18px;"></i></button>
                             </form>
                         </td>
                         <td>
-                            <form action="" id="tolak-id" method="post" onsubmit="konfirmTolak(event, '1')" style="">
+                            <form action="{{ route('admin.izin.tolak', ['id' => $iz->id]) }}" id="tolak-{{ $i }}" method="post" onsubmit="konfirmTolak(event, {{ $i }})" style="">
                                     @csrf
                                     <button type="submit" style="border:none;background:none;"><i class="fa-solid fa-circle-xmark text-danger"  style="font-size: 18px;"></i></button>
                             </form>
                         </td>
+                        @else
+                        <td colspan="2">
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase"><b>SELESAI</b></p>
+                        </td>
+                        @endif
+
                       </tr>
                     @endforeach
                     @else
