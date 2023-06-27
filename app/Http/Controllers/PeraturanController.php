@@ -12,22 +12,21 @@ class PeraturanController extends Controller
         return view('ketua.buat_peraturan', compact('peraturan'));
     }
 
-    function tambahPeraturan(Request $request) {
-        $this->validate($request,[
+    public function tambahPeraturan(Request $request)
+    {
+        $validatedData = $request->validate([
             'judul_peraturan' => 'required|min:3|max:20',
             'deskripsi_peraturan' => 'required|min:5|max:500',
         ]);
 
-        $modelPeraturan = peraturan::create([
-            'judul_peraturan' => $request->judul_peraturan,
-            'deskripsi_peraturan' => $request->deskripsi_peraturan,
-        ]);
-        if ($modelPeraturan) {
-            return "success";
-        }
-        return "error";
+        $data = new Peraturan();
+        $data->judul_peraturan = $validatedData['judul_peraturan'];
+        $data->deskripsi_peraturan = $validatedData['deskripsi_peraturan'];
+        $data->save();
 
+        return response()->json(['success' => 'Data berhasil disimpan']);
     }
+
 
     function hapusPeraturan(string $id){
         $hapus = peraturan::findorfail($id);

@@ -548,12 +548,12 @@
                     <form action="{{ route('ketua.peratuan.tambahPeraturan') }}" id="myForm" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
+                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul Peraturan</label>
                             <input type="text" name="judul_peraturan" id="judul_peraturan" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi
-                                peraturan</label>
+                                Peraturan</label>
                             <textarea class="form-control" id="deskripsi_peraturan" name="deskripsi_peraturan"></textarea>
                         </div>
                         <button class="btn btn-primary" style="margin-top: 24px;" type="submit">Submit</button>
@@ -562,35 +562,68 @@
                         <hr>
                     </form>
                 </div>
-                <table class="table align-items-center mb-0">
+
+                <!-- Masukkan library jQuery -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#myForm').on('submit', function(event) {
+                            event.preventDefault();
+
+                            // Ambil data dari formulir
+                            var formData = $(this).serialize();
+
+                            // Kirim permintaan Ajax
+                            $.ajax({
+                                url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
+                                type: "POST",
+                                data: formData,
+                                success: function(response) {
+                                    // Tampilkan pesan sukses
+                                    alert(response.success);
+
+                                    // Bersihkan formulir
+                                    $('#myForm')[0].reset();
+
+                                    // Perbarui tampilan data secara otomatis
+                                    $('#myTableBody').load(location.href + ' #myTableBody>*', '');
+
+                                },
+                                error: function(xhr, status, error) {
+                                    // Tampilkan pesan error jika terjadi kesalahan
+                                    alert("Terjadi kesalahan: " + error);
+                                }
+                            });
+                        });
+                    });
+                </script>
+
+
+                <table class="table align-items-center mb-0" id="myTable">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#
-                            </th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul
-                                pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                Deskripsi pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                colspan="2">Aksi</th>
+                            <th class="text-uppercase text-secondary">#</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2">Judul pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2">Deskripsi pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" colspan="2">Aksi</th>
                         </tr>
                     </thead>
-                    <?php $i = 1; ?>
-                    @foreach ($peraturan as $index => $item)
-                        <tbody>
+                    <tbody id="myTableBody">
+                        @foreach ($peraturan as $index => $item)
                             <tr>
                                 <td>
-                                    <p style="font-size: 14px;">{{ $i }}</p>
+                                    <p style="font-size: 14px;">{{ $index + 1 }}</p>
                                 </td>
                                 <td class="">
                                     <p style="font-size: 14px;">{{ $item->judul_peraturan }}</p>
                                 </td>
                                 <td>
-                                    <p style="font-size: 14px;">{!! $item->deskripsi_peraturan !!}</p>
+                                    <p style="font-size: 14px;">
+                                        {!! strlen($item->deskripsi_peraturan) < 20
+                                            ? $item->deskripsi_peraturan
+                                            : Str::limit($item->deskripsi_peraturan, 20) . '...' !!}
+                                    </p>
                                 </td>
                                 <td>
                                     <button style="border: none; background: none;"><i
@@ -605,13 +638,12 @@
                                             type="submit" onclick="confirmDelete(event, {{ $item->id }})"><i
                                                 class="fa-solid fa-trash text-danger"></i></button>
                                     </form>
-
                                 </td>
                             </tr>
-                        </tbody>
-                        <?php $i++; ?>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
+
             </div>
         </div>
     </section>
@@ -664,56 +696,6 @@
                 }
             });
         }
-    </script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $(document).ready(function() {
-            $('#myForm').submit(function(e) {
-                e.preventDefault();
-
-                var judulPeraturan = $('#judul_peraturan').val();
-                var deskripsiPeraturan = $('#deskripsi_peraturan').val();
-
-                $.ajax({
-                    type: 'POST',
-                    url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
-                    data: {
-                        judul_peraturan: judulPeraturan,
-                        deskripsi_peraturan: deskripsiPeraturan
-                    },
-                    success: function(response) {
-                        console.log(response)
-                        if (response === 'success') {
-                            Swal.fire(
-                                'Berhasil!',
-                                'Berhasil mengirim!',
-                                'success'
-                            ).then(function() {
-                                $('#myForm')[0].reset();
-                            });
-                        } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Gagal mengirim!',
-                            });
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Terjadi kesalahan!',
-                        });
-                    }
-                });
-            });
-        });
     </script>
 </body>
 

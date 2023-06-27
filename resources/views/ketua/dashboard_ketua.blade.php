@@ -392,54 +392,93 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="{{ route('ketua.tambahJadwalPiket') }}" method="POST"
-                        enctype="multipart/form-data">
-                        <h3>Tambah jadwal piket</h3>
-                        @csrf
-                        <hr>
-                        <div class="mb-3 justify-content-between">
-                            <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
-                            <input class="form-control" type="file" name="jadwal_pagi" id="formFile">
-                        </div>
+                    <h3>Tambah Jadwal Piket</h3>
+                    @csrf
+                    <hr>
+                    <div class="mb-3 justify-content-between">
+                        <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
+                        <input class="form-control" type="file" id="jadwal_pagi" name="jadwal_pagi"
+                            id="formFile">
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
-                            <input class="form-control" type="file" name="jadwal_sore" id="formFileMultiple"
-                                multiple>
-                        </div>
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
+                        <input class="form-control" type="file" id="jadwal_sore" name="jadwal_sore"
+                            id="formFileMultiple" multiple>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
-                            <textarea class="form-control" name="deskripsi_piket" id="summerNoteInput"></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
+                        <textarea class="form-control" id="deskripsi_piket" name="deskripsi_piket"></textarea>
+                    </div>
 
-                        <!-- Include SummerNote JS and CSS -->
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                        <link rel="stylesheet"
-                            href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+                    <button type="button" id="button" class="btn btn-primary btn-sm me-2"
+                        style="width: 100px">Submit</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
 
-                        <!-- Initialize SummerNote -->
-                        <script>
-                            $(document).ready(function() {
-                                $('#summerNoteInput').summernote({
-                                    height: 200, // Set the height of the SummerNote input
-                                    toolbar: [
-                                        // [groupName, [list of button]]
-                                        ['style', ['bold', 'italic', 'underline', 'clear']],
-                                        ['fontsize', ['fontsize']],
-                                        ['color', ['color']],
-                                        ['para', ['ul', 'ol', 'paragraph']],
-                                        ['height', ['height']]
-                                    ]
+                    <script>
+                        $(document).ready(function() {
+                            $('#button').on('click', function() {
+                                var jadwalPagiInput = document.getElementById('jadwal_pagi');
+                                var jadwalSoreInput = document.getElementById('jadwal_sore');
+                                var deskripsiPiket = $('#deskripsi_piket').val();
+
+                                var jadwalPagi = jadwalPagiInput.files[0];
+                                var jadwalSore = jadwalSoreInput.files[0];
+
+                                var formData = new FormData();
+                                formData.append('jadwal_pagi', jadwalPagi);
+                                formData.append('jadwal_sore', jadwalSore);
+                                formData.append('deskripsi_piket', deskripsiPiket);
+
+                                console.log(jadwalPagi);
+                                console.log(jadwalSore);
+                                console.log(deskripsiPiket);
+
+                                $.ajaxSetup({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    }
+                                });
+
+                                $.ajax({
+                                    type: 'POST',
+                                    url: "{{ route('ketua.tambahJadwalPiket') }}",
+                                    data: formData,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function(response) {
+                                        console.log(response);
+                                        if (response === 'success') {
+                                            Swal.fire(
+                                                'Berhasil!',
+                                                'Berhasil mengirim!',
+                                                'success'
+                                            ).then(function() {
+                                                $('#myForm')[0].reset();
+                                            });
+                                        } else {
+                                            Swal.fire({
+                                                icon: 'error',
+                                                title: 'Oops...',
+                                                text: 'Gagal mengirim!',
+                                            });
+                                        }
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.log(xhr.responseText);
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Terjadi kesalahan saat mengirim data!',
+                                        });
+                                    }
                                 });
                             });
-                        </script>
-                        <button type="submit" class="btn btn-primary btn-sm me-2"
-                            style="width: 100px">Submit</button>
-                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                            data-bs-dismiss="modal" aria-label="Close">Batal</button>
-                    </form>
+                        });
+                    </script>
+
                 </div>
             </div>
         </div>
@@ -982,296 +1021,43 @@
                         <div class="" data-aos="fade-up">
                             <div class="row" style="margin-bottom: 50px;">
                                 <h2></h2>
-
                                 <div class="col-lg-12 justify-content-center">
                                     <h3 class="resume-title"></h3>
+                                    @php $i = 0; @endphp
+                                    @foreach ($peraturan as $item)
+                                        @php $i++ @endphp
+                                        <div class="resume-item">
+                                            <div class="accordion" id="accordionExample">
+                                                <div class="accordion-item mb-2">
+                                                    <h2 class="accordion-header" id="heading{{ $i }}">
+                                                        <button style="margin: 0;padding: 5px; wid"
+                                                            class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#collapse{{ $i }}"
+                                                            aria-expanded="true"
+                                                            aria-controls="collapse{{ $i }}">
+                                                            <h6 style="font-weight: bold;" class="text-uppercase">
+                                                                {{ $item->judul_peraturan }}</h6>
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapse{{ $i }}"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="heading{{ $i }}"
+                                                        data-bs-parent="#accordionExample">
+                                                        <div class="accordion-body">
+                                                            <div class="program-des">
+                                                                <p>{!! $item->deskripsi_peraturan !!}
+                                                                </p>
 
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading1">
-                                                    <button style="margin: 0;padding: 5px; wid"
-                                                        class="accordion-button" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapse1"
-                                                        aria-expanded="true" aria-controls="collapse1">
-                                                        <h6 style="font-weight: bold;" class="text-uppercase">
-                                                            PERATURAN BAJU</h6>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse1" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading1" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <p>Peraturan berpakaian di kantor sangat penting untuk
-                                                                menciptakan suasana yang profesional dan
-                                                                representatif.
-                                                                Kami memiliki beberapa aturan mengenai berpakaian
-                                                                yang
-                                                                diharapkan setiap karyawan patuhi:
-
-                                                                1. Pakaian formal atau semi-formal sangat
-                                                                dianjurkan.
-                                                                Setelan jas, blazer, atau dress dengan tampilan yang
-                                                                rapi dan sopan akan mencerminkan keseriusan dan
-                                                                profesionalisme Anda.
-
-                                                                2. Hindari mengenakan pakaian santai seperti kaos
-                                                                oblong, celana pendek, sandal jepit, dan sejenisnya
-                                                                kecuali dalam keadaan tertentu yang diizinkan oleh
-                                                                manajemen.
-
-                                                                3. Pastikan pakaian yang dikenakan selalu rapi dan
-                                                                bersih. Hindari pakaian yang kusut, lusuh, atau
-                                                                tidak
-                                                                terawat karena dapat memberikan kesan yang kurang
-                                                                profesional.
-
-                                                                Peraturan berpakaian ini bertujuan untuk menciptakan
-                                                                lingkungan kerja yang serius, formal, dan memberikan
-                                                                kesan yang baik kepada klien, rekan kerja, dan
-                                                                pengunjung kantor. Dengan mematuhi peraturan ini,
-                                                                kita
-                                                                dapat mencapai citra profesional yang konsisten di
-                                                                tempat kerja.
-                                                            </p>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading2">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse2" aria-expanded="true"
-                                                        aria-controls="collapse2">
-                                                        <h6 style="font-weight: bold;" class="text-uppercase">
-                                                            peraturan piket</h4>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse2" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading2" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <p>Pada PRA PPDB meliputi:</p>
-                                                            <ul>
-                                                                <li>Pengambilan PIN <br> calon siswa harus mendaftar
-                                                                    untuk
-                                                                    mendapatkan PIN. PIN akan
-                                                                    digunakan untuk Pendaftaran. PIN hanya ada satu tiap
-                                                                    calon siswa</li>
-                                                                <div class="bg-warning text-white"
-                                                                    style="padding: 5px 0px; text-align: center;">
-                                                                    <p>
-                                                                        Data yang disiapkan untuk ambil PIN <br>
-                                                                        1. Scan KK (terbaca dan jelas) <br>
-                                                                        2. Scan SKL (terbaca dan jelas)<br>
-                                                                        3. NISN & Tanggal lahir
-                                                                    </p>
-                                                                </div> <br>
-                                                                <li>Latihan Pendaftaran <br> calon siswa yang telah
-                                                                    memiliki
-                                                                    PIN bisa mengikuti latihan
-                                                                    pendaftaran. Tujuannya agar mengetahui menu/alur
-                                                                    untuk
-                                                                    mendaftar <strong>hanya latihan /
-                                                                        belum resmi mendaftar</strong></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading4">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse4" aria-expanded="true"
-                                                        aria-controls="collapse4">
-                                                        <h6 style="font-weight: bold;" class="text-uppercase">
-                                                            peraturan di dalam kantor</h4>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse4" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading4"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <P>Pendaftaran hanya untuk jenjang SMAA</P>
-                                                            <p>yang berhak mendaftar: <strong>memiliki PIN dan belum
-                                                                    diterima dijalur
-                                                                    sebelumnya</strong></p>
-                                                            <div class="bg-danger text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                <p><strong>Pendaftar yang sudah diterima dijalur ini,
-                                                                        maka
-                                                                        tidak bisa mendaftar pada jalur
-                                                                        selanjutnya</strong></p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading5">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse5" aria-expanded="true"
-                                                        aria-controls="collapse5">
-                                                        <h6 style="font-weight: bold;" class="text-uppercase">
-                                                            peraturan kerapian rambut
-                                                            </h4>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse5" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading5"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <p>Pendaftaran hanya untuk jenjang SMK</p>
-                                                            <p>yang berhak mendaftar: <strong>memiliki PIN dan belum
-                                                                    diterima dijalur
-                                                                    sebelumnya</strong></p>
-                                                            <p><strong>Pendaftar memilih 3 Program Keahlian/Jurusan
-                                                                    (boleh
-                                                                    berbeda Sekolah)</strong></p>
-                                                            <p><em>kuota 10% (sekitar 3 anak per kelas)</em></p>
-                                                            <div class="bg-danger text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                <p><strong>Pendaftar yang sudah diterima dijalur ini,
-                                                                        maka
-                                                                        tidak bisa mendaftar pada jalur
-                                                                        selanjutnya</strong></p>
-                                                            </div>
-                                                            <div class="bg-warning text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                Pastikan mencetak <strong>Bukti diterima</strong><br>
-                                                                <strong>tips:</strong> ikuti grup di Sekolah
-                                                            </div>
-                                                            <div class="bg-success text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                Lakukan <strong>Daftar Ulang</strong><br>
-                                                                <strong>syarat:</strong> akan disampaikan di grup SMK
-                                                                NEGERI
-                                                                1 LUMAJANG. <br>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading6">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse6" aria-expanded="true"
-                                                        aria-controls="collapse6">
-                                                        <h6 style="font-weight: bold;">F. TAHAP IV : JALUR ZONASI SMA
-                                                            </h4>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse6" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading6"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <P>Pendaftaran hanya untuk jenjang SMA</P>
-                                                            <p>yang berhak mendaftar: <strong>memiliki PIN dan belum
-                                                                    diterima dijalur
-                                                                    sebelumnya</strong></p>
-                                                            <div class="bg-danger text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                <p><strong>Pendaftar yang sudah diterima dijalur ini,
-                                                                        maka
-                                                                        tidak bisa mendaftar pada jalur
-                                                                        selanjutnya</strong></p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="resume-item">
-                                        <div class="accordion" id="accordionExample">
-                                            <div class="accordion-item mb-2">
-                                                <h2 class="accordion-header" id="heading7">
-                                                    <button style="margin: 0;padding: 5px;" class="accordion-button"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapse7" aria-expanded="true"
-                                                        aria-controls="collapse7">
-                                                        <h6 style="font-weight: bold;">G. TAHAP V : JALUR PRESTASI
-                                                            NILAI
-                                                            AKADEMIK SMK</h4>
-                                                    </button>
-                                                </h2>
-                                                <div id="collapse7" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading7"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body">
-                                                        <div class="program-des">
-                                                            <p>Pendaftaran hanya untuk jenjang SMK</p>
-                                                            <p>yang berhak mendaftar: <strong>memiliki PIN dan belum
-                                                                    diterima dijalur
-                                                                    sebelumnya</strong></p>
-                                                            <p><strong>Pendaftar memilih 3 Program Keahlian/Jurusan
-                                                                    (boleh
-                                                                    berbeda Sekolah)</strong></p>
-                                                            <p><em>kuota lebih dari 65% (sisa dari tahap
-                                                                    sebelumnya)</em>
-                                                            </p>
-                                                            <p><strong>pastikan memilih jurusan yang sesuai minat dan
-                                                                    perhitungkan peluang
-                                                                    diterima.</strong></p>
-
-                                                            <div class="bg-danger text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                <p><strong>Ini jalur terakhir pada PPDB JATIM. untuk
-                                                                        yang
-                                                                        tidak diterima bisa mencari
-                                                                        Sekolah yang belum memenuhi pagu dan langsung ke
-                                                                        sekolah tersebut.</strong></p>
-                                                            </div>
-                                                            <div class="bg-warning text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                <strong>tips:</strong> ikuti grup di Sekolah
-                                                            </div>
-                                                            <div class="bg-success text-white mt-4"
-                                                                style="padding: 5px 0px; text-align: center;">
-                                                                Lakukan <strong>Daftar Ulang</strong><br>
-                                                                <strong>syarat:</strong> akan disampaikan di grup SMK
-                                                                NEGERI
-                                                                1 LUMAJANG. <br>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    @endforeach
                                 </div>
                             </div>
-                        </div>
                     </section>
                     <!------End Resume-------->
                 </main>
@@ -1296,25 +1082,26 @@
 
                     <div class="row" data-aos="fade-up">
                         <div class="col-lg-9">
-                            @foreach ($jadwal_piket as $index => $item)
-                                <h5>Detail Jadwal Piket</h5><br>
-                                <p>
-                                    {!! $item->deskripsi_piket !!}
-                                </p>
+                            <h5>Detail Jadwal Piket</h5><br>
+                            <p class="me-3">
+                                {!! $jadwal_piket->deskripsi_piket !!}
+                            </p>
                         </div>
-                        <div class="col-lg-3 col-md-4 justify-content-end" data-aos="fade-up" data-aos-delay="500">
+                        <div class="col-lg-3 col-md-3 justify-content-end" data-aos="fade-up" data-aos-delay="500">
                             <div class="icon-box">
-                                <img src="/siswa/assets/img/{{ $item->jadwal_pagi }}">
+                                <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
+                                    data-lightbox="jadwal" data-title="">
+                                    <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" width="180px">
+                                </a>
                             </div>
                             <div class="icon-box">
-                                <a href="/siswa/assets/img/portfolio/jadwal2.jpeg" id="jadwal"
+                                <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
                                     data-lightbox="jadwal" data-title="">
-                                    <img src="/siswa/assets/img/portfolio/jadwal2.jpeg" alt=""
-                                        class="img-fluid rounded">
+                                    <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" width="180px"
+                                        alt="" class="img-fluid rounded">
                                 </a>
                             </div>
                         </div>
-                        @endforeach
                     </div>
                 </div>
             </section>
@@ -1448,6 +1235,27 @@
 </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
+<!-- Include SummerNote JS and CSS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+
+<!-- Initialize SummerNote -->
+<script>
+    $(document).ready(function() {
+        $('#deskripsi_piket').summernote({
+            height: 200, // Set the height of the SummerNote input
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ]
+        });
+    });
+</script>
 @include('template-siswa.footer')
 @include('template-siswa.script')
 </body>
