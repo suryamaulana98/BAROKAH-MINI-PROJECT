@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Feedback;
 use App\Models\Izin;
 use App\Models\Kontak;
+use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
@@ -65,7 +66,9 @@ class AdminController extends Controller
         return view('admin.absen');
     }
     function jurnal() {
-        return view('admin.jurnal');
+        $laporanjurnals = Laporanjurnal::all();
+        $sekolah = Sekolah::all();
+        return view('admin.jurnal', compact('laporanjurnals', 'sekolah'));
     }
     function guru() {
         $gurus = User::where('role', 'guru')->get();

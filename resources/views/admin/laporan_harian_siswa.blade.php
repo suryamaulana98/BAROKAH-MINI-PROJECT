@@ -358,35 +358,6 @@
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-
                     </tbody>
                   </table>
                 </div>

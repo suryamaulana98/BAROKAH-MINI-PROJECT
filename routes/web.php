@@ -7,6 +7,7 @@ use App\Http\Controllers\IzinController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\LaporanjurnalController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\pengumpulanController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\RiwayatizinController;
 use App\Http\Controllers\SiswaController;
+use App\Models\Laporanjurnal;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,6 +42,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/kontak', [AdminController::class, 'kontak'])->name('kontak');
         Route::get('/absen', [AdminController::class, 'absen'])->name('absen');
         Route::get('/laporan/jurnal', [AdminController::class, 'jurnal'])->name('jurnal');
+        Route::get('/laporan/jurnal/{sekolah_id}', [LaporanjurnalController::class, 'adminfiltersekolah'])->name('jurnal.filtersekolah');
         Route::get('/guru', [AdminController::class, 'guru'])->name('guru.index');
         Route::post('/guru', [GuruController::class, 'create'])->name('guru.create');
         Route::delete('/guru', [GuruController::class, 'delete'])->name('guru.delete');

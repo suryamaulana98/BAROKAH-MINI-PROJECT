@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Feedback;
 use App\Models\Hariansiswa;
 use App\Models\Izin;
+use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
@@ -12,6 +13,7 @@ use App\Models\User;
 use App\Observers\FeedbackObserver;
 use App\Observers\HariansiswaObserver;
 use App\Observers\IzinObserver;
+use App\Observers\LaporanjurnalObserver;
 use App\Observers\LaporanketuaObserve;
 use App\Observers\PengumumanObserver;
 use App\Observers\SekolahObserver;
@@ -46,6 +48,7 @@ class EventServiceProvider extends ServiceProvider
         Izin::observe(IzinObserver::class);
         Hariansiswa::observe(HariansiswaObserver::class);
         Laporanketua::observe(LaporanketuaObserve::class);
+        Laporanjurnal::observe(LaporanjurnalObserver::class);
     }
 
     /**
