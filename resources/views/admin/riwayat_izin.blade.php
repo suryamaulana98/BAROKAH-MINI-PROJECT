@@ -11,6 +11,9 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+@php
+    use Carbon\Carbon;
+@endphp
   <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -318,9 +321,9 @@
                             Pilih sekolah
                         </button>
                         <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                            <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                            <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                            <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                            @foreach ($sekolah as $s)
+                                <a class="dropdown-item" href="{{ route('admin.riwayat.filtersekolah', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-auto">
@@ -342,9 +345,17 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @if (count($izins) > 0)
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach ($izins as $izin)
+                        @php
+                            $i++;
+                        @endphp
                       <tr>
                         {{-- Modal profil --}}
-                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="profilModal{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                             {{-- <div class="modal-content">
                                 <div class="modal-body"> --}}
@@ -354,7 +365,7 @@
                                         <div class="col-4 col-lg-4 order-lg-2">
                                             <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                             <a href="javascript:;">
-                                                <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                                                <img src="/img/{{ $izin->user->foto_siswa }}" style="width: 147px; height: 147px;"  class="rounded-circle img-fluid border border-2 border-white">
                                             </a>
                                             </div>
                                         </div>
@@ -386,16 +397,16 @@
                                         </div>
                                         <div class="text-center mt-4">
                                             <h5>
-                                            Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                                            {{ $izin->user->name }}<span class="font-weight-light">, ({{ $izin->user->role }})</span>
                                             </h5>
                                             <div class="h6 font-weight-300">
-                                            <i class="ni location_pin mr-2"></i>1847313113
+                                            <i class="ni location_pin mr-2"></i>{{ $izin->user->nisn }}
                                             </div>
                                             <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                                            <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($izin->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($izin->user->akhir_pkl)->format('d M Y') }}
                                             </div>
                                             <div>
-                                            <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                                            <i class="ni education_hat mr-2"></i>{{ $izin->user->sekolah->name }}
                                             </div>
                                         </div>
                                         </div>
@@ -407,62 +418,34 @@
                         {{-- End modal profil --}}
                         <td>
                             <div class="px-3">
-                                <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal" data-toggle="modal">
-                                    <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
+                                <a href="#profilModal{{ $i }}" style="text-decoration: none;" data-target="#profilModal{{ $i }}" data-toggle="modal">
+                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ $izin->user->name }}</p>
                                 </a>
                             </div>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $izin->user->sekolah->name }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($izin->tanggal_izin)->format('d M Y') }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
+                            <span class="badge badge-sm {{ ($izin->alasan == 'darurat') ? "bg-warning " : ""}} {{ ($izin->alasan == 'sakit') ? "bg-danger " : ""}} {{ ($izin->alasan == 'keluarga') ? "bg-primary " : ""}}" style="width: 88px;">{{ $izin->alasan }}</span>
                         </td>
                         <td class="">
                             <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                       </tr>
+                      @endforeach
+                      @else
                       <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                            </div>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                        <td colspan="6">
+                            <center>
+                            <p class="text-xs font-weight-bold mb-0 text-uppercase">Tidak ada data</p>
+                            </center>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                            </div>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
+                      @endif
                     </tbody>
                   </table>
                 </div>

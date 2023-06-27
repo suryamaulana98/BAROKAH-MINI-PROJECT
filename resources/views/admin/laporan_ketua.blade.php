@@ -272,6 +272,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach ($laporanketuas as $laporanketua)
                       <tr>
                         {{-- Modal profil --}}
     <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -284,7 +285,7 @@
                       <div class="col-4 col-lg-4 order-lg-2">
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                           <a href="javascript:;">
-                            <img src="/admin/assets/img/team-3.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                            <img src="/img/{{ $laporanketua->user->foto_siswa }}" style="width: 147px; height: 147px;"  class="rounded-circle img-fluid border border-2 border-white">
                           </a>
                         </div>
                       </div>
@@ -316,16 +317,16 @@
                       </div>
                       <div class="text-center mt-4">
                         <h5>
-                          Femas akbar faturrohim<span class="font-weight-light">, (siswa)</span>
+                          {{ $laporanketua->user->name }}<span class="font-weight-light">, ({{ $laporanketua->user->role }})</span>
                         </h5>
                         <div class="h6 font-weight-300">
-                          <i class="ni location_pin mr-2"></i>1847313113
+                          <i class="ni location_pin mr-2"></i>{{ $laporanketua->user->nisn }}
                         </div>
                         <div class="h6 mt-4">
-                          <i class="ni business_briefcase-24 mr-2"></i>10 Mei 2023 - 02 Apr 2023
+                          <i class="ni business_briefcase-24 mr-2"></i>{{ $laporanketua->user->awal_pkl }} - {{ $laporanketua->user->akhir_pkl }}
                         </div>
                         <div>
-                          <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
+                          <i class="ni education_hat mr-2"></i>{{ $laporanketua->user->sekolah->name }}
                         </div>
                       </div>
                     </div>
@@ -337,16 +338,22 @@
     {{-- End modal profil --}}
                         <td>
                             <a href="#profilModal" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#profilModal" data-toggle="modal">
-                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $laporanketua->user->name }}</p>
                             </a>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $laporanketua->tanggal }}</p>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
+                      @endforeach
+                      @if (count($laporanketuas) == 0)
+                        <tr>
+                            <td colspan="4"><center><p class="text-xs text-uppercase font-weight-bold mb-0 px-3 text-uppercase">Tidak ada data</p></center></td>
+                        </tr>
+                      @endif
                     </tbody>
                   </table>
                 </div>
