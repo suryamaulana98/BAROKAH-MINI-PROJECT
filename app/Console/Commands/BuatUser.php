@@ -29,6 +29,12 @@ class BuatUser extends Command
     public function handle()
     {
         $userRole = $this->argument('role');
+        // if ($userRole != 'ketua' || $userRole != 'siswa' || $userRole != 'guru') {
+        //     $this->error('Role tidak ditemukan');
+        //     return;
+        // }
+        $this->info('MEMBUAT USER DI TERMINAL, by Femas');
+        $this->info('Role : ' . $userRole);
         $name = $this->ask('Masukan nama user : ');
         if ($name === "" || $name === null) {
             $this->error('Nama idak boleh kosong');
@@ -54,7 +60,7 @@ class BuatUser extends Command
             $modelUser = User::create($dataUser);
 
             if($modelUser) {
-                $this->info('Berhasil membuat user baru');
+                $this->info('Berhasil membuat user baru : nama : ' . $name);
             }
             else {
                 $this->error('Gagal membuat user');
