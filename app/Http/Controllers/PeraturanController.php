@@ -27,10 +27,30 @@ class PeraturanController extends Controller
         return "success";
     }
 
+    function editPeraturan(Request $request, string $id){
+        $request->validate([
+            'judul_peraturan' => 'required|min:3|max:20',
+            'deskripsi_peraturan' => 'required|min:5|max:500',
+        ]);
+
+        $update = peraturan::findorfail($id);
+
+        $data = [
+            'judul_peraturan' => $request->judul_peratuan,
+            'deskripsi_peratuan' => $request->deskripsi_peraturan,
+        ];
+
+        $update->update($data);
+
+        return back();
+    }
+
 
     function hapusPeraturan(string $id){
         $hapus = peraturan::findorfail($id);
         $hapus->delete();
-        return redirect()->route('ketua.peraturan.index');
+        
+        return response()->json(['success' => true]);
     }
+    
 }
