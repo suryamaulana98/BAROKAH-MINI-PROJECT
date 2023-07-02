@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\jadwal_piket;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
+use App\Models\peraturan;
 use Illuminate\Http\Request;
 
 class KetuaController extends Controller
 {
     function index() {
+        $peraturan = peraturan::all();
         $kontak = Kontak::first();
         $pengumumans = Pengumuman::all();
-        $jadwal_piket = jadwal_piket::all();
-        return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans', 'jadwal_piket'));
+        $jadwal_piket = jadwal_piket::first();
+        return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans', 'jadwal_piket','peraturan'));
     }
 
     function lihatLaporanHarian() {
@@ -27,21 +29,28 @@ class KetuaController extends Controller
             'deskripsi_piket' => 'required',
         ]);
 
-        // upload image
-        $image1 = $request->file('jadwal_pagi');
-        $image2 = $request->file('jadwal_sore');
+        $fileFoto1 = $request->file('jadwal_pagi');
+        $fileFoto2 = $request->file('jadwal_sore');
+            $fileName1 = $fileFoto1->hashName();
+            $fileName2 = $fileFoto2->hashName();
+            $fileFoto1->move('jadwalPiket', $fileName1);
+            $fileFoto2->move('jadwalPiket', $fileName2);
 
-        $image1->storeAs('ketua/assets/img', $image1->hashName());
-        $image2->storeAs('ketua/assets/img', $image2->hashName());
+            $data = [
+                'jadwal_pagi' => $fileName1,
+                'jadwal_sore' => $fileName2,
+                'deskripsi_piket' => $request->deskripsi_piket,
+            ];
 
-        // create data
-        jadwal_piket::create([
-            'jadwal_pagi' => $image1->hashName(),
-            'jadwal_sore' => $image2->hashName(),
-            'deskripsi_piket' => $request->deskripsi_piket,
-        ]);
-
-        return redirect()->back();
+            $jadwal_piket = jadwal_piket::count();
+            if ($jadwal_piket == 0) {
+                jadwal_piket::create($data);
+                return back()->with('success', 'Berhasil membuat izin');
+            } else {
+                jadwal_piket::truncate();
+                jadwal_piket::create($data);
+                return back()->with('success', 'Berhasil membuat izin');
+            }
 
     }
 

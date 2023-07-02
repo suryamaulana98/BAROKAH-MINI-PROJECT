@@ -27,55 +27,66 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto" href="{{ route('ketua.dashboard') }}">Home</a></li>
-                    <li class="dropdown"><a href="#peraturanMagang"><span>Peraturan</span> <i
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li class="dropdown"><a href="#peraturanMagang" class="nav-link scrollto"><span>Peraturan</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
 
-                            <li><a href="#">Buat peraturan</a></li>
+                            <li><a href="{{ route('ketua.peraturan.index') }}" class="nav-link scrollto">Buat
+                                    peraturan</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Izin siswa</span> <i
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Izin siswa</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#">Detail izin</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalizin">Buat
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalDetail">Detail
+                                    izin</a></li>
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalizin" class="nav-link scrollto">Buat
                                     izin</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#jadwalpiket"><span>Jadwal piket</span> <i
-                                class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#jadwalpiket" class="nav-link scrollto"><span>Jadwal
+                                piket</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljadwal">Tambah
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModaljadwal">Tambah
                                     jadwal piket</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Laporan</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Laporan</span> <i
+                                class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li class="dropdown"><a href="#"><span>Laporan harian siswa</span> <i
-                                        class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Laporan harian
+                                        siswa</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    <li><a href="#">Detail Laporan</a></li>
+                                    <li><a href="{{ route('ketua.laporanHarian') }}" class="nav-link scrollto">Detail
+                                            Laporan</a></li>
                                     <li><a href="#"
                                             data-bs-toggle="modal"data-bs-target="#exampleModalbuatlaporan">Buat
                                             Laporan</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"
+                            <li><a href="#" class="nav-link scrollto"
                                     data-bs-toggle="modal"data-bs-target="#exampleModalketuamagang">Laporan ketua
                                     magang</a></li>
-                            <li><a href="#" data-bs-toggle="modal"
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalpembimbing">Laporan ke pembimbing</a></li>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModaljurnal">Laporan
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModaljurnal">Laporan
                                     jurnal</a></li>
+                            <li><a href="{{ route('ketua.pengumpulan') }}" class="nav-link scrollto">Pengumpulan
+                                    Jurnal</a></li>
                         </ul>
                     </li>
-                    <li><a class="nav-link" href="{{ route('ketua.dashboard') }}#kontak">Kontak</a></li>
+                    <li><a class="nav-link" href="#kontak">Kontak</a></li>
                     <li class="dropdown"><img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="40"
                             height="40" alt="" style="border-radius: 100px; margin-left: 24px;">
                         <ul>
-                            <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Profil</a></li>
-                            <li><a href="{{ route('logout') }}">Logout</a></li>
+                            <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">Profil</a></li>
+                            <li><a href="javascript:logout()" class="nav-link scrollto">Logout</a></li>
                         </ul>
                     </li>
                     <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -149,14 +160,15 @@
         }
     </style>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="d-flex flex-column align-items-start">
                         <div class="d-flex">
-                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%" alt=""
-                                style="border-radius: 10%;" class="me-3">
+                            <img src="/siswa/assets/img/testimonials/testimonials-5.jpg" width="35%"
+                                alt="" style="border-radius: 10%;" class="me-3">
                             <div>
                                 <h5 class="fw-bold me-5 text-wrap text-break" id="nama">Reno
                                     Gunawan Assegaf</h5>
@@ -548,12 +560,12 @@
                     <form action="{{ route('ketua.peratuan.tambahPeraturan') }}" id="myForm" method="POST">
                         @csrf
                         <div class="form-group">
-                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul peraturan</label>
+                            <label for="judulPeraturan" style="margin-bottom: 12px;">Judul Peraturan</label>
                             <input type="text" name="judul_peraturan" id="judul_peraturan" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="deskripsi" style="margin-top: 24px; margin-bottom: 12px;">Deskripsi
-                                peraturan</label>
+                                Peraturan</label>
                             <textarea class="form-control" id="deskripsi_peraturan" name="deskripsi_peraturan"></textarea>
                         </div>
                         <button class="btn btn-primary" style="margin-top: 24px;" type="submit">Submit</button>
@@ -562,39 +574,88 @@
                         <hr>
                     </form>
                 </div>
-                <table class="table align-items-center mb-0">
+
+                <!-- Masukkan library jQuery -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                <script>
+                    $(document).ready(function() {
+                        $('#myForm').on('submit', function(event) {
+                            event.preventDefault();
+
+                            // Ambil data dari formulir
+                            var formData = $(this).serialize();
+
+                            // Kirim permintaan Ajax
+                            $.ajax({
+                                url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
+                                type: "POST",
+                                data: formData,
+                                success: function(response) {
+                                    console.log(response);
+                                    if (response === 'success') {
+                                        Swal.fire(
+                                            'Berhasil!',
+                                            'Berhasil Menambahkan Data!',
+                                            'success'
+                                        ).then(function() {
+                                            $('#myForm')[0].reset();
+                                        });
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Oops...',
+                                            text: 'Gagal Mengirim Data!',
+                                        });
+                                    }
+                                    // Bersihkan formulir
+                                    $('#myForm')[0].reset();
+
+                                    // Perbarui tampilan data secara otomatis
+                                    $('#myTableBody').load(location.href + ' #myTableBody>*', '');
+
+                                },
+                                error: function(xhr, status, error) {
+                                    // Tampilkan pesan error jika terjadi kesalahan
+                                    alert("Terjadi kesalahan: " + error);
+                                }
+                            });
+                        });
+                    });
+                </script>
+
+
+                <table class="table align-items-center mb-0" id="myTable">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#
-                            </th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">Judul
-                                pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                Deskripsi pengumuman</th>
-                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
-                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;"
-                                colspan="2">Aksi</th>
+                            <th class="text-uppercase text-secondary">#</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2">Judul pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2">Deskripsi pengumuman</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" colspan="2">Aksi</th>
                         </tr>
                     </thead>
-                    <?php $i = 1; ?>
-                    @foreach ($peraturan as $index => $item)
-                        <tbody>
+                    <tbody id="myTableBody">
+                        @foreach ($peraturan as $index => $item)
                             <tr>
                                 <td>
-                                    <p style="font-size: 14px;">{{ $i }}</p>
+                                    <p style="font-size: 14px;">{{ $index + 1 }}</p>
                                 </td>
                                 <td class="">
                                     <p style="font-size: 14px;">{{ $item->judul_peraturan }}</p>
                                 </td>
                                 <td>
-                                    <p style="font-size: 14px;">{!! $item->deskripsi_peraturan !!}</p>
+                                    <p style="font-size: 14px;">
+                                        {!! strlen($item->deskripsi_peraturan) < 20
+                                            ? $item->deskripsi_peraturan
+                                            : Str::limit($item->deskripsi_peraturan, 20) . '...' !!}
+                                    </p>
                                 </td>
                                 <td>
-                                    <button style="border: none; background: none;"><i
-                                            class="fa-solid fa-pen-to-square text-primary"></i></button>
+                                    <button style="border: none; background: none;" class="edit-button"
+                                        data-id="{{ $item->id }}" data-judul="{{ $item->judul_peraturan }}"
+                                        data-deskripsi="{{ $item->deskripsi_peraturan }}">
+                                        <i class="fa-solid fa-pen-to-square text-primary"></i>
+                                    </button>
                                 </td>
                                 <td>
                                     <form action="/delete-peratuan/{{ $item->id }}" method="POST"
@@ -605,13 +666,33 @@
                                             type="submit" onclick="confirmDelete(event, {{ $item->id }})"><i
                                                 class="fa-solid fa-trash text-danger"></i></button>
                                     </form>
-
                                 </td>
                             </tr>
-                        </tbody>
-                        <?php $i++; ?>
-                    @endforeach
+                        @endforeach
+                    </tbody>
                 </table>
+
+                <script>
+                    $(document).ready(function() {
+                        $('.edit-button').on('click', function(event) {
+                            event.preventDefault();
+
+                            var judulPeraturan = $(this).data('judul');
+                            var deskripsiPeraturan = $(this).data('deskripsi');
+
+                            // Mengisi data peraturan ke dalam input dan textarea
+                            $('#judul_peraturan').val(judulPeraturan);
+                            $('#deskripsi_peraturan').val(deskripsiPeraturan);
+
+                            // Set nilai value pada Summernote
+                            $('#deskripsi_peraturan').summernote('code', deskripsiPeraturan);
+
+                            // Tampilkan halaman tambah data
+                            // ... tambahkan kode untuk menampilkan halaman tambah data (misalnya dengan menggunakan modal atau mengarahkan ke halaman baru)
+                        });
+                    });
+                </script>
+
             </div>
         </div>
     </section>
@@ -643,78 +724,83 @@
             });
         });
     </script>
+
     <script>
-        function confirmDelete(event, id) {
-            event.preventDefault(); // Menghentikan submit form
+        function confirmDelete(event, itemId) {
+            event.preventDefault();
 
             Swal.fire({
-                title: 'Yakin ingin menghapus data ini?',
-                text: 'Data yang dihapus tidak dapat dikembalikan!',
+                title: 'Konfirmasi',
+                text: 'Apakah Anda yakin ingin menghapus data ini?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!',
-                cancelButtonText: 'Batal'
+                confirmButtonText: 'Ya, hapus',
+                cancelButtonText: 'Batal',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    // Kode untuk melakukan penghapusan data di sini
-                    document.getElementById(`delete-form-${id}`)
-                        .submit(); // Melanjutkan submit form setelah konfirmasi
+                    // Jika pengguna mengonfirmasi untuk menghapus
+                    // Ambil form dengan ID yang sesuai
+                    var form = $('#delete-form-' + itemId);
+
+                    // Kirim permintaan Ajax
+                    $.ajax({
+                        url: form.attr('action'),
+                        type: 'POST',
+                        data: form.serialize(),
+                        success: function(response) {
+                            if (response.success) {
+                                // Hapus baris tabel secara langsung
+                                form.closest('tr').remove();
+
+                                // Tampilkan pesan sukses
+                                Swal.fire('Berhasil!', 'Data berhasil dihapus.', 'success');
+                            } else {
+                                Swal.fire('Oops!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            Swal.fire('Oops!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                        }
+                    });
                 }
             });
         }
-    </script>
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+
         $(document).ready(function() {
-            $('#myForm').submit(function(e) {
-                e.preventDefault();
+            $('.delete-form').on('submit', function(event) {
+                event.preventDefault();
 
-                var judulPeraturan = $('#judul_peraturan').val();
-                var deskripsiPeraturan = $('#deskripsi_peraturan').val();
+                var form = $(this);
+                var url = form.attr('action');
+                var formData = form.serialize();
 
+                // Kirim permintaan Ajax
                 $.ajax({
+                    url: url,
                     type: 'POST',
-                    url: "{{ route('ketua.peratuan.tambahPeraturan') }}",
-                    data: {
-                        judul_peraturan: judulPeraturan,
-                        deskripsi_peraturan: deskripsiPeraturan
-                    },
+                    data: formData,
                     success: function(response) {
-                        console.log(response)
-                        if (response === 'success') {
-                            Swal.fire(
-                                'Berhasil!',
-                                'Berhasil mengirim!',
-                                'success'
-                            ).then(function() {
-                                $('#myForm')[0].reset();
-                            });
+                        if (response.success) {
+                            // Hapus baris tabel secara langsung
+                            form.closest('tr').remove();
+
+                            // Tampilkan pesan sukses
+                            Swal.fire('Berhasil!', 'Data berhasil dihapus.', 'success');
                         } else {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Oops...',
-                                text: 'Gagal mengirim!',
-                            });
+                            Swal.fire('Oops!', 'Terjadi kesalahan saat menghapus data.',
+                                'error');
                         }
                     },
                     error: function(xhr, status, error) {
-                        console.log(xhr.responseText);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Terjadi kesalahan!',
-                        });
+                        Swal.fire('Oops!', 'Terjadi kesalahan saat menghapus data.', 'error');
                     }
                 });
             });
         });
     </script>
+
+
+
 </body>
 
 </html>

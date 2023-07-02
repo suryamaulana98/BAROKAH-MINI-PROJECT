@@ -97,8 +97,9 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/peraturan', [PeraturanController::class, 'index'])->name('ketua.peraturan.index');
         Route::get('ketua/laporanHarian', [KetuaController::class, 'lihatLaporanHarian'])->name('ketua.laporanHarian');
         Route::post('/peraturan/tambahPeraturan', [PeraturanController::class, 'tambahPeraturan'])->name('ketua.peratuan.tambahPeraturan');
+        Route::put('/peraturan/editPeraturan/{id}', [PeraturanController::class, 'editPeraturan'])->name('ketua.peratuan.editPeraturan');
         Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');
-        Route::post('ketua/tambahJadwalPiket', [KetuaController::class, 'tambahJadwalPiket'])->name('ketua.tambahJadwalPiket');
+        Route::post('/ketua/tambahJadwalPiket', [KetuaController::class, 'tambahJadwalPiket'])->name('ketua.tambahJadwalPiket');
     });
     Route::post('/izin/store', [IzinController::class, 'store'])->name('izin.store');
 
