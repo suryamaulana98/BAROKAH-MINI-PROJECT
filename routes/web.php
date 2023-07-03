@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminsiswaController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IzinController;

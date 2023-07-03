@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Izin;
 use App\Models\Sekolah;
 use App\Models\User;
+use App\Notifications\IzinNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 
 class IzinController extends Controller
 {
@@ -40,6 +43,10 @@ class IzinController extends Controller
                 'tanggal_izin' => $request->tanggal_izin,
             ];
             if (Izin::create($data)) {
+                $admins = User::where('role', 'admin')->first();
+                // dd($admins->id);
+                User::find($admins->id)->notify(new IzinNotification(Auth::user()));
+                // Notification::send($admins, new IzinNotification);
                 return back()->with('success', 'Berhasil membuat izin');
             }
             else {

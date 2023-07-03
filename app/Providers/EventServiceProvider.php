@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\IzinNotification;
 use App\Models\Feedback;
 use App\Models\Hariansiswa;
 use App\Models\Izin;
@@ -33,6 +34,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            IzinNotification::class
         ],
     ];
 
