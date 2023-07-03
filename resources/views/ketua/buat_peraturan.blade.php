@@ -568,7 +568,7 @@
                                 Peraturan</label>
                             <textarea class="form-control" id="deskripsi_peraturan" name="deskripsi_peraturan"></textarea>
                         </div>
-                        <button class="btn btn-primary" style="margin-top: 24px;" type="submit">Submit</button>
+                        <button class="btn btn-primary" style="margin-top: 24px;" type="submit" id="buttonSubmit">Submit</button>
                         <a href="{{ route('ketua.dashboard') }}" class="btn btn-danger"
                             style="margin-top: 24px;">Batal</a>
                         <hr>
@@ -653,7 +653,7 @@
                                 <td>
                                     <button style="border: none; background: none;" class="edit-button"
                                         data-id="{{ $item->id }}" data-judul="{{ $item->judul_peraturan }}"
-                                        data-deskripsi="{{ $item->deskripsi_peraturan }}">
+                                        data-deskripsi="{{ $item->deskripsi_peraturan }}" onclick="ganti()">
                                         <i class="fa-solid fa-pen-to-square text-primary"></i>
                                     </button>
                                 </td>
@@ -672,6 +672,20 @@
                     </tbody>
                 </table>
 
+                <script>
+                    function ganti() {
+                        $('#buttonSubmit').removeAttr('type');
+                        $('#buttonSubmit').attr('type', 'button');
+                        $('#buttonSubmit').attr('onclick', 'update()');
+                        $('#buttonSubmit').val('Simpan');
+                    }
+
+                    function update() {
+                        console.log('update');
+                        $('#buttonSubmit').attr('type', 'submit');
+                        $('#buttonSubmit').removeAttr('onclick');
+                    }
+                </script>
                 <script>
                     $(document).ready(function() {
                         $('.edit-button').on('click', function(event) {

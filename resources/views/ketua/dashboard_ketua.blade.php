@@ -1053,7 +1053,7 @@
                                                         data-bs-parent="#accordionExample">
                                                         <div class="accordion-body">
                                                             <div class="program-des">
-                                                                <p>{!! $item->deskripsi_peraturan !!}
+                                                                <p>{!! isset($item->deskripsi_peraturan) ? $item->deskripsi_peraturan : '' !!}
                                                                 </p>
 
                                                             </div>
@@ -1088,28 +1088,27 @@
                             <div class="section-title" data-aos="fade-up">
                                 <h2>Jadwal piket</h2>
                             </div>
-
                             <div class="row" data-aos="fade-up">
                                 <div class="col-lg-9">
                                     <h5>Detail Jadwal Piket</h5><br>
                                     <p class="me-3">
-                                        {!! $jadwal_piket->deskripsi_piket !!}
+                                        {!! isset($jadwal_piket->deskripsi_piket) ? $jadwal_piket->deskripsi_piket : '' !!}
                                     </p>
                                 </div>
-                                <div class="col-lg-3 col-md-3 justify-content-end mt-5" data-aos="fade-up"
+                                <div class="col-lg-3 col-md-3 justify-content-end" data-aos="fade-up"
                                     data-aos-delay="500">
                                     <div class="icon-box">
-                                        <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
-                                            data-lightbox="jadwal" data-title="">
-                                            <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}"
-                                                style="margin-left: 80px;" width="150px">
+                                        <a href="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
+                                            id="jadwal" data-lightbox="jadwal" data-title="">
+                                            <img src="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
+                                                style="margin-left: 80px;" width="180px">
                                         </a>
                                     </div>
                                     <div class="icon-box">
-                                        <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_sore }}" id="jadwal"
-                                            data-lightbox="jadwal" data-title="">
-                                            <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_sore }}"
-                                                style="margin-left: 80px;" width="150px" alt=""
+                                        <a href="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
+                                            id="jadwal" data-lightbox="jadwal" data-title="">
+                                            <img src="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
+                                                style="margin-left: 80px;" width="180px" alt=""
                                                 class="img-fluid rounded">
                                         </a>
                                     </div>
