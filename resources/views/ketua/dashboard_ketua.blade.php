@@ -392,30 +392,33 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <h3>Tambah Jadwal Piket</h3>
-                    @csrf
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
-                        <input class="form-control" type="file" id="jadwal_pagi" name="jadwal_pagi"
-                            id="formFile">
-                    </div>
+                    <form action="{{ route('ketua.tambahJadwalPiket') }}" method="post" id="myForm"
+                        enctype="multipart/form-data">
+                        <h3>Tambah/Edit Jadwal Piket</h3>
+                        @csrf
+                        <hr>
+                        <div class="mb-3 justify-content-between">
+                            <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
+                            <input class="form-control" type="file" id="jadwal_pagi" name="jadwal_pagi"
+                                id="formFile">
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
-                        <input class="form-control" type="file" id="jadwal_sore" name="jadwal_sore"
-                            id="formFileMultiple" multiple>
-                    </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
+                            <input class="form-control" type="file" id="jadwal_sore" name="jadwal_sore"
+                                id="formFileMultiple" multiple>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
-                        <textarea class="form-control" id="deskripsi_piket" name="deskripsi_piket"></textarea>
-                    </div>
+                        <div class="mb-3">
+                            <label for="summerNoteInput" class="form-label">Deskripsi detail piket</label>
+                            <textarea class="form-control" id="deskripsi_piket" name="deskripsi_piket"></textarea>
+                        </div>
 
-                    <button type="button" id="button" class="btn btn-primary btn-sm me-2"
-                        style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
-                        data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                        <button type="button" id="button" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" style="width: 100px"
+                            data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                    </form>
 
                     <script>
                         $(document).ready(function() {
@@ -456,7 +459,8 @@
                                                 'Berhasil mengirim!',
                                                 'success'
                                             ).then(function() {
-                                                $('#myForm')[0].reset();
+                                                // Menghapus baris berikut agar formulir tidak dikosongkan
+                                                // $('#myForm')[0].reset();
                                             });
                                         } else {
                                             Swal.fire({
@@ -465,6 +469,9 @@
                                                 text: 'Gagal mengirim!',
                                             });
                                         }
+
+                                        // Perbarui tampilan data secara otomatis
+                                        $('#myTableBody').load(location.href + ' #myTableBody>*', '');
                                     },
                                     error: function(xhr, status, error) {
                                         console.log(xhr.responseText);
@@ -1074,37 +1081,44 @@
                     transition: .5s;
                 }
             </style>
-            <section id="jadwalpiket" class="features">
-                <div class="container">
-                    <div class="section-title" data-aos="fade-up">
-                        <h2>Jadwal piket</h2>
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    <section id="jadwalpiket" class="features">
+                        <div class="container" id="myTableBody">
+                            <div class="section-title" data-aos="fade-up">
+                                <h2>Jadwal piket</h2>
+                            </div>
 
-                    <div class="row" data-aos="fade-up">
-                        <div class="col-lg-9">
-                            <h5>Detail Jadwal Piket</h5><br>
-                            <p class="me-3">
-                                {!! $jadwal_piket->deskripsi_piket !!}
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-md-3 justify-content-end" data-aos="fade-up" data-aos-delay="500">
-                            <div class="icon-box">
-                                <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
-                                    data-lightbox="jadwal" data-title="">
-                                    <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" width="180px">
-                                </a>
+                            <div class="row" data-aos="fade-up">
+                                <div class="col-lg-9">
+                                    <h5>Detail Jadwal Piket</h5><br>
+                                    <p class="me-3">
+                                        {!! $jadwal_piket->deskripsi_piket !!}
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-3 justify-content-end mt-5" data-aos="fade-up"
+                                    data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
+                                            data-lightbox="jadwal" data-title="">
+                                            <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}"
+                                                style="margin-left: 80px;" width="150px">
+                                        </a>
+                                    </div>
+                                    <div class="icon-box">
+                                        <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_sore }}" id="jadwal"
+                                            data-lightbox="jadwal" data-title="">
+                                            <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_sore }}"
+                                                style="margin-left: 80px;" width="150px" alt=""
+                                                class="img-fluid rounded">
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icon-box">
-                                <a href="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" id="jadwal"
-                                    data-lightbox="jadwal" data-title="">
-                                    <img src="/jadwalPiket/{{ $jadwal_piket->jadwal_pagi }}" width="180px"
-                                        alt="" class="img-fluid rounded">
-                                </a>
-                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </section>
+            </div>
 
 
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
