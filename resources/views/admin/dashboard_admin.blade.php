@@ -223,7 +223,6 @@
                                 </li>
                                 @endforeach
                                 @endif
-
                             </ul>
                         </li>
                         <li class="nav-item px-2 pe-2 d-flex align-items-center">
