@@ -175,27 +175,55 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
+                            @if (count($notifikasi) != 0)
+                            <span class="badge badge-danger badge-counter" style="background: red; font-size:10px; padding:3px; margin-top: -4px; margin-left: 2px;">{{ count($notifikasi) }}</span>
+                            @endif
                             <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                                 aria-labelledby="dropdownMenuButton">
+                                @if (count($notifikasi) == 0)
                                 <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
+                                    <a class="dropdown-item border-radius-md" href="#">
+                                        <div class="d-flex py-1">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6 class="text-sm font-weight-normal mb-1">
+                                                    <span class="font-weight-bold">Tidak ada notifikasi</span>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                @else
+                                <style>
+                                    .aku:hover {
+                                        text-decoration: underline;
+                                    }
+                                </style><li class="mb-2 text-center">
+                                    <a href="{{ route('sudahdibaca') }}"><h6 class="text-sm font-weight-normal mb-1 aku" style="color: blue;">Sudah dibaca</h6></a>
+                                </li>
+                                @foreach ($notifikasi as $notif)
+
+                                <li class="mb-2">
+                                    <a class="dropdown-item border-radius-md" href="{{ route('notif', ['notifikasi' => $notif->id]) }}">
                                         <div class="d-flex py-1">
                                             <div class="my-auto">
-                                                <img src="/admin/assets/img/team-2.jpg"
+                                                <img src="/img/{{ $notif->user->foto_siswa }}"
                                                     class="avatar avatar-sm  me-3 ">
                                             </div>
                                             <div class="d-flex flex-column justify-content-center">
                                                 <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New message</span> from Laur
+                                                    <span class="font-weight-bold">{{ $notif->judul }}</span> dari {{ $notif->user->name }}
                                                 </h6>
                                                 <p class="text-xs text-secondary mb-0">
                                                     <i class="fa fa-clock me-1"></i>
-                                                    13 minutes ago
+                                                    {{ $notif->created_at }}
                                                 </p>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
+                                @endforeach
+                                @endif
+
                             </ul>
                         </li>
                         <li class="nav-item px-2 pe-2 d-flex align-items-center">

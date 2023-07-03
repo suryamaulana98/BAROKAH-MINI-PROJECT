@@ -8,6 +8,7 @@ use App\Models\Izin;
 use App\Models\Kontak;
 use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
+use App\Models\Notifikasi;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\User;
@@ -20,7 +21,8 @@ class AdminController extends Controller
         $jumlahPermintaanIzin = Izin::where('status', 'menunggu')->count();
         $jumlahIzinDisetujui = Izin::where('status', 'disetujui')->count();
         $jumlahIzinDitolak = Izin::where('status', 'ditolak')->count();
-        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak'));
+        $notifikasi = Notifikasi::where('baca', null)->get();
+        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak', 'notifikasi'));
     }
     function listsiswa() {
         $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
