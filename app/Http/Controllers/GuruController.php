@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserDataLogin;
 use App\Models\Sekolah;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class GuruController extends Controller
@@ -59,8 +61,19 @@ class GuruController extends Controller
             'role' => 'guru',
             'sekolah_id' => $sekolahId,
         ];
-        User::create($dataUser);
-        return back()->with('success','Berhasil membuat guru, password : ' . $passwordUser);
+        $modelUser = User::create($dataUser);
+        if ($modelUser) {
+            $dataUser = [
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => $passwordUser,
+            ];
+            Mail::to($request->email)->send(new UserDataLogin($modelUser));
+            return back()->with('success','Berhasil membuat guru, password : ' . $passwordUser);
+        }
+        else {
+            return back()->with('error', 'Gagal membuat guru');
+        }
     }
     function delete(Request $request) {
         // dd($request->all());

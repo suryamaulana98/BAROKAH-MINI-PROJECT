@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminsiswaController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IzinController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LaporanjurnalController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\pengumpulanController;
 use App\Http\Controllers\PengumumanController;
@@ -35,7 +37,6 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/izinsiswa', [AdminController::class, 'izinsiswa'])->name('izinsiswa');
         Route::get('/laporan/ketua', [AdminController::class, 'laporanketua'])->name('laporanketua');
         Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('laporanhariansiswa');
-        Route::get('/laporan/harian-siswa', [AdminController::class, 'laporanhariansiswa'])->name('laporanhariansiswa');
         Route::get('/riwayatizin', [RiwayatizinController::class, 'index'])->name('riwayatizin');
         Route::get('/feedback', [AdminController::class, 'feedback'])->name('feedback');
         Route::get('/pengumuman', [AdminController::class, 'pengumuman'])->name('pegumuman');
@@ -52,8 +53,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/pengumuman/{pengumuman}', [PengumumanController::class, 'hapusPengumuman'])->name('pengumuman.hapus');
         Route::put('/pengumuman/update/{pengumuman}', [PengumumanController::class, 'update'])->name('pengumuman.update');
         Route::post('/listsiswa', [SiswaController::class, 'create'])->name('siswa.create');
-        Route::delete('/siswa/{user}', [SiswaController::class, 'delete'])->name('siswa.delete');
-        Route::put('/siswa/update', [SiswaController::class, 'update'])->name('siswa.update');
+        Route::delete('/siswa/{user}', [AdminsiswaController::class, 'delete'])->name('siswa.delete');
+        Route::put('/siswa/update', [AdminsiswaController::class, 'update'])->name('siswa.update');
         Route::get('/listsiswa/{sekolah}', [AdminController::class, 'siswatampilkanberdasarkansekolah'])->name('siswa.tampilkanberdasarkansekolah');
         Route::put('/guru', [GuruController::class, 'update'])->name('guru.update');
         Route::post('/izin/terima/{id}', [IzinController::class, 'terimaizin'])->name('izin.terima');
@@ -62,7 +63,8 @@ Route::middleware('checkLogin')->group(function () {
 
         Route::get('/izinsiswa/{sekolah_id}', [IzinController::class, 'tampilkanberdasarkansekolah'])->name('izin.tampilkanberdasarkansekolah');
     });
-
+    Route::get('/notifikasi/{notifikasi}', [NotifikasiController::class, 'ceknotif'])->name('notif');
+    Route::get('/notifikasi', [NotifikasiController::class, 'sudahdibaca'])->name('sudahdibaca');
 
     Route::post('/jurnal/siswa', [JurnalController::class, 'store'])->name('jurnal.siswa.store');
 

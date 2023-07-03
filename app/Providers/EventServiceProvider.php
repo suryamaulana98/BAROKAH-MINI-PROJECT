@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Listeners\IzinNotification;
 use App\Models\Feedback;
 use App\Models\Hariansiswa;
 use App\Models\Izin;
 use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
+use App\Models\Notifikasi;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\User;
@@ -15,6 +17,7 @@ use App\Observers\HariansiswaObserver;
 use App\Observers\IzinObserver;
 use App\Observers\LaporanjurnalObserver;
 use App\Observers\LaporanketuaObserve;
+use App\Observers\NotifikasiObserver;
 use App\Observers\PengumumanObserver;
 use App\Observers\SekolahObserver;
 use App\Observers\UserObserver;
@@ -33,6 +36,7 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            IzinNotification::class
         ],
     ];
 
@@ -49,6 +53,7 @@ class EventServiceProvider extends ServiceProvider
         Hariansiswa::observe(HariansiswaObserver::class);
         Laporanketua::observe(LaporanketuaObserve::class);
         Laporanjurnal::observe(LaporanjurnalObserver::class);
+        Notifikasi::observe(NotifikasiObserver::class);
     }
 
     /**

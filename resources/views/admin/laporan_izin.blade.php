@@ -51,7 +51,7 @@
             </tr>
             <tr>
             <td class="aaa">Asal sekolah</td>
-            <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $iz->user->sekolah->name }}</td>
+            <td class="aaa"><span style="margin-right: 12px;">:</span> {{ (isset($iz->user->sekolah)) ? $iz->user->sekolah->name : "" }}</td>
             </tr>
             <tr>
             <td class="aaa">Tanggal izin</td>
@@ -499,7 +499,7 @@
                           <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($iz->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($iz->user->akhir_pkl)->format('d M Y') }}
                         </div>
                         <div>
-                          <i class="ni education_hat mr-2"></i>{{ $iz->user->sekolah->name }}
+                          <i class="ni education_hat mr-2"></i>{{ (isset($iz->user->sekolah)) ? $iz->user->sekolah->name : "" }}
                         </div>
                       </div>
                     </div>
