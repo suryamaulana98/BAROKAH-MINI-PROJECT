@@ -45,11 +45,11 @@ class KetuaController extends Controller
             $jadwal_piket = jadwal_piket::count();
             if ($jadwal_piket == 0) {
                 jadwal_piket::create($data);
-                return back()->with('success', 'Berhasil membuat izin');
+                return "success";
             } else {
                 jadwal_piket::truncate();
                 jadwal_piket::create($data);
-                return back()->with('success', 'Berhasil membuat izin');
+                return "success";
             }
 
     }
