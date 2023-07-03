@@ -14,8 +14,13 @@ class GuruController extends Controller
     function index() {
         return view('guru.dashboard_guru');
     }
-    function listsiswa() {
-        return view('guru.list_siswa');
+    function listsiswa(User $user) {
+        $guru = $user->sekolah_id;
+
+        $siswas = User::where([['sekolah_id', $guru], ['role', 'siswa']])->where([['sekolah_id', $guru], ['role', 'ketua']])->latest()->paginate(5);
+
+        $users = User::latest()->paginate(5);
+        return view('guru.list_siswa',compact('users','user','siswas'));
     }
     function laporanhariansiswa() {
         return view('guru.laporan_harian_siswa');

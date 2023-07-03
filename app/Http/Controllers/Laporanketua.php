@@ -11,6 +11,6 @@ class Laporanketua extends Controller
             'user_id' => 'required',
             'tanggal' => 'required',
             'link_pekerjaan' => 'required|min:5|max:50',
-        ])
+        ]);
     }
 }
