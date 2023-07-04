@@ -239,7 +239,7 @@
                                                 MASA PKL</th>
                                         </tr>
                                     </thead>
-                                    @forelse ($users as $user )
+                                    @forelse ($siswas as $siswa )
                                     <tr>
                                         <td>
                                                     <div class="d-flex px-2 py-1">
@@ -249,7 +249,7 @@
                                                         </div>
                                                         <a data-bs-toggle="modal" href="#profilModal">
                                                             <div class="d-flex flex-column justify-content-center">
-                                                                <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                                                <h6 class="mb-0 text-sm">{{ $siswa->name }}</h6>
                                                                 <p class="text-xs text-secondary mb-0">
                                                                     femasakbar@gmail.com
                                                                 </p>

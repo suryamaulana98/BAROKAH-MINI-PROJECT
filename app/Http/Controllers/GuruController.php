@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\UserDataLogin;
+use App\Models\Notifikasi;
 use App\Models\Sekolah;
 use App\Models\User;
 use Illuminate\Database\QueryException;
@@ -14,7 +15,8 @@ use Illuminate\Support\Str;
 class GuruController extends Controller
 {
     function index() {
-        return view('guru.dashboard_guru');
+        $notifikasi = Notifikasi::all();
+        return view('guru.dashboard_guru' , compact('notifikasi'));
     }
     function listsiswa(User $user) {
         $guru = $user->sekolah_id;

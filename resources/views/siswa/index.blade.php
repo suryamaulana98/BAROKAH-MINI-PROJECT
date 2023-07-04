@@ -373,6 +373,8 @@
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <link rel="stylesheet" type="text/css" href="path/to/sweetalert.css">
+
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                 </div>
@@ -414,7 +416,19 @@
                         <input class="form-control" type="text" id="linkdokumen" placeholder="http://...." name="link_dokumen">
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px" onclick="submitForm()">Submit</button>
+
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        function submitForm() {
+                            // Kirim form menggunakan JavaScript jika diperlukan
+                            document.querySelector('form').submit();
+
+                            // Tampilkan Sweet Alert setelah form dikirim
+                            swal("Data berhasil dikirim!", "", "success");
+                        }
+                    </script>
+
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                     </form>
@@ -487,7 +501,18 @@
                         </div>
                         <hr>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px" onclick="submitForm()">Submit</button>
+
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        function submitForm() {
+                            // Kirim form menggunakan JavaScript jika diperlukan
+                            document.querySelector('form').submit();
+
+                            // Tampilkan Sweet Alert setelah form dikirim
+                            swal("Data berhasil dikirim!", "", "success");
+                        }
+                    </script>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                 </div>
