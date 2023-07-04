@@ -8,6 +8,7 @@ use App\Models\Pengumuman;
 use App\Models\Sekolah;
 use App\Models\Siswa;
 use App\Models\User;
+use App\Notifications\DataUser;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -56,6 +57,7 @@ class SiswaController extends Controller
                 'email' => $request->email,
                 'password' => $passwordUser
             ];
+            // User::find($modelUser->id)->notify(new DataUser());
             Mail::to($request->email)->send(new UserDataLogin($datax));
             return back()->with('success', 'Berhasil membuat siswa baru, password : ' . $passwordUser);
         }

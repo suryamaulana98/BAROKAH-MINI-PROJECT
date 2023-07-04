@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Halaman Ketua Magang</title>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
     <style>
@@ -1200,19 +1201,17 @@
 
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                     <script>
-                        $.ajaxSetup({
-
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
                         function kirim() {
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
                             console.log($('#user_idFeedback').val())
                             console.log($('#pesanFeedback').val())
                             $.ajax({
                                 type: 'POST',
-                                url: '/feedback/kirim',
+                                url: "{{ route('feedback.kirim') }}",
                                 data: {
                                     user_id: $('#user_idFeedback').val(),
                                     pesan: $('#pesanFeedback').val(),
