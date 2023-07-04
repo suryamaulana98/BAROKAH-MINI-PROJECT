@@ -13,13 +13,23 @@ use Illuminate\Support\Facades\Notification;
 
 class IzinController extends Controller
 {
-    function tampilkanberdasarkansekolah($sekolah_id) {
+    function tampilkanberdasarkansekolah(Request $request, $sekolah_id) {
+        $sekolah = Sekolah::all();
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            // dd($request->cari);
+            $keyword = $request->cari;
+            $izins = Izin::whereHas('user', function ($query) use ($keyword, $sekolah_id)   {
+                $query->where([['sekolah_id', $sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
+            })->orderBy('status', 'DESC')->get();
+           return view('admin.laporan_izin', compact('sekolah', 'izins', 'notifikasi'));
+        }
+
         $izins = Izin::whereHas('user', function ($query) use ($sekolah_id) {
             $query->where('sekolah_id', $sekolah_id);
-        })->get();
-        $sekolah = Sekolah::all();
+        })->orderBy('status', 'DESC')->get();
         // dd($sekolah);
-        return view('admin.laporan_izin', compact('sekolah', 'izins'));
+        return view('admin.laporan_izin', compact('sekolah', 'izins', 'notifikasi'));
     }
     function store(Request $request) {
         // dd($request->all());
