@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Halaman Ketua Magang</title>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     @include('template-siswa.head')
     <style>
@@ -160,7 +161,7 @@
                                     izin</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#jadwalpiket" class="nav-link scrollto"><span>Jadwal
+                    <li class="dropdown"><a href="#" class="nav-link scrollto"><span>Jadwal
                                 piket</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="#" class="nav-link scrollto" data-bs-toggle="modal"
@@ -401,7 +402,7 @@
                             <label for="formFile" class="form-label">Tambah jadwal piket pagi</label>
                             <input class="form-control" type="file" id="jadwal_pagi" name="jadwal_pagi"
                                 id="formFile">
-                        </div>
+                        </div>dwa
 
                         <div class="mb-3">
                             <label for="formFileMultiple" class="form-label">Tambah jadwal piket sore</label>
@@ -653,50 +654,51 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
+                    <form action="#" method="post">
+                        <h3>Laporan harian siswa</h3>
+                        <hr>
+                        <div class="mb-3 justify-content-between">
+                            <label for="namaSiswa" class="form-label">Nama Siswa/Tim Project</label>
+                            <input class="form-control" type="text" id="namaSiswa">
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
+                            <select class="form-select" id="silahkanpilih" aria-label="Default select example">
+                                <option selected disabled>---- Pilih Salah Satu ----</option>
+                                <option value="1">Individu</option>
+                                <option value="2">Kelompok</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="tanggal" class="form-label">Tanggal</label>
+                            <input class="form-control" type="date" id="tanggalLaporanHarianSiswa" readonly>
+                    </form>
+                    <script>
+                        // Mendapatkan elemen input tanggal
+                        var inputDateLaporanHarianSiswa = document.getElementById('tanggalLaporanHarianSiswa');
 
-                    <h3>Laporan harian siswa</h3>
-                    <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
-                        <select class="form-select" id="silahkanpilih" aria-label="Default select example">
-                            <option selected disabled>---- Pilih Salah Satu ----</option>
-                            <option value="1">Individu</option>
-                            <option value="2">Kelompok</option>
-                        </select>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="namaSiswa" class="form-label">Nama Siswa/Tim Project</label>
-                        <input class="form-control" type="text" id="namaSiswa">
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="tanggal" class="form-label">Tanggal</label>
-                        <input class="form-control" type="date" id="tanggalLaporanHarianSiswa" readonly>
-                        <script>
-                            // Mendapatkan elemen input tanggal
-                            var inputDateLaporanHarianSiswa = document.getElementById('tanggalLaporanHarianSiswa');
+                        // Mendapatkan tanggal sekarang
+                        var currentDate = new Date();
 
-                            // Mendapatkan tanggal sekarang
-                            var currentDate = new Date();
-
-                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
-                            var year = currentDate.getFullYear();
-                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
-                            var day = ('0' + currentDate.getDate()).slice(-2);
-                            var formattedDate = year + '-' + month + '-' + day;
-                            inputDateLaporanHarianSiswa.value = formattedDate;
-                        </script>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="linkdokumen" class="form-label">Link dokumen</label>
-                        <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
-                        style="width: 100px">Batal</button>
+                        // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                        var year = currentDate.getFullYear();
+                        var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                        var day = ('0' + currentDate.getDate()).slice(-2);
+                        var formattedDate = year + '-' + month + '-' + day;
+                        inputDateLaporanHarianSiswa.value = formattedDate;
+                    </script>
                 </div>
+                <div class="mb-3 justify-content-between">
+                    <label for="linkdokumen" class="form-label">Link dokumen</label>
+                    <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
+                    style="width: 100px">Batal</button>
             </div>
         </div>
+    </div>
     </div>
     {{-- end modal --}}
     <!-- Modal -->
@@ -752,45 +754,51 @@
 
                     <h3>Laporan ke pembimbing</h3>
                     <hr>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Nama Siswa Magang</label>
-                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
-                            readonly>
-                    </div>
-
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Email Siswa Magang</label>
-                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}"
-                            readonly>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Tanggal Report</label>
-                        <input type="date" class="form-control" id="tanggalLaporanPembimbing"
-                            name="tanggal_dikirim" readonly>
-                        <script>
-                            // Mendapatkan elemen input tanggal
-                            var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanPembimbing');
-
-                            // Mendapatkan tanggal sekarang
-                            var currentDate = new Date();
-
-                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
-                            var year = currentDate.getFullYear();
-                            var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
-                            var day = ('0' + currentDate.getDate()).slice(-2);
-                            var formattedDate = year + '-' + month + '-' + day;
-                            tanggalLaporanPembimbing.value = formattedDate;
-                        </script>
-                    </div>
-                    <div class="mb-3 justify-content-between">
-                        <label for="" class="form-label">Isi Pesan</label>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <form action="{{ route('ketua.buatReport') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Nama Siswa Magang</label>
+                            <input class="form-control" type="text" id=""
+                                value="{{ Auth::user()->name }}" readonly>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
-                        style="width: 100px">Batal</button>
+
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Email Siswa Magang</label>
+                            <input class="form-control" type="email" id=""
+                                value="{{ Auth::user()->email }}" readonly>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Tanggal Report</label>
+                            <input type="date" name="tanggal" class="form-control" id="tanggalLaporanPembimbing"
+                                name="tanggal_dikirim" readonly>
+                            <script>
+                                // Mendapatkan elemen input tanggal
+                                var tanggalLaporanKetuaMagang = document.getElementById('tanggalLaporanPembimbing');
+
+                                // Mendapatkan tanggal sekarang
+                                var currentDate = new Date();
+
+                                // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
+                                var year = currentDate.getFullYear();
+                                var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+                                var day = ('0' + currentDate.getDate()).slice(-2);
+                                var formattedDate = year + '-' + month + '-' + day;
+                                tanggalLaporanPembimbing.value = formattedDate;
+                            </script>
+                        </div>
+                        <div class="mb-3 justify-content-between">
+                            <label for="" class="form-label">Isi Pesan</label>
+                            <div class="form-floating">
+                                <textarea name="pesan" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                    style="height: 100px"></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"
+                            aria-label="Close" style="width: 100px">Batal</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1095,20 +1103,20 @@
                                         {!! isset($jadwal_piket->deskripsi_piket) ? $jadwal_piket->deskripsi_piket : '' !!}
                                     </p>
                                 </div>
-                                <div class="col-lg-3 col-md-3 justify-content-end" data-aos="fade-up"
+                                <div class="col-lg-3 col-md-3 mt-5 justify-content-end" data-aos="fade-up"
                                     data-aos-delay="500">
                                     <div class="icon-box">
                                         <a href="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
                                             id="jadwal" data-lightbox="jadwal" data-title="">
                                             <img src="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
-                                                style="margin-left: 80px;" width="180px">
+                                                style="margin-left: 80px;" width="150px">
                                         </a>
                                     </div>
                                     <div class="icon-box">
-                                        <a href="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
+                                        <a href="/jadwalPiket/{{ isset($jadwal_piket->jadwal_sore) ? $jadwal_piket->jadwal_sore : '' }}"
                                             id="jadwal" data-lightbox="jadwal" data-title="">
-                                            <img src="/jadwalPiket/{{ isset($jadwal_piket->jadwal_pagi) ? $jadwal_piket->jadwal_pagi : '' }}"
-                                                style="margin-left: 80px;" width="180px" alt=""
+                                            <img src="/jadwalPiket/{{ isset($jadwal_piket->jadwal_sore) ? $jadwal_piket->jadwal_sore : '' }}"
+                                                style="margin-left: 80px;" width="150px" alt=""
                                                 class="img-fluid rounded">
                                         </a>
                                     </div>
@@ -1200,19 +1208,17 @@
 
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                     <script>
-                        $.ajaxSetup({
-
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
                         function kirim() {
+                            $.ajaxSetup({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                }
+                            });
                             console.log($('#user_idFeedback').val())
                             console.log($('#pesanFeedback').val())
                             $.ajax({
                                 type: 'POST',
-                                url: '/feedback/kirim',
+                                url: "{{ route('feedback.kirim') }}",
                                 data: {
                                     user_id: $('#user_idFeedback').val(),
                                     pesan: $('#pesanFeedback').val(),
@@ -1256,16 +1262,17 @@
 <!-- Initialize SummerNote -->
 <script>
     $(document).ready(function() {
-        $('#deskripsi_piket').summernote({
-            height: 200, // Set the height of the SummerNote input
-            toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
-            ]
+        $(document).ready(function() {
+            $('#deskripsi_piket').summernote({
+                height: 200,
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ]
+            });
         });
     });
 </script>

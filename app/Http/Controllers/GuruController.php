@@ -70,7 +70,7 @@ class GuruController extends Controller
                 'email' => $request->email,
                 'password' => $passwordUser,
             ];
-            Mail::to($request->email)->send(new UserDataLogin($modelUser));
+            Mail::to($request->email)->send(new UserDataLogin($dataUser));
             return back()->with('success','Berhasil membuat guru, password : ' . $passwordUser);
         }
         else {

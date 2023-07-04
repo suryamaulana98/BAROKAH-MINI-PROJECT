@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use Illuminate\Http\Request;
 
 class PembimbingController extends Controller
@@ -34,7 +35,8 @@ class PembimbingController extends Controller
         return view('pembimbing.feedback');
     }
     function report(){
-        return view('pembimbing.report');
+        $report = Report::all();
+        return view('pembimbing.report', compact('report'));
     }
     function pengumpulanjurnal(){
         return view('pembimbing.pengumpulan_jurnal');

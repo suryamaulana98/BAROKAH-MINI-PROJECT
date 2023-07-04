@@ -10,6 +10,7 @@ use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
 use App\Models\Notifikasi;
 use App\Models\Pengumuman;
+use App\Models\Report;
 use App\Models\Sekolah;
 use App\Models\User;
 use App\Observers\FeedbackObserver;
@@ -19,6 +20,7 @@ use App\Observers\LaporanjurnalObserver;
 use App\Observers\LaporanketuaObserve;
 use App\Observers\NotifikasiObserver;
 use App\Observers\PengumumanObserver;
+use App\Observers\ReportObsrever;
 use App\Observers\SekolahObserver;
 use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
@@ -53,7 +55,9 @@ class EventServiceProvider extends ServiceProvider
         Hariansiswa::observe(HariansiswaObserver::class);
         Laporanketua::observe(LaporanketuaObserve::class);
         Laporanjurnal::observe(LaporanjurnalObserver::class);
+        Report::observe(ReportObsrever::class);
         Notifikasi::observe(NotifikasiObserver::class);
+
     }
 
     /**
