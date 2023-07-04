@@ -5,19 +5,18 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class BalasFeedback extends Mailable
+class Pengumuman extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(public $data, public $userEmail)
+    public function __construct()
     {
         //
     }
@@ -28,10 +27,7 @@ class BalasFeedback extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            replyTo: [
-                new Address($this->userEmail, 'Balas'),
-            ],
-            subject: 'Balas Feedback',
+            subject: 'Pengumuman',
         );
     }
 
@@ -41,7 +37,7 @@ class BalasFeedback extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.balas_feedback',
+            view: 'view.name',
         );
     }
 

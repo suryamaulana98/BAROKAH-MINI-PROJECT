@@ -11,6 +11,24 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    @if (session()->has('success'))
+        <script>
+            Swal.fire(
+                'Berhasil!',
+                "{{ session('success') }}",
+                'success'
+            )
+        </script>
+    @endif
+    @if (session()->has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error') }}",
+            })
+        </script>
+    @endif
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -201,7 +219,6 @@
                                     <a href="{{ route('sudahdibaca') }}"><h6 class="text-sm font-weight-normal mb-1 aku" style="color: blue;">Sudah dibaca</h6></a>
                                 </li>
                                 @foreach ($notifikasi as $notif)
-
                                 <li class="mb-2">
                                     <a class="dropdown-item border-radius-md" href="{{ route('notif', ['notifikasi' => $notif->id]) }}">
                                         <div class="d-flex py-1">
@@ -352,8 +369,9 @@
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="" method="POST">
+                                    <form action="{{ route('feedback.balas') }}" method="POST">
                                         @csrf
+                                        <input type="hidden" name="feedback_id" value="{{ $f->id }}">
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Nama</label>
                                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $f->user->name }}" readonly>
@@ -364,14 +382,15 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="a" class="form-label" style="font-size:14px;">Balas feedback</label>
-                                            <textarea class="form-control" id="a" rows="4"></textarea>
+                                            <textarea class="form-control" id="a" rows="4" name="balas"></textarea>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Balas</button>
+                                          </div>
                                     </form>
                                 </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                  <button type="button" class="btn btn-primary">Balas</button>
-                                </div>
+
                               </div>
                             </div>
                         </div>

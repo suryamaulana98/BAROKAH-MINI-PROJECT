@@ -7,6 +7,6 @@
     <title>Membalas feedback anda</title>
 </head>
 <body>
-
+    <p>{{ $data['balas'] }}</p>
 </body>
 </html>
