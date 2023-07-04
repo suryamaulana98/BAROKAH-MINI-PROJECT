@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
+use App\Models\User;
+use App\Notifications\Pengumuman as NotificationsPengumuman;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class PengumumanController extends Controller
 {
@@ -15,6 +18,8 @@ class PengumumanController extends Controller
             'tanggal_pengumuman' => 'required',
         ]);
         Pengumuman::create($validatedData);
+        $users = User::all();
+        Notification::send($users, new NotificationsPengumuman);
         return back()->with('success', 'Berhasil menambah pengumuman');
     }
     function hapusPengumuman(Pengumuman $pengumuman) {

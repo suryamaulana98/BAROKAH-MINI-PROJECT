@@ -114,6 +114,7 @@ Route::middleware('checkLogin')->group(function () {
 
     Route::post('/feedback/kirim', [FeedbackController::class, 'kirim'])->name('feedback.kirim');
     Route::delete('/feedback/hapus/{feedback}', [FeedbackController::class, 'hapus'])->name('feedback.hapus');
+    Route::post('/feedback/balas', [FeedbackController::class, 'balas'])->name('feedback.balas');
 
     // Pengumpulan jurnal
     Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');

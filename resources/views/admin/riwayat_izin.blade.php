@@ -14,7 +14,14 @@
 @php
     use Carbon\Carbon;
 @endphp
-  <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@php
+    $a = 1;
+@endphp
+@foreach ($izins as $izin)
+    @php
+        $a++;
+    @endphp
+  <div class="modal fade" id="detail{{ $a }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -41,33 +48,34 @@
           <table>
             <tr>
               <td class="aaa" style="width: 28%;">Nama</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> Femas akbar faturrohim</td>
+              <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $izin->user->name }}</td>
             </tr>
             <tr>
               <td class="aaa">Asal sekolah</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1 LUMAJANG</td>
+              <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $izin->user->sekolah->name }}</td>
             </tr>
             <tr>
               <td class="aaa">Tanggal izin</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei 2023</td>
+              <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $izin->tanggal_izin }}</td>
             </tr>
             <tr>
               <td class="aaa">Alasan</td>
-              <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT</td>
+              <td class="aaa badge badge-sm bg-danger" style="color: white;">{{ $izin->alasan }}</td>
             </tr>
             <tr>
               <td class="aaa">Pesan</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">Assalamualaikum mohon ijin untuk hari ini saya ijin  tidak masuk magang dikarenakan sakit, untuk surat  keterangan lebih lanjut sudah saya lampirkan, terimakasih</span></td>
+              <td class="aaa"><span style="margin-right: 12px;">:</span><span style="text-align: justify;">{{ $izin->pesan }}</span></td>
             </tr>
             <tr>
               <td class="aaa">Lihat surat</td>
-              <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#"><span style="margin-right: 12px;">:</span> p.pdf</a></td>
+              <td style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)"><a href="#"><span style="margin-right: 12px;">:</span> {{ $izin->surat }}</a></td>
             </tr>
           </table>
         </div>
       </div>
     </div>
   </div>
+@endforeach
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -329,7 +337,7 @@
                     <tbody>
                         @if (count($izins) > 0)
                         @php
-                            $i = 0;
+                            $i = 1;
                         @endphp
                         @foreach ($izins as $izin)
                         @php
@@ -415,7 +423,7 @@
                             <span class="badge badge-sm {{ ($izin->alasan == 'darurat') ? "bg-warning " : ""}} {{ ($izin->alasan == 'sakit') ? "bg-danger " : ""}} {{ ($izin->alasan == 'keluarga') ? "bg-primary " : ""}}" style="width: 88px;">{{ $izin->alasan }}</span>
                         </td>
                         <td class="">
-                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
+                            <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#detail{{ $i }}" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                       </tr>
                       @endforeach
