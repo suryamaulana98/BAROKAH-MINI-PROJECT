@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Report;use App\Models\Sekolah;
+use App\Models\Report;
+use App\Models\Sekolah;
+use App\Models\User;
 
 
 class reportPembimbing extends Controller
@@ -28,5 +30,15 @@ class reportPembimbing extends Controller
         // dd($validatedData);
         Report::create($validatedData);
         return back()->with('success', 'Berhasil');
+    }
+
+    function hapusReport(String $id){
+        $user = Report::findorfail($id);
+        if ($user->delete()) {
+            return back()->with('success', 'Berhasil menghapus report');
+        }
+        else {
+            return back()->with('error', 'Gagal menghapus report');
+        }
     }
 }

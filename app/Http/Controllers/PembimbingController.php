@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PembimbingController extends Controller
@@ -38,6 +39,7 @@ class PembimbingController extends Controller
         $report = Report::all();
         return view('pembimbing.report', compact('report'));
     }
+  
     function pengumpulanjurnal(){
         return view('pembimbing.pengumpulan_jurnal');
     }
