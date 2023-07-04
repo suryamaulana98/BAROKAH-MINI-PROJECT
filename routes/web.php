@@ -14,6 +14,7 @@ use App\Http\Controllers\PembimbingController;
 use App\Http\Controllers\pengumpulanController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PeraturanController;
+use App\Http\Controllers\reportPembimbing;
 use App\Http\Controllers\RiwayatizinController;
 use App\Http\Controllers\SiswaController;
 use App\Models\Laporanjurnal;
@@ -101,6 +102,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::put('/peraturan/editPeraturan/{id}', [PeraturanController::class, 'editPeraturan'])->name('ketua.peratuan.editPeraturan');
         Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');
         Route::post('/ketua/tambahJadwalPiket', [KetuaController::class, 'tambahJadwalPiket'])->name('ketua.tambahJadwalPiket');
+        Route::post('/ketua/buatReport', [reportPembimbing::class, 'buatReport'])->name('ketua.buatReport');
     });
     Route::post('/izin/store', [IzinController::class, 'store'])->name('izin.store');
 

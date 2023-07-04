@@ -344,83 +344,48 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">1</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">femasakbar@gmail.com</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <a href="#balasReport" data-bs-toggle="modal">
-                                                    <i class="fa-solid fa-eye text-primary"
-                                                        style="margin-right: 4px;"></i>
-                                                </a>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">2</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">femasakbar@gmail.com</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <i class="fa-solid fa-eye text-primary"
-                                                    style="margin-right: 4px;"></i>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">3</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">femasakbar@gmail.com</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <i class="fa-solid fa-eye text-primary"
-                                                    style="margin-right: 4px;"></i>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
+
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($report as $item)
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            <tr>
+                                                <td>
+                                                    <div class="px-3">
+                                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                        {{ $item->user->name }}</p>
+                                                </td>
+                                                <td class="">
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ isset($item->user->sekolah) ? $item->user->sekolah->name : '' }}
+                                                    </p>
+                                                </td>
+                                                <td class="">
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ $item->user->email }}
+                                                    </p>
+                                                </td>
+                                                <td class="">
+                                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                        {{ $item->tanggal }}</p>
+                                                </td>
+                                                <td class="">
+                                                    <a href="#balasReport" data-bs-toggle="modal">
+                                                        <i class="fa-solid fa-eye text-primary"
+                                                            style="margin-right: 4px;"></i>
+                                                    </a>
+                                                    <i class="fa-solid fa-trash text-danger"></i>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
