@@ -82,6 +82,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/pembimbing/report',[PembimbingController::class, 'report'])->name('pembimbing.report');
         Route::get('/pembimbing/pengumpulanjurnal',[PembimbingController::class, 'pengumpulanjurnal'])->name('pembimbing.pengumpulanjurnal');
         Route::get('/pembimbing/laporanabsensiswa',[PembimbingController::class, 'laporanabsensiswa'])->name('pembimbing.laporanabsensiswa');
+        Route::delete('/pembimbing/report/hapus/{user}', [reportPembimbing::class, 'hapusReport'])->name('pembimbing.report.hapus');
     });
 
     //guru
