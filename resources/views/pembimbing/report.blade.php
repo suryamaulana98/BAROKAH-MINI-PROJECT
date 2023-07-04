@@ -13,6 +13,19 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    @php
+        use Carbon\Carbon;
+        $x = 0;
+    @endphp
+    @if (session()->has('success'))
+        <script>
+            Swal.fire(
+                'Berhasil!',
+                "{{ session('success') }}",
+                'success'
+            )
+        </script>
+    @endif
 
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
@@ -257,43 +270,7 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        {{-- modal --}}
-        <div class="modal modal-lg fade" id="balasReport" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><b>Report</b></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Nama
-                                    Pengirim</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label for="a" class="form-label" style="font-size:14px;">Pesan</label>
-                                <textarea class="form-control" id="a" rows="4"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="a" class="form-label" style="font-size:14px;">Balas Report</label>
-                                <textarea class="form-control" id="a" rows="4"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                        <button type="button" class="btn btn-primary">Balas</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- end modal --}}
+
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
@@ -344,7 +321,6 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
                                         @php
                                             $i = 0;
                                         @endphp
@@ -374,15 +350,85 @@
                                                 </td>
                                                 <td class="">
                                                     <p class="text-xs font-weight-bold mb-0 text-uppercase">
-                                                        {{ $item->tanggal }}</p>
+                                                        {{ Carbon::parse($item->tanggal)->format('d M Y') }}</p>
                                                 </td>
-                                                <td class="">
-                                                    <a href="#balasReport" data-bs-toggle="modal">
-                                                        <i class="fa-solid fa-eye text-primary"
-                                                            style="margin-right: 4px;"></i>
-                                                    </a>
-                                                    <i class="fa-solid fa-trash text-danger"></i>
-                                                </td>
+                                                <div class="d-flex">
+                                                    <td class="">
+                                                        <a href="#balasReport{{ $item->id }}"
+                                                            data-bs-toggle="modal">
+                                                            <i class="fa-solid fa-eye text-primary"
+                                                                style="margin-right: 4px;"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <form
+                                                            action="{{ route('pembimbing.report.hapus', ['user' => $item->id]) }}"
+                                                            id="myForm-{{ $i }}"
+                                                            onsubmit="konfirmHapus(event, {{ $i }})"
+                                                            method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                style="background: none; border: none;">
+                                                                <i class="fa-solid fa-trash"
+                                                                    style="font-size: 16px; color: #dc3545;"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </div>
+                                            </tr>
+                                            <tr>
+                                                {{-- modal --}}
+                                                <div class="modal modal-lg fade" id="balasReport{{ $item->id }}"
+                                                    tabindex="-1" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                                    <b>Report</b>
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="" method="POST">
+                                                                    @csrf
+                                                                    <div class="mb-3">
+                                                                        <label for="exampleInputEmail1"
+                                                                            class="form-label"
+                                                                            style="font-size:14px;">Nama
+                                                                            Pengirim</label>
+                                                                        <input type="text" readonly
+                                                                            class="form-control"
+                                                                            id="exampleInputEmail1"
+                                                                            aria-describedby="emailHelp"
+                                                                            value="{{ $item->user->name }}">
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="a" class="form-label"
+                                                                            style="font-size:14px;">Pesan</label>
+                                                                        <textarea readonly class="form-control" id="a" rows="4">{{ $item->pesan }}</textarea>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="a" class="form-label"
+                                                                            style="font-size:14px;">Balas
+                                                                            Report</label>
+                                                                        <textarea class="form-control" id="a" rows="4" name="balasReport"></textarea>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Batal</button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary">Balas</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{-- end modal --}}
                                             </tr>
                                         @endforeach
 
@@ -393,6 +439,29 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                function konfirmHapus(event, id) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: 'HAPUS ?',
+                        text: 'Anda yakin ingin menghapus siswa ini?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Kode untuk melakukan penghapusan data di sini
+                            document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                        }
+                    });
+                }
+            </script>
+
             @include('template-admin.footer')
             @include('template-admin.script')
 </body>

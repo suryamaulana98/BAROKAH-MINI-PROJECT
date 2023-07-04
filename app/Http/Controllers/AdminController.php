@@ -24,14 +24,32 @@ class AdminController extends Controller
         $notifikasi = Notifikasi::where('baca', null)->get();
         return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak', 'notifikasi'));
     }
-    function listsiswa() {
-        $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
+    function listsiswa(Request $request) {
         $sekolah = Sekolah::all();
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            // dd($keyword);
+            $users = User::where([['role', 'ketua'], ['name', 'LIKE', '%'.$keyword.'%']])->orWhere([['role', 'siswa'], ['name', 'LIKE', '%'.$keyword.'%']])->get();
+            $users->append(['cari' => $keyword]);
+            // session(['cari' => $keyword]);
+            return view('admin.list_siswa', compact('users', 'sekolah', 'notifikasi'));
+
+        }
+        $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
         return view('admin.list_siswa', compact('users', 'sekolah', 'notifikasi'));
     }
-    function siswatampilkanberdasarkansekolah($sekolah) {
+    function siswatampilkanberdasarkansekolah(Request $request,$sekolah) {
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            // dd($keyword);
+            $users = User::where([['role', 'ketua'], ['name', 'LIKE', '%'.$keyword.'%'], ['sekolah_id', $sekolah]])->orWhere([['role', 'siswa'], ['name', 'LIKE', '%'.$keyword.'%'],['sekolah_id', $sekolah]])->get();
+            $users->append(['cari' => $keyword]);
+            // session(['cari' => $keyword]);
+            $sekolah = Sekolah::all();
+            return view('admin.list_siswa', compact('users', 'sekolah', 'notifikasi'));
+        }
         $users = User::where([
             ['role', '=', 'siswa'],
             ['sekolah_id', '=', $sekolah],
@@ -39,34 +57,67 @@ class AdminController extends Controller
             ['role', '=', 'ketua'],
             ['sekolah_id', '=', $sekolah],
         ])->get();
-        $sekolah = Sekolah::all();
         // dd($sekolah);
+        $sekolah = Sekolah::all();
         return view('admin.list_siswa', compact('users', 'sekolah', 'notifikasi'));
     }
-    function izinsiswa() {
+    function izinsiswa(Request $request) {
         $sekolah = Sekolah::all();
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $izins = Izin::whereHas('user', function ($query) use ($keyword)   {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->orderBy('status', 'DESC')->get();
+           return view('admin.laporan_izin', compact('sekolah', 'izins', 'notifikasi'));
+        }
         $izins = Izin::orderBy('status', 'DESC')->get();
         return view('admin.laporan_izin', compact('sekolah', 'izins', 'notifikasi'));
     }
-    function laporanketua() {
-        $laporanketuas = Laporanketua::all();
+    function laporanketua(Request $request) {
         $notifikasi = Notifikasi::all();
+
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $laporanketuas = Laporanketua::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+            return view('admin.laporan_ketua', compact('laporanketuas', 'notifikasi'));
+
+        }
+        $laporanketuas = Laporanketua::all();
         return view('admin.laporan_ketua', compact('laporanketuas', 'notifikasi'));
     }
-    function laporanhariansiswa() {
+    function laporanhariansiswa(Request $request) {
         $notifikasi = Notifikasi::all();
-        $hariansiswas = Hariansiswa::paginate(1);
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $hariansiswas = Hariansiswa::where('nama', 'LIKE', '%'.$keyword.'%')->get();
+            return view('admin.laporan_harian_siswa', compact('hariansiswas', 'notifikasi'));
+        }
+        $hariansiswas = Hariansiswa::all();
         return view('admin.laporan_harian_siswa', compact('hariansiswas', 'notifikasi'));
     }
-    function feedback() {
-        $feedbacks = Feedback::paginate(8);
+    function feedback(Request $request) {
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $feedbacks = Feedback::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+            return view('admin.halaman_feedback', compact('feedbacks', 'notifikasi'));
+        }
+        $feedbacks = Feedback::paginate(8);
         return view('admin.halaman_feedback', compact('feedbacks', 'notifikasi'));
     }
-    function pengumuman() {
-        $pengumumans = Pengumuman::all();
+    function pengumuman(Request $request) {
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $pengumumans = Pengumuman::where('judul_pengumuman', 'LIKE', '%'.$keyword.'%')->get();
+            return view('admin.halaman_pengumuman', compact('pengumumans', 'notifikasi'));
+        }
+        $pengumumans = Pengumuman::all();
         return view('admin.halaman_pengumuman', compact('pengumumans', 'notifikasi'));
     }
     function kontak() {
@@ -78,15 +129,30 @@ class AdminController extends Controller
         $notifikasi = Notifikasi::all();
         return view('admin.absen', compact('notifikasi'));
     }
-    function jurnal() {
-        $laporanjurnals = Laporanjurnal::all();
+    function jurnal(Request $request) {
         $sekolah = Sekolah::all();
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $laporanjurnals = Laporanjurnal::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+            return view('admin.jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
+
+        }
+        $laporanjurnals = Laporanjurnal::all();
         return view('admin.jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
     }
-    function guru() {
-        $gurus = User::where('role', 'guru')->get();
+    function guru(Request $request) {
         $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            // dd($keyword);
+            $gurus = User::where([['role', 'guru'], ['name', 'LIKE', '%'.$keyword.'%']])->get();
+            $gurus->append(['cari' => $keyword]);
+            return view('admin.guru', compact('gurus', 'notifikasi'));
+        }
+        $gurus = User::where('role', 'guru')->get();
         return view('admin.guru', compact('gurus', 'notifikasi'));
     }
 }

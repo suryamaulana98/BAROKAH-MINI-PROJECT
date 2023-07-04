@@ -339,7 +339,7 @@
                         <div class="card-header pb-0">
                             <p style="font-size: 24px; font-weight: bold;">List siswa
                                 <form action="">
-                                <input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -54px;" name="cari">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -54px;" name="cari" value="{{ request('cari') }}">
                                 </form>
                             </p>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#tambahSiswa"><i

@@ -19,7 +19,10 @@ class PengumumanController extends Controller
         ]);
         Pengumuman::create($validatedData);
         $users = User::all();
-        Notification::send($users, new NotificationsPengumuman);
+        // foreach ($users as $user) {
+        //     $user->notify(new NotificationsPengumuman);
+        // }
+        // Notification::send($users, new NotificationsPengumuman);
         return back()->with('success', 'Berhasil menambah pengumuman');
     }
     function hapusPengumuman(Pengumuman $pengumuman) {
