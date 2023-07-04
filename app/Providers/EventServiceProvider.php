@@ -8,6 +8,7 @@ use App\Models\Hariansiswa;
 use App\Models\Izin;
 use App\Models\Laporanjurnal;
 use App\Models\Laporanketua;
+use App\Models\Notifikasi;
 use App\Models\Pengumuman;
 use App\Models\Report;
 use App\Models\Sekolah;
@@ -17,6 +18,7 @@ use App\Observers\HariansiswaObserver;
 use App\Observers\IzinObserver;
 use App\Observers\LaporanjurnalObserver;
 use App\Observers\LaporanketuaObserve;
+use App\Observers\NotifikasiObserver;
 use App\Observers\PengumumanObserver;
 use App\Observers\ReportObsrever;
 use App\Observers\SekolahObserver;
@@ -54,6 +56,7 @@ class EventServiceProvider extends ServiceProvider
         Laporanketua::observe(LaporanketuaObserve::class);
         Laporanjurnal::observe(LaporanjurnalObserver::class);
         Report::observe(ReportObsrever::class);
+        Notifikasi::observe(NotifikasiObserver::class);
 
     }
 
