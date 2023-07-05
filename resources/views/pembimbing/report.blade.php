@@ -331,7 +331,8 @@
                                             <tr>
                                                 <td>
                                                     <div class="px-3">
-                                                        <p class="text-xs font-weight-bold mb-0">1</p>
+                                                        <p class="text-xs font-weight-bold mb-0">{{ $i }}
+                                                        </p>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -339,7 +340,7 @@
                                                         {{ $item->user->name }}</p>
                                                 </td>
                                                 <td class="">
-                                                    <p class="text-xs font-weight-bold mb-0">
+                                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">
                                                         {{ isset($item->user->sekolah) ? $item->user->sekolah->name : '' }}
                                                     </p>
                                                 </td>
@@ -357,7 +358,7 @@
                                                         <a href="#balasReport{{ $item->id }}"
                                                             data-bs-toggle="modal">
                                                             <i class="fa-solid fa-eye text-primary"
-                                                                style="margin-right: 4px;"></i>
+                                                                style="margin-right: -24px;"></i>
                                                         </a>
                                                     </td>
                                                     <td>
@@ -393,8 +394,11 @@
                                                                     aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form action="" method="POST">
+                                                                <form action="{{ route('pembimbing.balasReport') }}"
+                                                                    method="POST">
                                                                     @csrf
+                                                                    <input type="hidden" name="report_id"
+                                                                        value="{{ $item->id }}">
                                                                     <div class="mb-3">
                                                                         <label for="exampleInputEmail1"
                                                                             class="form-label"
@@ -415,13 +419,13 @@
                                                                         <label for="a" class="form-label"
                                                                             style="font-size:14px;">Balas
                                                                             Report</label>
-                                                                        <textarea class="form-control" id="a" rows="4" name="balasReport"></textarea>
+                                                                        <textarea class="form-control" id="a" rows="4" name="pesan"></textarea>
                                                                     </div>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Batal</button>
-                                                                <button type="button"
+                                                                <button type="submit"
                                                                     class="btn btn-primary">Balas</button>
                                                                 </form>
                                                             </div>

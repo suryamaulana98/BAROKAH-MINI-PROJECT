@@ -243,7 +243,7 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
                                 href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">List siswa</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a href="{{ route('admin.listsiswa') }}" class="text-white">List siswa</a></li>
                     </ol>
                     <h6 class="font-weight-bolder tex t-white mb-0" style="color: #fff;">List siswa</h6>
                 </nav>
@@ -521,15 +521,15 @@
                                                                 <div class="col">
                                                                 <div class="d-flex justify-content-center">
                                                                     <div class="d-grid text-center">
-                                                                    <span class="text-lg font-weight-bolder">22</span>
+                                                                    <span class="text-lg font-weight-bolder">{{ (isset($user->sakit) ? $user->sakit : "0") }}</span>
                                                                     <span class="text-sm opacity-8">Sakit</span>
                                                                     </div>
                                                                     <div class="d-grid text-center mx-4">
-                                                                    <span class="text-lg font-weight-bolder">10</span>
+                                                                    <span class="text-lg font-weight-bolder">{{ (isset($user->acara_keluarga) ? $user->acara_keluarga : "0") }}</span>
                                                                     <span class="text-sm opacity-8">Acara keluarga</span>
                                                                     </div>
                                                                     <div class="d-grid text-center">
-                                                                    <span class="text-lg font-weight-bolder">89</span>
+                                                                    <span class="text-lg font-weight-bolder">{{ (isset($user->darurat) ? $user->darurat : "0") }}</span>
                                                                     <span class="text-sm opacity-8">Hal darurat</span>
                                                                     </div>
                                                                 </div>

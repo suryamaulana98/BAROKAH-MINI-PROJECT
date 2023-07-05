@@ -13,6 +13,9 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    @php
+        use Carbon\Carbon;
+    @endphp
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -277,9 +280,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">List siswa<input class="cari"
-                                    type="search" placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">List siswa
+                            <form action="">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -1px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
 
                             <button type="button" class="btn dropdown-toggle"
@@ -288,9 +294,10 @@
                                 Pilih sekolah
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                                @foreach ($sekolah as $s)
+                                    <a class="dropdown-item"
+                                        href="{{ route('siswa.tampilkanberdasarkansekolahpembimbing', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
@@ -338,170 +345,206 @@
                                         }
                                     </script>
                                     <tbody>
+                                        @if (count($users) > 0)
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($users as $user)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <style>
+                                                    .sakit {
+                                                        font-size: 12px;
+                                                        color: white;
+                                                        margin-top: 10px;
+                                                        background-color: #FF3500;
+                                                        padding: 1% 3%;
+                                                        /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                        display: inline-block;
+                                                        /* Mengubah display menjadi inline-block */
+                                                        border-radius: 30px;
+                                                        background: #FF3500;
+                                                    }
 
-                                        <style>
-                                            .sakit {
-                                                font-size: 12px;
-                                                color: white;
-                                                margin-top: 10px;
-                                                background-color: #FF3500;
-                                                padding: 1% 3%;
-                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
-                                                display: inline-block;
-                                                /* Mengubah display menjadi inline-block */
-                                                border-radius: 30px;
-                                                background: #FF3500;
-                                            }
+                                                    .acara {
+                                                        font-size: 12px;
+                                                        color: white;
+                                                        margin-top: 10px;
+                                                        background-color: #516BE0;
+                                                        padding: 1% 3%;
+                                                        /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                        display: inline-block;
+                                                        /* Mengubah display menjadi inline-block */
+                                                        border-radius: 30px;
+                                                        background: #516BE0;
+                                                    }
 
-                                            .acara {
-                                                font-size: 12px;
-                                                color: white;
-                                                margin-top: 10px;
-                                                background-color: #516BE0;
-                                                padding: 1% 3%;
-                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
-                                                display: inline-block;
-                                                /* Mengubah display menjadi inline-block */
-                                                border-radius: 30px;
-                                                background: #516BE0;
-                                            }
+                                                    .darurat {
+                                                        font-size: 12px;
+                                                        color: white;
+                                                        margin-top: 10px;
+                                                        background-color: #28B62E;
+                                                        padding: 1% 3%;
+                                                        /* Sesuaikan padding dengan ukuran yang diinginkan */
+                                                        display: inline-block;
+                                                        /* Mengubah display menjadi inline-block */
+                                                        border-radius: 30px;
+                                                        background: #28B62E;
+                                                    }
 
-                                            .darurat {
-                                                font-size: 12px;
-                                                color: white;
-                                                margin-top: 10px;
-                                                background-color: #28B62E;
-                                                padding: 1% 3%;
-                                                /* Sesuaikan padding dengan ukuran yang diinginkan */
-                                                display: inline-block;
-                                                /* Mengubah display menjadi inline-block */
-                                                border-radius: 30px;
-                                                background: #28B62E;
-                                            }
+                                                    #nama {
+                                                        font-size: 20px;
+                                                    }
 
-                                            #nama {
-                                                font-size: 20px;
-                                            }
+                                                    /* Media queries untuk tampilan responsif */
+                                                    @media screen and (max-width: 576px) {
 
-                                            /* Media queries untuk tampilan responsif */
-                                            @media screen and (max-width: 576px) {
+                                                        .sakit,
+                                                        .acara,
+                                                        .darurat {
+                                                            font-size: 10px;
+                                                            /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                            padding: 1% 3%;
+                                                            /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
+                                                        }
 
-                                                .sakit,
-                                                .acara,
-                                                .darurat {
-                                                    font-size: 10px;
-                                                    /* Ukuran font lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
-                                                    padding: 1% 3%;
-                                                    /* Padding lebih kecil pada perangkat dengan lebar layar maksimal 576px atau lebih kecil */
-                                                }
+                                                        #nama {
+                                                            font-size: 16px;
+                                                        }
+                                                    }
+                                                </style>
 
-                                                #nama {
-                                                    font-size: 16px;
-                                                }
-                                            }
-                                        </style>
-
-                                        {{-- Modal profil --}}
-                                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                {{-- <div class="modal-content">
+                                                {{-- Modal profil --}}
+                                                <div class="modal fade" id="profilModal-{{ $user->id }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        {{-- <div class="modal-content">
             <div class="modal-body"> --}}
-                                                <div class="card card-profile">
-                                                    <img src="/admin/assets/img/bg-profile.jpg"
-                                                        alt="Image placeholder" class="card-img-top">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-4 col-lg-4 order-lg-2">
-                                                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                                                <a href="javascript:;">
-                                                                    <img src="/admin/assets/img/team-3.jpg"
-                                                                        class="rounded-circle img-fluid border border-2 border-white">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-                                                        <div class="d-flex justify-content-between">
-                                                            <a href="javascript:;"></a>
-                                                            <a href="javascript:;"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pt-0">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="d-grid text-center">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">22</span>
-                                                                        <span class="text-sm opacity-8">Sakit</span>
+                                                        <div class="modal-body">
+                                                            <div class="card card-profile">
+                                                                <img src="/admin/assets/img/bg-profile.jpg"
+                                                                    alt="Image placeholder" class="card-img-top">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="col-4 col-lg-4 order-lg-2">
+                                                                        <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                                                            <a href="javascript:;">
+                                                                                <img src="/img/{{ $user->foto_siswa }}"
+                                                                                    style="width: 147px; height: 147px;"
+                                                                                    class="rounded-circle img-fluid border border-2 border-white">
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="d-grid text-center mx-4">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">10</span>
-                                                                        <span class="text-sm opacity-8">Acara
-                                                                            keluarga</span>
+                                                                </div>
+                                                                <div
+                                                                    class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <a href="javascript:;"></a>
+                                                                        <a href="javascript:;"></a>
                                                                     </div>
-                                                                    <div class="d-grid text-center">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">89</span>
-                                                                        <span class="text-sm opacity-8">Hal
-                                                                            darurat</span>
+                                                                </div>
+                                                                <div class="card-body pt-0">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="d-flex justify-content-center">
+                                                                                <div class="d-grid text-center">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">22</span>
+                                                                                    <span
+                                                                                        class="text-sm opacity-8">Sakit</span>
+                                                                                </div>
+                                                                                <div class="d-grid text-center mx-4">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">10</span>
+                                                                                    <span
+                                                                                        class="text-sm opacity-8">Acara
+                                                                                        keluarga</span>
+                                                                                </div>
+                                                                                <div class="d-grid text-center">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">89</span>
+                                                                                    <span class="text-sm opacity-8">Hal
+                                                                                        darurat</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-center mt-4">
+                                                                        <h5>
+                                                                            {{ $user->name }}<span
+                                                                                class="font-weight-light">,
+                                                                                ({{ $user->role }})
+                                                                            </span>
+                                                                        </h5>
+                                                                        <div class="h6 font-weight-300">
+                                                                            <i
+                                                                                class="ni location_pin mr-2"></i>{{ $user->nisn }}
+                                                                        </div>
+                                                                        <div class="h6 mt-4">
+                                                                            <i
+                                                                                class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($user->awal_pkl)->format('d M Y') }}
+                                                                            -
+                                                                            {{ Carbon::parse($user->akhir_pkl)->format('d M Y') }}
+                                                                        </div>
+                                                                        <div class="text-uppercase">
+                                                                            <i
+                                                                                class="ni education_hat mr-2 text-uppercase"></i>{{ isset($user->sekolah->name) ? $user->sekolah->name : '' }}
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="text-center mt-4">
-                                                            <h5>
-                                                                Femas akbar faturrohim<span class="font-weight-light">,
-                                                                    (siswa)</span>
-                                                            </h5>
-                                                            <div class="h6 font-weight-300">
-                                                                <i class="ni location_pin mr-2"></i>1847313113
-                                                            </div>
-                                                            <div class="h6 mt-4">
-                                                                <i class="ni business_briefcase-24 mr-2"></i>10 Mei
-                                                                2023 - 02 Apr 2023
-                                                            </div>
-                                                            <div>
-                                                                <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
-                                                            </div>
+                                                            {{-- </div>
+            </div> --}}
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- End modal profil --}}
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
-                                                <div>
-                                                    <img src="/admin/assets/img/team-3.jpg"
-                                                        class="avatar avatar-sm me-3" alt="user2">
-                                                </div>
-                                                <a data-bs-toggle="modal" href="#profilModal">
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">
-                                                            alexa@creative-tim.com
+                                                    {{-- End modal profil --}}
+                                                    <td>
+                                                        <a href="#profilModal" style="text-decoration: none;"
+                                                            data-target="#profilModal-{{ $user->id }}"
+                                                            data-toggle="modal">
+                                                            <div class="d-flex px-2 py-1">
+                                                                <div>
+                                                                    <img src="/img/{{ $user->foto_siswa }}"
+                                                                        class="avatar avatar-sm me-3" alt="user2">
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <h6 class="mb-0 text-sm">{{ $user->name }}</h6>
+                                                                    <p class="text-xs text-secondary mb-0">
+                                                                        {{ $user->email }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">{{ $user->nisn }}
                                                         </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                        </td>
-                                        <td class="">
-                                            <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                        </td>
-                                        <td>
-                                            <span class="text-secondary text-xs font-weight-bold">SISWA</span>
-                                        </td>
-                                        <td>
-                                            <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                Apr 2023</span>
-                                        </td>
-                                        </tr>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                            {{ isset($user->sekolah->name) ? $user->sekolah->name : '' }}
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <span
+                                                            class="text-secondary text-xs font-weight-bold text-uppercase">{{ $user->role }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span
+                                                            class="text-secondary text-xs font-weight-bold">{{ Carbon::parse($user->awal_pkl)->format('d M Y') }}
+                                                            -
+                                                            {{ Carbon::parse($user->akhir_pkl)->format('d M Y') }}</span>
+                                                    </td>
+                                                    </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="6">
+                                                    <center>Tidak ada data</center>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

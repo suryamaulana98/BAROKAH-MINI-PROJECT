@@ -52,7 +52,7 @@
             </tr>
             <tr>
               <td class="aaa">Asal sekolah</td>
-              <td class="aaa"><span style="margin-right: 12px;">:</span> {{ $izin->user->sekolah->name }}</td>
+              <td class="aaa"><span style="margin-right: 12px;">:</span> {{ isset($izin->user->sekolah) ? $izin->user->sekolah->name  : "" }}</td>
             </tr>
             <tr>
               <td class="aaa">Tanggal izin</td>
@@ -214,7 +214,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
               <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-white active" aria-current="page">Riwayat izin siswa</li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a href="{{ route('admin.riwayatizin') }}" class="text-white">Riwayat izin siswa</a></li>
             </ol>
             <h6 class="font-weight-bolder text-white mb-0">Riwayat izin siswa</h6>
           </nav>
@@ -373,15 +373,15 @@
                                             <div class="col">
                                             <div class="d-flex justify-content-center">
                                                 <div class="d-grid text-center">
-                                                <span class="text-lg font-weight-bolder">22</span>
+                                                <span class="text-lg font-weight-bolder">{{ $izin->user->sakit }}</span>
                                                 <span class="text-sm opacity-8">Sakit</span>
                                                 </div>
                                                 <div class="d-grid text-center mx-4">
-                                                <span class="text-lg font-weight-bolder">10</span>
+                                                <span class="text-lg font-weight-bolder">{{ $izin->user->acara_keluarga }}</span>
                                                 <span class="text-sm opacity-8">Acara keluarga</span>
                                                 </div>
                                                 <div class="d-grid text-center">
-                                                <span class="text-lg font-weight-bolder">89</span>
+                                                <span class="text-lg font-weight-bolder">{{ $izin->user->darurat }}</span>
                                                 <span class="text-sm opacity-8">Hal darurat</span>
                                                 </div>
                                             </div>
@@ -398,7 +398,7 @@
                                             <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($izin->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($izin->user->akhir_pkl)->format('d M Y') }}
                                             </div>
                                             <div>
-                                            <i class="ni education_hat mr-2"></i>{{ $izin->user->sekolah->name }}
+                                            <i class="ni education_hat mr-2"></i>{{ isset($izin->user->sekolah) ? $izin->user->sekolah->name  : "" }}
                                             </div>
                                         </div>
                                         </div>
@@ -416,7 +416,7 @@
                             </div>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">{{ $izin->user->sekolah->name }}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ isset($izin->user->sekolah) ? $izin->user->sekolah->name  : "" }}</p>
                         </td>
                         <td>
                           <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($izin->tanggal_izin)->format('d M Y') }}</p>

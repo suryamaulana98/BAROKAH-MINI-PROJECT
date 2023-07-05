@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('awal_pkl')->nullable(true);
             $table->string('akhir_pkl')->nullable(true);
             $table->string('foto_siswa')->nullable(true);
+            $table->integer('sakit')->default(0);
+            $table->integer('acara_keluarga')->default(0);
+            $table->integer('darurat')->default(0);
             $table->timestamps();
         });
     }
