@@ -148,7 +148,7 @@
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white"
                                 href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page"><a href="{{ route('admin.dashboard') }}" class="text-white">Dashboard</a></li>
                     </ol>
                     <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
                 </nav>
@@ -349,9 +349,9 @@
                         <div class="card z-index-2 h-100">
                             <div class="card-header pb-0 pt-3 bg-transparent">
                                 <h6 class="text-capitalize">Statistik izin</h6>
-                                <p class="text-sm mb-0">
+                                {{-- <p class="text-sm mb-0">
                                     <span class="font-weight-bold">Tahun :</span> 2023
-                                </p>
+                                </p> --}}
                             </div>
                             <div class="card-body p-3">
                                 <div class="chart">
@@ -414,7 +414,151 @@
             </div>
         </div>
     </div>
-    @include('template-admin.script')
+
+  <!--   Core JS Files   -->
+  <script src="/admin/assets/js/core/popper.min.js"></script>
+  <script src="/admin/assets/js/core/bootstrap.min.js"></script>
+  <script src="/admin/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="/admin/assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="/admin/assets/js/plugins/chartjs.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    var ctx1 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke2 = ctx1.createLinearGradient(230,0,0,50);
+    var gradientStroke3 = ctx1.createLinearGradient(0,200,0,0,50);
+
+    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.1)');
+    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.05)');
+    gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+
+    gradientStroke2.addColorStop(1, 'rgba(244, 24, 22, 0.1)');
+    gradientStroke2.addColorStop(0.2, 'rgba(244, 24, 22, 0.05)');
+    gradientStroke2.addColorStop(0, 'rgba(244, 24, 22, 0)');
+
+    gradientStroke3.addColorStop(1, 'rgba(94, 114, 228, 0.1)');
+    gradientStroke3.addColorStop(0.2, 'rgba(94, 114, 228, 0.05)');
+    gradientStroke3.addColorStop(0, 'rgba(94, 114, 228, 0)');
+
+    new Chart(ctx1, {
+      type: "line",
+      data: {
+        labels: @json($dataTanggal).reverse(),
+        datasets: [{
+          label: "Acara keluarga",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#5e72e4",
+          backgroundColor: gradientStroke1,
+          borderWidth: 3,
+          fill: true,
+          data: @json($dataAcarakeluarga).reverse(),
+          maxBarThickness: 6
+
+        },
+        {
+          label: "Sakit",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#ff0000",
+          backgroundColor: gradientStroke2,
+          borderWidth: 3,
+          fill: true,
+          data: @json($dataSakit).reverse(),
+          maxBarThickness: 6
+        },
+        {
+          label: "Darurat",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#ffa500",
+          backgroundColor: gradientStroke3,
+          borderWidth: 3,
+          fill: true,
+          data: @json($dataDarurat).reverse(),
+          maxBarThickness: 6
+        }
+    ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#fbfbfb',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#ccc',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/admin/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+
 </body>
 
 </html>

@@ -11,22 +11,38 @@ use App\Models\Laporanketua;
 use App\Models\Notifikasi;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
+use App\Models\Statistik;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     function index() {
+        $statistik = Statistik::orderBy('id', 'DESC')->limit(12)->get();
+        $dataTanggal = [];
+        $dataSakit = [];
+        $dataAcarakeluarga = [];
+        $dataDarurat = [];
+        foreach ($statistik as $s) {
+            array_push($dataTanggal, $s->tanggal);
+            array_push($dataAcarakeluarga, $s->jumlah_acara_keluarga);
+            array_push($dataSakit, $s->jumlah_sakit);
+            array_push($dataDarurat, $s->jumlah_darurat);
+        }
+        // $tanggal = Carbon::parse('2023-04-03')->format('M Y');
+        // dd($dataTanggal, $dataSakit, $dataAcarakeluarga, $dataDarurat);
         $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
         $jumlahPermintaanIzin = Izin::where('status', 'menunggu')->count();
         $jumlahIzinDisetujui = Izin::where('status', 'disetujui')->count();
         $jumlahIzinDitolak = Izin::where('status', 'ditolak')->count();
         $notifikasi = Notifikasi::where('baca', null)->get();
-        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak', 'notifikasi'));
+        return view('admin.dashboard_admin', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak', 'notifikasi', 'dataTanggal', 'dataAcarakeluarga', 'dataSakit', 'dataDarurat'));
     }
     function listsiswa(Request $request) {
         $sekolah = Sekolah::all();
         $notifikasi = Notifikasi::all();
+        $izins = Izin::all();
         if ($request->has('cari')) {
             $keyword = $request->cari;
             // dd($keyword);
