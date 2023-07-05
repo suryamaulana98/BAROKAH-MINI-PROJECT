@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminsiswaController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\IzinController;
+use App\Http\Controllers\izinPembimbingController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
@@ -74,6 +75,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/pembimbing/dashboard', [PembimbingController::class, 'index'])->name('pembimbing.dashboard');
         Route::get('/pembimbing/listsiswa',[PembimbingController::class, 'listsiswa'])->name('pembimbing.listsiswa');
         Route::get('/pembimbing/izinsiswa',[PembimbingController::class, 'izinsiswa'])->name('pembimbing.izinsiswa');
+        Route::post('/izin/terima/{id}', [izinPembimbingController::class, 'terimaizin'])->name('izin.terimaPembimbing');
+        Route::post('/izin/tolak/{id}', [izinPembimbingController::class, 'tolakizin'])->name('izin.tolakPembimbing');
         Route::get('/pembimbing/laporanketua',[PembimbingController::class, 'laporanketua'])->name('pembimbing.laporanketua');
         Route::get('/pembimbing/laporanhariansiswa',[PembimbingController::class, 'laporanhariansiswa'])->name('pembimbing.laporanhariansiswa');
         Route::get('/pembimbing/laporanjurnalsiswa',[PembimbingController::class, 'laporanjurnalsiswa'])->name('pembimbing.laporanjurnalsiswa');

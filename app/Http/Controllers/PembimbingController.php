@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Izin;
 use App\Models\User;
 use App\Models\Report;
 use App\Models\Sekolah;
@@ -16,10 +17,20 @@ class PembimbingController extends Controller
 
         return view('pembimbing.dashboard_pembimbing');
     }
-    function listsiswa(){
-        $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
+    function listsiswa(Request $request){
         $sekolah = Sekolah::all();
-        return view('pembimbing.list_siswapembimbing', compact('users', 'sekolah'));
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            // dd($keyword);
+            $users = User::where([['role', 'ketua'], ['name', 'LIKE', '%'.$keyword.'%']])->orWhere([['role', 'siswa'], ['name', 'LIKE', '%'.$keyword.'%']])->get();
+            $users->append(['cari' => $keyword]);
+            // session(['cari' => $keyword]);
+            return view('pembimbing.list_siswapembimbing', compact('users', 'sekolah', 'notifikasi'));
+
+        }
+        $users = User::where('role', 'ketua')->orWhere('role', 'siswa')->get();
+        return view('pembimbing.list_siswapembimbing', compact('users', 'sekolah', 'notifikasi'));
     }
     function siswatampilkanberdasarkansekolahpembimbing($sekolah) {
         $notifikasi = Notifikasi::all();
@@ -34,8 +45,18 @@ class PembimbingController extends Controller
         // dd($sekolah);
         return view('pembimbing.list_siswapembimbing', compact('users', 'sekolah', 'notifikasi'));
     }
-    function izinsiswa(){
-        return view('pembimbing.izin_siswa');
+    function izinsiswa(Request $request){
+        $sekolah = Sekolah::all();
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $izins = Izin::whereHas('user', function ($query) use ($keyword)   {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->orderBy('status', 'DESC')->get();
+           return view('pembimbing.izin_siswa', compact('sekolah', 'izins', 'notifikasi'));
+        }
+        $izins = Izin::orderBy('status', 'DESC')->get();
+        return view('pembimbing.izin_siswa', compact('sekolah', 'izins', 'notifikasi'));
     }
     function laporanketua(){
         return view('pembimbing.laporan_ketua');
