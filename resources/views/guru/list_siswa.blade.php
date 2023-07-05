@@ -219,7 +219,7 @@
   <p style="font-size: 24px; font-weight: bold; flex-grow: 1;">List siswa</p>
   <div style="position: relative;">
     <i class="fas fa-search" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);"></i>
-    <input type="search" placeholder="Cari disini..." aria-label="Search" style="border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding: 16px; padding-left: 40px;">
+    <input type="search" placeholder="Cari disini..." aria-label="Search" style="border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding: 16px; padding-left: 40px;" >
   </div>
 </div>
                         <div class="card-body px-0 pt-0 pb-2">
@@ -239,7 +239,44 @@
                                                 MASA PKL</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    @forelse ($users as $user)
+                                    @if ($user->role == 'siswa')
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal-{{ $user->id }}" data-toggle="modal">
+                                                        <div class="d-flex px-2 py-1">
+                                                            <div>
+                                                                <img src="/img/{{ $user->foto_siswa }}" class="avatar avatar-sm me-3" alt="user2">
+                                                            </div>
+                                                            <div class="d-flex flex-column justify-content-center">
+                                                                <h6 class="mb-0 text-sm">{{ $user->name }} </h6>
+                                                                <p class="text-xs text-secondary mb-0">
+                                                                    {{ $user->email }}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $user->nisn }}</p>
+                                            </td>
+                                            <td>
+                                                <span class="badge badge-sm bg-gradient-danger" style="width: 100px;">keluar</span>
+                                            </td>
+                                            <td>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $user->awal_pkl }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $user->akhir_pkl }}</span>
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @empty
+                                    <!-- Tambahkan bagian ini jika ingin menampilkan pesan ketika tidak ada data -->
+                                    <tr>
+                                        <td colspan="4">Tidak ada siswa</td>
+                                    </tr>
+                                @endforelse
 
                                         <style>
                                             .sakit {
@@ -373,119 +410,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <tr>
-                                            <td>
-                                                        <div class="d-flex px-2 py-1">
-                                                            <div>
-                                                                <img src="/admin/assets/img/team-3.jpg"
-                                                                    class="avatar avatar-sm me-3" alt="user2">
-                                                            </div>
-                                                            <a data-bs-toggle="modal" href="#profilModal">
-                                                                <div class="d-flex flex-column justify-content-center">
-                                                                    <h6 class="mb-0 text-sm">Femas Akbar faturrohim</h6>
-                                                                    <p class="text-xs text-secondary mb-0">
-                                                                        femasakbar@gmail.com
-                                                                    </p>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">keluar</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <a data-bs-toggle="modal" href="#profilModal">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Ahmad Fauzi</h6>
-                                                            <p class="text-xs text-secondary mb-0">
-                                                               ahmadfauzi@gmail.com
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-primary"  style="width: 100px;">lulus</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <a data-bs-toggle="modal" href="#profilModal">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Surya maulana</h6>
-                                                            <p class="text-xs text-secondary mb-0">
-                                                                suryamaulana@gmail.com
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-danger"  style="width: 100px;">keluar</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <a data-bs-toggle="modal" href="#profilModal">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">Reno gunawan</h6>
-                                                            <p class="text-xs text-secondary mb-0">
-                                                                renogunawan@gmail.com
-                                                            </p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">18489179065</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-success"  style="width: 100px;">Aktif</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-secondary text-xs font-weight-bold">10 Mei 2023 - 02
-                                                    Apr 2023</span>
-                                            </td>
-                                        </tr>
+
+
                                     </tbody>
                                 </table>
                             </div>

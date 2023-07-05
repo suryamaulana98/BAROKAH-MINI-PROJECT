@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\UserDataLogin;
+use App\Models\Notifikasi;
 use App\Models\Sekolah;
 use App\Models\User;
 use Illuminate\Database\QueryException;
@@ -14,10 +15,17 @@ use Illuminate\Support\Str;
 class GuruController extends Controller
 {
     function index() {
-        return view('guru.dashboard_guru');
+        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
+        $notifikasi = Notifikasi::all();
+        return view('guru.dashboard_guru' , compact('notifikasi' , 'jumlahSiswaMagang'));
     }
-    function listsiswa() {
-        return view('guru.list_siswa');
+    function listsiswa(User $user) {
+        $guru = $user->sekolah_id;
+
+        $siswas = User::where([['sekolah_id', $guru], ['role', 'siswa']])->where([['sekolah_id', $guru], ['role', 'ketua']])->latest()->paginate(5);
+
+        $users = User::latest()->paginate(5);
+        return view('guru.list_siswa',compact('users','user','siswas'));
     }
     function laporanhariansiswa() {
         return view('guru.laporan_harian_siswa');
@@ -91,20 +99,5 @@ class GuruController extends Controller
                 return back()->with('error', 'Gagal menghapus karena data masih digunakan');
             }
         }
-    }
-    public function update(Request $request) {
-        // dd($request->all());
-        $request->validate([
-            'user_id' => 'required',
-            'sekolah_id' => 'required',
-            'name' => 'required|min:3|max:50',
-            'email' => 'required|email|min:3|max:50|unique:users,email,' . $request->user_id,
-            'asal_sekolah' => 'required|min:3|max:50',
-        ]);
-        $sekolah = Sekolah::find($request->sekolah_id);
-        $sekolah->update(['name' => $request->asal_sekolah]);
-
-        User::find($request->user_id)->update(['name' => $request->name, 'email' => $request->email]);
-        return back()->with('success', 'Berhasil mengedit guru');
     }
 }

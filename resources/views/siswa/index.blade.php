@@ -341,7 +341,8 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswaMagang" class="form-label">Nama siswa/ketua magang</label>
-                        <input class="form-control" type="text" id="namaSiswaMagang">
+                        <input class="form-control" type="text" id="" value="{{ Auth::user()->name }}"
+                        readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="asalSekolahSiswaMagang" class="form-label">Asal sekolah siswa/ketua magang</label>
@@ -349,7 +350,7 @@
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggalIzin" class="form-label">Tanggal izin</label>
-                        <input class="form-control" type="date" id="tanggalIzin">
+                        <input class="form-control" type="date" id="tanggalizin" readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="alasanIzin" class="form-label">Alasan izin</label>
@@ -372,6 +373,8 @@
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <link rel="stylesheet" type="text/css" href="path/to/sweetalert.css">
+
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                 </div>
@@ -413,7 +416,19 @@
                         <input class="form-control" type="text" id="linkdokumen" placeholder="http://...." name="link_dokumen">
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px" onclick="submitForm()">Submit</button>
+
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        function submitForm() {
+                            // Kirim form menggunakan JavaScript jika diperlukan
+                            document.querySelector('form').submit();
+
+                            // Tampilkan Sweet Alert setelah form dikirim
+                            swal("Data berhasil dikirim!", "", "success");
+                        }
+                    </script>
+
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                     </form>
@@ -466,16 +481,19 @@
                     <hr>
                     <div class="mb-3 justify-content-between">
                         <label for="namaSiswaMagang" class="form-label">Nama siswa magang</label>
-                        <input class="form-control" type="text" id="namaSiswaMagang">
+                        <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}"
+                        readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="emailSiswaMagang" class="form-label">Email siswa magang</label>
-                        <input class="form-control" type="email" id="emailSiswaMagang">
+                        <input class="form-control" type="email" id="" value="{{ Auth::user()->email }}"
+                        readonly>
                     </div>
                     <div class="mb-3 justify-content-between">
                         <label for="tanggalReport" class="form-label">Masukkan tanggal report</label>
-                        <input class="form-control" type="date" id="tanggalReport">
-                    </div>
+                        <input type="date" class="form-control" id="tanggalReport"
+                        name="tanggal_dikirim" readonly>
+
                     <div class="mb-3 justify-content-between">
                         <label for="isiPesan" class="form-label">Isi pesan</label>
                         <div class="form-floating">
@@ -483,7 +501,18 @@
                         </div>
                         <hr>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px" onclick="submitForm()">Submit</button>
+
+                    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                    <script>
+                        function submitForm() {
+                            // Kirim form menggunakan JavaScript jika diperlukan
+                            document.querySelector('form').submit();
+
+                            // Tampilkan Sweet Alert setelah form dikirim
+                            swal("Data berhasil dikirim!", "", "success");
+                        }
+                    </script>
                     <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
                         style="width: 100px">Batal</button>
                 </div>

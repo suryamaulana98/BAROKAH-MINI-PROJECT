@@ -15,8 +15,6 @@
 <body class="g-sidenav-show   bg-gray-100">
     <div class="modal fade modal-lg" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-<<<<<<< HEAD
-=======
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel" style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Laporan kegiatan</h5>
@@ -27,36 +25,8 @@
             <div class="modal-footer">
                 <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
-          </div>        
->>>>>>> cd6ef21f1be5fca97dda590e1b09354af9396da3
+          </div>
         </div>
-
-        <div class="modal-body">
-            <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">Kegiatan :
-                Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk dan
-                surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani telfon
-                masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan mengarsipkan surat
-                masuk.</p>
-        </div>
-        <div class="modal-footer">
-            <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-
-        <script>
-            document.getElementById("closeButton").addEventListener("click", function() {
-                var modal = document.querySelector(
-                    ".modal"); // Ganti ".modal" dengan selektor modal sesuai dengan kebutuhan Anda
-                var modalBackdrop = document.querySelector(
-                    ".modal-backdrop"
-                    ); // Ganti ".modal-backdrop" dengan selektor backdrop modal sesuai dengan kebutuhan Anda
-
-                // Tutup modal dan hapus backdrop modal
-                modal.style.display = "none";
-                modalBackdrop.parentNode.removeChild(modalBackdrop);
-            });
-        </script>
-
-    </div>
     </div>
 
     <script>

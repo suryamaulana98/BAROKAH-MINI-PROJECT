@@ -14,16 +14,27 @@
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
+    var gradientStroke2 = ctx1.createLinearGradient(230,0,0,50);
+    var gradientStroke3 = ctx1.createLinearGradient(0,200,0,0,50);
 
-    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
+    gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.1)');
+    gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.05)');
     gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
+
+    gradientStroke2.addColorStop(1, 'rgba(244, 24, 22, 0.1)');
+    gradientStroke2.addColorStop(0.2, 'rgba(244, 24, 22, 0.05)');
+    gradientStroke2.addColorStop(0, 'rgba(244, 24, 22, 0)');
+
+    gradientStroke3.addColorStop(1, 'rgba(94, 114, 228, 0.1)');
+    gradientStroke3.addColorStop(0.2, 'rgba(94, 114, 228, 0.05)');
+    gradientStroke3.addColorStop(0, 'rgba(94, 114, 228, 0)');
+
     new Chart(ctx1, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "Mar","Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: data: [],
         datasets: [{
-          label: "Mobile apps",
+          label: "Acara keluarga",
           tension: 0.4,
           borderWidth: 0,
           pointRadius: 0,
@@ -31,10 +42,35 @@
           backgroundColor: gradientStroke1,
           borderWidth: 3,
           fill: true,
-          data: [100, 120, 300, 50, 40, 300, 220, 500, 250, 400, 230, 500],
+          data: [],
           maxBarThickness: 6
 
-        }],
+        },
+        {
+          label: "Sakit",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#ff0000",
+          backgroundColor: gradientStroke2,
+          borderWidth: 3,
+          fill: true,
+          data: [],
+          maxBarThickness: 6
+        },
+        {
+          label: "Darurat",
+          tension: 0.4,
+          borderWidth: 0,
+          pointRadius: 0,
+          borderColor: "#ffa500",
+          backgroundColor: gradientStroke3,
+          borderWidth: 3,
+          fill: true,
+          data: [],
+          maxBarThickness: 6
+        }
+    ],
       },
       options: {
         responsive: true,
