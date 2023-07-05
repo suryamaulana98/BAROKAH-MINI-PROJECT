@@ -13,6 +13,10 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    @php
+        use Carbon\Carbon;
+        $x = 0;
+    @endphp
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -167,84 +171,60 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-bell cursor-pointer"></i>
                             </a>
+                            @if (count($notifikasi) != 0)
+                                <span class="badge badge-danger badge-counter"
+                                    style="background: red; font-size:10px; padding:3px; margin-top: -4px; margin-left: 2px;">{{ count($notifikasi) }}</span>
+                            @endif
                             <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
                                 aria-labelledby="dropdownMenuButton">
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="my-auto">
-                                                <img src="/admin/assets/img/team-2.jpg"
-                                                    class="avatar avatar-sm  me-3 ">
+                                @if (count($notifikasi) == 0)
+                                    <li class="mb-2">
+                                        <a class="dropdown-item border-radius-md" href="#">
+                                            <div class="d-flex py-1">
+                                                <div class="d-flex flex-column justify-content-center">
+                                                    <h6 class="text-sm font-weight-normal mb-1">
+                                                        <span class="font-weight-bold">Tidak ada notifikasi</span>
+                                                    </h6>
+                                                </div>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New message</span> from Laur
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    13 minutes ago
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="my-auto">
-                                                <img src="../assets/img/small-logos/logo-spotify.svg"
-                                                    class="avatar avatar-sm bg-gradient-dark  me-3 ">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">New album</span> by Travis Scott
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    1 day
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item border-radius-md" href="javascript:;">
-                                        <div class="d-flex py-1">
-                                            <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
-                                                <svg width="12px" height="12px" viewBox="0 0 43 36"
-                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                    <title>credit-card</title>
-                                                    <g stroke="none" stroke-width="1" fill="none"
-                                                        fill-rule="evenodd">
-                                                        <g transform="translate(-2169.000000, -745.000000)"
-                                                            fill="#FFFFFF" fill-rule="nonzero">
-                                                            <g transform="translate(1716.000000, 291.000000)">
-                                                                <g transform="translate(453.000000, 454.000000)">
-                                                                    <path class="color-background"
-                                                                        d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                        opacity="0.593633743"></path>
-                                                                    <path class="color-background"
-                                                                        d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                                                                    </path>
-                                                                </g>
-                                                            </g>
-                                                        </g>
-                                                    </g>
-                                                </svg>
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    Payment successfully completed
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    2 days
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
+                                @else
+                                    <style>
+                                        .aku:hover {
+                                            text-decoration: underline;
+                                        }
+                                    </style>
+                                    <li class="mb-2 text-center">
+                                        <a href="{{ route('sudahdibaca') }}">
+                                            <h6 class="text-sm font-weight-normal mb-1 aku" style="color: blue;">Sudah
+                                                dibaca</h6>
+                                        </a>
+                                    </li>
+                                    @foreach ($notifikasi as $notif)
+                                        <li class="mb-2">
+                                            <a class="dropdown-item border-radius-md"
+                                                href="{{ route('notif', ['notifikasi' => $notif->id]) }}">
+                                                <div class="d-flex py-1">
+                                                    <div class="my-auto">
+                                                        <img src="/img/{{ $notif->user->foto_siswa }}"
+                                                            class="avatar avatar-sm  me-3 ">
+                                                    </div>
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="text-sm font-weight-normal mb-1">
+                                                            <span class="font-weight-bold">{{ $notif->judul }}</span>
+                                                            dari {{ $notif->user->name }}
+                                                        </h6>
+                                                        <p class="text-xs text-secondary mb-0">
+                                                            <i class="fa fa-clock me-1"></i>
+                                                            {{ $notif->created_at }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </li>
                         <li class="nav-item px-2 pe-2 d-flex align-items-center">
@@ -302,9 +282,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Laporan izin siswa<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">Laporan izin siswa
+                            <form action="">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -54px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
@@ -312,79 +295,87 @@
                                 Pilih sekolah
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                                @foreach ($sekolah as $s)
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.izin.tampilkanberdasarkansekolah', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
+                                @endforeach
                             </div>
                         </div>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="detail" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
-                                        <i class="fas fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
-                                    </div>
-                                    <div class="modal-body">
-                                        <style>
-                                            .aaa {
-                                                font-style: normal;
-                                                font-weight: 600;
-                                                font-size: 14px;
-                                                line-height: 16px;
-                                                color: #535455;
-                                                margin-top: 12px;
-                                                margin-bottom: 12px;
-                                            }
+                        @foreach ($izins as $iz)
+                            @php
+                                $x++;
+                            @endphp
+                            <!-- Modal -->
+                            <div class="modal fade" id="detail{{ $x }}" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Detail keterangan</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close" style="background: none; border: none;">
+                                                <i class="fa-sharp fa-solid fa-rectangle-xmark"
+                                                    style="color: red;"></i>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <style>
+                                                .aaa {
+                                                    font-style: normal;
+                                                    font-weight: 600;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    color: #535455;
+                                                    margin-top: 12px;
+                                                    margin-bottom: 12px;
+                                                }
 
-                                            tr {
-                                                height: 30px;
-                                            }
-                                        </style>
-                                        <table>
-                                            <tr>
-                                                <td class="aaa" style="width: 28%;">Nama</td>
-                                                <td class="aaa"><span style="margin-right: 12px;">:</span> Femas
-                                                    akbar faturrohim</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aaa">Asal sekolah</td>
-                                                <td class="aaa"><span style="margin-right: 12px;">:</span> SMKN 1
-                                                    LUMAJANG</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aaa">Tanggal izin</td>
-                                                <td class="aaa"><span style="margin-right: 12px;">:</span> 11 Mei
-                                                    2023</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aaa">Alasan</td>
-                                                <td class="aaa badge badge-sm bg-danger" style="color: white;">SAKIT
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aaa">Pesan</td>
-                                                <td class="aaa"><span
-                                                        style="margin-right: 12px;">:</span>Assalamualaikum saya mohon
-                                                    izin
-                                                    untuk tidak masuk magang dikarenakan sakit</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="aaa">Lihat surat</td>
-                                                <td
-                                                    style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)">
-                                                    <a href="#"><span style="margin-right: 12px;">:</span>
-                                                        p.pdf</a>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                tr {
+                                                    height: 30px;
+                                                }
+                                            </style>
+                                            <table>
+                                                <tr>
+                                                    <td class="aaa" style="width: 28%;">Nama</td>
+                                                    <td class="aaa"><span style="margin-right: 12px;">:</span>
+                                                        {{ $iz->user->name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="aaa">Asal sekolah</td>
+                                                    <td class="aaa"><span style="margin-right: 12px;">:</span>
+                                                        {{ isset($iz->user->sekolah) ? $iz->user->sekolah->name : '' }}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="aaa">Tanggal izin</td>
+                                                    <td class="aaa"><span style="margin-right: 12px;">:</span>
+                                                        {{ $iz->tanggal_izin }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="aaa">Alasan</td>
+                                                    <td class="aaa badge badge-sm bg-danger" style="color: white;">
+                                                        {{ $iz->alasan }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="aaa">Pesan</td>
+                                                    <td class="aaa"><span style="margin-right: 12px;">:</span><span
+                                                            style="text-align: justify;">{{ $iz->pesan }}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="aaa">Lihat surat</td>
+                                                    <td
+                                                        style="font-size: 14px;font-style: normal;font-weight: 600; color:rgb(146, 190, 255)">
+                                                        :<a href="/surat/{{ $iz->surat }}" class="btn btn-primary"
+                                                            style="margin-right: 12px;">Lihat</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
+                        @endforeach
                         {{-- end modal --}}
 
                         <div class="card-body px-0 pt-0 pb-2">
@@ -416,139 +407,180 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
+                                        @if (count($izins) > 0)
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($izins as $iz)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <tr>
+                                                    {{-- Modal profil --}}
+                                                    <div class="modal fade" id="profilModal{{ $i }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered"
+                                                            role="document">
+                                                            {{-- <div class="modal-content">
+                                <div class="modal-body"> --}}
+                                                            <div class="card card-profile">
+                                                                <img src="/admin/assets/img/bg-profile.jpg"
+                                                                    alt="Image placeholder" class="card-img-top">
+                                                                <div class="row justify-content-center">
+                                                                    <div class="col-4 col-lg-4 order-lg-2">
+                                                                        <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                                                            <a href="javascript:;">
+                                                                                <img src="/img/{{ $iz->user->foto_siswa }}"
+                                                                                    style="width: 147px; height: 147px;"
+                                                                                    class="rounded-circle img-fluid border border-2 border-white">
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <a href="javascript:;"></a>
+                                                                        <a href="javascript:;"></a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body pt-0">
+                                                                    <div class="row">
+                                                                        <div class="col">
+                                                                            <div class="d-flex justify-content-center">
+                                                                                <div class="d-grid text-center">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">22</span>
+                                                                                    <span
+                                                                                        class="text-sm opacity-8">Sakit</span>
+                                                                                </div>
+                                                                                <div class="d-grid text-center mx-4">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">10</span>
+                                                                                    <span
+                                                                                        class="text-sm opacity-8">Acara
+                                                                                        keluarga</span>
+                                                                                </div>
+                                                                                <div class="d-grid text-center">
+                                                                                    <span
+                                                                                        class="text-lg font-weight-bolder">89</span>
+                                                                                    <span class="text-sm opacity-8">Hal
+                                                                                        darurat</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-center mt-4">
+                                                                        <h5>
+                                                                            {{ $iz->user->name }}<span
+                                                                                class="font-weight-light">,
+                                                                                ({{ $iz->user->role }})
+                                                                            </span>
+                                                                        </h5>
+                                                                        <div class="h6 font-weight-300">
+                                                                            <i
+                                                                                class="ni location_pin mr-2"></i>{{ $iz->user->nisn }}
+                                                                        </div>
+                                                                        <div class="h6 mt-4">
+                                                                            <i
+                                                                                class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($iz->user->awal_pkl)->format('d M Y') }}
+                                                                            -
+                                                                            {{ Carbon::parse($iz->user->akhir_pkl)->format('d M Y') }}
+                                                                        </div>
+                                                                        <div>
+                                                                            <i
+                                                                                class="ni education_hat mr-2"></i>{{ isset($iz->user->sekolah) ? $iz->user->sekolah->name : '' }}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {{-- </div>
+                              </div> --}}
+                                                        </div>
                                                     </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                    {{-- End modal profil --}}
+                                                    <td>
+                                                        <a href="#profilModal{{ $i }}"
+                                                            style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;"
+                                                            data-target="#profilModal{{ $i }}"
+                                                            data-toggle="modal">
+                                                            <p
+                                                                class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                                                {{ $iz->user->name }}</p>
+                                                        </a>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                            {{ isset($iz->user->sekolah->name) ? $iz->user->sekolah->name : '' }}
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-danger"
-                                                    style="width: 88px;">Sakit</span>
-                                            </td>
-                                            <td class="">
-                                                <a href="#detail" data-bs-toggle="modal">
-                                                    <span class="badge badge-sm bg-gradient-primary"><i
-                                                            class="fa-solid fa-eye"></i> detail</span>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-danger"
-                                                    style="width: 100px;">ditolak</span>
-                                            </td>
-                                            <td>
-                                                <form action="" id="terima-id" id="tolak-id" method="post"
-                                                    onsubmit="konfirmTerima(event, '1')" style="width: 8px;"
-                                                    onsubmit="konfirmTolak(event, '1')">
-                                                    @csrf
-                                                    <button type="submit" style="border:none;background:none;"><i
-                                                            class="fa-sharp fa-solid fa-circle-check text-success"></i></button>
-                                                </form>
-                                            </td>
-                                            <td>
-                                                <form action="" id="tolak-id" method="post"
-                                                    onsubmit="konfirmTolak(event, '1')">
-                                                    @csrf
-                                                    <button type="submit"
-                                                        style="border:none;background:none; margin-left: -58px"><i
-                                                            class="fa-solid fa-circle-xmark text-danger"></i></button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">
+                                                            {{ Carbon::parse($iz->tanggal_izin)->format('d M Y') }}
                                                         </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-warning"
-                                                    style="width: 88px;">Darurat</span>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-success"
-                                                    style="width: 100px;">disetujui</span>
-                                            </td>
-                                            <td>
-                                                <p class="text-l text-secondary font-weight-bold mb-0">SELESAI</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-primary"
-                                                    style="width: 88px;">keluarga</span>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-gradient-warning"
-                                                    style="width: 100px;">menunggu</span>
-                                            </td>
-                                            <td>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 10px">
-                                                    <i class="fa-sharp fa-solid fa-circle-check text-success"></i>
-                                                </a>
-                                                <a href="javascript:;" class="text-secondary font-weight-bold"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="fa-solid fa-circle-xmark text-danger"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                                    </td>
+                                                    <td class="">
+                                                        <span
+                                                            class="badge badge-sm {{ $iz->alasan == 'darurat' ? 'bg-warning ' : '' }} {{ $iz->alasan == 'sakit' ? 'bg-danger ' : '' }} {{ $iz->alasan == 'keluarga' ? 'bg-primary ' : '' }}"
+                                                            style="width: 88px;">{{ $iz->alasan }}</span>
+                                                    </td>
+                                                    <td class="">
+                                                        <button class="badge badge-sm bg-primary" data-toggle="modal"
+                                                            data-target="#detail{{ $i }}"
+                                                            style="border: none;"><i class="fa-solid fa-eye"></i>
+                                                            detail</button>
+                                                    </td>
+                                                    <td>
+                                                        <span
+                                                            class="badge badge-sm {{ $iz->status == 'menunggu' ? 'bg-warning ' : '' }} {{ $iz->status == 'ditolak' ? 'bg-danger ' : '' }} {{ $iz->status == 'disetujui' ? 'bg-success ' : '' }}"
+                                                            style="width: 100px;">{{ $iz->status }}</span>
+                                                    </td>
+                                                    @if ($iz->status == 'menunggu')
+                                                        <td>
+                                                            <form
+                                                                action="{{ route('izin.terimaPembimbing', ['id' => $iz->id]) }}"
+                                                                id="terima-{{ $i }}" method="post"
+                                                                onsubmit="konfirmTerima(event, {{ $i }})"
+                                                                style="width: 8px;">
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    style="border:none;background:none;"><i
+                                                                        class="fa-sharp fa-solid fa-circle-check text-success"
+                                                                        style="font-size: 18px;"></i></button>
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form
+                                                                action="{{ route('izin.tolakPembimbing', ['id' => $iz->id]) }}"
+                                                                id="tolak-{{ $i }}" method="post"
+                                                                onsubmit="konfirmTolak(event, {{ $i }})"
+                                                                style="">
+                                                                @csrf
+                                                                <button type="submit"
+                                                                    style="border:none;background:none;"><i
+                                                                        class="fa-solid fa-circle-xmark text-danger"
+                                                                        style="font-size: 18px;"></i></button>
+                                                            </form>
+                                                        </td>
+                                                    @else
+                                                        <td colspan="2">
+                                                            <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                                <b>SELESAI</b>
+                                                            </p>
+                                                        </td>
+                                                    @endif
+
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="8">
+                                                    <center>Tidak ada data</center>
+                                                </td>
+                                            </tr>
+                                        @endif
+
                                     </tbody>
                                 </table>
                             </div>
