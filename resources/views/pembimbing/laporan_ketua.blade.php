@@ -261,9 +261,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Laporan ketua magang<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">Laporan Ketua Magang
+                            <form action="">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -1px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
                             <br>
                         </div>
@@ -287,35 +290,60 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">1</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="/admin/assets/img/team-3.jpg"
-                                                            class="avatar avatar-sm me-3" alt="user2">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                                                        <p class="text-xs text-secondary mb-0">alexa@creative-tim.com
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i><a class="text-white"
-                                                        target="_blank"
-                                                        href="https://docs.google.com">detail</a></span>
-                                            </td>
-                                        </tr>
+                                        @if (count($laporan) > 0)
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($laporan as $user)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <tr>
+                                                    <td>
+                                                        <div class="px-3">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $i }}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#profilModal" style="text-decoration: none;"
+                                                            data-target="#profilModal-{{ $user->id }}"
+                                                            data-toggle="modal">
+                                                            <div class="d-flex px-2 py-1">
+                                                                <div>
+                                                                    <img src="/img/{{ $user->user->foto_siswa }}"
+                                                                        class="avatar avatar-sm me-3" alt="user2">
+                                                                </div>
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <h6 class="mb-0 text-sm">{{ $user->user->name }}
+                                                                    </h6>
+                                                                    <p class="text-xs text-secondary mb-0">
+                                                                        {{ $user->user->email }}
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">
+                                                            {{ $user->tanggal }}</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <span class="badge badge-sm bg-gradient-primary"><i
+                                                                class="fa-solid fa-eye"></i><a class="text-white"
+                                                                target="_blank"
+                                                                href="{{ $user->link_pekerjaan }}">Detail</a>
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="6">
+                                                    <center>Tidak ada data</center>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

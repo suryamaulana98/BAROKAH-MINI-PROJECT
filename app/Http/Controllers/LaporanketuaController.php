@@ -8,17 +8,13 @@ use Illuminate\Http\Request;
 class LaporanketuaController extends Controller
 {
     function create(Request $request) {
-        $validatedData = $request->validate([
+        $validatedData = $this->validate($request,[
             'user_id' => 'required',
             'tanggal' => 'required',
-            'link_pekerjaan' => 'required|min:5|max:50',
+            'link_pekerjaan' => 'required|min:5|max:100',
         ]);
-
-        if (Laporanketua::create($validatedData)) {
-            return back()->with('success', 'Berhasil mengirim laporan');
-        }
-        else {
-            return back()->with('error', 'Gagal mengirim laporan');
-        }
+        // dd($validatedData);
+        Laporanketua::create($validatedData);
+        return back()->with('success', 'Berhasil');
     }
 }

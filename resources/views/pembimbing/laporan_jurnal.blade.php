@@ -13,40 +13,45 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
-
+    @php
+        use Carbon\Carbon;
+        $x = 0;
+    @endphp
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
+    @foreach ($jurnal as $item)
+        @php
+            $x++;
+        @endphp
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal fade modal-lg" id="detailjurnal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"
-                        style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Detail Laporan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">
-                        Kegiatan :
-                        Kegiatan yang dilakukan praktikan selama PKL secara umum adalah membantu memproses surat masuk
-                        dan surat keluar,melakukan scanning surat masuk, memberi nomor untuk surat keluar,menangani
-                        telfon masuk,melakukan pengetikan dokumen,mencetak nota dinas,menggandakan dokumen dan
-                        mengarsipkan surat masuk.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="modal fade modal-lg" id="detailjurnal{{ $x }}" tabindex="-1"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"
+                            style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Detail Laporan
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">
+                            {!! $item->kegiatan !!}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
 
     {{-- end modals --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
@@ -338,51 +343,62 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">1</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
-                                                    Femas
-                                                    akbar faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1
-                                                    LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr
-                                                    2023</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Membuat halaman yang enak</p>
-                                            </td>
-                                            <td style="width: 8px;">
-                                                <a href="#" data-bs-toggle="modal"
-                                                    data-bs-target="#detailjurnal"
-                                                    class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user"
-                                                    style="margin-right: 4px">
-                                                    <i class="fa-solid fa-eye"
-                                                        style="color: #0d6efd; font-size:18px;"></i>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <form action="#" method="post" id="myForm-id"
-                                                    onsubmit="konfirmHapus(event, '1')">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" style="background: none; border: none;">
-                                                        <i class="fa-solid fa-trash"
-                                                            style="font-size: 0.75rem; color: #dc3545;font-size:16px;"></i>
-                                                    </button>
-                                                </form>
-                                            </td>
-                                        </tr>
-
+                                        {{-- @if (count($users) > 0) --}}
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($jurnal as $item)
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            <tr>
+                                                <td>
+                                                    <div class="px-3">
+                                                        <p class="text-xs font-weight-bold mb-0">{{ $i }}
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                                        {{ $item->user->name }}</p>
+                                                </td>
+                                                <td class="">
+                                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                        {{ isset($item->user->sekolah->name) ? $item->user->sekolah->name : '' }}
+                                                    </p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">
+                                                        {{ Carbon::parse($item->tanggal_izin)->format('d M Y') }}</p>
+                                                </td>
+                                                <td>
+                                                    <p class="text-xs font-weight-bold mb-0">{!! strlen($item->kegiatan) < 20 ? $item->kegiatan : Str::limit($item->kegiatan, 20) . '...' !!}
+                                                    </p>
+                                                </td>
+                                                <td style="width: 8px;">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#detailjurnal{{ $i }}"
+                                                        class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user"
+                                                        style="margin-right: 4px">
+                                                        <i class="fa-solid fa-eye"
+                                                            style="color: #0d6efd; font-size:18px;"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <form action="#" method="post" id="myForm-id"
+                                                        onsubmit="konfirmHapus(event, '1')">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"
+                                                            style="background: none; border: none;">
+                                                            <i class="fa-solid fa-trash"
+                                                                style="font-size: 0.75rem; color: #dc3545;font-size:16px;"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

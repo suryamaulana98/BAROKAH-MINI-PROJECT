@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Izin;
+use App\Models\Laporanjurnal;
 use App\Models\User;
 use App\Models\Report;
 use App\Models\Sekolah;
 use App\Models\Notifikasi;
+use App\Models\Laporanketua;
 use Illuminate\Http\Request;
 
 class PembimbingController extends Controller
@@ -58,14 +60,26 @@ class PembimbingController extends Controller
         $izins = Izin::orderBy('status', 'DESC')->get();
         return view('pembimbing.izin_siswa', compact('sekolah', 'izins', 'notifikasi'));
     }
-    function laporanketua(){
-        return view('pembimbing.laporan_ketua');
+    function laporanketua(Request $request){
+        $users = User::all();
+        $notifikasi = Notifikasi::all();
+        $laporan = Laporanketua::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $laporan = Laporanketua::whereHas('user', function ($query) use ($keyword)   {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+           return view('pembimbing.laporan_ketua', compact( 'laporan', 'notifikasi'));
+        }
+        return view('pembimbing.laporan_ketua', compact('laporan','users','notifikasi'));
     }
     function laporanhariansiswa(){
+        
         return view('pembimbing.laporan_harian');
     }
     function laporanjurnalsiswa(){
-        return view('pembimbing.laporan_jurnal');
+        $jurnal = Laporanjurnal::all();
+        return view('pembimbing.laporan_jurnal', compact('jurnal'));
     }
     function riwayatsiswa(){
         return view('pembimbing.riwayat_siswa');

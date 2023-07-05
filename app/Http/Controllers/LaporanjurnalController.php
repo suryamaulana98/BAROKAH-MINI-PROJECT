@@ -24,4 +24,16 @@ class LaporanjurnalController extends Controller
         })->get();
         return view('admin.jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
     }
+
+    function create(Request $request) {
+        $validatedData = $this->validate($request,[
+            'user_id' => 'required',
+            'tanggal' => 'required',
+            'kegiatan' => 'required|min:5|max:1000',
+        ]);
+        //  dd($validatedData);
+         Laporanjurnal::create($validatedData);
+         return back()->with('success', 'Berhasil');
+    }
+
 }
