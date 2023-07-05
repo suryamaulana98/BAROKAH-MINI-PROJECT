@@ -131,7 +131,7 @@
                                 <i class="fa fa-bell cursor-pointer"></i>
 
                             </a>
-                            @if (count($notifikasi) != 0)
+                             @if (count($notifikasi) != 0)
                             <span class="badge badge-danger badge-counter" style="background: red; font-size:10px; padding:3px; margin-top: -4px; margin-left: 2px;">{{ count($notifikasi) }}</span>
                             @endif
                             <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
@@ -201,7 +201,7 @@
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah siswa magang</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                          {{ $jumlahSiswaMagang }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>

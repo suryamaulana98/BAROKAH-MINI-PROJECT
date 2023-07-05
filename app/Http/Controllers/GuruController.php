@@ -15,8 +15,9 @@ use Illuminate\Support\Str;
 class GuruController extends Controller
 {
     function index() {
+        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
         $notifikasi = Notifikasi::all();
-        return view('guru.dashboard_guru' , compact('notifikasi'));
+        return view('guru.dashboard_guru' , compact('notifikasi' , 'jumlahSiswaMagang'));
     }
     function listsiswa(User $user) {
         $guru = $user->sekolah_id;
