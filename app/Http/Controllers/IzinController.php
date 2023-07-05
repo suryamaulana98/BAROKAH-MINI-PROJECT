@@ -53,24 +53,6 @@ class IzinController extends Controller
                 'surat' => $fileName,
                 'tanggal_izin' => $request->tanggal_izin,
             ];
-            $user = User::find($request->user_id);
-            if ($request->alasan == 'darurat') {
-                $user->update([
-                    'darurat' => $user->darurat += 1,
-                ]);
-            }
-            if ($request->alasan == 'sakit') {
-                $user->update([
-                    'sakit' => $user->sakit += 1,
-                ]);
-            }
-            if ($request->alasan == 'keluarga') {
-                $user->update([
-                    'acara_keluarga' => $user->acara_keluarga += 1,
-                ]);
-            }
-
-
             if (Izin::create($data)) {
                 $admins = User::where('role', 'admin')->first();
                 // dd($admins->id);
@@ -92,23 +74,6 @@ class IzinController extends Controller
             'alasan' => 'required',
             'pesan' => 'required|min:5|max:500',
         ]);
-
-        $user = User::find($request->user_id);
-        if ($request->alasan == 'darurat') {
-            $user->update([
-                'darurat' => $user->darurat += 1,
-            ]);
-        }
-        if ($request->alasan == 'sakit') {
-            $user->update([
-                'sakit' => $user->sakit += 1,
-            ]);
-        }
-        if ($request->alasan == 'keluarga') {
-            $user->update([
-                'acara_keluarga' => $user->acara_keluarga += 1,
-            ]);
-        }
         Notifikasi::create([
             'user_id' => Auth::user()->id,
             'judul' => 'Permintaan izin',
@@ -133,6 +98,25 @@ class IzinController extends Controller
         $id->update(['status' => $status]);
         $alasan = $id->alasan;
         $stat= Statistik::where('tanggal', $tanggal_statistik);
+
+        //update siswa total izinya
+        $user = User::find($id->user_id);
+        if ($id->alasan == 'darurat') {
+            $user->update([
+                'darurat' => $user->darurat += 1,
+            ]);
+        }
+        if ($id->alasan == 'sakit') {
+            $user->update([
+                'sakit' => $user->sakit += 1,
+            ]);
+        }
+        if ($id->alasan == 'keluarga') {
+            $user->update([
+                'acara_keluarga' => $user->acara_keluarga += 1,
+            ]);
+        }
+
         //keluarga
         if ($alasan == 'keluarga') {
             if ($stat->exists()) {
