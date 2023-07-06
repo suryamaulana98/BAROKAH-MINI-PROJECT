@@ -109,6 +109,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/ketua/dashboard', [KetuaController::class, 'index'])->name('ketua.dashboard');
         Route::get('/peraturan', [PeraturanController::class, 'index'])->name('ketua.peraturan.index');
         Route::get('ketua/laporanHarian', [KetuaController::class, 'lihatLaporanHarian'])->name('ketua.laporanHarian');
+        Route::get('ketua/laporanHarian/{sekolah_id}', [KetuaController::class, 'lihatLaporanHarianfiltersekolah'])->name('ketua.laporanHarian.filtersekolah');
         Route::post('/peraturan/tambahPeraturan', [PeraturanController::class, 'tambahPeraturan'])->name('ketua.peratuan.tambahPeraturan');
         Route::put('/peraturan/editPeraturan/{id}', [PeraturanController::class, 'editPeraturan'])->name('ketua.peratuan.editPeraturan');
         Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');

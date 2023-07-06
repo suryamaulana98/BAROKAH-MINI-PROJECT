@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hariansiswa;
 use App\Models\jadwal_piket;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
 use App\Models\peraturan;
+use App\Models\Sekolah;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +24,35 @@ class KetuaController extends Controller
         return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans', 'jadwal_piket','peraturan','users'));
     }
 
-    function lihatLaporanHarian() {
-        return view('ketua.laporan_harian');
+    function lihatLaporanHarian(Request $request) {
+        $sekolah = Sekolah::all();
+        $sekarang = Carbon::now()->format('Y-m-d');
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $hariansiswas = Hariansiswa::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->where('tanggal', $sekarang)->get();
+            return view('ketua.laporan_harian', compact('hariansiswas', 'sekolah'));
+        }
+        // dd($sekarang);
+        $hariansiswas = Hariansiswa::where('tanggal', $sekarang)->get();
+        return view('ketua.laporan_harian', compact('hariansiswas', 'sekolah'));
+    }
+
+    function lihatLaporanHarianfiltersekolah($sekolah_id, Request $request) {
+        $sekarang = Carbon::now()->format('Y-m-d');
+        $sekolah = Sekolah::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $hariansiswas = Hariansiswa::whereHas('user', function ($query) use ($keyword, $sekolah_id) {
+                $query->where([['sekolah_id', $sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
+            })->where('tanggal', $sekarang)->get();
+            return view('ketua.laporan_harian', compact('hariansiswas', 'sekolah'));
+        }
+        $hariansiswas = Hariansiswa::whereHas('user', function ($query) use ($sekarang, $sekolah_id) {
+            $query->where([['tanggal', $sekarang],['sekolah_id', $sekolah_id]]);
+        })->get();
+        return view('ketua.laporan_harian', compact('hariansiswas', 'sekolah'));
     }
 
     function tambahJadwalPiket(Request $request){

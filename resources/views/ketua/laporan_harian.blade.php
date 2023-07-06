@@ -541,8 +541,10 @@
                         style="font-weight: bold;font-style: normal; font-weight: 800; font-size: 24px;
                         font-weight: bold;
                     line-height: 29px; color: #57595C; margin-bottom: 24px;">
-                        Laporan harian siswa<input type="search" placeholder="Cari disini..." aria-label="Search"
-                            style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                        Laporan harian siswa
+                        <form action="">
+                            <input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -24px;" name="cari" value="{{ request('cari') }}">
+                        </form>
                     </h5>
                     <button type="button" class="btn dropdown-toggle"
                         style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
@@ -550,9 +552,9 @@
                         Pilih sekolah
                     </button>
                     <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                        <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                        <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                        <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                        @foreach ($sekolah as $s)
+                        <a class="dropdown-item" href="{{ route('ketua.laporanHarian.filtersekolah', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
+                        @endforeach
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -578,75 +580,42 @@
                                 </tr>
                             </thead>
                             <tbody style="font-size: 13px">
+                                @php
+                                    use Carbon\Carbon;
+                                    $i = 0;
+                                @endphp
+                                @foreach ($hariansiswas as $harian)
+                                @php
+                                    $i++;
+                                @endphp
                                 <tr>
                                     <td>
                                         <div class="px-3">
-                                            <p class="text-xs font-weight-bold mb-0">1</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{ $i }}</p>
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
-                                            Femas
-                                            akbar faturrohim</p>
+                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $harian->user->name }}</p>
                                     </td>
                                     <td class="">
-                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $harian->user->sekolah->name }}</p>
                                     </td>
                                     <td>
-                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($harian->created_at)->format('d M Y H:i:s') }}</p>
                                     </td>
                                     <td class="">
-                                        <a href="https://docs.google.com" target="_blank">
+                                        <a href="{{ $harian->link_dokumen }}" target="_blank">
                                             <span class="badge badge-sm bg-gradient-primary p-2"><i
                                                     class="fa-solid fa-eye"></i> detail</span>
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
+                                @if (count($hariansiswas) == 0)
                                 <tr>
-                                    <td>
-                                        <div class="px-3">
-                                            <p class="text-xs font-weight-bold mb-0">2</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
-                                            Femas
-                                            akbar faturrohim</p>
-                                    </td>
-                                    <td class="">
-                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                    </td>
-                                    <td class="">
-                                        <span class="badge badge-sm bg-gradient-primary p-2"><i
-                                                class="fa-solid fa-eye"></i> detail</span>
-                                    </td>
+                                    <td colspan="5"><center><p style="font-size: 14px;">Tidak ada data</p></center></td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="px-3">
-                                            <p class="text-xs font-weight-bold mb-0">3</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
-                                            Femas
-                                            akbar faturrohim</p>
-                                    </td>
-                                    <td class="">
-                                        <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                    </td>
-                                    <td>
-                                        <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                    </td>
-                                    <td class="">
-                                        <span class="badge badge-sm bg-gradient-primary p-2"><i
-                                                class="fa-solid fa-eye"></i> detail</span>
-                                    </td>
-                                </tr>
-
+                                @endif
                             </tbody>
                         </table>
                     </div>
