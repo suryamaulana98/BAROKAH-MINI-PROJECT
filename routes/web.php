@@ -9,6 +9,7 @@ use App\Http\Controllers\izinPembimbingController;
 use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\LaporanharianController;
 use App\Http\Controllers\LaporanjurnalController;
 use App\Http\Controllers\LaporanketuaController;
 use App\Http\Controllers\LoginController;
@@ -115,6 +116,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::post('/ketua/buatReport', [reportPembimbing::class, 'buatReport'])->name('ketua.buatReport');
         Route::post('/ketua/buatLaporanKetua', [LaporanketuaController::class, 'create'])->name('ketua.buatLaporanKetua');
         Route::post('/ketua/buatJurnal', [LaporanjurnalController::class, 'create'])->name('ketua.buatJurnal');
+        Route::post('/harian/kirim', [LaporanharianController::class, 'kirimlaporanharian'])->name('ketua.harian.kirim');
     });
     Route::post('/izin/store', [IzinController::class, 'store'])->name('izin.store');
 

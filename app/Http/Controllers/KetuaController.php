@@ -6,7 +6,9 @@ use App\Models\jadwal_piket;
 use App\Models\Kontak;
 use App\Models\Pengumuman;
 use App\Models\peraturan;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KetuaController extends Controller
 {
@@ -15,7 +17,8 @@ class KetuaController extends Controller
         $kontak = Kontak::first();
         $pengumumans = Pengumuman::all();
         $jadwal_piket = jadwal_piket::first();
-        return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans', 'jadwal_piket','peraturan'));
+        $users = User::where('role', 'siswa')->orWhere('role', 'ketua')->whereNotIn('id', [Auth::user()->id])->get();
+        return view('ketua.dashboard_ketua', compact('kontak', 'pengumumans', 'jadwal_piket','peraturan','users'));
     }
 
     function lihatLaporanHarian() {

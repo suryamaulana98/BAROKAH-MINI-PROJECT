@@ -654,25 +654,30 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="{{ route('ketua.harian.kirim') }}" method="post">
+                        @csrf
                         <h3>Laporan harian siswa</h3>
                         <hr>
+                        <input type="hidden" name="user_id[]" value="{{ Auth::user()->id }}">
                         <div class="mb-3 justify-content-between">
-                            <label for="namaSiswa" class="form-label">Nama Siswa/Tim Project</label>
-                            <input class="form-control" type="text" id="namaSiswa">
+                            <label for="namaSiswa" class="form-label">Nama Siswa</label>
+                            <input class="form-control" type="text" id="namaSiswa" value="{{ Auth::user()->name }}" readonly>
                         </div>
                         <div class="mb-3 justify-content-between">
-                            <label for="silahkanpilih" class="form-label">Silahkan pilih</label>
-                            <select class="form-select" id="silahkanpilih" aria-label="Default select example">
+                            <label for="jenis" class="form-label">Silahkan pilih</label>
+                            <select class="form-select" id="jenis" aria-label="Default select example" name="kategori">
                                 <option selected disabled>---- Pilih Salah Satu ----</option>
-                                <option value="1">Individu</option>
-                                <option value="2">Kelompok</option>
+                                <option value="individu">Individu</option>
+                                <option value="kelompok">Kelompok</option>
                             </select>
+                        </div>
+                        <div id="namakelompok"></div>
+                        <div class="mb-3 justify-content-between" id="nm"></div>
+                        <div id="namaanggota">
                         </div>
                         <div class="mb-3 justify-content-between">
                             <label for="tanggal" class="form-label">Tanggal</label>
-                            <input class="form-control" type="date" id="tanggalLaporanHarianSiswa" readonly>
-                    </form>
+                            <input class="form-control" name="tanggal" type="date" id="tanggalLaporanHarianSiswa" readonly>
                     <script>
                         // Mendapatkan elemen input tanggal
                         var inputDateLaporanHarianSiswa = document.getElementById('tanggalLaporanHarianSiswa');
@@ -690,12 +695,12 @@
                 </div>
                 <div class="mb-3 justify-content-between">
                     <label for="linkdokumen" class="form-label">Link dokumen</label>
-                    <input class="form-control" type="text" id="linkdokumen" placeholder="http://....">
+                    <input class="form-control" type="text" id="linkdokumen" placeholder="http://...." name="link_dokumen">
                 </div>
-
                 <button type="submit" class="btn btn-primary btn-sm me-2" style="width: 100px">Submit</button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close"
-                    style="width: 100px">Batal</button>
+                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close" style="width: 100px">Batal</button>
+            </form>
+
             </div>
         </div>
     </div>
@@ -1283,6 +1288,52 @@
                     ['height', ['height']]
                 ]
             });
+        });
+        $('#jenis').change(function () {
+            var selected = $(this).val();
+            if (selected == 'kelompok') {
+                // console.log('Kelompok');
+                var elemenkelompok = `<div class="mb-3 justify-content-between">
+                            <label for="namakelompok" class="form-label">Nama kelompok</label>
+                            <input class="form-control" type="text" id="namakelompok" name="nama_kelompok">
+                        </div>`;
+                var elemen = `<label for='jumlah' class='form-label'>Jumlah anggota</label>
+                            <select class="form-select" id="jumlah" aria-label="Default select example">
+                                <option disabled selected>Jumlah anggota</option>
+                                <option value='2'>2</option>
+                                <option value='3'>3</option>
+                                <option value='4'>4</option>
+                                <option value='5'>5</option>
+                                <option value='6'>6</option>
+                                <option value='7'>7</option>
+                                <option value='8'>8</option>
+                                <option value='9'>9</option>
+                            </select>`;
+                $('#nm').append(elemen)
+                $('#namakelompok').append(elemenkelompok);
+                $('#jumlah').change(function () {
+                    $('#namaanggota').empty();
+                    var selected = $(this).val();
+                    var jumlahanggota = parseInt(selected);
+                    console.log(jumlahanggota);
+                    for (let i = 0; i<jumlahanggota; i++) {
+                        let elemen = `<div class="mb-3 justify-content-between">
+                                    <label for="namaSiswa${i}" class="form-label">Nama Siswa</label>
+                                    <select class="form-select" id="namaSiswa${i}" aria-label="Default select example" name="user_id[]">
+                                        @foreach ($users as $user)
+                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    </div>`
+                        $('#namaanggota').append(elemen);
+                    }
+                })
+            }
+            else {
+                $('#namakelompok').empty();
+                $('#nm').empty();
+                $('#namaanggota').empty();
+            }
         });
     });
 </script>
