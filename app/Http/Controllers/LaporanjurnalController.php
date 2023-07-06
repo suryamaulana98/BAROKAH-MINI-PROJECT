@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Laporanjurnal;
-use App\Models\Notifikasi;
+use App\Models\User;
 use App\Models\Sekolah;
+use App\Models\Notifikasi;
 use Illuminate\Http\Request;
+use App\Models\Laporanjurnal;
 
 class LaporanjurnalController extends Controller
 {
@@ -34,6 +35,16 @@ class LaporanjurnalController extends Controller
         //  dd($validatedData);
          Laporanjurnal::create($validatedData);
          return back()->with('success', 'Berhasil');
+    }
+
+    function delete(String $id){
+        $user = Laporanjurnal::findorfail($id);
+        if ($user->delete()) {
+            return back()->with('success', 'Berhasil menghapus jurnal');
+        }
+        else {
+            return back()->with('error', 'Gagal menghapus jurnal');
+        }
     }
 
 }

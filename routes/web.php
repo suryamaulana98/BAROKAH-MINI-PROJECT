@@ -89,6 +89,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/pembimbing/report/hapus/{user}', [reportPembimbing::class, 'hapusReport'])->name('pembimbing.report.hapus');
         Route::post('/pembimbing/balasReport', [reportPembimbing::class, 'balas'])->name('pembimbing.balasReport');
         Route::get('/listsiswa/{sekolah}', [PembimbingController::class, 'siswatampilkanberdasarkansekolahpembimbing'])->name('siswa.tampilkanberdasarkansekolahpembimbing');
+        Route::get('/laporanJurnal/{sekolah}', [PembimbingController::class, 'siswatampilkanberdasarkansekolahjurnal'])->name('siswa.tampilkanberdasarkansekolahjurnal');
+        Route::delete('/pembimbing/laporanJurnal/delete/{user}', [LaporanjurnalController::class, 'delete'])->name('pembimbing.laporanJurnal.delete');
     });
 
     //guru

@@ -47,6 +47,24 @@ class PembimbingController extends Controller
         // dd($sekolah);
         return view('pembimbing.list_siswapembimbing', compact('users', 'sekolah', 'notifikasi'));
     }
+
+    function siswatampilkanberdasarkansekolahjurnal($sekolah) {
+        $notifikasi = Notifikasi::all();
+        $jurnal = Laporanjurnal::whereHas('user', function ($query) use ($sekolah) {
+            $query->where('sekolah_id', $sekolah);
+        })->get();
+        $users = User::where([
+            ['role', '=', 'siswa'],
+            ['sekolah_id', '=', $sekolah],
+        ])->orWhere([
+            ['role', '=', 'ketua'],
+            ['sekolah_id', '=', $sekolah],
+        ])->get();
+        $sekolah = Sekolah::all();
+        // dd($sekolah);
+        return view('pembimbing.laporan_jurnal', compact('users', 'jurnal', 'sekolah', 'notifikasi'));
+    }
+
     function izinsiswa(Request $request){
         $sekolah = Sekolah::all();
         $notifikasi = Notifikasi::all();
@@ -77,9 +95,19 @@ class PembimbingController extends Controller
         
         return view('pembimbing.laporan_harian');
     }
-    function laporanjurnalsiswa(){
+    function laporanjurnalsiswa(Request $request){
+        $users = User::all();   
+        $sekolah = Sekolah::all();
+        $notifikasi = Notifikasi::all();
         $jurnal = Laporanjurnal::all();
-        return view('pembimbing.laporan_jurnal', compact('jurnal'));
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $jurnal = Laporanjurnal::whereHas('user', function ($query) use ($keyword)   {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+           return view('pembimbing.laporan_jurnal', compact( 'notifikasi', 'jurnal'));
+        }
+        return view('pembimbing.laporan_jurnal', compact('jurnal','sekolah','notifikasi','users'));
     }
     function riwayatsiswa(){
         return view('pembimbing.riwayat_siswa');

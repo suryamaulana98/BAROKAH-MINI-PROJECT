@@ -17,6 +17,16 @@
         use Carbon\Carbon;
         $x = 0;
     @endphp
+    @if (session()->has('success'))
+        <script>
+            Swal.fire(
+                'Berhasil!',
+                "{{ session('success') }}",
+                'success'
+            )
+        </script>
+    @endif
+
     <!-- Modal -->
     @foreach ($jurnal as $item)
         @php
@@ -302,9 +312,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Laporan jurnal siswa<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">Laporan jurnal siswa
+                            <form action="">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -1px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
@@ -312,9 +325,10 @@
                                 Pilih sekolah
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                                @foreach ($sekolah as $s)
+                                    <a class="dropdown-item"
+                                        href="{{ route('siswa.tampilkanberdasarkansekolahjurnal', ['sekolah' => $s->id]) }}">{{ $s->name }}</a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="card-body px-0 pt-0 pb-2">
@@ -343,62 +357,96 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {{-- @if (count($users) > 0) --}}
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        @foreach ($jurnal as $item)
+                                        @if (count($users) > 0)
                                             @php
-                                                $i++;
+                                                $i = 0;
                                             @endphp
-                                            <tr>
-                                                <td>
-                                                    <div class="px-3">
-                                                        <p class="text-xs font-weight-bold mb-0">{{ $i }}
+                                            @foreach ($jurnal as $item)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <tr>
+                                                    <td>
+                                                        <div class="px-3">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $i }}
+                                                            </p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
+                                                            {{ $item->user->name }}</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                            {{ isset($item->user->sekolah->name) ? $item->user->sekolah->name : '' }}
                                                         </p>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">
-                                                        {{ $item->user->name }}</p>
-                                                </td>
-                                                <td class="">
-                                                    <p class="text-xs font-weight-bold mb-0 text-uppercase">
-                                                        {{ isset($item->user->sekolah->name) ? $item->user->sekolah->name : '' }}
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs font-weight-bold mb-0">
-                                                        {{ Carbon::parse($item->tanggal_izin)->format('d M Y') }}</p>
-                                                </td>
-                                                <td>
-                                                    <p class="text-xs font-weight-bold mb-0">{!! strlen($item->kegiatan) < 20 ? $item->kegiatan : Str::limit($item->kegiatan, 20) . '...' !!}
-                                                    </p>
-                                                </td>
-                                                <td style="width: 8px;">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                        data-bs-target="#detailjurnal{{ $i }}"
-                                                        class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user"
-                                                        style="margin-right: 4px">
-                                                        <i class="fa-solid fa-eye"
-                                                            style="color: #0d6efd; font-size:18px;"></i>
-                                                    </a>
-                                                </td>
-                                                <td>
-                                                    <form action="#" method="post" id="myForm-id"
-                                                        onsubmit="konfirmHapus(event, '1')">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit"
-                                                            style="background: none; border: none;">
-                                                            <i class="fa-solid fa-trash"
-                                                                style="font-size: 0.75rem; color: #dc3545;font-size:16px;"></i>
-                                                        </button>
-                                                    </form>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">
+                                                            {{ Carbon::parse($item->tanggal_izin)->format('d M Y') }}
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">
+                                                            {!! strlen($item->kegiatan) < 20 ? $item->kegiatan : Str::limit($item->kegiatan, 20) . '...' !!}
+                                                        </p>
+                                                    </td>
+                                                    <td style="width: 8px;">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#detailjurnal{{ $i }}"
+                                                            class="text-secondary font-weight-bold text-xs"
+                                                            data-toggle="tooltip" data-original-title="Edit user"
+                                                            style="margin-right: 4px">
+                                                            <i class="fa-solid fa-eye"
+                                                                style="color: #0d6efd; font-size:18px;"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <form
+                                                            action="{{ route('pembimbing.laporanJurnal.delete', ['user' => $item->id]) }}"
+                                                            method="post" id="myForm-{{ $i }}"
+                                                            onsubmit="konfirmHapus(event, {{ $i }})">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                style="background: none; border: none;">
+                                                                <i class="fa-solid fa-trash"
+                                                                    style="font-size: 16px; color: #dc3545;"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
+                                            <script>
+                                                function konfirmHapus(event, id) {
+                                                    event.preventDefault();
+
+                                                    Swal.fire({
+                                                        title: 'HAPUS ?',
+                                                        text: 'Anda yakin ingin menghapus siswa ini?',
+                                                        icon: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#3085d6',
+                                                        cancelButtonColor: '#d33',
+                                                        confirmButtonText: 'Ya, hapus!',
+                                                        cancelButtonText: 'Batal'
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            // Kode untuk melakukan penghapusan data di sini
+                                                            document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                                                        }
+                                                    });
+                                                }
+                                            </script>
+                                        @else
+                                            <tr>
+                                                <td colspan="6">
+                                                    <center>Tidak ada data</center>
                                                 </td>
                                             </tr>
-                                        @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
