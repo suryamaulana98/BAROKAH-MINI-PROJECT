@@ -138,7 +138,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ Auth::user()->sekolah->name }}</li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
                                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
@@ -274,17 +274,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            use Carbon\Carbon;
+                                        @endphp
+                                        @foreach ($jurnals as $jurnal)
                                         <tr>
                                             <td>
-                                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">Femas
-                                                    akbar faturrohim</p>
+                                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $jurnal->user->name }}</p>
                                             </td>
 
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($jurnal->tanggal)->format('d M Y') }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">Mengerjakan crud laravel</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $jurnal->kegiatan }}</p>
                                             </td>
                                             <td class="">
                                                 <a href="#" data-toggle="modal" data-target="#modal"
@@ -292,10 +295,13 @@
                                                     <i class="fa-solid fa-eye" style="color: blue;"></i>
                                                 </a>
                                             </td>
-
-
-
                                         </tr>
+                                        @endforeach
+                                        @if (count($jurnals) == 0)
+                                            <tr>
+                                                <td colspan="4"><center>Tidak ada data</center></td>
+                                            </tr>
+                                        @endif
                                         <br>
                                     </tbody>
                                     </tbody>

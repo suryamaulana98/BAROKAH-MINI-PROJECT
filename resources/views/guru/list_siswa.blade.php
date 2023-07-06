@@ -110,7 +110,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ Auth::user()->sekolah->name }}</li>
                         </li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
@@ -222,6 +222,9 @@
     <input type="search" placeholder="Cari disini..." aria-label="Search" style="border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding: 16px; padding-left: 40px;" >
   </div>
 </div>
+@php
+    use Carbon\Carbon;
+@endphp
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
@@ -239,20 +242,85 @@
                                                 MASA PKL</th>
                                         </tr>
                                     </thead>
-                                    @forelse ($users as $user)
-                                    @if ($user->role == 'siswa')
+                                    @forelse ($siswas as $siswa)
+                                    {{-- Modal profil --}}
+                                    <div class="modal fade" id="profilModal{{ $siswa->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="card card-profile">
+                                            <img src="/admin/assets/img/bg-profile.jpg"
+                                                alt="Image placeholder" class="card-img-top">
+                                            <div class="row justify-content-center">
+                                                <div class="col-4 col-lg-4 order-lg-2">
+                                                    <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                                        <a href="javascript:;">
+                                                            <img src="/img/{{ $siswa->foto_siswa }}" style="width: 147px; height: 147px;" class="rounded-circle img-fluid border border-2 border-white">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <a href="javascript:;"></a>
+                                                    <a href="javascript:;"></a>
+                                                </div>
+                                            </div>
+                                            <div class="card-body pt-0">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="d-flex justify-content-center">
+                                                            <div class="d-grid text-center">
+                                                                <span
+                                                                    class="text-lg font-weight-bolder">{{ $siswa->sakit }}</span>
+                                                                <span class="text-sm opacity-8">Sakit</span>
+                                                            </div>
+                                                            <div class="d-grid text-center mx-4">
+                                                                <span
+                                                                    class="text-lg font-weight-bolder">{{ $siswa->acara_keluarga }}</span>
+                                                                <span class="text-sm opacity-8">Acara
+                                                                    keluarga</span>
+                                                            </div>
+                                                            <div class="d-grid text-center">
+                                                                <span
+                                                                    class="text-lg font-weight-bolder">{{ $siswa->darurat }}</span>
+                                                                <span class="text-sm opacity-8">Hal
+                                                                    darurat</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center mt-4">
+                                                    <h5>
+                                                        {{ $siswa->name }}<span class="font-weight-light">,
+                                                            ({{ $siswa->role }})</span>
+                                                    </h5>
+                                                    <div class="h6 font-weight-300">
+                                                        <i class="ni location_pin mr-2"></i>{{ $siswa->nisn }}
+                                                    </div>
+                                                    <div class="h6 mt-4">
+                                                        <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($siswa->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($siswa->akhir_pkl)->format('d M Y') }}
+                                                    </div>
+                                                    <div>
+                                                        <i class="ni education_hat mr-2"></i>{{ $siswa->sekolah->name }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                         <tr>
                                             <td>
                                                 <div class="d-flex px-2 py-1">
-                                                    <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal-{{ $user->id }}" data-toggle="modal">
+                                                    <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal{{ $siswa->id }}" data-toggle="modal">
                                                         <div class="d-flex px-2 py-1">
                                                             <div>
-                                                                <img src="/img/{{ $user->foto_siswa }}" class="avatar avatar-sm me-3" alt="user2">
+                                                                <img src="/img/{{ $siswa->foto_siswa }}" class="avatar avatar-sm me-3" alt="user2">
                                                             </div>
                                                             <div class="d-flex flex-column justify-content-center">
-                                                                <h6 class="mb-0 text-sm">{{ $user->name }} </h6>
+                                                                <h6 class="mb-0 text-sm">{{ $siswa->name }} </h6>
                                                                 <p class="text-xs text-secondary mb-0">
-                                                                    {{ $user->email }}
+                                                                    {{ $siswa->email }}
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -260,23 +328,22 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $user->nisn }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $siswa->nisn }}</p>
                                             </td>
                                             <td>
                                                 <span class="badge badge-sm bg-gradient-danger" style="width: 100px;">keluar</span>
                                             </td>
                                             <td>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $user->awal_pkl }}</span>
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $user->akhir_pkl }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $siswa->awal_pkl }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $siswa->akhir_pkl }}</span>
                                             </td>
                                         </tr>
-                                    @endif
-                                @empty
-                                    <!-- Tambahkan bagian ini jika ingin menampilkan pesan ketika tidak ada data -->
+                                    @endforeach
+                                    @if (count($siswas) == 0)
                                     <tr>
-                                        <td colspan="4">Tidak ada siswa</td>
+                                        <td colspan="4"><center>Tidak ada siswa</center></td>
                                     </tr>
-                                @endforelse
+                                    @endif
 
                                         <style>
                                             .sakit {
@@ -339,79 +406,6 @@
                                                 }
                                             }
                                         </style>
-
-                                        {{-- Modal profil --}}
-                                        <div class="modal fade" id="profilModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                {{-- <div class="modal-content">
-            <div class="modal-body"> --}}
-                                                <div class="card card-profile">
-                                                    <img src="/admin/assets/img/bg-profile.jpg"
-                                                        alt="Image placeholder" class="card-img-top">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-4 col-lg-4 order-lg-2">
-                                                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                                                <a href="javascript:;">
-                                                                    <img src="/admin/assets/img/team-3.jpg"
-                                                                        class="rounded-circle img-fluid border border-2 border-white">
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div
-                                                        class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-                                                        <div class="d-flex justify-content-between">
-                                                            <a href="javascript:;"></a>
-                                                            <a href="javascript:;"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-body pt-0">
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <div class="d-flex justify-content-center">
-                                                                    <div class="d-grid text-center">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">22</span>
-                                                                        <span class="text-sm opacity-8">Sakit</span>
-                                                                    </div>
-                                                                    <div class="d-grid text-center mx-4">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">10</span>
-                                                                        <span class="text-sm opacity-8">Acara
-                                                                            keluarga</span>
-                                                                    </div>
-                                                                    <div class="d-grid text-center">
-                                                                        <span
-                                                                            class="text-lg font-weight-bolder">89</span>
-                                                                        <span class="text-sm opacity-8">Hal
-                                                                            darurat</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="text-center mt-4">
-                                                            <h5>
-                                                                Femas akbar faturrohim<span class="font-weight-light">,
-                                                                    (siswa)</span>
-                                                            </h5>
-                                                            <div class="h6 font-weight-300">
-                                                                <i class="ni location_pin mr-2"></i>1847313113
-                                                            </div>
-                                                            <div class="h6 mt-4">
-                                                                <i class="ni business_briefcase-24 mr-2"></i>10 Mei
-                                                                2023 - 02 Apr 2023
-                                                            </div>
-                                                            <div>
-                                                                <i class="ni education_hat mr-2"></i>SMKN 1 LUMAJANG
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                     </tbody>
                                 </table>
                             </div>

@@ -101,7 +101,7 @@
                   </div>
                 </a>
               </li>
-              <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ Auth::user()->sekolah->name }}</li>
               <li class="nav-item px-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-white p-0">
                   <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
@@ -212,67 +212,39 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @php
+                        $i = 1;
+                        use Carbon\Carbon;
+                    @endphp
+                    @foreach($hariansiswas as $hariansiswa)
+                    @php $i++; @endphp
                       <tr>
                         <td>
                             <div class="px-3">
-                                <p class="text-xs text-secondary mb-0">1
+                                <p class="text-xs text-secondary mb-0">{{ $i }}
                             </div>
                         </td>
                         <td>
                             <div class="d-flex px-2 py-1">
 
                               <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Ahmad Fauzi</h6>
+                                <h6 class="mb-0 text-sm">{{ $hariansiswa->nama }}</h6>
                               </div>
                             </div>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($hariansiswa->tanggal)->format('d M Y') }}</p>
                         </td>
                         <td class="">
                             <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
+                    @endforeach
+                    @if (count($hariansiswas) == 0)
                       <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs text-secondary mb-0">2
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Femas Akbar</h6>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
+                        <td colspan="5"><center>Tidak ada data</center></td>
                       </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs text-secondary mb-0">3
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">Reno Gunawan </h6>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
+                    @endif
                     </tbody>
                   </table>
 

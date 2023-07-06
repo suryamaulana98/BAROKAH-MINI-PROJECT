@@ -135,7 +135,7 @@
                   </div>
                 </a>
               </li>
-              <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
+              <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ Auth::user()->sekolah->name }}</li>
               <li class="nav-item px-2 d-flex align-items-center">
                 <a href="javascript:;" class="nav-link text-white p-0">
                   <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
@@ -247,63 +247,27 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($riwayats as $riwayat)
                       <tr>
                         <td>
                             <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
+                                <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ $riwayat->user->name }}</p>
                             </div>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $riwayat->user->sekolah->name }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ $riwayat->tanggal_izin }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
+                            <span class="badge badge-sm {{ ($riwayat->alasan == 'darurat') ? "bg-warning " : ""}} {{ ($riwayat->alasan == 'sakit') ? "bg-danger " : ""}} {{ ($riwayat->alasan == 'keluarga') ? "bg-primary " : ""}}" style="width: 88px;">{{ $riwayat->alasan }}</span>
                         </td>
                         <td class="">
                             <button class="badge badge-sm bg-primary" data-toggle="modal" data-target="#modal" style="border: none;"><i class="fa-solid fa-eye"></i> detail</button>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                            </div>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                            </div>
-                        </td>
-                        <td class="">
-                          <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-danger" style="width: 80px;">Sakit</span>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
+                    @endforeach
                     </tbody>
                   </table>
                 </div>
