@@ -193,53 +193,46 @@
                   </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                  <table class="table align-items-center mb-0">
-                    <thead>
-                      <tr>
-                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">#</th>
-                        <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
-                        <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">AKSI</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    @php
-                        $i = 1;
-                        use Carbon\Carbon;
-                    @endphp
-                    @foreach($hariansiswas as $hariansiswa)
-                    @php $i++; @endphp
-                      <tr>
-                        <td>
-                            <div class="px-3">
-                                <p class="text-xs text-secondary mb-0">{{ $i }}
-                            </div>
-                        </td>
-                        <td>
-                            <div class="d-flex px-2 py-1">
-
-                              <div class="d-flex flex-column justify-content-center">
-                                <h6 class="mb-0 text-sm">{{ $hariansiswa->nama }}</h6>
-                              </div>
-                            </div>
-                        </td>
-                        <td>
-                          <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($hariansiswa->tanggal)->format('d M Y') }}</p>
-                        </td>
-                        <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
-                        </td>
-                      </tr>
-                    @endforeach
-                    @if (count($hariansiswas) == 0)
-                      <tr>
-                        <td colspan="5"><center>Tidak ada data</center></td>
-                      </tr>
-                    @endif
-                    </tbody>
-                  </table>
-
-
+                    <table class="table align-items-center mb-0">
+                        <thead>
+                          <tr>
+                            <th class="text-uppercase text-secondary" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">NAMA</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">KATEGORI</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">TANGGAL</th>
+                            <th class="text-uppercase text-secondary font-weight-bolder ps-2" style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">DETAIL</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        @php
+                            use Carbon\Carbon;
+                        @endphp
+                        @foreach ($hariansiswas as $hariansiswa)
+                          <tr>
+                            <td>
+                                <a href="#" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#" data-toggle="modal">
+                                    <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $hariansiswa->user->name }}</p>
+                                </a>
+                            </td>
+                            <td class="">
+                              <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ ($hariansiswa->kategori == 'kelompok') ? $hariansiswa->nama_kelompok : "" }}">{{ $hariansiswa->kategori }}</p>
+                            </td>
+                            <td>
+                              <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ Carbon::parse($hariansiswa->tanggal)->format('d M Y') }}</p>
+                            </td>
+                            <td class="">
+                                <span style="cursor: pointer;" class="badge badge-sm bg-gradient-primary" onclick="buka('{{ $hariansiswa->link_dokumen }}')"><i class="fa-solid fa-eye"></i> detail</span>
+                            </td>
+                          </tr>
+                        @endforeach
+                        @if (count($hariansiswas) == 0)
+                            <tr>
+                                <td colspan="4">
+                                    <center><p class="text-xs font-weight-bold mb-0 text-uppercase">Tidak ada data</p></center>
+                                </td>
+                            </tr>
+                        @endif
+                        </tbody>
+                      </table>
                 </div>
               </div>
             </div>
@@ -247,5 +240,10 @@
         </div>
     @include('template-admin.footer')
   @include('template-admin.script')
+  <script>
+    function buka(url) {
+        window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>

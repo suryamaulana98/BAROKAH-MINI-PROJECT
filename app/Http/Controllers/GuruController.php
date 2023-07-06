@@ -45,10 +45,14 @@ class GuruController extends Controller
     function laporanhariansiswa(Request $request) {
         if($request->has('cari')) {
             $keyword = $request->cari;
-            $hariansiswas = Hariansiswa::where('nama', 'LIKE', '%'.$keyword.'%')->get();
+            $hariansiswas = Hariansiswa::whereHas('user', function ($query) use ($keyword) {
+                $query->where([['sekolah_id', Auth::user()->sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
+            })->get();
             return view('guru.laporan_harian_siswa', compact('hariansiswas'));
         }
-        $hariansiswas = Hariansiswa::all();
+        $hariansiswas = Hariansiswa::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->get();
         return view('guru.laporan_harian_siswa', compact('hariansiswas'));
     }
     function riwayatizin(Request $request) {

@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('hariansiswas', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nama');
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
             $table->string('kategori');
             $table->string('tanggal');
+            $table->string('nama_kelompok')->nullable(true);
             $table->string('link_dokumen');
             $table->timestamps();
         });
