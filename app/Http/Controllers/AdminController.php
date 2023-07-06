@@ -108,10 +108,12 @@ class AdminController extends Controller
         $notifikasi = Notifikasi::all();
         if ($request->has('cari')) {
             $keyword = $request->cari;
-            $hariansiswas = Hariansiswa::where('nama', 'LIKE', '%'.$keyword.'%')->get();
+            $hariansiswas = Hariansiswa::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->latest()->get();
             return view('admin.laporan_harian_siswa', compact('hariansiswas', 'notifikasi'));
         }
-        $hariansiswas = Hariansiswa::all();
+        $hariansiswas = Hariansiswa::latest()->get();
         return view('admin.laporan_harian_siswa', compact('hariansiswas', 'notifikasi'));
     }
     function feedback(Request $request) {

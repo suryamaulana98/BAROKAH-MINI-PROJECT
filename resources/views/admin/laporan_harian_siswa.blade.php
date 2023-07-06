@@ -257,21 +257,24 @@
                       </tr>
                     </thead>
                     <tbody>
+                    @php
+                        use Carbon\Carbon;
+                    @endphp
                     @foreach ($hariansiswas as $hariansiswa)
                       <tr>
                         <td>
                             <a href="#" style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;" data-target="#" data-toggle="modal">
-                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $hariansiswa->nama }}</p>
+                                <p class="text-xs text-uppercase font-weight-bold mb-0 px-3">{{ $hariansiswa->user->name }}</p>
                             </a>
                         </td>
                         <td class="">
-                          <p class="text-xs font-weight-bold mb-0">{{ $hariansiswa->kategori }}</p>
+                          <p class="text-xs font-weight-bold mb-0 text-uppercase" title="{{ ($hariansiswa->kategori == 'kelompok') ? $hariansiswa->nama_kelompok : "" }}">{{ $hariansiswa->kategori }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{ $hariansiswa->tanggal }}</p>
+                          <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ Carbon::parse($hariansiswa->tanggal)->format('d M Y') }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <span style="cursor: pointer;" class="badge badge-sm bg-gradient-primary" onclick="buka('{{ $hariansiswa->link_dokumen }}')"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
                     @endforeach
@@ -338,5 +341,10 @@
         </div>
     @include('template-admin.footer')
   @include('template-admin.script')
+  <script>
+    function buka(url) {
+        window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
