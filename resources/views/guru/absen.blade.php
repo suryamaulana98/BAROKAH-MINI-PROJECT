@@ -22,14 +22,6 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('guru.dashboard') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link " href="{{ route('guru.listsiswa') }}">
                         <div

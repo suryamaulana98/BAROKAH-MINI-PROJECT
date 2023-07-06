@@ -35,6 +35,9 @@
           </div>
         </div>
     </div>
+    @php
+        use Carbon\Carbon;
+    @endphp
     <script>
         document.getElementById("closeButton").addEventListener("click", function() {
             var modal = document.getElementById("modal");
@@ -56,14 +59,6 @@
         <hr class="horizontal dark mt-0">
         <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
             <ul class="navbar-nav">
-                <a class="nav-link" href="{{ route('guru.dashboard') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('guru.listsiswa') }}">
                         <div
@@ -229,10 +224,9 @@
             <div class="card mb-4">
                 <div class="card-header pb-0" style="display: flex; align-items: center;">
                     <p style="font-size: 24px; font-weight: bold; flex-grow: 1;">Riwayat izin siswa</p>
-                    <div style="position: relative;">
-                      <i class="fas fa-search" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%);"></i>
-                      <input type="search" placeholder="Cari disini..." aria-label="Search" style="border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding: 16px; padding-left: 40px;">
-                    </div>
+                    <form action="">
+                        <input type="search" placeholder="Cari disini..." aria-label="Search" style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;" name="cari" value="{{ request('cari') }}">
+                    </form>
                   </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
@@ -258,7 +252,7 @@
                           <p class="text-xs font-weight-bold mb-0">{{ $riwayat->user->sekolah->name }}</p>
                         </td>
                         <td>
-                          <p class="text-xs font-weight-bold mb-0">{{ $riwayat->tanggal_izin }}</p>
+                          <p class="text-xs font-weight-bold mb-0">{{ Carbon::parse($riwayat->tanggal_izin)->format('d M Y') }}</p>
                         </td>
                         <td class="">
                             <span class="badge badge-sm {{ ($riwayat->alasan == 'darurat') ? "bg-warning " : ""}} {{ ($riwayat->alasan == 'sakit') ? "bg-danger " : ""}} {{ ($riwayat->alasan == 'keluarga') ? "bg-primary " : ""}}" style="width: 88px;">{{ $riwayat->alasan }}</span>
@@ -268,6 +262,13 @@
                         </td>
                       </tr>
                     @endforeach
+                    @if (count($riwayats) == 0)
+                        <tr>
+                            <td colspan="5">
+                                <center>Tidak ada data</center>
+                            </td>
+                        </tr>
+                    @endif
                     </tbody>
                   </table>
                 </div>

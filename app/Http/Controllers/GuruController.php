@@ -32,16 +32,33 @@ class GuruController extends Controller
         })->where('status', 'ditolak')->count();
         return view('guru.dashboard_guru' , compact('jumlahSiswaMagang','jumlahPermintaanIzin', 'jumlahDisetujui', 'jumlahDitolak'));
     }
-    function listsiswa() {
+    function listsiswa(Request $request) {
         // $guru = $user->sekolah_id;
-        $siswas = User::where([['sekolah_id', Auth::user()->sekolah_id], ['role', 'siswa']])->orWhere([['sekolah_id', Auth::user()->sekolah_id], ['role', 'ketua']])->latest()->paginate(5);
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $siswas = User::where([['name', 'LIKE', '%'.$keyword.'%'],['sekolah_id', Auth::user()->sekolah_id], ['role', 'siswa']])->orWhere([['name', 'LIKE', '%'.$keyword.'%'],['sekolah_id', Auth::user()->sekolah_id], ['role', 'ketua']])->latest()->get();
+            return view('guru.list_siswa', compact('siswas'));
+        }
+        $siswas = User::where([['sekolah_id', Auth::user()->sekolah_id], ['role', 'siswa']])->orWhere([['sekolah_id', Auth::user()->sekolah_id], ['role', 'ketua']])->latest()->get();
         return view('guru.list_siswa',compact('siswas'));
     }
-    function laporanhariansiswa() {
+    function laporanhariansiswa(Request $request) {
+        if($request->has('cari')) {
+            $keyword = $request->cari;
+            $hariansiswas = Hariansiswa::where('nama', 'LIKE', '%'.$keyword.'%')->get();
+            return view('guru.laporan_harian_siswa', compact('hariansiswas'));
+        }
         $hariansiswas = Hariansiswa::all();
         return view('guru.laporan_harian_siswa', compact('hariansiswas'));
     }
-    function riwayatizin() {
+    function riwayatizin(Request $request) {
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $riwayats = Izin::whereHas('user', function ($query) use ($keyword) {
+                $query->where([['sekolah_id', Auth::user()->sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
+            })->where('status', 'disetujui')->get();
+            return view('guru.riwayat_izin', compact('riwayats'));
+        }
         $riwayats = Izin::whereHas('user', function ($query) {
             $query->where('sekolah_id', Auth::user()->sekolah_id);
         })->where('status', 'disetujui')->get();
