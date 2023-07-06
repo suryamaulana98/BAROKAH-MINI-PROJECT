@@ -10,6 +10,7 @@ use App\Http\Controllers\JurnalController;
 use App\Http\Controllers\KetuaController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LaporanjurnalController;
+use App\Http\Controllers\LaporanketuaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotifikasiController;
 use App\Http\Controllers\PembimbingController;
@@ -110,6 +111,8 @@ Route::middleware('checkLogin')->group(function () {
         Route::delete('/delete-peratuan/{id}', [PeraturanController::class, 'hapusPeraturan'])->name('ketua.peraturan.hapusPeratuan');
         Route::post('/ketua/tambahJadwalPiket', [KetuaController::class, 'tambahJadwalPiket'])->name('ketua.tambahJadwalPiket');
         Route::post('/ketua/buatReport', [reportPembimbing::class, 'buatReport'])->name('ketua.buatReport');
+        Route::post('/ketua/buatLaporanKetua', [LaporanketuaController::class, 'create'])->name('ketua.buatLaporanKetua');
+        Route::post('/ketua/buatJurnal', [LaporanjurnalController::class, 'create'])->name('ketua.buatJurnal');
     });
     Route::post('/izin/store', [IzinController::class, 'store'])->name('izin.store');
 

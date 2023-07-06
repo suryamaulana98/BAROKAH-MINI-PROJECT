@@ -473,7 +473,7 @@
                                                                     <div class="text-center mt-4">
                                                                         <h5>
                                                                             {{ $user->name }}<span
-                                                                                class="font-weight-light">,
+                                                                                class="font-weight-light">
                                                                                 ({{ $user->role }})
                                                                             </span>
                                                                         </h5>
