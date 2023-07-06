@@ -29,7 +29,7 @@ class LoginController extends Controller
             } else if (Auth::user()->role == 'siswa') {
                 return redirect()->route('siswa.dashboard');
             } else if (Auth::user()->role == 'guru') {
-                return redirect()->route('guru.dashboard');
+                return redirect()->route('guru.listsiswa');
             }
             return back()->with('error', 'Role tidak ditemukan');
         }

@@ -35,13 +35,6 @@
                         <i><img src="/admin/assets/img/icons/sidebar/business-report 1.png" alt="" /></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
-                    <script>
-                        Swal.fire(
-                            'Berhasil masuk!',
-                            "{{ session('success') }}",
-                            'success'
-                        )
-                    </script>
                 </a>
                 </li>
                 <li class="nav-item">
@@ -119,68 +112,11 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">SMKN 1 KRAKSAAN</li>
+                        <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ Auth::user()->sekolah->name }}</li>
                         <li class="nav-item px-2 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-white p-0">
                                 <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                             </a>
-                        </li>
-                        <li class="nav-item dropdown px-2 pe-2 d-flex align-items-center">
-                            <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-bell cursor-pointer"></i>
-
-                            </a>
-                             @if (count($notifikasi) != 0)
-                            <span class="badge badge-danger badge-counter" style="background: red; font-size:10px; padding:3px; margin-top: -4px; margin-left: 2px;">{{ count($notifikasi) }}</span>
-                            @endif
-                            <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
-                                aria-labelledby="dropdownMenuButton">
-                                @if (count($notifikasi) == 0)
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="#">
-                                        <div class="d-flex py-1">
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">Tidak ada notifikasi</span>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                @else
-                                <style>
-                                    .aku:hover {
-                                        text-decoration: underline;
-                                    }
-                                </style><li class="mb-2 text-center">
-                                    <a href="{{ route('sudahdibaca') }}"><h6 class="text-sm font-weight-normal mb-1 aku" style="color: blue;">Sudah dibaca</h6></a>
-                                </li>
-                                @foreach ($notifikasi as $notif)
-
-                                <li class="mb-2">
-                                    <a class="dropdown-item border-radius-md" href="{{ route('notif', ['notifikasi' => $notif->id]) }}">
-                                        <div class="d-flex py-1">
-                                            <div class="my-auto">
-                                                <img src="/img/{{ $notif->user->foto_siswa }}"
-                                                    class="avatar avatar-sm  me-3 ">
-                                            </div>
-                                            <div class="d-flex flex-column justify-content-center">
-                                                <h6 class="text-sm font-weight-normal mb-1">
-                                                    <span class="font-weight-bold">{{ $notif->judul }}</span> dari {{ $notif->user->name }}
-                                                </h6>
-                                                <p class="text-xs text-secondary mb-0">
-                                                    <i class="fa fa-clock me-1"></i>
-                                                    {{ $notif->created_at }}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                @endforeach
-                                @endif
-
-                            </ul>
                         </li>
                         <li class="nav-item px-2 pe-2 d-flex align-items-center">
                             <a class="nav-link text-white p-0" href="javascript:logout()"><i
@@ -228,7 +164,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah permintaan izin
                                         </p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahPermintaanIzin }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -256,7 +192,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah izin yang
                                             disetujui</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahDisetujui }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -283,7 +219,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah izin yang
                                             ditolak</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahDitolak }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -306,9 +242,6 @@
                         <div class="card z-index-2 h-100">
                             <div class="card-header pb-0 pt-3 bg-transparent">
                                 <h6 class="text-capitalize">Statistik izin</h6>
-                                <p class="text-sm mb-0">
-                                    <span class="font-weight-bold">Tahun :</span> 2023
-                                </p>
                             </div>
                             <div class="card-body p-3">
                                 <div class="chart">

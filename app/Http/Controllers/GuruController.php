@@ -3,11 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Mail\UserDataLogin;
+use App\Models\Hariansiswa;
+use App\Models\Izin;
+use App\Models\Laporanjurnal;
 use App\Models\Notifikasi;
+use App\Models\pengumpulan_jurnal;
 use App\Models\Sekolah;
 use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -15,32 +20,58 @@ use Illuminate\Support\Str;
 class GuruController extends Controller
 {
     function index() {
-        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
-        $notifikasi = Notifikasi::all();
-        return view('guru.dashboard_guru' , compact('notifikasi' , 'jumlahSiswaMagang'));
+        $jumlahSiswaMagang = User::where([['role', 'ketua'], ['sekolah_id', Auth::user()->sekolah_id]])->orWhere([['role', 'siswa'], ['sekolah_id', Auth::user()->sekolah_id]])->count();
+        $jumlahPermintaanIzin = Izin::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->where('status', 'menunggu')->count();
+        $jumlahDisetujui = Izin::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->where('status', 'disetujui')->count();
+        $jumlahDitolak = Izin::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->where('status', 'ditolak')->count();
+        return view('guru.dashboard_guru' , compact('jumlahSiswaMagang','jumlahPermintaanIzin', 'jumlahDisetujui', 'jumlahDitolak'));
     }
-    function listsiswa(User $user) {
-        $guru = $user->sekolah_id;
-
-        $siswas = User::where([['sekolah_id', $guru], ['role', 'siswa']])->where([['sekolah_id', $guru], ['role', 'ketua']])->latest()->paginate(5);
-
-        $users = User::latest()->paginate(5);
-        return view('guru.list_siswa',compact('users','user','siswas'));
+    function listsiswa(Request $request) {
+        // $guru = $user->sekolah_id;
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $siswas = User::where([['name', 'LIKE', '%'.$keyword.'%'],['sekolah_id', Auth::user()->sekolah_id], ['role', 'siswa']])->orWhere([['name', 'LIKE', '%'.$keyword.'%'],['sekolah_id', Auth::user()->sekolah_id], ['role', 'ketua']])->latest()->get();
+            return view('guru.list_siswa', compact('siswas'));
+        }
+        $siswas = User::where([['sekolah_id', Auth::user()->sekolah_id], ['role', 'siswa']])->orWhere([['sekolah_id', Auth::user()->sekolah_id], ['role', 'ketua']])->latest()->get();
+        return view('guru.list_siswa',compact('siswas'));
     }
-    function laporanhariansiswa() {
-        return view('guru.laporan_harian_siswa');
+    function laporanhariansiswa(Request $request) {
+        if($request->has('cari')) {
+            $keyword = $request->cari;
+            $hariansiswas = Hariansiswa::where('nama', 'LIKE', '%'.$keyword.'%')->get();
+            return view('guru.laporan_harian_siswa', compact('hariansiswas'));
+        }
+        $hariansiswas = Hariansiswa::all();
+        return view('guru.laporan_harian_siswa', compact('hariansiswas'));
     }
-    function laporanjurnalsiswa() {
-        return view('guru.laporan_jurnal_siswa');
-    }
-    function riwayatizin() {
-        return view('guru.riwayat_izin');
+    function riwayatizin(Request $request) {
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $riwayats = Izin::whereHas('user', function ($query) use ($keyword) {
+                $query->where([['sekolah_id', Auth::user()->sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
+            })->where('status', 'disetujui')->get();
+            return view('guru.riwayat_izin', compact('riwayats'));
+        }
+        $riwayats = Izin::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->where('status', 'disetujui')->get();
+        return view('guru.riwayat_izin', compact('riwayats'));
     }
     function absen() {
         return view('guru.absen');
     }
     function jurnal() {
-        return view('guru.jurnal');
+        $jurnals = Laporanjurnal::whereHas('user', function ($query) {
+            $query->where('sekolah_id', Auth::user()->sekolah_id);
+        })->get();
+        return view('guru.jurnal', compact('jurnals'));
     }
     function create(Request $request) {
         // dd($request->all());
@@ -77,6 +108,24 @@ class GuruController extends Controller
         else {
             return back()->with('error', 'Gagal membuat guru');
         }
+    }
+    function update(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'asal_sekolah' => 'required',
+        ]);
+        $sekolah_id = $request->sekolah_id;
+        $user_id = $request->user_id;
+
+        User::find($user_id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+        Sekolah::find($sekolah_id)->update([
+            'name' => $request->asal_sekolah,
+        ]);
+        return back()->with('success', 'Berhasil mengedit guru');
     }
     function delete(Request $request) {
         // dd($request->all());
