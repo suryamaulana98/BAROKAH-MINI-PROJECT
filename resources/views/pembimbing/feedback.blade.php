@@ -13,40 +13,26 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    @if (session()->has('success'))
+        <script>
+            Swal.fire(
+                'Berhasil!',
+                "{{ session('success') }}",
+                'success'
+            )
+        </script>
+    @endif
+    @if (session()->has('error'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error') }}",
+            })
+        </script>
+    @endif
     {{-- modal --}}
-    <div class="modal modal-lg fade" id="balasFeedback" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"><b>Feedback</b></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label" style="font-size:14px;">Nama</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="a" class="form-label" style="font-size:14px;">Pesan</label>
-                            <textarea class="form-control" id="a" rows="4"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="a" class="form-label" style="font-size:14px;">Balas feedback</label>
-                            <textarea class="form-control" id="a" rows="4"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <button type="button" class="btn btn-primary">Balas</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     {{-- end modal --}}
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
@@ -296,9 +282,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Feedback<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">Feedback
+                            <form action="">
+                                <input type="search" placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -54px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
 
                         </div>
@@ -325,74 +314,123 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">1</p>
+                                        @if (count($feedbacks) > 0)
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($feedbacks as $f)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <div class="modal modal-lg fade"
+                                                    id="balasFeedback{{ $f->id }}" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                                    <b>Feedback</b>
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="{{ route('feedback.balas') }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    <input type="hidden" name="feedback_id"
+                                                                        value="{{ $f->id }}">
+                                                                    <div class="mb-3">
+                                                                        <label for="exampleInputEmail1"
+                                                                            class="form-label"
+                                                                            style="font-size:14px;">Nama</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleInputEmail1"
+                                                                            aria-describedby="emailHelp"
+                                                                            value="{{ $f->user->name }}" readonly>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="a" class="form-label"
+                                                                            style="font-size:14px;">Pesan</label>
+                                                                        <textarea class="form-control" id="a" rows="4" readonly>{{ $f->pesan }}</textarea>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="a" class="form-label"
+                                                                            style="font-size:14px;">Balas
+                                                                            feedback</label>
+                                                                        <textarea class="form-control" id="a" rows="4" name="balas"></textarea>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Batal</button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary">Balas</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <a href="#balasFeedback" data-bs-toggle="modal">
-                                                    <i class="fa-solid fa-eye text-primary"
-                                                        style="margin-right: 4px;"></i>
-                                                </a>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">2</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <i class="fa-solid fa-eye text-primary"
-                                                    style="margin-right: 4px;"></i>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">3</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">Femas akbar
-                                                    faturrohim</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">12 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <i class="fa-solid fa-eye text-primary"
-                                                    style="margin-right: 4px;"></i>
-                                                <i class="fa-solid fa-trash text-danger"></i>
-                                            </td>
-                                        </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="px-3">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $i }}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#profilModal"
+                                                            style="text-decoration: none; color: #57595C; font-weight: 700; line-height: 15px;"
+                                                            data-target="#profilModal" data-toggle="modal">
+                                                            <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                                {{ $f->user->name }}</p>
+                                                        </a>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0">{{ $f->user->email }}
+                                                        </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                            {{ $f->created_at }}</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#balasFeedback{{ $f->id }}">
+
+                                                            <i class="fa-solid fa-eye text-primary"
+                                                                style="margin-right: 4px;"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        <form
+                                                            action="{{ route('feedback.hapus', ['feedback' => $f->id]) }}"
+                                                            method="post" id="myForm-{{ $i }}"
+                                                            onsubmit="konfirmHapus(event, {{ $i }})">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                style="background: none; border: none; margin-left: -50px;">
+                                                                <i class="fa-solid fa-trash"
+                                                                    style="font-size: 16px; color: #dc3545;"></i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="5">
+                                                    <center>
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">Tidak
+                                                            ada data</p>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -400,6 +438,29 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                function konfirmHapus(event, id) {
+                    event.preventDefault();
+
+                    Swal.fire({
+                        title: 'HAPUS ?',
+                        text: 'Anda yakin ingin menghapus ini?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Ya, hapus!',
+                        cancelButtonText: 'Batal'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Kode untuk melakukan penghapusan data di sini
+                            document.getElementById("myForm-" + id).submit(); // Melanjutkan submit form setelah konfirmasi
+                        }
+                    });
+                }
+            </script>
+
             @include('template-admin.footer')
             @include('template-admin.script')
 </body>

@@ -3,21 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Izin;
-use App\Models\Laporanjurnal;
 use App\Models\User;
 use App\Models\Report;
 use App\Models\Sekolah;
+use App\Models\Feedback;
+use App\Models\Statistik;
 use App\Models\Notifikasi;
 use App\Models\Laporanketua;
 use Illuminate\Http\Request;
+use App\Models\Laporanjurnal;
 
 class PembimbingController extends Controller
 {
     function index() {
-
-
-
-        return view('pembimbing.dashboard_pembimbing');
+        $statistik = Statistik::orderBy('id', 'DESC')->limit(12)->get();
+        $dataTanggal = [];
+        $dataSakit = [];
+        $dataAcarakeluarga = [];
+        $dataDarurat = [];
+        foreach ($statistik as $s) {
+            array_push($dataTanggal, $s->tanggal);
+            array_push($dataAcarakeluarga, $s->jumlah_acara_keluarga);
+            array_push($dataSakit, $s->jumlah_sakit);
+            array_push($dataDarurat, $s->jumlah_darurat);
+        }
+        // $tanggal = Carbon::parse('2023-04-03')->format('M Y');
+        // dd($dataTanggal, $dataSakit, $dataAcarakeluarga, $dataDarurat);
+        $jumlahSiswaMagang = User::where('role', 'ketua')->orWhere('role', 'siswa')->count();
+        $jumlahPermintaanIzin = Izin::where('status', 'menunggu')->count();
+        $jumlahIzinDisetujui = Izin::where('status', 'disetujui')->count();
+        $jumlahIzinDitolak = Izin::where('status', 'ditolak')->count();
+        $notifikasi = Notifikasi::where('baca', null)->get();
+        return view('pembimbing.dashboard_pembimbing', compact('jumlahSiswaMagang', 'jumlahPermintaanIzin', 'jumlahIzinDisetujui', 'jumlahIzinDitolak', 'notifikasi', 'dataTanggal', 'dataAcarakeluarga', 'dataSakit', 'dataDarurat'));
     }
     function listsiswa(Request $request){
         $sekolah = Sekolah::all();
@@ -105,19 +122,49 @@ class PembimbingController extends Controller
             $jurnal = Laporanjurnal::whereHas('user', function ($query) use ($keyword)   {
                 $query->where('name', 'LIKE', '%'.$keyword.'%');
             })->get();
-           return view('pembimbing.laporan_jurnal', compact( 'notifikasi', 'jurnal'));
+           return view('pembimbing.laporan_jurnal', compact('jurnal','sekolah','notifikasi','users'));
         }
         return view('pembimbing.laporan_jurnal', compact('jurnal','sekolah','notifikasi','users'));
     }
-    function riwayatsiswa(){
-        return view('pembimbing.riwayat_siswa');
+    function riwayatsiswa(Request $request){
+        $sekolah = Sekolah::all();
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $izins = Izin::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'. $keyword .'%');
+            })->where('status', 'disetujui')->get();
+           return view('pembimbing.riwayat_siswa', compact('izins', 'notifikasi', 'sekolah'));
+        }
+        $izins = Izin::where('status', 'disetujui')->paginate(5);
+        return view('pembimbing.riwayat_siswa', compact('izins', 'notifikasi', 'sekolah')); return view('pembimbing.riwayat_siswa');
     }
-    function feedback(){
-        return view('pembimbing.feedback');
+
+    function feedback(Request $request){
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $feedbacks = Feedback::whereHas('user', function ($query) use ($keyword) {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+            return view('pembimbing.feedback', compact('feedbacks', 'notifikasi'));
+        }
+        $feedbacks = Feedback::paginate(8);
+        return view('pembimbing.feedback', compact('feedbacks', 'notifikasi'));
     }
-    function report(){
+    function report(Request $request){
         $report = Report::all();
-        return view('pembimbing.report', compact('report'));
+        $users = User::all();   
+        $sekolah = Sekolah::all();
+        $notifikasi = Notifikasi::all();
+        if ($request->has('cari')) {
+            $keyword = $request->cari;
+            $report = Report::whereHas('user', function ($query) use ($keyword)   {
+                $query->where('name', 'LIKE', '%'.$keyword.'%');
+            })->get();
+           return view('pembimbing.report', compact('report','sekolah','notifikasi','users'));
+        }
+        return view('pembimbing.report', compact('report','sekolah','notifikasi','users'));
     }
   
     function pengumpulanjurnal(){

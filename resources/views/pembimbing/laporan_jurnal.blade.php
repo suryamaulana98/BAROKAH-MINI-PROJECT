@@ -357,7 +357,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (count($users) > 0)
+                                        @if (count($jurnal) > 0)
                                             @php
                                                 $i = 0;
                                             @endphp

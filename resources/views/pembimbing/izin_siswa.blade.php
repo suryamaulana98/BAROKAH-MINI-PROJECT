@@ -297,7 +297,7 @@
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
                                 @foreach ($sekolah as $s)
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.izin.tampilkanberdasarkansekolah', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
+                                        href="{{ route('izin.tampilkanberdasarkansekolahpembimbing', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
                                 @endforeach
                             </div>
                         </div>

@@ -19,6 +19,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\PeraturanController;
 use App\Http\Controllers\reportPembimbing;
 use App\Http\Controllers\RiwayatizinController;
+use App\Http\Controllers\RiwayatizinpembimbingController;
 use App\Http\Controllers\SiswaController;
 use App\Models\Laporanjurnal;
 use Illuminate\Support\Facades\Route;
@@ -78,10 +79,11 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/pembimbing/izinsiswa',[PembimbingController::class, 'izinsiswa'])->name('pembimbing.izinsiswa');
         Route::post('/izin/terima/{id}', [izinPembimbingController::class, 'terimaizin'])->name('izin.terimaPembimbing');
         Route::post('/izin/tolak/{id}', [izinPembimbingController::class, 'tolakizin'])->name('izin.tolakPembimbing');
+        Route::get('/izin/{sekolah_id}', [izinPembimbingController::class, 'tampilkanberdasarkansekolah'])->name('izin.tampilkanberdasarkansekolahpembimbing');
         Route::get('/pembimbing/laporanketua',[PembimbingController::class, 'laporanketua'])->name('pembimbing.laporanketua');
         Route::get('/pembimbing/laporanhariansiswa',[PembimbingController::class, 'laporanhariansiswa'])->name('pembimbing.laporanhariansiswa');
         Route::get('/pembimbing/laporanjurnalsiswa',[PembimbingController::class, 'laporanjurnalsiswa'])->name('pembimbing.laporanjurnalsiswa');
-        Route::get('/pembimbing/riwayatsiswa',[PembimbingController::class, 'riwayatsiswa'])->name('pembimbing.riwayatsiswa');
+        Route::get('/pembimbing/riwayatsiswa',[RiwayatizinpembimbingController::class, 'index'])->name('pembimbing.riwayatsiswa');
         Route::get('/pembimbing/feedback',[PembimbingController::class, 'feedback'])->name('pembimbing.feedback');
         Route::get('/pembimbing/report',[PembimbingController::class, 'report'])->name('pembimbing.report');
         Route::get('/pembimbing/pengumpulanjurnal',[PembimbingController::class, 'pengumpulanjurnal'])->name('pembimbing.pengumpulanjurnal');
@@ -91,6 +93,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/listsiswa/{sekolah}', [PembimbingController::class, 'siswatampilkanberdasarkansekolahpembimbing'])->name('siswa.tampilkanberdasarkansekolahpembimbing');
         Route::get('/laporanJurnal/{sekolah}', [PembimbingController::class, 'siswatampilkanberdasarkansekolahjurnal'])->name('siswa.tampilkanberdasarkansekolahjurnal');
         Route::delete('/pembimbing/laporanJurnal/delete/{user}', [LaporanjurnalController::class, 'delete'])->name('pembimbing.laporanJurnal.delete');
+        Route::get('/riwayatizin/{sekolah_id}', [RiwayatizinpembimbingController::class, 'filtersekolah'])->name('riwayat.filtersekolahpembimbing');
     });
 
     //guru

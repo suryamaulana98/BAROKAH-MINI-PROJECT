@@ -13,6 +13,9 @@
 </head>
 
 <body class="g-sidenav-show   bg-gray-100">
+    @php
+        use Carbon\Carbon;
+    @endphp
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside
         class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
@@ -332,9 +335,12 @@
                 <div class="col-12">
                     <div class="card mb-4">
                         <div class="card-header pb-0">
-                            <p style="font-size: 24px; font-weight: bold;">Riwayat izin siswa<input type="search"
-                                    placeholder="Cari disini..." aria-label="Search"
-                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px;">
+                            <p style="font-size: 24px; font-weight: bold;">Riwayat izin siswa
+                            <form action="">
+                                <input type="search" autofocus placeholder="Cari disini..." aria-label="Search"
+                                    style="float: right; border: 1px solid #b8b8b8; border-radius: 10px; font-size: 14px; max-width: 240px; height: 46px;box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); padding:16px; margin-top: -54px;"
+                                    name="cari" value="{{ request('cari') }}">
+                            </form>
                             </p>
                             <div class="row g-2">
                                 <div class="col-auto">
@@ -344,9 +350,10 @@
                                         Pilih sekolah
                                     </button>
                                     <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                        <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                        <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                        <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                                        @foreach ($sekolah as $s)
+                                            <a class="dropdown-item"
+                                                href="{{ route('riwayat.filtersekolahpembimbing', ['sekolah_id' => $s->id]) }}">{{ $s->name }}</a>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -378,86 +385,66 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">1</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-danger"
-                                                    style="width: 80px;">Sakit</span>
-                                            </td>
-                                            <td class="">
-                                                <a href="#detail" data-bs-toggle="modal">
-                                                    <span class="badge badge-sm bg-gradient-primary"><i
-                                                            class="fa-solid fa-eye"></i> detail</span>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">2</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-danger"
-                                                    style="width: 80px;">Sakit</span>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">3</p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="px-3">
-                                                    <p class="text-xs font-weight-bold mb-0">FEMAS AKBAR FATURROHIM</p>
-                                                </div>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">SMKN 1 LUMAJANG</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">02 Apr 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-danger"
-                                                    style="width: 80px;">Sakit</span>
-                                            </td>
-                                            <td class="">
-                                                <span class="badge badge-sm bg-gradient-primary"><i
-                                                        class="fa-solid fa-eye"></i> detail</span>
-                                            </td>
-                                        </tr>
+                                        @if (count($izins) > 0)
+                                            @php
+                                                $i = 0;
+                                            @endphp
+                                            @foreach ($izins as $izin)
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <tr>
+                                                    <td>
+                                                        <div class="px-3">
+                                                            <p class="text-xs font-weight-bold mb-0">
+                                                                {{ $i }}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="px-3">
+                                                            <a href="#profilModal{{ $i }}"
+                                                                style="text-decoration: none;"
+                                                                data-target="#profilModal{{ $i }}"
+                                                                data-toggle="modal">
+                                                                <p
+                                                                    class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                                    {{ $izin->user->name }}</p>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="">
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">
+                                                            {{ isset($izin->user->sekolah) ? $izin->user->sekolah->name : '' }}
+                                                        </p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="text-xs font-weight-bold mb-0">
+                                                            {{ Carbon::parse($izin->tanggal_izin)->format('d M Y') }}
+                                                        </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <span
+                                                            class="badge badge-sm {{ $izin->alasan == 'darurat' ? 'bg-warning ' : '' }} {{ $izin->alasan == 'sakit' ? 'bg-danger ' : '' }} {{ $izin->alasan == 'keluarga' ? 'bg-primary ' : '' }}"
+                                                            style="width: 88px;">{{ $izin->alasan }}</span>
+                                                    </td>
+                                                    <td class="">
+                                                        <button class="badge badge-sm bg-primary" data-toggle="modal"
+                                                            data-target="#detail{{ $i }}"
+                                                            style="border: none;"><i class="fa-solid fa-eye"></i>
+                                                            detail</button>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <td colspan="6">
+                                                    <center>
+                                                        <p class="text-xs font-weight-bold mb-0 text-uppercase">Tidak
+                                                            ada data</p>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>

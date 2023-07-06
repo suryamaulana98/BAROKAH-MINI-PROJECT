@@ -18,12 +18,12 @@ class LaporanjurnalController extends Controller
             $laporanjurnals = Laporanjurnal::whereHas('user', function ($query) use ($keyword, $sekolah_id) {
                 $query->where([['sekolah_id', $sekolah_id], ['name', 'LIKE', '%'.$keyword.'%']]);
             })->get();
-            return view('admin.jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
+            return view('pembimbing.laporan_jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
         }
         $laporanjurnals = Laporanjurnal::whereHas('user', function ($query) use ($sekolah_id) {
             $query->where('sekolah_id', $sekolah_id);
         })->get();
-        return view('admin.jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
+        return view('pembimbing.laporan_jurnal', compact('laporanjurnals', 'sekolah', 'notifikasi'));
     }
 
     function create(Request $request) {

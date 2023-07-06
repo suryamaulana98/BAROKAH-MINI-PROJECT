@@ -265,7 +265,7 @@
                                     <div class="numbers">
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah siswa magang</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahSiswaMagang }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -292,7 +292,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah permintaan izin
                                         </p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahPermintaanIzin }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -320,7 +320,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah izin yang
                                             disetujui</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahIzinDisetujui }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
@@ -347,7 +347,7 @@
                                         <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah izin yang
                                             ditolak</p>
                                         <h5 class="font-weight-bolder">
-                                            60 Siswa
+                                            {{ $jumlahIzinDitolak }} Siswa
                                         </h5>
                                         <p class="mb-0">
                                             <span class="text-success text-sm font-weight-bolder"></span>
