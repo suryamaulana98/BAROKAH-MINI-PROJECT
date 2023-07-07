@@ -15,6 +15,7 @@ class LaporanketuaController extends Controller
         ]);
         // dd($validatedData);
         Laporanketua::create($validatedData);
-        return back()->with('success', 'Berhasil');
+        // return back()->with('success', 'Berhasil');
+        return "success";
     }
 }

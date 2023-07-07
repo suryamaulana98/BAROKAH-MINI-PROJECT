@@ -11,6 +11,7 @@ use App\Models\Laporanketua;
 use App\Models\Notifikasi;
 use App\Models\Pengumuman;
 use App\Models\Sekolah;
+use App\Models\Siswa;
 use App\Models\Statistik;
 use App\Models\User;
 use Carbon\Carbon;
@@ -145,7 +146,9 @@ class AdminController extends Controller
     }
     function absen() {
         $notifikasi = Notifikasi::all();
-        return view('admin.absen', compact('notifikasi'));
+        $sekolah = Sekolah::all();
+        $siswas = User::where('role', 'ketua')->orWhere('role', 'ketua')->get();
+        return view('admin.absen', compact('notifikasi', 'sekolah', 'siswas'));
     }
     function jurnal(Request $request) {
         $sekolah = Sekolah::all();

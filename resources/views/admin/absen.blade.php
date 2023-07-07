@@ -249,9 +249,9 @@
                                 Pilih sekolah
                             </button>
                             <div class="dropdown-menu" style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">
-                                <a class="dropdown-item" href="#">SMKN 1 LUMAJANG</a>
-                                <a class="dropdown-item" href="#">SMKN 1 KEPANJEN</a>
-                                <a class="dropdown-item" href="#">SMKN 1 JEMBER</a>
+                                @foreach ($sekolah as $s)
+                                <a class="dropdown-item" href="">{{ $s->name }}</a>
+                                @endforeach
                             </div>
                             <button type="button" class="btn dropdown-toggle"
                                 style="box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);" data-toggle="dropdown"
@@ -274,17 +274,23 @@
                                                 NAMA</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                Tanggal</th>
+                                                sekolah</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                jam absen</th>
+                                                masuk</th>
                                             <th class="text-uppercase text-secondary font-weight-bolder ps-2"
                                                 style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
-                                                status</th>
+                                                istirahat</th>
+                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                                kembali</th>
+                                            <th class="text-uppercase text-secondary font-weight-bolder ps-2"
+                                                style="font-style: normal; font-weight: 700; font-size: 14px; line-height: 17px;">
+                                                pulang</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        @foreach ($siswas as $siswa)
                                             <div class="modal fade" id="profilModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                                 {{-- <div class="modal-content">
@@ -346,63 +352,20 @@
                                                 </div>
                                             </div>
                                             {{-- End modal profil --}}
+                                        <tr>
                                             <td>
                                                 <a href="#profilModal" style="text-decoration: none;" data-target="#profilModal" data-toggle="modal">
-                                                    <p class="text-xs font-weight-bold mb-0 px-3 text-uppercase">Femas akbar faturrohim</p>
+                                                    <p class="text-xs font-weight-bold mb-0 px-3 text-uppercase">{{ $siswa->name }}</p>
                                                 </a>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
+                                                <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ $siswa->sekolah->name }}</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-danger" style="width: 80px;">alpha</span>
+                                                <span class="badge badge-sm bg-success" style="width: auto;">Belum hadir</span>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-warning" style="width: 80px;">telat</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-success" style="width: 80px;">Masuk</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0 px-3">Femas akbar faturrohim</p>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">20 Mei 2023</p>
-                                            </td>
-                                            <td class="">
-                                                <p class="text-xs font-weight-bold mb-0">8:12:02</p>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-sm bg-primary" style="width: 80px;">izin</span>
-                                            </td>
-                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
