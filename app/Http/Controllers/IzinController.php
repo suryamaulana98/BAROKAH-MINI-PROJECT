@@ -56,7 +56,7 @@ class IzinController extends Controller
             if (Izin::create($data)) {
                 $admins = User::where('role', 'admin')->first();
                 // dd($admins->id);
-                User::find($admins->id)->notify(new IzinNotification(Auth::user()));
+                // User::find($admins->id)->notify(new IzinNotification(Auth::user()));
                 Notifikasi::create([
                     'user_id' => Auth::user()->id,
                     'judul' => 'Permintaan izin',
