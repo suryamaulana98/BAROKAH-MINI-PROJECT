@@ -16,8 +16,8 @@ class DetailAttendance extends Model
 
     protected $fillable = ['photo', 'attendance_id', 'status'];
 
-    public function user()
+    public function attendance()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Attendance::class);
     }
 }

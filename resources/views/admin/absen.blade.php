@@ -362,8 +362,11 @@
                                                 <p class="text-xs font-weight-bold mb-0 text-uppercase">{{ $siswa->sekolah->name }}</p>
                                             </td>
                                             <td>
-                                                <span class="badge badge-sm bg-success" style="width: auto;">Belum hadir</span>
+                                                <span class="badge badge-sm bg-danger" style="width: auto;">Belum hadir</span>
                                             </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

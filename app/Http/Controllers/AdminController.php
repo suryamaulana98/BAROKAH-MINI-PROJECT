@@ -147,7 +147,7 @@ class AdminController extends Controller
     function absen() {
         $notifikasi = Notifikasi::all();
         $sekolah = Sekolah::all();
-        $siswas = User::where('role', 'ketua')->orWhere('role', 'ketua')->get();
+        $siswas = User::where('role', 'siswa')->orWhere('role', 'ketua')->get();
         return view('admin.absen', compact('notifikasi', 'sekolah', 'siswas'));
     }
     function jurnal(Request $request) {

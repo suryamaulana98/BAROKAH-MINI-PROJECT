@@ -329,7 +329,7 @@
                           <p class="text-xs font-weight-bold mb-0">{{ $laporanketua->tanggal }}</p>
                         </td>
                         <td class="">
-                            <span class="badge badge-sm bg-gradient-primary"><i class="fa-solid fa-eye"></i> detail</span>
+                            <span class="badge badge-sm bg-gradient-primary" onclick="buka('{{ $laporanketua->link_pekerjaan }}')"><i class="fa-solid fa-eye"></i> detail</span>
                         </td>
                       </tr>
                       @endforeach
@@ -394,5 +394,10 @@
         </div>
     @include('template-admin.footer')
   @include('template-admin.script')
+  <script>
+    function buka(url) {
+        window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
