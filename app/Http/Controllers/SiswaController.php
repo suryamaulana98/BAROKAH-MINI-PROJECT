@@ -2,27 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\UserDataLogin;
-use App\Models\Kontak;
-use App\Models\Pengumuman;
-use App\Models\Sekolah;
-use App\Models\Siswa;
 use App\Models\User;
-use App\Notifications\DataUser;
-use Illuminate\Auth\Events\Validated;
+use App\Models\Siswa;
+use App\Models\Kontak;
+use App\Models\Sekolah;
+use App\Models\peraturan;
+use App\Models\Pengumuman;
+use App\Mail\UserDataLogin;
+use Illuminate\Support\Str;
+use App\Models\jadwal_piket;
 use Illuminate\Http\Request;
+use App\Notifications\DataUser;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class SiswaController extends Controller
 {
     function index() {
+        $peraturan = peraturan::all();
         $kontak = Kontak::first();
+        $jadwal_piket = jadwal_piket::first();
         $pengumumans = Pengumuman::all();
-        return view('siswa.index', compact('kontak', 'pengumumans'));
+        $users = User::where('role', 'siswa')->orWhere('role', 'ketua')->whereNotIn('id', [Auth::user()->id])->get();
+        return view('siswa.index', compact('kontak', 'pengumumans', 'peraturan', 'jadwal_piket', 'users'));
     }
     function create(Request $request) {
         $request->validate([

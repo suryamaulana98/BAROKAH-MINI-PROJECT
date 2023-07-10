@@ -138,6 +138,8 @@ Route::middleware('checkLogin')->group(function () {
     //siswa
     Route::middleware('role:siswa')->prefix('/siswa')->name('siswa.')->group(function () {
         Route::get('/dashboard', [SiswaController::class, 'index'])->name('dashboard');
+        Route::post('/harian/kirim', [LaporanharianController::class, 'kirimlaporanharian'])->name('harian.kirim');
+        Route::post('/siswa/buatReport', [reportPembimbing::class, 'buatReport'])->name('buatReport');
     });
 
 });
