@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('pengumpulan_jurnals', function (Blueprint $table) {
             $table->id();
+            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
+            $table->enum('status', ['sudah', 'belum']);
             $table->timestamps();
         });
     }

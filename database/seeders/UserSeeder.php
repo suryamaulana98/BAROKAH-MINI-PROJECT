@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Sekolah;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,19 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $sekolah = Sekolah::create([
+            'name' => 'SMKN 1 LUMAJANG',
+        ]);
+        $id = $sekolah->id;
+        User::create([
+            'name' => 'guru',
+            'email' => 'guru@guru.com',
+            'password' => Hash::make('guru'),
+            'role' => 'guru',
+            'sekolah_id' => $id,
+        ]);
+
         User::create([
             'name' => 'admin',
             'email' => 'admin@admin.com',
@@ -31,6 +45,7 @@ class UserSeeder extends Seeder
             'name' => 'ketua',
             'email' => 'ketua@ketua.com',
             'password' => Hash::make('ketua'),
+            'sekolah_id' => $id,
             'role' => 'ketua',
             'nisn' => '12345678931',
             'awal_pkl' => '2023-02-02',
@@ -40,6 +55,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'siswa',
             'email' => 'siswa@siswa.com',
+            'sekolah_id' => $id,
             'password' => Hash::make('siswa'),
             'role' => 'siswa',
             'nisn' => '12235678901',

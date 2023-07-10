@@ -217,13 +217,8 @@
                         <label for="" class="form-label">Tanggal izin</label>
                         <input class="form-control" type="date" id="tanggalIzinSiswa" readonly>
                         <script>
-                            // Mendapatkan elemen input tanggal
                             var inputDateIzinSiswa = document.getElementById('tanggalIzinSiswa');
-
-                            // Mendapatkan tanggal sekarang
                             var currentDate = new Date();
-
-                            // Mengubah nilai atribut "value" pada elemen input tanggal menjadi tanggal sekarang
                             var year = currentDate.getFullYear();
                             var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
                             var day = ('0' + currentDate.getDate()).slice(-2);
@@ -573,24 +568,35 @@
                     </thead>
 
                     <tbody>
+                        <form action="{{ route('ketua.pengumpulan.store') }}" method="POST">
+                        @csrf
+                        @php
+                            $i = 0;
+                        @endphp
+                        @foreach ($siswas as $siswa)
+                        @php
+                            $i++;
+                        @endphp
+                        <input type="hidden" name="siswa[]" value="{{ $siswa->name }}">
                         <tr>
                             <td>
-                                <p style="font-size: 14px;">1</p>
+                                <p style="font-size: 14px;">{{ $i }}</p>
                             </td>
                             <td class="">
-                                <p style="font-size: 14px;" id="nama1">Surya Maulana Akhmad</p>
+                                <p style="font-size: 14px;" id="nama1">{{ $siswa->name }}</p>
                             </td>
                             <td>
                                 <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
+                                    {{ $siswa->sekolah->name }}</p>
                             </td>
                             <td>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="checkbox1">
+                                    <input class="form-check-input" type="checkbox" value="{{ $siswa->id }}"
+                                        id="checkbox1" name="cekbox[]">
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                         <script>
                             $('#checkbox1').on('change', function () {
                                 console.log('Checked');
@@ -602,98 +608,10 @@
                                 }
                             })
                         </script>
-                        <tr>
-                            <td>
-                                <p style="font-size: 14px;">2</p>
-                            </td>
-                            <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="checkbox">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="font-size: 14px;">3</p>
-                            </td>
-                            <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="font-size: 14px;">4</p>
-                            </td>
-                            <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="font-size: 14px;">5</p>
-                            </td>
-                            <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="font-size: 14px;">6</p>
-                            </td>
-                            <td class="">
-                                <p style="font-size: 14px;">Surya Maulana Akhmad</p>
-                            </td>
-                            <td>
-                                <p style="font-size: 14px;">
-                                    SMKN 1 LUMAJANG</p>
-                            </td>
-                            <td>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault">
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
+                <button type="submit" class="btn btn-primary" style="width: 100px;">Submit</button>
+                </form>
             </div>
         </div>
     </section>

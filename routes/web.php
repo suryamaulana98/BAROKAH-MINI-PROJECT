@@ -132,6 +132,7 @@ Route::middleware('checkLogin')->group(function () {
 
     // Pengumpulan jurnal
     Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');
+    Route::post('/ketua/pengumpulanJurnal', [pengumpulanController::class,'store'])->name('ketua.pengumpulan.store');
 
     //siswa
     Route::middleware('role:siswa')->prefix('/siswa')->name('siswa.')->group(function () {
