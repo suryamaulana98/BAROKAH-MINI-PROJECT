@@ -717,7 +717,7 @@
                     <hr>
                     <form action="{{ route('ketua.buatLaporanKetua') }}" method="post">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_id_ketua">
                         <div class="mb-3 justify-content-between">
                             <label for="" class="form-label">Nama Ketua Magang</label>
                             <input class="form-control" type="text" id=""
@@ -744,11 +744,11 @@
                         </div>
                         <div class="mb-3 justify-content-between">
                             <label for="" class="form-label">Masukkan link pekerjaan</label>
-                            <input class="form-control" name="link_pekerjaan" type="" id=""
+                            <input class="form-control" name="link_pekerjaan" type="" id="linkpekerjaanketua"
                                 placeholder="http://....">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm me-2"
-                            style="width: 100px">Submit</button>
+                        <button type="button" class="btn btn-primary btn-sm me-2"
+                            style="width: 100px" id="submitlaporanketua">Submit</button>
                         <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"
                             aria-label="Close" style="width: 100px">Batal</button>
                     </form>
@@ -768,7 +768,7 @@
                     <hr>
                     <form action="{{ route('ketua.buatReport') }}" method="post">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_id_pembimbing">
                         <div class="mb-3 justify-content-between">
                             <label for="" class="form-label">Nama Siswa Magang</label>
                             <input class="form-control" type="text" id=""
@@ -802,11 +802,11 @@
                         <div class="mb-3 justify-content-between">
                             <label for="" class="form-label">Isi Pesan</label>
                             <div class="form-floating">
-                                <textarea name="pesan" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                    style="height: 100px"></textarea>
+                                <textarea name="pesan" class="form-control" placeholder="Leave a comment here"
+                                    style="height: 100px" id="pesan_pembimbing"></textarea>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                        <button type="button" id="submitreportpembimbing" class="btn btn-primary btn-sm me-2"
                             style="width: 100px">Submit</button>
                         <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"
                             aria-label="Close" style="width: 100px">Batal</button>
@@ -827,7 +827,7 @@
                     <hr>
                     <form action="{{ route('ketua.buatJurnal') }}" method="post">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" id="user_id_jurnal">
                         <div class="mb-3 justify-content-between">
                             <label for="namaSiswa" class="form-label">Nama Siswa</label>
                             <input class="form-control" type="text" id="namaSiswa"
@@ -835,11 +835,11 @@
                         </div>
                         <div class="mb-3 justify-content-between">
                             <label for="tanggal" class="form-label">Tanggal</label>
-                            <input class="form-control" type="date" name="tanggal" id="tanggalJurnalSiswa"
+                            <input class="form-control" type="date" name="tanggal" id="tanggal_jurnal"
                                 readonly>
                             <script>
                                 // Mendapatkan elemen input tanggal
-                                var tanggalJurnalSiswa = document.getElementById('tanggalJurnalSiswa');
+                                var tanggalJurnalSiswa = document.getElementById('tanggal_jurnal');
 
                                 // Mendapatkan tanggal sekarang
                                 var currentDate = new Date();
@@ -855,7 +855,7 @@
                         <div class="mb-3 justify-content-between">
                             <label for="kegiatan" class="form-label">Kegiatan</label>
                             <div class="form-floating">
-                                <textarea class="form-control" name="kegiatan" placeholder="Leave a comment here" id="kegiatan"
+                                <textarea class="form-control" name="kegiatan" placeholder="Leave a comment here" id="kegiatan_jurnal"
                                     style="height: 100px"></textarea>
                             </div>
                             <script>
@@ -874,7 +874,7 @@
                                 });
                             </script>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm me-2"
+                        <button type="button" class="btn btn-primary btn-sm me-2" id="submitjurnalsiswa"
                             style="width: 100px">Submit</button>
                         <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal"
                             aria-label="Close" style="width: 100px">Batal</button>
@@ -1277,7 +1277,11 @@
 <!-- Initialize SummerNote -->
 <script>
     $(document).ready(function() {
-        $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
             $('#deskripsi_piket').summernote({
                 height: 200,
                 toolbar: [
@@ -1288,7 +1292,7 @@
                     ['height', ['height']]
                 ]
             });
-        });
+
         $('#jenis').change(function () {
             var selected = $(this).val();
             if (selected == 'kelompok') {
@@ -1335,6 +1339,108 @@
                 $('#namaanggota').empty();
             }
         });
+
+        $('#submitreportpembimbing').click(function () {
+            let user_id = $('#user_id_pembimbing').val();
+            let tanggal = $('#tanggalLaporanPembimbing').val();
+            let pesan = $('#pesan_pembimbing').val();
+            console.log(user_id)
+            console.log(tanggal)
+            console.log(pesan)
+            $.ajax({
+                url: "{{ route('ketua.buatReport') }}",
+                type: 'POST',
+                data: {
+                    user_id: user_id,
+                    tanggal: tanggal,
+                    pesan: pesan,
+                },
+                success: function (response) {
+                    if (response == 'success') {
+                        Swal.fire(
+                            'Berhasil!',
+                            "Berhasil membuat laporan",
+                            'success'
+                        );
+                        $('#pesan_pembimbing').val('');
+                        $('#exampleModalpembimbing').modal('hide');
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: "Gagal membuat laporan",
+                        })
+                    }
+                }
+            })
+        })
+
+        $('#submitlaporanketua').click(function () {
+            let user_id_ketua = $('#user_id_ketua').val();
+            let tanggalLaporanKetuaMagang = $('#tanggalLaporanKetuaMagang').val();
+            let linkpekerjaanketua = $('#linkpekerjaanketua').val();
+            $.ajax({
+                url: '{{ route('ketua.buatLaporanKetua')}}',
+                type: 'POST',
+                data: {
+                    user_id: user_id_ketua,
+                    tanggal: tanggalLaporanKetuaMagang,
+                    link_pekerjaan: linkpekerjaanketua,
+                },
+                success: function (response) {
+                    if (response == 'success') {
+                        Swal.fire(
+                            'Berhasil!',
+                            "Berhasil membuat laporan",
+                            'success'
+                        )
+                        $('#linkpekerjaanketua').val('');
+                        $('#exampleModalketuamagang').modal('hide');
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: "Gagal membuat laporan",
+                        })
+                    }
+                }
+            })
+        })
+        $('#submitjurnalsiswa').click(function () {
+            let user_id = $('#user_id_jurnal').val();
+            let tanggal = $('#tanggal_jurnal').val();
+            let kegiatan = $('#kegiatan_jurnal').val();
+            console.log(user_id)
+            console.log(tanggal)
+            console.log(kegiatan)
+            $.ajax({
+                url: "{{ route('ketua.buatJurnal') }}",
+                type: 'POST',
+                data: {
+                    user_id: user_id,
+                    tanggal: tanggal,
+                    kegiatan: kegiatan
+                },
+                success: function (response) {
+                    if (response == 'success') {
+                        Swal.fire(
+                            'Berhasil!',
+                            "Berhasil membuat laporan jurnal",
+                            'success'
+                        )
+                        $('#kegiatan_jurnal').val('');
+                        $('#exampleModaljurnal').modal('hide');
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: "Gagal membuat laporan jurnal",
+                        });
+                    }
+                }
+            })
+        })
     });
 </script>
 @include('template-siswa.footer')

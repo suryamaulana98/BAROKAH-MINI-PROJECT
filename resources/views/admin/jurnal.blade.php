@@ -11,6 +11,44 @@
     @include('template-admin.head')
 </head>
 <body class="g-sidenav-show   bg-gray-100">
+    @php
+        use Carbon\Carbon;
+        $x = 0;
+    @endphp
+    @foreach ($laporanjurnals as $item)
+    @php
+        $x++;
+    @endphp
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-lg" id="detailjurnal{{ $x }}" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"
+                        style="color: #2F2F2F;font-weight: 700;font-size: 20px;line-height:40px;">Detail Laporan
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-weight: 400;font-size:16px;line-height:25px;text-align:justify;color:#33333;">
+                        {!! $item->kegiatan !!}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
     <div class="min-height-300 bg-primary position-absolute w-100"></div>
     <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
         <div class="sidenav-header">
@@ -285,7 +323,7 @@
                       </tr>
                     </thead>
                     @php
-                        $i = 1;
+                        $i = 0;
                     @endphp
                     <tbody>
                     @foreach ($laporanjurnals as $laporanjurnal)
@@ -341,7 +379,7 @@
                                             <i class="ni location_pin mr-2"></i>{{ $laporanjurnal->user->nisn }}
                                             </div>
                                             <div class="h6 mt-4">
-                                            <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($laporanjurnal->user->awal_pkl)->format('d M Y') }} - {{ $Carbon::parse($laporanjurnal->user->awal_pkl)->format('d M Y') }}
+                                            <i class="ni business_briefcase-24 mr-2"></i>{{ Carbon::parse($laporanjurnal->user->awal_pkl)->format('d M Y') }} - {{ Carbon::parse($laporanjurnal->user->awal_pkl)->format('d M Y') }}
                                             </div>
                                             <div>
                                             <i class="ni education_hat mr-2"></i>{{ $laporanjurnal->user->sekolah->name }}
@@ -370,13 +408,15 @@
                         </td>
                         <td style="width: 8px;">
                             <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
+                                data-bs-toggle="modal"
+                                data-bs-target="#detailjurnal{{ $i }}"
                                 data-toggle="tooltip" data-original-title="Edit user"
                                 style="margin-right: 4px">
                                 <i class="fa-solid fa-eye" style="color: #0d6efd; font-size:18px;"></i>
                             </a>
                         </td>
                         <td>
-                            <form action="#" method="post" id="myForm-{{ $i }}" onsubmit="konfirmHapus(event, {{ $i }})">
+                            <form action="{{ route('admin.jurnal.hapus', ['id' => $laporanjurnal->id]) }}" method="post" id="myForm-{{ $i }}" onsubmit="konfirmHapus(event, {{ $i }})">
                                 @csrf
                                 @method('delete')
                                 <button type="submit" style="background: none; border: none;">

@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengumpulan_jurnals', function (Blueprint $table) {
-            $table->id();
-            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['sudah', 'belum']);
+        Schema::create('attendances', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users');
+            $table->enum('status', ['masuk', 'izin', 'sakit', 'alpha'])->default('masuk');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengumpulan_jurnals');
+        Schema::dropIfExists('attendances');
     }
 };

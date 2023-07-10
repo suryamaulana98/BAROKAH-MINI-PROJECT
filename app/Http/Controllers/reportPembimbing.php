@@ -23,7 +23,7 @@ class reportPembimbing extends Controller
     //
     function buatReport(Request $request) {
         // dd($request->all());
-        $validatedData = $this->validate($request,[
+        $validatedData = $request->validate([
             'user_id' => 'required',
             'tanggal' => 'required',
             'pesan' => 'required',
@@ -31,7 +31,8 @@ class reportPembimbing extends Controller
 
         // dd($validatedData);
         Report::create($validatedData);
-        return back()->with('success', 'Berhasil');
+        // return back()->with('success', 'Berhasil');
+        return "success";
     }
 
     function hapusReport(String $id){
@@ -45,7 +46,7 @@ class reportPembimbing extends Controller
     }
 
     function balas(Request $request){
-       
+
         $userEmail = Report::find($request->report_id)->user->email;
         $data = [
             'pesan' => $request->pesan,

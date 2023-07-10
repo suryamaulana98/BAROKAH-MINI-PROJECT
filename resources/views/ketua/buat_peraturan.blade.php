@@ -27,7 +27,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="{{ route('ketua.dashboard') }}">Home</a></li>
                     <li class="dropdown"><a href="#peraturanMagang" class="nav-link scrollto"><span>Peraturan</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>

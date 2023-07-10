@@ -34,7 +34,8 @@ class LaporanjurnalController extends Controller
         ]);
         //  dd($validatedData);
          Laporanjurnal::create($validatedData);
-         return back()->with('success', 'Berhasil');
+        //  return back()->with('success', 'Berhasil');
+        return "success";
     }
 
     function delete(String $id){

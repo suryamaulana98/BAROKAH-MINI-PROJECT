@@ -67,6 +67,7 @@ Route::middleware('checkLogin')->group(function () {
         Route::get('/riwayatizin/{sekolah_id}', [RiwayatizinController::class, 'filtersekolah'])->name('riwayat.filtersekolah');
 
         Route::get('/izinsiswa/{sekolah_id}', [IzinController::class, 'tampilkanberdasarkansekolah'])->name('izin.tampilkanberdasarkansekolah');
+        Route::delete('/laporan/jurnal/{id}', [LaporanjurnalController::class, 'delete'])->name('jurnal.hapus');
     });
     Route::get('/notifikasi/{notifikasi}', [NotifikasiController::class, 'ceknotif'])->name('notif');
     Route::get('/notifikasi', [NotifikasiController::class, 'sudahdibaca'])->name('sudahdibaca');
@@ -134,6 +135,7 @@ Route::middleware('checkLogin')->group(function () {
 
     // Pengumpulan jurnal
     Route::get('/ketua/pengumpulanJurnal', [pengumpulanController::class,'pengumpulanJurnal'])->name('ketua.pengumpulan');
+    Route::post('/ketua/pengumpulanJurnal', [pengumpulanController::class,'store'])->name('ketua.pengumpulan.store');
 
     //siswa
     Route::middleware('role:siswa')->prefix('/siswa')->name('siswa.')->group(function () {

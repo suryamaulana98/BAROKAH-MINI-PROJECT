@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Listeners\IzinNotification;
+use App\Models\Attendance;
+use App\Models\DetailAttendance;
 use App\Models\Feedback;
 use App\Models\Hariansiswa;
 use App\Models\Izin;
@@ -13,6 +15,8 @@ use App\Models\Pengumuman;
 use App\Models\Report;
 use App\Models\Sekolah;
 use App\Models\User;
+use App\Observers\AttendanceObserver;
+use App\Observers\DetailAttendanceObserver;
 use App\Observers\FeedbackObserver;
 use App\Observers\HariansiswaObserver;
 use App\Observers\IzinObserver;
@@ -57,7 +61,8 @@ class EventServiceProvider extends ServiceProvider
         Laporanjurnal::observe(LaporanjurnalObserver::class);
         Report::observe(ReportObsrever::class);
         Notifikasi::observe(NotifikasiObserver::class);
-
+        Attendance::observe(AttendanceObserver::class);
+        DetailAttendance::observe(DetailAttendanceObserver::class);
     }
 
     /**

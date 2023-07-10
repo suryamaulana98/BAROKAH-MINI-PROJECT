@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengumpulan_jurnals', function (Blueprint $table) {
-            $table->id();
-            $table->foreignUuid('user_id')->constrained('users')->onDelete('cascade');
-            $table->enum('status', ['sudah', 'belum']);
+        Schema::create('detail_attendances', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->foreignUuid('attendance_id')->constrained('attendances');
+            $table->text('photo')->nullable();
+            $table->enum('status', ['present', 'break', 'return_break', 'return']);
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengumpulan_jurnals');
+        Schema::dropIfExists('detail_attendances');
     }
 };
